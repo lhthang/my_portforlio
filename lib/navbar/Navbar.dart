@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/buttons/Button.dart';
 import 'package:scroll_to_id/scroll_to_id.dart';
 
 class NavigationBar extends StatefulWidget {
@@ -20,50 +21,73 @@ class _NavigationBarState extends State<NavigationBar> {
       backgroundColor: Colors.black87,
       elevation: 1,
       actions: [
-        FlatButton(
-          color: widget.index == 1 ? Colors.red : Colors.transparent,
-          child: Text(
-            "About",
-            style: textStyle,
+        Container(
+          padding: EdgeInsets.only(top: 5, bottom: 5),
+          child: Row(
+            children: [
+              MyButton(
+                title: "Home",
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10.0),
+                        bottomRight: Radius.circular(10.0)),
+                    color: widget.index == 0 ? Colors.red : Colors.transparent),
+                onClick: () {
+                  widget.scrollToId.animateTo("0",
+                      duration: Duration(seconds: 1), curve: Curves.ease);
+                },
+              ),
+              MyButton(
+                title: "About",
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10.0),
+                        bottomRight: Radius.circular(10.0)),
+                    color: widget.index == 1 ? Colors.red : Colors.transparent),
+                onClick: () {
+                  widget.scrollToId.animateTo("1",
+                      duration: Duration(seconds: 1), curve: Curves.ease);
+                },
+              ),
+              MyButton(
+                title: "Experience",
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10.0),
+                        bottomRight: Radius.circular(10.0)),
+                    color: widget.index == 2 ? Colors.red : Colors.transparent),
+                onClick: () {
+                  widget.scrollToId.animateTo("2",
+                      duration: Duration(seconds: 1), curve: Curves.ease);
+                },
+              ),
+              MyButton(
+                title: "Skill",
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10.0),
+                        bottomRight: Radius.circular(10.0)),
+                    color: widget.index == 3 ? Colors.red : Colors.transparent),
+                onClick: () {
+                  widget.scrollToId.animateTo("3",
+                      duration: Duration(seconds: 1), curve: Curves.ease);
+                },
+              ),
+              MyButton(
+                title: "Contact",
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10.0),
+                        bottomRight: Radius.circular(10.0)),
+                    color: widget.index == 4 ? Colors.red : Colors.transparent),
+                onClick: () {
+                  widget.scrollToId.animateTo("4",
+                      duration: Duration(seconds: 1), curve: Curves.ease);
+                },
+              ),
+            ],
           ),
-          onPressed: () {
-            widget.scrollToId.animateTo("1",
-                duration: Duration(seconds: 1), curve: Curves.ease);
-          },
-        ),
-        FlatButton(
-          color: widget.index == 2 ? Colors.red : Colors.transparent,
-          child: Text(
-            "Experience",
-            style: textStyle,
-          ),
-          onPressed: () {
-            widget.scrollToId.animateTo("2",
-                duration: Duration(seconds: 1), curve: Curves.ease);
-          },
-        ),
-        FlatButton(
-          color: widget.index == 3 ? Colors.red : Colors.transparent,
-          child: Text(
-            "Skill",
-            style: textStyle,
-          ),
-          onPressed: () {
-            widget.scrollToId.animateTo("3",
-                duration: Duration(seconds: 1), curve: Curves.ease);
-          },
-        ),
-        FlatButton(
-          color: widget.index == 4 ? Colors.red : Colors.transparent,
-          child: Text(
-            "Contact",
-            style: textStyle,
-          ),
-          onPressed: () {
-            widget.scrollToId.animateTo("4",
-                duration: Duration(seconds: 1), curve: Curves.ease);
-          },
-        ),
+        )
       ],
     );
   }
