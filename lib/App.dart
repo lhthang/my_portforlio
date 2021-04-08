@@ -86,7 +86,7 @@ class _AppState extends State<App> {
             id: '1',
             child: Container(
               height: MediaQuery.of(context).size.height,
-              color: Colors.green,
+              color: Colors.pink,
             ),
           ),
           ScrollContent(

@@ -22,6 +22,9 @@ class _MyButtonState extends State<MyButton> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+        customBorder: RoundedRectangleBorder(
+          borderRadius: widget.decoration.borderRadius,
+        ),
         child: Container(
             decoration: widget.decoration,
             child: Center(
