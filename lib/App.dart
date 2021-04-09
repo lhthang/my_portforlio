@@ -12,7 +12,6 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   int currentIndex = 0;
-
   ScrollToId scrollToId;
   final ScrollController controller = ScrollController();
 
@@ -37,6 +36,8 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height *
+        MediaQuery.of(context).devicePixelRatio;
     return Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(40),
@@ -50,43 +51,48 @@ class _AppState extends State<App> {
         resizeToAvoidBottomInset: true,
         floatingActionButton: currentIndex != 0
             ? IconButton(
-                icon: Icon(Icons.arrow_upward),
+                icon: Icon(
+                  Icons.arrow_upward,
+                  size: 35,
+                ),
                 color: Colors.white,
                 onPressed: () {
                   scrollToId.animateTo("0",
                       duration: Duration(seconds: 1), curve: Curves.ease);
                 })
             : null,
-        body: InteractiveScrollViewer(scrollToId: scrollToId, children: [
-          ScrollContent(id: '0', child: Home()),
-          ScrollContent(
-            id: '1',
-            child: Container(
-              height: MediaQuery.of(context).size.height + 40,
-              color: Colors.pink,
+        body: SafeArea(
+          child: InteractiveScrollViewer(scrollToId: scrollToId, children: [
+            ScrollContent(id: '0', child: Home()),
+            ScrollContent(
+              id: '1',
+              child: Container(
+                height: height,
+                color: Colors.pink,
+              ),
             ),
-          ),
-          ScrollContent(
-            id: '2',
-            child: Container(
-              height: MediaQuery.of(context).size.height + 40,
-              color: Colors.green,
+            ScrollContent(
+              id: '2',
+              child: Container(
+                height: height,
+                color: Colors.green,
+              ),
             ),
-          ),
-          ScrollContent(
-            id: '3',
-            child: Container(
-              height: MediaQuery.of(context).size.height + 40,
-              color: Colors.yellow,
+            ScrollContent(
+              id: '3',
+              child: Container(
+                height: height,
+                color: Colors.yellow,
+              ),
             ),
-          ),
-          ScrollContent(
-            id: '4',
-            child: Container(
-              height: MediaQuery.of(context).size.height,
-              color: Colors.purple,
+            ScrollContent(
+              id: '4',
+              child: Container(
+                height: height,
+                color: Colors.purple,
+              ),
             ),
-          ),
-        ]));
+          ]),
+        ));
   }
 }

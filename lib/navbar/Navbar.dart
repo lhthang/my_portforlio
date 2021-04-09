@@ -1,6 +1,10 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/buttons/Button.dart';
 import 'package:scroll_to_id/scroll_to_id.dart';
+import 'dart:html' as html;
 
 class NavigationBar extends StatefulWidget {
   final int index;
@@ -14,6 +18,15 @@ class NavigationBar extends StatefulWidget {
 
 class _NavigationBarState extends State<NavigationBar> {
   var textStyle = TextStyle(color: Colors.white);
+
+  final pdfCV = "cv/CV.pdf";
+
+  void downloadFile(String url) {
+    html.AnchorElement anchorElement = new html.AnchorElement(href: url);
+    anchorElement.download = url;
+    anchorElement.click();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -82,6 +95,17 @@ class _NavigationBarState extends State<NavigationBar> {
                 onClick: () {
                   widget.scrollToId.animateTo("4",
                       duration: Duration(seconds: 1), curve: Curves.ease);
+                },
+              ),
+              MyButton(
+                title: "Download CV",
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10.0),
+                      bottomRight: Radius.circular(10.0)),
+                ),
+                onClick: () {
+                  downloadFile(pdfCV);
                 },
               ),
             ],
