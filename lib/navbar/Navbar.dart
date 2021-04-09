@@ -21,12 +21,6 @@ class _NavigationBarState extends State<NavigationBar> {
 
   final pdfCV = "cv/CV.pdf";
 
-  void downloadFile(String url) {
-    html.AnchorElement anchorElement = new html.AnchorElement(href: url);
-    anchorElement.download = url;
-    anchorElement.click();
-  }
-
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -95,17 +89,6 @@ class _NavigationBarState extends State<NavigationBar> {
                 onClick: () {
                   widget.scrollToId.animateTo("4",
                       duration: Duration(seconds: 1), curve: Curves.ease);
-                },
-              ),
-              MyButton(
-                title: "Download CV",
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10.0),
-                      bottomRight: Radius.circular(10.0)),
-                ),
-                onClick: () {
-                  downloadFile(pdfCV);
                 },
               ),
             ],

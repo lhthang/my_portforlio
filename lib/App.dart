@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/about/About.dart';
 import 'package:my_portfolio/home/Home.dart';
 import 'package:my_portfolio/navbar/Navbar.dart';
 import 'package:scroll_to_id/scroll_to_id.dart';
@@ -66,10 +67,7 @@ class _AppState extends State<App> {
             ScrollContent(id: '0', child: Home()),
             ScrollContent(
               id: '1',
-              child: Container(
-                height: height,
-                color: Colors.pink,
-              ),
+              child: About(),
             ),
             ScrollContent(
               id: '2',
