@@ -22,7 +22,6 @@ class _NavigationBarState extends State<NavigationBar> {
       elevation: 1,
       actions: [
         Container(
-          padding: EdgeInsets.only(top: 5, bottom: 5),
           child: Row(
             children: [
               MyButton(

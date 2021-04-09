@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/home/Home.dart';
 import 'package:my_portfolio/navbar/Navbar.dart';
 import 'package:scroll_to_id/scroll_to_id.dart';
 
@@ -14,11 +15,6 @@ class _AppState extends State<App> {
 
   ScrollToId scrollToId;
   final ScrollController controller = ScrollController();
-
-  final textStyle = GoogleFonts.pressStart2p(
-    fontSize: 50,
-    color: Colors.white,
-  );
 
   void _scrollListener() {
     int widgetIndex = int.parse(scrollToId.idPosition());
@@ -50,56 +46,37 @@ class _AppState extends State<App> {
           ),
         ),
         extendBodyBehindAppBar: true,
+        extendBody: true,
+        resizeToAvoidBottomInset: true,
+        floatingActionButton: currentIndex != 0
+            ? IconButton(
+                icon: Icon(Icons.arrow_upward),
+                color: Colors.white,
+                onPressed: () {
+                  scrollToId.animateTo("0",
+                      duration: Duration(seconds: 1), curve: Curves.ease);
+                })
+            : null,
         body: InteractiveScrollViewer(scrollToId: scrollToId, children: [
-          ScrollContent(
-              id: '0',
-              child: Stack(
-                children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height,
-                    child: Image(
-                      fit: BoxFit.cover,
-                      height: double.infinity,
-                      width: double.infinity,
-                      image: AssetImage(
-                        "images/background.jpg",
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: MediaQuery.of(context).size.height,
-                    child: Center(
-                        child: DefaultTextStyle(
-                      style: textStyle,
-                      child: AnimatedTextKit(
-                        animatedTexts: [
-                          RotateAnimatedText("THINK LOUD"),
-                          RotateAnimatedText('SPEAK LOUD'),
-                          RotateAnimatedText('RESPONSIBILITY'),
-                        ],
-                      ),
-                    )),
-                  )
-                ],
-              )),
+          ScrollContent(id: '0', child: Home()),
           ScrollContent(
             id: '1',
             child: Container(
-              height: MediaQuery.of(context).size.height,
+              height: MediaQuery.of(context).size.height + 40,
               color: Colors.pink,
             ),
           ),
           ScrollContent(
             id: '2',
             child: Container(
-              height: MediaQuery.of(context).size.height,
+              height: MediaQuery.of(context).size.height + 40,
               color: Colors.green,
             ),
           ),
           ScrollContent(
             id: '3',
             child: Container(
-              height: MediaQuery.of(context).size.height,
+              height: MediaQuery.of(context).size.height + 40,
               color: Colors.yellow,
             ),
           ),
