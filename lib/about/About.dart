@@ -9,17 +9,93 @@ class About extends StatefulWidget {
 }
 
 class _AboutState extends State<About> {
+  bool isHover = false;
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width *
+        MediaQuery.of(context).devicePixelRatio;
+    final height = MediaQuery.of(context).size.height *
+        MediaQuery.of(context).devicePixelRatio;
     return Container(
-      height: MediaQuery.of(context).size.height *
-          MediaQuery.of(context).devicePixelRatio,
+      height: height,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             flex: 3,
-            child: Text("About me"),
+            child: Container(
+              padding: EdgeInsets.only(top: 50),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: FractionallySizedBox(
+                    heightFactor: 0.5,
+                    widthFactor: 0.5,
+                    child: Stack(
+                      children: [
+                        Positioned.fill(
+                          child: Image(
+                            fit: BoxFit.cover,
+                            image: AssetImage("images/avt.jpeg"),
+                          ),
+                        ),
+                        Positioned.fill(
+                          child: InkWell(
+                            onHover: (value) {
+                              setState(() {
+                                isHover = value;
+                              });
+                            },
+                            child: Container(
+                              color: isHover
+                                  ? Colors.white.withOpacity(0.2)
+                                  : null,
+                              child: isHover
+                                  ? Icon(
+                                      Icons.search,
+                                      size: 50,
+                                      color: Colors.white,
+                                    )
+                                  : null,
+                            ),
+                            onTap: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      titlePadding: EdgeInsets.all(5.0),
+                                      title: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          InkWell(
+                                            onTap: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            customBorder: CircleBorder(),
+                                            child: Icon(
+                                              Icons.close,
+                                              size: 35,
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      content: Container(
+                                        width: width * 0.5,
+                                        height: height,
+                                        child: Image(
+                                          fit: BoxFit.contain,
+                                          image: AssetImage("images/avt.jpeg"),
+                                        ),
+                                      ),
+                                    );
+                                  });
+                            },
+                          ),
+                        )
+                      ],
+                    )),
+              ),
+            ),
           ),
           Expanded(
             flex: 4,

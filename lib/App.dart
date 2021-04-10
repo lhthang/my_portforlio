@@ -51,12 +51,12 @@ class _AppState extends State<App> {
         extendBody: true,
         resizeToAvoidBottomInset: true,
         floatingActionButton: currentIndex != 0
-            ? IconButton(
-                icon: Icon(
+            ? FloatingActionButton(
+                child: Icon(
                   Icons.arrow_upward,
-                  size: 35,
+                  size: 30,
                 ),
-                color: Colors.white,
+                backgroundColor: Colors.blue,
                 onPressed: () {
                   scrollToId.animateTo("0",
                       duration: Duration(seconds: 1), curve: Curves.ease);
