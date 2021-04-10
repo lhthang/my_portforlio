@@ -1,5 +1,5 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/buttons/Button.dart';
 import 'package:my_portfolio/utils/constant.dart';
 import 'package:my_portfolio/utils/functions.dart';
 
@@ -10,6 +10,8 @@ class About extends StatefulWidget {
 
 class _AboutState extends State<About> {
   bool isHover = false;
+  AnimationController animateController;
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width *
@@ -98,21 +100,32 @@ class _AboutState extends State<About> {
             ),
           ),
           Expanded(
-            flex: 4,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("About me"),
-                Text("Software Engineer"),
-                FlatButton(
-                  child: Text("Download CV"),
-                  onPressed: () {
-                    downloadFile(pdfCV);
-                  },
-                )
-              ],
-            ),
-          ),
+              flex: 4,
+              child: AnimateIfVisible(
+                key: Key("about"),
+                duration: Duration(seconds: 1),
+                builder: (context, animation) {
+                  return FadeTransition(
+                    opacity: Tween<double>(
+                      begin: 0,
+                      end: 1,
+                    ).animate(animation),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("About me"),
+                        Text("Software Engineer"),
+                        FlatButton(
+                          child: Text("Download CV"),
+                          onPressed: () {
+                            downloadFile(pdfCV);
+                          },
+                        )
+                      ],
+                    ),
+                  );
+                },
+              )),
         ],
       ),
     );

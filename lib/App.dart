@@ -1,4 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/about/About.dart';
@@ -63,34 +64,37 @@ class _AppState extends State<App> {
                 })
             : null,
         body: SafeArea(
-          child: InteractiveScrollViewer(scrollToId: scrollToId, children: [
-            ScrollContent(id: '0', child: Home()),
-            ScrollContent(
-              id: '1',
-              child: About(),
-            ),
-            ScrollContent(
-              id: '2',
-              child: Container(
-                height: height,
-                color: Colors.green,
+          child: AnimateIfVisibleWrapper(
+            controller: controller,
+            child: InteractiveScrollViewer(scrollToId: scrollToId, children: [
+              ScrollContent(id: '0', child: Home()),
+              ScrollContent(
+                id: '1',
+                child: About(),
               ),
-            ),
-            ScrollContent(
-              id: '3',
-              child: Container(
-                height: height,
-                color: Colors.yellow,
+              ScrollContent(
+                id: '2',
+                child: Container(
+                  height: height,
+                  color: Colors.green,
+                ),
               ),
-            ),
-            ScrollContent(
-              id: '4',
-              child: Container(
-                height: height,
-                color: Colors.purple,
+              ScrollContent(
+                id: '3',
+                child: Container(
+                  height: height,
+                  color: Colors.yellow,
+                ),
               ),
-            ),
-          ]),
+              ScrollContent(
+                id: '4',
+                child: Container(
+                  height: height,
+                  color: Colors.purple,
+                ),
+              ),
+            ]),
+          ),
         ));
   }
 }

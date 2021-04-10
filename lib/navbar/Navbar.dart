@@ -1,10 +1,6 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/buttons/Button.dart';
 import 'package:scroll_to_id/scroll_to_id.dart';
-import 'dart:html' as html;
 
 class NavigationBar extends StatefulWidget {
   final int index;
@@ -18,8 +14,6 @@ class NavigationBar extends StatefulWidget {
 
 class _NavigationBarState extends State<NavigationBar> {
   var textStyle = TextStyle(color: Colors.white);
-
-  final pdfCV = "cv/CV.pdf";
 
   @override
   Widget build(BuildContext context) {
