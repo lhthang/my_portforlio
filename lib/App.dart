@@ -7,6 +7,8 @@ import 'package:my_portfolio/home/Home.dart';
 import 'package:my_portfolio/navbar/Navbar.dart';
 import 'package:scroll_to_id/scroll_to_id.dart';
 
+import 'exp/Experience.dart';
+
 class App extends StatefulWidget {
   @override
   _AppState createState() => _AppState();
@@ -72,13 +74,7 @@ class _AppState extends State<App> {
                 id: '1',
                 child: About(),
               ),
-              ScrollContent(
-                id: '2',
-                child: Container(
-                  height: height,
-                  color: Colors.green,
-                ),
-              ),
+              ScrollContent(id: '2', child: Experience()),
               ScrollContent(
                 id: '3',
                 child: Container(
