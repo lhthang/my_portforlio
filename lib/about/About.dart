@@ -2,6 +2,7 @@ import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/OrientationSwitcher.dart';
+import 'package:my_portfolio/about/information/Information.dart';
 import 'package:my_portfolio/utils/constant.dart';
 import 'package:my_portfolio/utils/functions.dart';
 import 'package:responsive_grid/responsive_grid.dart';
@@ -69,6 +70,7 @@ class _AboutState extends State<About> {
               child: Container(
                 height: 600,
                 child: AnimateIfVisible(
+                  reAnimateOnVisibility: true,
                   key: Key("about"),
                   duration: Duration(seconds: 1),
                   builder: (context, animation) {
@@ -89,14 +91,9 @@ class _AboutState extends State<About> {
                           Text("Software Engineer",
                               style: GoogleFonts.merriweather(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 50,
+                                fontSize: 40,
                               )),
-                          // GridView.count(
-                          //   crossAxisCount: 2,
-                          //   children: [
-
-                          //   ],
-                          // ),
+                          Information(),
                           _renderDescription(),
                           SizedBox(
                             height: 10,
