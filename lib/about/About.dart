@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/OrientationSwitcher.dart';
 import 'package:my_portfolio/utils/constant.dart';
 import 'package:my_portfolio/utils/functions.dart';
+import 'package:responsive_grid/responsive_grid.dart';
 
 class About extends StatefulWidget {
   @override
@@ -46,21 +47,27 @@ class _AboutState extends State<About> {
     bool isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
     return Container(
-        constraints: BoxConstraints(maxWidth: width, maxHeight: height),
-        child: OrientationSwitcher(
+        constraints: BoxConstraints(maxWidth: width),
+        child: ResponsiveGridRow(
           children: [
-            Container(
-                constraints: BoxConstraints(maxWidth: 600, maxHeight: 800),
-                child: Center(
-                  child: Image(
-                    width: width / 5,
-                    fit: BoxFit.contain,
-                    image: AssetImage("images/avt.jpeg"),
-                  ),
-                )),
-            Flexible(
-              fit: FlexFit.loose,
+            ResponsiveGridCol(
+              md: 4,
+              xs: 12,
               child: Container(
+                  height: 600,
+                  child: Center(
+                    child: Image(
+                      width: 300,
+                      fit: BoxFit.contain,
+                      image: AssetImage("images/avt.jpeg"),
+                    ),
+                  )),
+            ),
+            ResponsiveGridCol(
+              md: 8,
+              xs: 12,
+              child: Container(
+                height: 600,
                 child: AnimateIfVisible(
                   key: Key("about"),
                   duration: Duration(seconds: 1),
@@ -71,10 +78,8 @@ class _AboutState extends State<About> {
                         end: 1,
                       ).animate(animation),
                       child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: isPortrait
-                            ? MainAxisAlignment.start
-                            : MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
