@@ -2,6 +2,7 @@ import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/OrientationSwitcher.dart';
+import 'package:my_portfolio/about/clipper/ImageClipper.dart';
 import 'package:my_portfolio/about/information/Information.dart';
 import 'package:my_portfolio/utils/constant.dart';
 import 'package:my_portfolio/utils/functions.dart';
@@ -57,10 +58,13 @@ class _AboutState extends State<About> {
               child: Container(
                   height: 600,
                   child: Center(
-                    child: Image(
-                      width: 300,
-                      fit: BoxFit.contain,
-                      image: AssetImage("images/avt.jpeg"),
+                    child: ClipPath(
+                      clipper: ImageClipper(),
+                      child: Image(
+                        width: 300,
+                        fit: BoxFit.contain,
+                        image: AssetImage("images/avt.jpeg"),
+                      ),
                     ),
                   )),
             ),
