@@ -19,5 +19,11 @@ class ProjectModel {
   String position;
   String stack;
   String description;
-  ProjectModel({this.projectName, this.position, this.stack, this.description});
+  String task;
+  ProjectModel(
+      {this.projectName,
+      this.position,
+      this.stack,
+      this.description,
+      this.task});
 }

@@ -16,16 +16,20 @@ class _ExperienceState extends State<Experience> {
         title: "Associate Engineer",
         projects: [
           ProjectModel(
-            projectName: "Papillon",
-            position: "Fullstack",
-            stack: "Java, Spring, Ant, HTML, Javascript",
-            description: "ava, Spring, Ant, HTML, Javascript",
-          ),
+              projectName: "Papillon",
+              position: "Fullstack",
+              stack: "Java, Spring, Ant, HTML, Javascript",
+              description:
+                  "A goverment's project to help them manage prisoners, and their's profiles.",
+              task:
+                  "Maintain project, write a new module for managing documents, the leave days of prisoners. Write the batch to migrate all data from the old system to the new one "),
           ProjectModel(
             projectName: "Phoenix",
             position: "Fullstack",
             stack: "Java, Spring, Ant, HTML, Javascript",
-            description: "ava, Spring, Ant, HTML, Javascript",
+            description:
+                "A project with the process that can provide license tests for railway drivers. Also, help railways companies register, train new drivers ",
+            task: "",
           )
         ]),
     ExperienceModel(
@@ -35,11 +39,13 @@ class _ExperienceState extends State<Experience> {
         isActive: false,
         projects: [
           ProjectModel(
-            projectName: "KMS Library",
-            position: "Backend",
-            stack: "Golang, Elasticsearch, Docker, VueJS, MongoDB",
-            description: "ava, Spring, Ant, HTML, Javascript",
-          )
+              projectName: "KMS Library",
+              position: "Backend",
+              stack: "Golang, Elasticsearch, Docker, VueJS, MongoDB",
+              description:
+                  "An internal project for whole company, help the administrators manage the book-borrow or kindle-borrow transactions,",
+              task:
+                  "Write backend documents, new APIs, migrate data from the old system to the new one and deploy the application to server with Docker")
         ]),
   ];
 
@@ -51,8 +57,7 @@ class _ExperienceState extends State<Experience> {
         height: 600,
         width: MediaQuery.of(context).size.width *
             MediaQuery.of(context).devicePixelRatio,
-        child: ListView(
-          scrollDirection: Axis.vertical,
+        child: Column(
           children: exps.map((e) {
             return TimelineTile(
               axis: TimelineAxis.vertical,
@@ -77,7 +82,7 @@ class _ExperienceState extends State<Experience> {
               endChild: Container(
                 height: 600 / exps.length,
                 width: 200,
-                padding: EdgeInsets.only(left: 10),
+                padding: EdgeInsets.only(left: 10, right: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -85,10 +90,12 @@ class _ExperienceState extends State<Experience> {
                     Text(e.company),
                     Text(e.title),
                     Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      child: ListView(
+                        physics: AlwaysScrollableScrollPhysics(),
                         children: e.projects.map((project) {
-                          return Project(project: project);
+                          return Container(
+                              padding: EdgeInsets.only(bottom: 20),
+                              child: Project(project: project));
                         }).toList(),
                       ),
                     )
