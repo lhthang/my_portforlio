@@ -2,12 +2,14 @@ class ExperienceModel {
   String time;
   String company;
   String title;
-  List<ProjectModel> projects;
+  List<ProjectModel> projects = [];
+  bool isActive;
 
   ExperienceModel({
     this.time,
     this.company,
     this.title,
+    this.isActive = true,
     this.projects,
   });
 }
