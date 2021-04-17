@@ -90,13 +90,19 @@ class _AboutState extends State<About> {
                         children: [
                           Text(
                             "ABOUT ME",
-                            style: GoogleFonts.montserrat(fontSize: 25),
+                            style: GoogleFonts.montserrat(fontSize: 30),
+                          ),
+                          SizedBox(
+                            height: 10,
                           ),
                           Text("Software Engineer",
                               style: GoogleFonts.merriweather(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 40,
                               )),
+                          SizedBox(
+                            height: 10,
+                          ),
                           Information(),
                           _renderDescription(),
                           SizedBox(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/exp/project/Project.dart';
 import 'package:my_portfolio/models/Experience.dart';
 import 'package:timeline_tile/timeline_tile.dart';
@@ -9,6 +10,12 @@ class Experience extends StatefulWidget {
 }
 
 class _ExperienceState extends State<Experience> {
+  final companyStyle = GoogleFonts.merriweatherSans(
+      fontSize: 22, fontWeight: FontWeight.bold, color: Colors.blue);
+  final positionStyle = GoogleFonts.openSans(
+    fontSize: 18,
+    fontStyle: FontStyle.italic,
+  );
   var exps = [
     ExperienceModel(
         company: "ELCA Viet Nam",
@@ -87,16 +94,30 @@ class _ExperienceState extends State<Experience> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Divider(color: Colors.black),
-                    Text(e.company),
-                    Text(e.title),
+                    Text(
+                      e.company,
+                      style: companyStyle,
+                    ),
+                    Text(e.title, style: positionStyle),
                     Expanded(
-                      child: ListView(
-                        physics: AlwaysScrollableScrollPhysics(),
-                        children: e.projects.map((project) {
-                          return Container(
-                              padding: EdgeInsets.only(bottom: 20),
-                              child: Project(project: project));
-                        }).toList(),
+                      child: Container(
+                        padding: EdgeInsets.only(top: 20),
+                        child: ListView(
+                          physics: AlwaysScrollableScrollPhysics(),
+                          children: e.projects
+                              .asMap()
+                              .map((i, project) {
+                                return MapEntry(
+                                    i,
+                                    Container(
+                                        padding: i == e.projects.length - 1
+                                            ? null
+                                            : EdgeInsets.only(bottom: 10),
+                                        child: Project(project: project)));
+                              })
+                              .values
+                              .toList(),
+                        ),
                       ),
                     )
                   ],
