@@ -1,8 +1,8 @@
 import 'dart:ui';
 
-import 'package:animate_do/animate_do.dart';
 import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/skill/personals/PersonalProjects.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 
@@ -34,6 +34,46 @@ class _SkillState extends State<Skill> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text("Language"),
+                Container(
+                  padding: EdgeInsets.only(bottom: 50),
+                  child: Wrap(
+                    direction: Axis.horizontal,
+                    runSpacing: 10,
+                    children: [
+                      Container(
+                        width: 100,
+                        height: 50,
+                        color: Colors.red,
+                        margin: EdgeInsets.only(right: 10),
+                      ),
+                      Container(
+                        width: 100,
+                        height: 50,
+                        color: Colors.red,
+                        margin: EdgeInsets.only(right: 10),
+                      ),
+                      Container(
+                        width: 100,
+                        height: 50,
+                        color: Colors.red,
+                        margin: EdgeInsets.only(right: 10),
+                      ),
+                      Container(
+                        width: 100,
+                        height: 50,
+                        color: Colors.red,
+                        margin: EdgeInsets.only(right: 10),
+                      ),
+                      Container(
+                        width: 100,
+                        height: 50,
+                        color: Colors.red,
+                        margin: EdgeInsets.only(right: 10),
+                      ),
+                    ],
+                  ),
+                ),
+                Text("Frameworks"),
                 Container(
                   padding: EdgeInsets.only(bottom: 50),
                   child: Wrap(
@@ -153,6 +193,7 @@ class _SkillState extends State<Skill> {
                     ],
                   ),
                 ),
+                PersonalProjects(),
               ],
             ),
           );
