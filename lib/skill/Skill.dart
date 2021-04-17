@@ -12,6 +12,7 @@ class Skill extends StatefulWidget {
 }
 
 class _SkillState extends State<Skill> {
+  final imageSize = 80.0;
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height *
@@ -19,7 +20,6 @@ class _SkillState extends State<Skill> {
     final width = MediaQuery.of(context).size.width *
         MediaQuery.of(context).devicePixelRatio;
     return Container(
-      height: height,
       width: width,
       child: AnimateIfVisible(
         key: Key("skill"),
@@ -33,82 +33,40 @@ class _SkillState extends State<Skill> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Language"),
-                Container(
-                  padding: EdgeInsets.only(bottom: 50),
-                  child: Wrap(
-                    direction: Axis.horizontal,
-                    runSpacing: 10,
-                    children: [
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
-                      ),
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
-                      ),
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
-                      ),
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
-                      ),
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
-                      ),
-                    ],
-                  ),
+                SizedBox(
+                  height: 100,
                 ),
-                Text("Frameworks"),
+                Text("Languages & Frameworks"),
                 Container(
                   padding: EdgeInsets.only(bottom: 50),
                   child: Wrap(
                     direction: Axis.horizontal,
                     runSpacing: 10,
+                    spacing: 10,
                     children: [
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
+                      new Container(
+                        height: imageSize,
+                        width: imageSize,
+                        decoration: new BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: const Color(0x33A6A6A6)),
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                  "https://codelearn.io/Upload/Blog/nhung-loi-thuong-gap-khi-lap-trinh-java-63725972059.7478.jpg")),
+                        ),
                       ),
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
-                      ),
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
-                      ),
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
-                      ),
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
+                      new Container(
+                        height: imageSize,
+                        width: imageSize,
+                        decoration: new BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: const Color(0x33A6A6A6)),
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                  "https://codelearn.io/Upload/Blog/nhung-loi-thuong-gap-khi-lap-trinh-java-63725972059.7478.jpg")),
+                        ),
                       ),
                     ],
                   ),
@@ -119,36 +77,31 @@ class _SkillState extends State<Skill> {
                   child: Wrap(
                     direction: Axis.horizontal,
                     runSpacing: 10,
+                    spacing: 10,
                     children: [
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
+                      new Container(
+                        height: imageSize,
+                        width: imageSize,
+                        decoration: new BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: const Color(0x33A6A6A6)),
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                  "https://codelearn.io/Upload/Blog/nhung-loi-thuong-gap-khi-lap-trinh-java-63725972059.7478.jpg")),
+                        ),
                       ),
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
-                      ),
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
-                      ),
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
-                      ),
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
+                      new Container(
+                        height: imageSize,
+                        width: imageSize,
+                        decoration: new BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: const Color(0x33A6A6A6)),
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                  "https://codelearn.io/Upload/Blog/nhung-loi-thuong-gap-khi-lap-trinh-java-63725972059.7478.jpg")),
+                        ),
                       ),
                     ],
                   ),
@@ -159,36 +112,31 @@ class _SkillState extends State<Skill> {
                   child: Wrap(
                     direction: Axis.horizontal,
                     runSpacing: 10,
+                    spacing: 10,
                     children: [
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
+                      new Container(
+                        height: imageSize,
+                        width: imageSize,
+                        decoration: new BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: const Color(0x33A6A6A6)),
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                  "https://codelearn.io/Upload/Blog/nhung-loi-thuong-gap-khi-lap-trinh-java-63725972059.7478.jpg")),
+                        ),
                       ),
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
-                      ),
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
-                      ),
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
-                      ),
-                      Container(
-                        width: 100,
-                        height: 50,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 10),
+                      new Container(
+                        height: imageSize,
+                        width: imageSize,
+                        decoration: new BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: const Color(0x33A6A6A6)),
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                  "https://codelearn.io/Upload/Blog/nhung-loi-thuong-gap-khi-lap-trinh-java-63725972059.7478.jpg")),
+                        ),
                       ),
                     ],
                   ),
