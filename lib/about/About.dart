@@ -74,7 +74,6 @@ class _AboutState extends State<About> {
               child: Container(
                 height: 600,
                 child: AnimateIfVisible(
-                  reAnimateOnVisibility: true,
                   key: Key("about"),
                   duration: Duration(seconds: 1),
                   builder: (context, animation) {

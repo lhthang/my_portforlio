@@ -21,8 +21,9 @@ class _InformationState extends State<Information> {
           md: 12,
           xs: 12,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
+              Wrap(
                 children: [
                   Icon(Icons.arrow_right),
                   Text(
@@ -31,13 +32,13 @@ class _InformationState extends State<Information> {
                   )
                 ],
               ),
-              Row(
+              Wrap(
                 children: [
                   Icon(Icons.arrow_right),
                   Text("Email: lhthang.1998@gmail.com", style: style)
                 ],
               ),
-              Row(
+              Wrap(
                 children: [
                   Icon(Icons.arrow_right),
                   Text("Phone: +84 38492****", style: style)
@@ -51,21 +52,22 @@ class _InformationState extends State<Information> {
           md: 12,
           xs: 12,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
+              Wrap(
                 children: [
                   Icon(Icons.arrow_right),
                   Text("Address: Binh Tan district, Ho Chi Minh city",
                       style: style)
                 ],
               ),
-              Row(
+              Wrap(
                 children: [
                   Icon(Icons.arrow_right),
                   Text("Degree: Bachelor of Software Engineer", style: style)
                 ],
               ),
-              Row(
+              Wrap(
                 children: [
                   Icon(Icons.arrow_right),
                   Text("University: University of Information Technology",
