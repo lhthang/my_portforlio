@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/about/About.dart';
 import 'package:my_portfolio/home/Home.dart';
 import 'package:my_portfolio/navbar/Navbar.dart';
+import 'package:my_portfolio/skill/Skill.dart';
 import 'package:scroll_to_id/scroll_to_id.dart';
 
 import 'exp/Experience.dart';
@@ -77,10 +78,7 @@ class _AppState extends State<App> {
               ScrollContent(id: '2', child: Experience()),
               ScrollContent(
                 id: '3',
-                child: Container(
-                  height: height,
-                  color: Colors.yellow,
-                ),
+                child: Skill(),
               ),
               ScrollContent(
                 id: '4',
