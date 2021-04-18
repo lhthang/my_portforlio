@@ -2,6 +2,9 @@
 
 A new Flutter project.
 
+## Run with web
+flutter run -d chrome --web-renderer html
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
