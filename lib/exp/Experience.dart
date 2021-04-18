@@ -58,10 +58,11 @@ class _ExperienceState extends State<Experience> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width *
+    final height = MediaQuery.of(context).size.height *
         MediaQuery.of(context).devicePixelRatio;
     return Container(
-        height: 600,
+        padding: EdgeInsets.only(top: 20),
+        height: height - (height / (exps.length + 1)) + 80,
         width: MediaQuery.of(context).size.width *
             MediaQuery.of(context).devicePixelRatio,
         child: Column(
@@ -87,7 +88,7 @@ class _ExperienceState extends State<Experience> {
                 ),
               ),
               endChild: Container(
-                height: 600 / exps.length,
+                height: height / (exps.length + 1),
                 width: 200,
                 padding: EdgeInsets.only(left: 10, right: 10),
                 child: Column(

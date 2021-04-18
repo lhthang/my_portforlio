@@ -47,7 +47,7 @@ class _NavigationBarState extends State<NavigationBar> {
           },
         ),
         MyButton(
-          title: "Skill & Projects",
+          title: "Skills",
           decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(10.0),

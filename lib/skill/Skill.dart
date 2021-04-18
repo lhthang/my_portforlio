@@ -16,7 +16,7 @@ class Skill extends StatefulWidget {
 
 class _SkillState extends State<Skill> {
   final style =
-      GoogleFonts.merriweatherSans(fontSize: 20, fontWeight: FontWeight.bold);
+      GoogleFonts.merriweatherSans(fontSize: 18, fontWeight: FontWeight.bold);
   final languageSkills = [
     LanguageSkill(
         name: "Java",
@@ -102,15 +102,12 @@ class _SkillState extends State<Skill> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: 60,
-                ),
                 Container(
                   child: Text(
                     "Languages",
                     style: style,
                   ),
-                  padding: EdgeInsets.only(bottom: 20),
+                  padding: EdgeInsets.only(bottom: 20, top: 10),
                 ),
                 Container(
                   padding: EdgeInsets.only(bottom: 50),
