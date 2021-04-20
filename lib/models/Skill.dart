@@ -16,3 +16,11 @@ class DatabaseSkill extends SkillModel {
 class OtherSkill extends SkillModel {
   OtherSkill({name, image}) : super(image: image, name: name);
 }
+
+class PersonalProject {
+  String name;
+  String description;
+  List<String> stack;
+  String image;
+  PersonalProject({this.name, this.image, this.description, this.stack});
+}

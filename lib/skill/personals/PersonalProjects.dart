@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/models/Skill.dart';
+import 'package:responsive_grid/responsive_grid.dart';
 
 class PersonalProjects extends StatefulWidget {
   @override
@@ -8,6 +10,21 @@ class PersonalProjects extends StatefulWidget {
 
 class _PersonalProjectsState extends State<PersonalProjects> {
   CarouselController buttonCarouselController = CarouselController();
+
+  final projects = [
+    PersonalProject(
+        name: "Minerva Reader",
+        image:
+            "https://firebasestorage.googleapis.com/v0/b/common-shared-e07ec.appspot.com/o/MinervaReader.png?alt=media&token=62a2fe9c-a2f7-4b11-b60d-679f97046cbc"),
+    PersonalProject(
+        name: "Minerva Reader",
+        image:
+            "https://firebasestorage.googleapis.com/v0/b/common-shared-e07ec.appspot.com/o/MinervaReader.png?alt=media&token=62a2fe9c-a2f7-4b11-b60d-679f97046cbc"),
+    PersonalProject(
+        name: "Minerva Reader",
+        image:
+            "https://firebasestorage.googleapis.com/v0/b/common-shared-e07ec.appspot.com/o/MinervaReader.png?alt=media&token=62a2fe9c-a2f7-4b11-b60d-679f97046cbc"),
+  ];
 
   final size = 40.0;
   @override
@@ -20,19 +37,48 @@ class _PersonalProjectsState extends State<PersonalProjects> {
         CarouselSlider(
           carouselController: buttonCarouselController,
           options: CarouselOptions(
-            height: 300.0,
-            enlargeCenterPage: true,
+            height: MediaQuery.of(context).orientation == Orientation.landscape
+                ? 300
+                : 600.0,
+            enlargeCenterPage: false,
+            viewportFraction: 1.0,
           ),
-          items: [1, 2, 3, 4, 5].map((i) {
+          items: projects.map((e) {
             return Builder(
               builder: (BuildContext context) {
                 return Container(
-                    width: width * 0.7,
+                    width: width * 0.6,
                     margin: EdgeInsets.symmetric(horizontal: 5.0),
-                    decoration: BoxDecoration(color: Colors.amber),
-                    child: Text(
-                      'text $i',
-                      style: TextStyle(fontSize: 16.0),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color: Colors.lightBlueAccent),
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(20.0),
+                      onTap: () {
+                        print('a');
+                      },
+                      child: ResponsiveGridRow(
+                        children: [
+                          ResponsiveGridCol(
+                              xs: 12,
+                              md: 8,
+                              child: Container(
+                                padding: EdgeInsets.all(10),
+                                height: 300,
+                                child: Center(
+                                  child: Image.network(
+                                    e.image,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              )),
+                          ResponsiveGridCol(
+                            xs: 12,
+                            md: 4,
+                            child: Text("bbbb"),
+                          ),
+                        ],
+                      ),
                     ));
               },
             );
