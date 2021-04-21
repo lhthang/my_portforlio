@@ -1,6 +1,8 @@
-import 'package:drop_zone/drop_zone.dart';
+import 'dart:html';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dropzone/flutter_dropzone.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 
 class Contact extends StatefulWidget {
@@ -9,6 +11,8 @@ class Contact extends StatefulWidget {
 }
 
 class _ContactState extends State<Contact> {
+  File file = null;
+  DropzoneViewController controller;
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height *
@@ -81,22 +85,58 @@ class _ContactState extends State<Contact> {
                       ),
                       Align(
                         alignment: Alignment.center,
-                        child: DropZone(
-                          onDrop: (files) {
-                            print(files);
-                          },
-                          child: Container(
-                              width: 200,
-                              height: 50,
-                              child: RaisedButton(
-                                child: Text("Send"),
-                                onPressed: () async {
-                                  FilePickerResult result = await FilePicker
-                                      .platform
-                                      .pickFiles(allowMultiple: true);
-                                },
-                              )),
-                        ),
+                        child: Container(
+                            height: 70,
+                            margin: EdgeInsets.all(10.0),
+                            decoration: BoxDecoration(
+                                border: Border.all(color: Colors.blueAccent),
+                                borderRadius: BorderRadius.circular(10.0)),
+                            child: Stack(
+                              children: [
+                                DropzoneView(
+                                  onCreated: (ctrl) => controller = ctrl,
+                                  onDrop: (val) {
+                                    setState(() {
+                                      file = val;
+                                    });
+                                  },
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      height: 50,
+                                      width: 200,
+                                      padding: EdgeInsets.all(10),
+                                      child: RaisedButton(
+                                        child: Text("Attach file"),
+                                        onPressed: () async {
+                                          FilePickerResult result =
+                                              await FilePicker.platform
+                                                  .pickFiles(
+                                                      allowMultiple: true);
+                                          print(result.files.single.name);
+                                          if (result != null) {
+                                            setState(() {
+                                              file = File(
+                                                  result.files.single.bytes,
+                                                  result.files.single.name);
+                                            });
+                                          }
+                                        },
+                                      ),
+                                    ),
+                                    file != null
+                                        ? Align(
+                                            alignment: Alignment.center,
+                                            child: Text(file.name),
+                                          )
+                                        : Container(),
+                                  ],
+                                )
+                              ],
+                            )),
                       )
                     ],
                   ),
