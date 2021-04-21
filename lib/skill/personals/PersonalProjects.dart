@@ -31,15 +31,15 @@ class _PersonalProjectsState extends State<PersonalProjects> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width *
         MediaQuery.of(context).devicePixelRatio;
+    final height = MediaQuery.of(context).size.height *
+        MediaQuery.of(context).devicePixelRatio;
     return Container(
         child: Column(
       children: [
         CarouselSlider(
           carouselController: buttonCarouselController,
           options: CarouselOptions(
-            height: MediaQuery.of(context).orientation == Orientation.landscape
-                ? 300
-                : 600.0,
+            height: height * 0.5,
             enlargeCenterPage: false,
             viewportFraction: 1.0,
           ),
@@ -47,38 +47,25 @@ class _PersonalProjectsState extends State<PersonalProjects> {
             return Builder(
               builder: (BuildContext context) {
                 return Container(
-                    width: width * 0.6,
+                    width: MediaQuery.of(context).orientation ==
+                            Orientation.landscape
+                        ? width * 0.5
+                        : width * 0.8,
                     margin: EdgeInsets.symmetric(horizontal: 5.0),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.0),
-                        color: Colors.lightBlueAccent),
+                        image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: NetworkImage(
+                              e.image,
+                            ))),
                     child: InkWell(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                       borderRadius: BorderRadius.circular(20.0),
                       onTap: () {
                         print('a');
                       },
-                      child: ResponsiveGridRow(
-                        children: [
-                          ResponsiveGridCol(
-                              xs: 12,
-                              md: 8,
-                              child: Container(
-                                padding: EdgeInsets.all(10),
-                                height: 300,
-                                child: Center(
-                                  child: Image.network(
-                                    e.image,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              )),
-                          ResponsiveGridCol(
-                            xs: 12,
-                            md: 4,
-                            child: Text("bbbb"),
-                          ),
-                        ],
-                      ),
                     ));
               },
             );

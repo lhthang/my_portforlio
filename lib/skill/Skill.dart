@@ -96,7 +96,7 @@ class _SkillState extends State<Skill> {
         builder: (context, animation) {
           return SlideTransition(
             position: Tween<Offset>(
-              begin: Offset(0.0, 1.0),
+              begin: Offset(-1, 0),
               end: Offset.zero,
             ).animate(animation),
             child: Column(
@@ -170,7 +170,6 @@ class _SkillState extends State<Skill> {
                         return SkillAvatar(skill: e);
                       }).toList()),
                 ),
-                PersonalProjects(),
               ],
             ),
           );

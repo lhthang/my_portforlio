@@ -3,6 +3,7 @@ import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/about/About.dart';
+import 'package:my_portfolio/contact/Contact.dart';
 import 'package:my_portfolio/home/Home.dart';
 import 'package:my_portfolio/navbar/Navbar.dart';
 import 'package:my_portfolio/skill/Skill.dart';
@@ -82,10 +83,7 @@ class _AppState extends State<App> {
               ),
               ScrollContent(
                 id: '4',
-                child: Container(
-                  height: height,
-                  color: Colors.purple,
-                ),
+                child: Contact(),
               ),
             ]),
           ),

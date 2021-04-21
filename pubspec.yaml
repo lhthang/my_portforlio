@@ -37,6 +37,8 @@ dependencies:
   responsive_framework: ^0.1.0
   timeline_tile: ^2.0.0
   carousel_slider: ^3.0.0
+  file_picker: ^3.0.1
+  drop_zone: ^1.0.2
 
 dev_dependencies:
   flutter_test:
