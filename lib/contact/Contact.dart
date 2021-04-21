@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dropzone/flutter_dropzone.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/contact/EmailForm.dart';
+import 'package:my_portfolio/contact/Social.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 
 class Contact extends StatefulWidget {
@@ -32,14 +33,7 @@ class _ContactState extends State<Contact> {
           ResponsiveGridCol(
             xs: 12,
             md: 4,
-            child: Container(
-              padding:
-                  EdgeInsets.only(top: 20, bottom: 10, left: 50, right: 50),
-              child: Align(
-                alignment: Alignment.center,
-                child: Text("Information"),
-              ),
-            ),
+            child: Social(),
           )
         ],
       ),
