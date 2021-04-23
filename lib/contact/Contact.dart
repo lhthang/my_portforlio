@@ -17,10 +17,8 @@ class Contact extends StatefulWidget {
 class _ContactState extends State<Contact> {
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height *
-        MediaQuery.of(context).devicePixelRatio;
+    final height = MediaQuery.of(context).size.height;
     return Container(
-      height: MediaQuery.of(context).size.height,
       child: ResponsiveGridRow(
         children: [
           ResponsiveGridCol(

@@ -209,8 +209,20 @@ class _EmailFormState extends State<EmailForm> {
         Uri(scheme: 'mailto', path: 'lhthang.1998@gmail.com', queryParameters: {
       'subject': _subjectController.text,
       'body': _bodyController.text,
-      'attachments': file.relativePath,
+      'attachments': file != null ? file.relativePath : null,
     });
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: Colors.red,
+        content: Container(
+          height: 25,
+          child: Text(
+            "This feature is not available now. Please send email normally!",
+            style: TextStyle(fontSize: 15),
+          ),
+        ),
+      ),
+    );
     try {
       await launch(_emailLaunchUri.toString(), enableJavaScript: true);
     } catch (e) {
