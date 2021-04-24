@@ -5,6 +5,12 @@ A new Flutter project.
 ## Run with web
 flutter run -d chrome --web-renderer html
 
+## How to deploy to Github
+Use peanut
+flutter pub global activate peanut
+flutter pub global run peanut:peanut
+then push to github
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
