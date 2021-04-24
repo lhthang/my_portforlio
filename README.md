@@ -11,6 +11,10 @@ flutter pub global activate peanut
 flutter pub global run peanut:peanut
 then push to github
 
+## Note
+When run at local machine, please use <base href="/"> in web/index.html
+When deploy to github page by peanut, please use  <base href="/my_portfolio/"/> in web/index.html
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
