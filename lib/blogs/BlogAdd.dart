@@ -2,6 +2,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
+import 'package:my_portfolio/navbar/AuthNavbar.dart';
 
 import '../buttons/Button.dart';
 
@@ -17,16 +18,10 @@ class _BlogAddState extends State<BlogAdd> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height *
         MediaQuery.of(context).devicePixelRatio;
-    return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 40,
-        toolbarTextStyle: TextStyle(color: Colors.white),
-        backgroundColor: Colors.black87,
-        elevation: 1,
-        title: Text("New Blog"),
-        centerTitle: true,
-      ),
-      body: Column(
+    return AuthNavBar(
+      title: "New Blog",
+      showFloatButton: false,
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Expanded(

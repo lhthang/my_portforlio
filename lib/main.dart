@@ -10,7 +10,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 
 void main() async {
   final cron = Cron();
-  cron.schedule(Schedule.parse('*/30 * * * *'), () async {
+  cron.schedule(Schedule.parse('*/1 * * * *'), () async {
     print('every 30 minutes');
     Store.instance.clearAll();
   });

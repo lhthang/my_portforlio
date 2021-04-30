@@ -21,7 +21,6 @@ class Server {
         await http.get(Uri.parse(URL_SERVER), headers: createHeader(secretKey));
     if (resp.statusCode == 200) {
       Map data = json.decode(resp.body);
-      print(data);
       return data["password"];
     }
     if (resp.statusCode != 200) {
