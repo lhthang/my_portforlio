@@ -38,6 +38,7 @@ class _BlogsState extends State<Blogs> {
                 });
               } else {
                 String password = await Server.instance.getPassword();
+                print(password);
                 setState(() {
                   isLoggedIn = true;
                 });
@@ -47,15 +48,17 @@ class _BlogsState extends State<Blogs> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-          child: Icon(
-            Icons.add,
-            size: 30,
-          ),
-          backgroundColor: Colors.blue,
-          onPressed: () {
-            // Navigator.of(context).pushNamed(routes.edit_blog);
-          }),
+      floatingActionButton: isLoggedIn
+          ? FloatingActionButton(
+              child: Icon(
+                Icons.add,
+                size: 30,
+              ),
+              backgroundColor: Colors.blue,
+              onPressed: () {
+                // Navigator.of(context).pushNamed(routes.edit_blog);
+              })
+          : null,
     );
   }
 }
