@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cron/cron.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/App.dart';
@@ -12,8 +14,6 @@ void main() async {
     print('every 30 minutes');
     Store.instance.clearAll();
   });
-
-  await DotEnv.load(fileName: ".env");
   runApp(MyApp());
 }
 

@@ -38,10 +38,13 @@ class _BlogsState extends State<Blogs> {
                 });
               } else {
                 String password = await Server.instance.getPassword();
-                print(password);
-                setState(() {
-                  isLoggedIn = true;
-                });
+                bool isRight =
+                    MyPassword.instance.checkPwd("Lhthang@1998", password);
+                if (isRight) {
+                  setState(() {
+                    isLoggedIn = true;
+                  });
+                }
               }
               Store.instance.saveBool(Store.LOGGED_IN, isLoggedIn);
             },
