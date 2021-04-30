@@ -9,6 +9,7 @@ import 'package:my_portfolio/routes/route_path.dart' as routes;
 import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   final cron = Cron();
   cron.schedule(Schedule.parse('*/30 * * * *'), () async {
     print('every 30 minutes');
