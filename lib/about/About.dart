@@ -1,7 +1,7 @@
 import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/OrientationSwitcher.dart';
+import 'package:my_portfolio/routes/route_path.dart' as routes;
 import 'package:my_portfolio/about/clipper/ImageClipper.dart';
 import 'package:my_portfolio/about/information/Information.dart';
 import 'package:my_portfolio/utils/constant.dart';
@@ -107,38 +107,79 @@ class _AboutState extends State<About> {
                           SizedBox(
                             height: 10,
                           ),
-                          RaisedButton(
-                            onPressed: () {
-                              downloadFile(pdfCV);
-                            },
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(80.0)),
-                            padding: const EdgeInsets.all(0.0),
-                            child: Ink(
-                              decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(80.0)),
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      Colors.cyan,
-                                      Colors.indigo,
-                                    ],
-                                  )),
-                              child: Container(
-                                width: 150,
-                                height: 50, // min sizes for Material buttons
-                                alignment: Alignment.center,
-                                child: Text(
-                                  'Download CV',
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.merriweather(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                      color: Colors.white),
+                          Row(
+                            children: [
+                              RaisedButton(
+                                onPressed: () {
+                                  downloadFile(pdfCV);
+                                },
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(80.0)),
+                                padding: const EdgeInsets.all(0.0),
+                                child: Ink(
+                                  decoration: const BoxDecoration(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(80.0)),
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Colors.cyan,
+                                          Colors.indigo,
+                                        ],
+                                      )),
+                                  child: Container(
+                                    width: 150,
+                                    height:
+                                        50, // min sizes for Material buttons
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      'Download CV',
+                                      textAlign: TextAlign.center,
+                                      style: GoogleFonts.merriweather(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15,
+                                          color: Colors.white),
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              RaisedButton(
+                                onPressed: () {
+                                  Navigator.of(context).pushNamed(routes.blogs);
+                                },
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(80.0)),
+                                padding: const EdgeInsets.all(0.0),
+                                child: Ink(
+                                  decoration: const BoxDecoration(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(80.0)),
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Colors.orangeAccent,
+                                          Colors.red,
+                                        ],
+                                      )),
+                                  child: Container(
+                                    width: 150,
+                                    height:
+                                        50, // min sizes for Material buttons
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      'Blogs',
+                                      textAlign: TextAlign.center,
+                                      style: GoogleFonts.merriweather(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15,
+                                          color: Colors.white),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
                         ],
                       ),
                     );
