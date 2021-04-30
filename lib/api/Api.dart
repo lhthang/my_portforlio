@@ -24,7 +24,10 @@ class Server {
       print(data);
       return data["password"];
     }
-    throw new Exception(resp);
+    if (resp.statusCode != 200) {
+      throw CommonError(error: "Something went wrong", status: resp.statusCode);
+    }
+    return "";
   }
 }
 
@@ -50,4 +53,10 @@ class MyPassword {
     print(isCorrect);
     return isCorrect;
   }
+}
+
+class CommonError extends Error {
+  String error;
+  int status;
+  CommonError({this.error, this.status});
 }
