@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/api/Api.dart';
+import 'package:my_portfolio/api/Store.dart';
 
 import '../buttons/Button.dart';
 import 'package:my_portfolio/routes/route_path.dart' as routes;
@@ -9,6 +11,7 @@ class Blogs extends StatefulWidget {
 }
 
 class _BlogsState extends State<Blogs> {
+  bool isLoggedIn = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +22,30 @@ class _BlogsState extends State<Blogs> {
         elevation: 1,
         title: Text("Blogs"),
         centerTitle: true,
+        actions: [
+          MyButton(
+            title: isLoggedIn ? "Log out" : "Log in",
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10.0),
+                  bottomRight: Radius.circular(10.0)),
+            ),
+            onClick: () async {
+              if (isLoggedIn) {
+                Store.instance.clearAll();
+                setState(() {
+                  isLoggedIn = false;
+                });
+              } else {
+                String password = await Server.instance.getPassword();
+                setState(() {
+                  isLoggedIn = true;
+                });
+              }
+              Store.instance.saveBool(Store.LOGGED_IN, isLoggedIn);
+            },
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
           child: Icon(
@@ -27,7 +54,7 @@ class _BlogsState extends State<Blogs> {
           ),
           backgroundColor: Colors.blue,
           onPressed: () {
-            Navigator.of(context).pushNamed(routes.edit_blog);
+            // Navigator.of(context).pushNamed(routes.edit_blog);
           }),
     );
   }
