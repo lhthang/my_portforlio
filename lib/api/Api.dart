@@ -47,7 +47,6 @@ class MyPassword {
   }
 
   bool checkPwd(String password, String hashedPassword) {
-    print(password);
     bool isCorrect = Crypt(hashedPassword).match(password);
     return isCorrect;
   }

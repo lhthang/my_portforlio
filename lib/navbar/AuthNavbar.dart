@@ -45,11 +45,12 @@ class _AuthNavBarState extends State<AuthNavBar> {
                   Store.instance.clearAll();
                   setState(() {
                     isLoggedIn = false;
+
+                    Store.instance.saveBool(Store.LOGGED_IN, false);
                   });
                 } else {
                   _showLoginForm();
                 }
-                Store.instance.saveBool(Store.LOGGED_IN, isLoggedIn);
               },
             ),
           ],
@@ -130,6 +131,8 @@ class _AuthNavBarState extends State<AuthNavBar> {
                             if (isRight) {
                               setState(() {
                                 isLoggedIn = true;
+
+                                Store.instance.saveBool(Store.LOGGED_IN, true);
                               });
                             } else {
                               _catchLoginFail();
