@@ -24,6 +24,8 @@ class Server {
     }
     throw new Exception(resp);
   }
+
+  
 }
 
 Map<String, String> createHeader(secretKey) {
