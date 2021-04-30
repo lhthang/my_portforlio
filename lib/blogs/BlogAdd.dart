@@ -2,6 +2,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
+import 'package:my_portfolio/api/Api.dart';
 import 'package:my_portfolio/navbar/AuthNavbar.dart';
 
 import '../buttons/Button.dart';
@@ -48,7 +49,9 @@ class _BlogAddState extends State<BlogAdd> {
           Container(
             padding: EdgeInsets.only(left: 50, right: 50, bottom: 10),
             child: RaisedButton(
-              onPressed: () {},
+              onPressed: () {
+                // Server.instance.writePost();
+              },
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(80.0)),
               padding: const EdgeInsets.all(0.0),

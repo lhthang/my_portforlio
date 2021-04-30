@@ -1,8 +1,10 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:crypt/crypt.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:my_portfolio/utils/constant.dart';
+import 'package:path_provider/path_provider.dart';
 
 class Server {
   static Server _instance;
@@ -16,8 +18,10 @@ class Server {
       "https://api.jsonbin.io/b/608bb86fd64cd16802a4fc47";
 
   Future<String> getPassword() async {
+    String key = env['API_KEY'];
+    print(key);
     final resp =
-        await http.get(Uri.parse(URL_SERVER), headers: createHeader(secretKey));
+        await http.get(Uri.parse(URL_SERVER), headers: createHeader(key));
     if (resp.statusCode == 200) {
       Map data = json.decode(resp.body);
       return data["password"];
@@ -26,6 +30,14 @@ class Server {
       throw CommonError(error: "Something went wrong", status: resp.statusCode);
     }
     return "";
+  }
+
+  Future<bool> writePost() async {
+    Map<String, String> test = {"a": "a", "b": "b"};
+    final File file = File('data.json');
+    await file.writeAsString(json.encode(test));
+    Map<String, dynamic> myJson = await json.decode(await file.readAsString());
+    print(myJson.toString());
   }
 }
 

@@ -14,6 +14,7 @@ void main() async {
     print('every 30 minutes');
     Store.instance.clearAll();
   });
+  await DotEnv.load();
   runApp(MyApp());
 }
 
