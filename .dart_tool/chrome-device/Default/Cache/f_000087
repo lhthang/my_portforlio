@@ -1,0 +1,1390 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/widgets/widget_span.dart'], (function load__packages__html_editor_enhanced__utils__toolbar_dart(dart_sdk, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__widgets__widget_span$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons$ = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  var toolbar = Object.create(dart.library);
+  var $add = dartx.add;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    JSArrayOfIcon: () => (T.JSArrayOfIcon = dart.constFn(_interceptors.JSArray$(icon.Icon)))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 36,
+        [_Location_line]: 52,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2], T._LocationL());
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 52,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 38,
+        [_Location_line]: 53,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[5] || CT.C5], T._LocationL());
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 53,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 41,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.constList([C[8] || CT.C8], T._LocationL());
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 54,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 40,
+        [_Location_line]: 55,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.constList([C[11] || CT.C11], T._LocationL());
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[10] || CT.C10,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 55,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 45,
+        [_Location_line]: 61,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.constList([C[14] || CT.C14], T._LocationL());
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[13] || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 61,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 43,
+        [_Location_line]: 62,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.constList([C[17] || CT.C17], T._LocationL());
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[16] || CT.C16,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 62,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 41,
+        [_Location_line]: 63,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.constList([C[20] || CT.C20], T._LocationL());
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[19] || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 63,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 47,
+        [_Location_line]: 80,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.constList([C[23] || CT.C23], T._LocationL());
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[22] || CT.C22,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 80,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 46,
+        [_Location_line]: 81,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.constList([C[26] || CT.C26], T._LocationL());
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[25] || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 35,
+        [_Location_line]: 81,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 34,
+        [_Location_line]: 100,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.constList([C[29] || CT.C29], T._LocationL());
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[28] || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 100,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 34,
+        [_Location_line]: 101,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.constList([C[32] || CT.C32], T._LocationL());
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[31] || CT.C31,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 101,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 41,
+        [_Location_line]: 132,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.constList([C[35] || CT.C35], T._LocationL());
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[34] || CT.C34,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 132,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 43,
+        [_Location_line]: 133,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.constList([C[38] || CT.C38], T._LocationL());
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[37] || CT.C37,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 133,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 42,
+        [_Location_line]: 134,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.constList([C[41] || CT.C41], T._LocationL());
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[40] || CT.C40,
+        [_Location_name]: null,
+        [_Location_column]: 31,
+        [_Location_line]: 134,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 44,
+        [_Location_line]: 135,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.constList([C[44] || CT.C44], T._LocationL());
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[43] || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 33,
+        [_Location_line]: 135,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 46,
+        [_Location_line]: 141,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.constList([C[47] || CT.C47], T._LocationL());
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[46] || CT.C46,
+        [_Location_name]: null,
+        [_Location_column]: 35,
+        [_Location_line]: 141,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 46,
+        [_Location_line]: 142,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.constList([C[50] || CT.C50], T._LocationL());
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[49] || CT.C49,
+        [_Location_name]: null,
+        [_Location_column]: 35,
+        [_Location_line]: 142,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 36,
+        [_Location_line]: 169,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.constList([C[53] || CT.C53], T._LocationL());
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[52] || CT.C52,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 169,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 39,
+        [_Location_line]: 170,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.constList([C[56] || CT.C56], T._LocationL());
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[55] || CT.C55,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 170,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 37,
+        [_Location_line]: 171,
+        [_Location_file]: null
+      });
+    },
+    get C58() {
+      return C[58] = dart.constList([C[59] || CT.C59], T._LocationL());
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[58] || CT.C58,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 171,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 37,
+        [_Location_line]: 172,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C[61] = dart.constList([C[62] || CT.C62], T._LocationL());
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[61] || CT.C61,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 172,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 41,
+        [_Location_line]: 173,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.constList([C[65] || CT.C65], T._LocationL());
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[64] || CT.C64,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 173,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 37,
+        [_Location_line]: 174,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C[67] = dart.constList([C[68] || CT.C68], T._LocationL());
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[67] || CT.C67,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 174,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 34,
+        [_Location_line]: 175,
+        [_Location_file]: null
+      });
+    },
+    get C70() {
+      return C[70] = dart.constList([C[71] || CT.C71], T._LocationL());
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[70] || CT.C70,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 175,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 42,
+        [_Location_line]: 202,
+        [_Location_file]: null
+      });
+    },
+    get C73() {
+      return C[73] = dart.constList([C[74] || CT.C74], T._LocationL());
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[73] || CT.C73,
+        [_Location_name]: null,
+        [_Location_column]: 31,
+        [_Location_line]: 202,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 40,
+        [_Location_line]: 203,
+        [_Location_file]: null
+      });
+    },
+    get C76() {
+      return C[76] = dart.constList([C[77] || CT.C77], T._LocationL());
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[76] || CT.C76,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 203,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C80() {
+      return C[80] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 36,
+        [_Location_line]: 204,
+        [_Location_file]: null
+      });
+    },
+    get C79() {
+      return C[79] = dart.constList([C[80] || CT.C80], T._LocationL());
+    },
+    get C78() {
+      return C[78] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[79] || CT.C79,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 204,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 36,
+        [_Location_line]: 205,
+        [_Location_file]: null
+      });
+    },
+    get C82() {
+      return C[82] = dart.constList([C[83] || CT.C83], T._LocationL());
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[82] || CT.C82,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 205,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C86() {
+      return C[86] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 36,
+        [_Location_line]: 206,
+        [_Location_file]: null
+      });
+    },
+    get C85() {
+      return C[85] = dart.constList([C[86] || CT.C86], T._LocationL());
+    },
+    get C84() {
+      return C[84] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[85] || CT.C85,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 206,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C89() {
+      return C[89] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 36,
+        [_Location_line]: 212,
+        [_Location_file]: null
+      });
+    },
+    get C88() {
+      return C[88] = dart.constList([C[89] || CT.C89], T._LocationL());
+    },
+    get C87() {
+      return C[87] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[88] || CT.C88,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 212,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    },
+    get C92() {
+      return C[92] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 37,
+        [_Location_line]: 213,
+        [_Location_file]: null
+      });
+    },
+    get C91() {
+      return C[91] = dart.constList([C[92] || CT.C92], T._LocationL());
+    },
+    get C90() {
+      return C[90] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[91] || CT.C91,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 213,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+      });
+    }
+  }, false);
+  var C = Array(93).fill(void 0);
+  var I = [
+    "package:html_editor_enhanced/utils/toolbar.dart",
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/html_editor_enhanced-2.0.1/lib/utils/toolbar.dart"
+  ];
+  toolbar.Toolbar = class Toolbar extends core.Object {};
+  (toolbar.Toolbar.new = function() {
+    ;
+  }).prototype = toolbar.Toolbar.prototype;
+  dart.addTypeTests(toolbar.Toolbar);
+  dart.addTypeCaches(toolbar.Toolbar);
+  dart.setLibraryUri(toolbar.Toolbar, I[0]);
+  var style$ = dart.privateName(toolbar, "StyleButtons.style");
+  toolbar.StyleButtons = class StyleButtons extends toolbar.Toolbar {
+    get style() {
+      return this[style$];
+    }
+    set style(value) {
+      super.style = value;
+    }
+  };
+  (toolbar.StyleButtons.new = function(opts) {
+    let style = opts && 'style' in opts ? opts.style : true;
+    if (style == null) dart.nullFailed(I[1], 13, 10, "style");
+    this[style$] = style;
+    toolbar.StyleButtons.__proto__.new.call(this);
+    ;
+  }).prototype = toolbar.StyleButtons.prototype;
+  dart.addTypeTests(toolbar.StyleButtons);
+  dart.addTypeCaches(toolbar.StyleButtons);
+  dart.setLibraryUri(toolbar.StyleButtons, I[0]);
+  dart.setFieldSignature(toolbar.StyleButtons, () => ({
+    __proto__: dart.getFields(toolbar.StyleButtons.__proto__),
+    style: dart.finalFieldType(core.bool)
+  }));
+  var fontName$ = dart.privateName(toolbar, "FontSettingButtons.fontName");
+  var fontSize$ = dart.privateName(toolbar, "FontSettingButtons.fontSize");
+  var fontSizeUnit$ = dart.privateName(toolbar, "FontSettingButtons.fontSizeUnit");
+  toolbar.FontSettingButtons = class FontSettingButtons extends toolbar.Toolbar {
+    get fontName() {
+      return this[fontName$];
+    }
+    set fontName(value) {
+      super.fontName = value;
+    }
+    get fontSize() {
+      return this[fontSize$];
+    }
+    set fontSize(value) {
+      super.fontSize = value;
+    }
+    get fontSizeUnit() {
+      return this[fontSizeUnit$];
+    }
+    set fontSizeUnit(value) {
+      super.fontSizeUnit = value;
+    }
+  };
+  (toolbar.FontSettingButtons.new = function(opts) {
+    let fontName = opts && 'fontName' in opts ? opts.fontName : true;
+    if (fontName == null) dart.nullFailed(I[1], 24, 10, "fontName");
+    let fontSize = opts && 'fontSize' in opts ? opts.fontSize : true;
+    if (fontSize == null) dart.nullFailed(I[1], 25, 10, "fontSize");
+    let fontSizeUnit = opts && 'fontSizeUnit' in opts ? opts.fontSizeUnit : true;
+    if (fontSizeUnit == null) dart.nullFailed(I[1], 26, 10, "fontSizeUnit");
+    this[fontName$] = fontName;
+    this[fontSize$] = fontSize;
+    this[fontSizeUnit$] = fontSizeUnit;
+    toolbar.FontSettingButtons.__proto__.new.call(this);
+    ;
+  }).prototype = toolbar.FontSettingButtons.prototype;
+  dart.addTypeTests(toolbar.FontSettingButtons);
+  dart.addTypeCaches(toolbar.FontSettingButtons);
+  dart.setLibraryUri(toolbar.FontSettingButtons, I[0]);
+  dart.setFieldSignature(toolbar.FontSettingButtons, () => ({
+    __proto__: dart.getFields(toolbar.FontSettingButtons.__proto__),
+    fontName: dart.finalFieldType(core.bool),
+    fontSize: dart.finalFieldType(core.bool),
+    fontSizeUnit: dart.finalFieldType(core.bool)
+  }));
+  var bold$ = dart.privateName(toolbar, "FontButtons.bold");
+  var italic$ = dart.privateName(toolbar, "FontButtons.italic");
+  var underline$ = dart.privateName(toolbar, "FontButtons.underline");
+  var clearAll$ = dart.privateName(toolbar, "FontButtons.clearAll");
+  var strikethrough$ = dart.privateName(toolbar, "FontButtons.strikethrough");
+  var superscript$ = dart.privateName(toolbar, "FontButtons.superscript");
+  var subscript$ = dart.privateName(toolbar, "FontButtons.subscript");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  toolbar.FontButtons = class FontButtons extends toolbar.Toolbar {
+    get bold() {
+      return this[bold$];
+    }
+    set bold(value) {
+      super.bold = value;
+    }
+    get italic() {
+      return this[italic$];
+    }
+    set italic(value) {
+      super.italic = value;
+    }
+    get underline() {
+      return this[underline$];
+    }
+    set underline(value) {
+      super.underline = value;
+    }
+    get clearAll() {
+      return this[clearAll$];
+    }
+    set clearAll(value) {
+      super.clearAll = value;
+    }
+    get strikethrough() {
+      return this[strikethrough$];
+    }
+    set strikethrough(value) {
+      super.strikethrough = value;
+    }
+    get superscript() {
+      return this[superscript$];
+    }
+    set superscript(value) {
+      super.superscript = value;
+    }
+    get subscript() {
+      return this[subscript$];
+    }
+    set subscript(value) {
+      super.subscript = value;
+    }
+    getIcons1() {
+      let icons = T.JSArrayOfIcon().of([]);
+      if (dart.test(this.bold)) icons[$add](new icon.Icon.new(icons$.Icons.format_bold, {$creationLocationd_0dea112b090073317d4: C[0] || CT.C0}));
+      if (dart.test(this.italic)) icons[$add](new icon.Icon.new(icons$.Icons.format_italic, {$creationLocationd_0dea112b090073317d4: C[3] || CT.C3}));
+      if (dart.test(this.underline)) icons[$add](new icon.Icon.new(icons$.Icons.format_underline, {$creationLocationd_0dea112b090073317d4: C[6] || CT.C6}));
+      if (dart.test(this.clearAll)) icons[$add](new icon.Icon.new(icons$.Icons.format_clear, {$creationLocationd_0dea112b090073317d4: C[9] || CT.C9}));
+      return icons;
+    }
+    getIcons2() {
+      let icons = T.JSArrayOfIcon().of([]);
+      if (dart.test(this.strikethrough)) icons[$add](new icon.Icon.new(icons$.Icons.format_strikethrough, {$creationLocationd_0dea112b090073317d4: C[12] || CT.C12}));
+      if (dart.test(this.superscript)) icons[$add](new icon.Icon.new(icons$.Icons.superscript, {$creationLocationd_0dea112b090073317d4: C[15] || CT.C15}));
+      if (dart.test(this.subscript)) icons[$add](new icon.Icon.new(icons$.Icons.subscript, {$creationLocationd_0dea112b090073317d4: C[18] || CT.C18}));
+      return icons;
+    }
+  };
+  (toolbar.FontButtons.new = function(opts) {
+    let bold = opts && 'bold' in opts ? opts.bold : true;
+    if (bold == null) dart.nullFailed(I[1], 41, 10, "bold");
+    let italic = opts && 'italic' in opts ? opts.italic : true;
+    if (italic == null) dart.nullFailed(I[1], 42, 10, "italic");
+    let underline = opts && 'underline' in opts ? opts.underline : true;
+    if (underline == null) dart.nullFailed(I[1], 43, 10, "underline");
+    let clearAll = opts && 'clearAll' in opts ? opts.clearAll : true;
+    if (clearAll == null) dart.nullFailed(I[1], 44, 10, "clearAll");
+    let strikethrough = opts && 'strikethrough' in opts ? opts.strikethrough : true;
+    if (strikethrough == null) dart.nullFailed(I[1], 45, 10, "strikethrough");
+    let superscript = opts && 'superscript' in opts ? opts.superscript : true;
+    if (superscript == null) dart.nullFailed(I[1], 46, 10, "superscript");
+    let subscript = opts && 'subscript' in opts ? opts.subscript : true;
+    if (subscript == null) dart.nullFailed(I[1], 47, 10, "subscript");
+    this[bold$] = bold;
+    this[italic$] = italic;
+    this[underline$] = underline;
+    this[clearAll$] = clearAll;
+    this[strikethrough$] = strikethrough;
+    this[superscript$] = superscript;
+    this[subscript$] = subscript;
+    toolbar.FontButtons.__proto__.new.call(this);
+    ;
+  }).prototype = toolbar.FontButtons.prototype;
+  dart.addTypeTests(toolbar.FontButtons);
+  dart.addTypeCaches(toolbar.FontButtons);
+  dart.setMethodSignature(toolbar.FontButtons, () => ({
+    __proto__: dart.getMethods(toolbar.FontButtons.__proto__),
+    getIcons1: dart.fnType(core.List$(icon.Icon), []),
+    getIcons2: dart.fnType(core.List$(icon.Icon), [])
+  }));
+  dart.setLibraryUri(toolbar.FontButtons, I[0]);
+  dart.setFieldSignature(toolbar.FontButtons, () => ({
+    __proto__: dart.getFields(toolbar.FontButtons.__proto__),
+    bold: dart.finalFieldType(core.bool),
+    italic: dart.finalFieldType(core.bool),
+    underline: dart.finalFieldType(core.bool),
+    clearAll: dart.finalFieldType(core.bool),
+    strikethrough: dart.finalFieldType(core.bool),
+    superscript: dart.finalFieldType(core.bool),
+    subscript: dart.finalFieldType(core.bool)
+  }));
+  var foregroundColor$ = dart.privateName(toolbar, "ColorButtons.foregroundColor");
+  var highlightColor$ = dart.privateName(toolbar, "ColorButtons.highlightColor");
+  toolbar.ColorButtons = class ColorButtons extends toolbar.Toolbar {
+    get foregroundColor() {
+      return this[foregroundColor$];
+    }
+    set foregroundColor(value) {
+      super.foregroundColor = value;
+    }
+    get highlightColor() {
+      return this[highlightColor$];
+    }
+    set highlightColor(value) {
+      super.highlightColor = value;
+    }
+    getIcons() {
+      let icons = T.JSArrayOfIcon().of([]);
+      if (dart.test(this.foregroundColor)) icons[$add](new icon.Icon.new(icons$.Icons.format_color_text, {$creationLocationd_0dea112b090073317d4: C[21] || CT.C21}));
+      if (dart.test(this.highlightColor)) icons[$add](new icon.Icon.new(icons$.Icons.format_color_fill, {$creationLocationd_0dea112b090073317d4: C[24] || CT.C24}));
+      return icons;
+    }
+  };
+  (toolbar.ColorButtons.new = function(opts) {
+    let foregroundColor = opts && 'foregroundColor' in opts ? opts.foregroundColor : true;
+    if (foregroundColor == null) dart.nullFailed(I[1], 74, 10, "foregroundColor");
+    let highlightColor = opts && 'highlightColor' in opts ? opts.highlightColor : true;
+    if (highlightColor == null) dart.nullFailed(I[1], 75, 10, "highlightColor");
+    this[foregroundColor$] = foregroundColor;
+    this[highlightColor$] = highlightColor;
+    toolbar.ColorButtons.__proto__.new.call(this);
+    ;
+  }).prototype = toolbar.ColorButtons.prototype;
+  dart.addTypeTests(toolbar.ColorButtons);
+  dart.addTypeCaches(toolbar.ColorButtons);
+  dart.setMethodSignature(toolbar.ColorButtons, () => ({
+    __proto__: dart.getMethods(toolbar.ColorButtons.__proto__),
+    getIcons: dart.fnType(core.List$(icon.Icon), [])
+  }));
+  dart.setLibraryUri(toolbar.ColorButtons, I[0]);
+  dart.setFieldSignature(toolbar.ColorButtons, () => ({
+    __proto__: dart.getFields(toolbar.ColorButtons.__proto__),
+    foregroundColor: dart.finalFieldType(core.bool),
+    highlightColor: dart.finalFieldType(core.bool)
+  }));
+  var ul$ = dart.privateName(toolbar, "ListButtons.ul");
+  var ol$ = dart.privateName(toolbar, "ListButtons.ol");
+  var listStyles$ = dart.privateName(toolbar, "ListButtons.listStyles");
+  toolbar.ListButtons = class ListButtons extends toolbar.Toolbar {
+    get ul() {
+      return this[ul$];
+    }
+    set ul(value) {
+      super.ul = value;
+    }
+    get ol() {
+      return this[ol$];
+    }
+    set ol(value) {
+      super.ol = value;
+    }
+    get listStyles() {
+      return this[listStyles$];
+    }
+    set listStyles(value) {
+      super.listStyles = value;
+    }
+    getIcons() {
+      let icons = T.JSArrayOfIcon().of([]);
+      if (dart.test(this.ul)) icons[$add](new icon.Icon.new(icons$.Icons.format_list_bulleted, {$creationLocationd_0dea112b090073317d4: C[27] || CT.C27}));
+      if (dart.test(this.ol)) icons[$add](new icon.Icon.new(icons$.Icons.format_list_numbered, {$creationLocationd_0dea112b090073317d4: C[30] || CT.C30}));
+      return icons;
+    }
+  };
+  (toolbar.ListButtons.new = function(opts) {
+    let ul = opts && 'ul' in opts ? opts.ul : true;
+    if (ul == null) dart.nullFailed(I[1], 93, 10, "ul");
+    let ol = opts && 'ol' in opts ? opts.ol : true;
+    if (ol == null) dart.nullFailed(I[1], 94, 10, "ol");
+    let listStyles = opts && 'listStyles' in opts ? opts.listStyles : true;
+    if (listStyles == null) dart.nullFailed(I[1], 95, 10, "listStyles");
+    this[ul$] = ul;
+    this[ol$] = ol;
+    this[listStyles$] = listStyles;
+    toolbar.ListButtons.__proto__.new.call(this);
+    ;
+  }).prototype = toolbar.ListButtons.prototype;
+  dart.addTypeTests(toolbar.ListButtons);
+  dart.addTypeCaches(toolbar.ListButtons);
+  dart.setMethodSignature(toolbar.ListButtons, () => ({
+    __proto__: dart.getMethods(toolbar.ListButtons.__proto__),
+    getIcons: dart.fnType(core.List$(icon.Icon), [])
+  }));
+  dart.setLibraryUri(toolbar.ListButtons, I[0]);
+  dart.setFieldSignature(toolbar.ListButtons, () => ({
+    __proto__: dart.getFields(toolbar.ListButtons.__proto__),
+    ul: dart.finalFieldType(core.bool),
+    ol: dart.finalFieldType(core.bool),
+    listStyles: dart.finalFieldType(core.bool)
+  }));
+  var alignLeft$ = dart.privateName(toolbar, "ParagraphButtons.alignLeft");
+  var alignCenter$ = dart.privateName(toolbar, "ParagraphButtons.alignCenter");
+  var alignRight$ = dart.privateName(toolbar, "ParagraphButtons.alignRight");
+  var alignJustify$ = dart.privateName(toolbar, "ParagraphButtons.alignJustify");
+  var increaseIndent$ = dart.privateName(toolbar, "ParagraphButtons.increaseIndent");
+  var decreaseIndent$ = dart.privateName(toolbar, "ParagraphButtons.decreaseIndent");
+  var textDirection$ = dart.privateName(toolbar, "ParagraphButtons.textDirection");
+  var lineHeight$ = dart.privateName(toolbar, "ParagraphButtons.lineHeight");
+  var caseConverter$ = dart.privateName(toolbar, "ParagraphButtons.caseConverter");
+  toolbar.ParagraphButtons = class ParagraphButtons extends toolbar.Toolbar {
+    get alignLeft() {
+      return this[alignLeft$];
+    }
+    set alignLeft(value) {
+      super.alignLeft = value;
+    }
+    get alignCenter() {
+      return this[alignCenter$];
+    }
+    set alignCenter(value) {
+      super.alignCenter = value;
+    }
+    get alignRight() {
+      return this[alignRight$];
+    }
+    set alignRight(value) {
+      super.alignRight = value;
+    }
+    get alignJustify() {
+      return this[alignJustify$];
+    }
+    set alignJustify(value) {
+      super.alignJustify = value;
+    }
+    get increaseIndent() {
+      return this[increaseIndent$];
+    }
+    set increaseIndent(value) {
+      super.increaseIndent = value;
+    }
+    get decreaseIndent() {
+      return this[decreaseIndent$];
+    }
+    set decreaseIndent(value) {
+      super.decreaseIndent = value;
+    }
+    get textDirection() {
+      return this[textDirection$];
+    }
+    set textDirection(value) {
+      super.textDirection = value;
+    }
+    get lineHeight() {
+      return this[lineHeight$];
+    }
+    set lineHeight(value) {
+      super.lineHeight = value;
+    }
+    get caseConverter() {
+      return this[caseConverter$];
+    }
+    set caseConverter(value) {
+      super.caseConverter = value;
+    }
+    getIcons1() {
+      let icons = T.JSArrayOfIcon().of([]);
+      if (dart.test(this.alignLeft)) icons[$add](new icon.Icon.new(icons$.Icons.format_align_left, {$creationLocationd_0dea112b090073317d4: C[33] || CT.C33}));
+      if (dart.test(this.alignCenter)) icons[$add](new icon.Icon.new(icons$.Icons.format_align_center, {$creationLocationd_0dea112b090073317d4: C[36] || CT.C36}));
+      if (dart.test(this.alignRight)) icons[$add](new icon.Icon.new(icons$.Icons.format_align_right, {$creationLocationd_0dea112b090073317d4: C[39] || CT.C39}));
+      if (dart.test(this.alignJustify)) icons[$add](new icon.Icon.new(icons$.Icons.format_align_justify, {$creationLocationd_0dea112b090073317d4: C[42] || CT.C42}));
+      return icons;
+    }
+    getIcons2() {
+      let icons = T.JSArrayOfIcon().of([]);
+      if (dart.test(this.increaseIndent)) icons[$add](new icon.Icon.new(icons$.Icons.format_indent_increase, {$creationLocationd_0dea112b090073317d4: C[45] || CT.C45}));
+      if (dart.test(this.decreaseIndent)) icons[$add](new icon.Icon.new(icons$.Icons.format_indent_decrease, {$creationLocationd_0dea112b090073317d4: C[48] || CT.C48}));
+      return icons;
+    }
+  };
+  (toolbar.ParagraphButtons.new = function(opts) {
+    let alignLeft = opts && 'alignLeft' in opts ? opts.alignLeft : true;
+    if (alignLeft == null) dart.nullFailed(I[1], 119, 10, "alignLeft");
+    let alignCenter = opts && 'alignCenter' in opts ? opts.alignCenter : true;
+    if (alignCenter == null) dart.nullFailed(I[1], 120, 10, "alignCenter");
+    let alignRight = opts && 'alignRight' in opts ? opts.alignRight : true;
+    if (alignRight == null) dart.nullFailed(I[1], 121, 10, "alignRight");
+    let alignJustify = opts && 'alignJustify' in opts ? opts.alignJustify : true;
+    if (alignJustify == null) dart.nullFailed(I[1], 122, 10, "alignJustify");
+    let increaseIndent = opts && 'increaseIndent' in opts ? opts.increaseIndent : true;
+    if (increaseIndent == null) dart.nullFailed(I[1], 123, 10, "increaseIndent");
+    let decreaseIndent = opts && 'decreaseIndent' in opts ? opts.decreaseIndent : true;
+    if (decreaseIndent == null) dart.nullFailed(I[1], 124, 10, "decreaseIndent");
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : true;
+    if (textDirection == null) dart.nullFailed(I[1], 125, 10, "textDirection");
+    let lineHeight = opts && 'lineHeight' in opts ? opts.lineHeight : true;
+    if (lineHeight == null) dart.nullFailed(I[1], 126, 10, "lineHeight");
+    let caseConverter = opts && 'caseConverter' in opts ? opts.caseConverter : true;
+    if (caseConverter == null) dart.nullFailed(I[1], 127, 10, "caseConverter");
+    this[alignLeft$] = alignLeft;
+    this[alignCenter$] = alignCenter;
+    this[alignRight$] = alignRight;
+    this[alignJustify$] = alignJustify;
+    this[increaseIndent$] = increaseIndent;
+    this[decreaseIndent$] = decreaseIndent;
+    this[textDirection$] = textDirection;
+    this[lineHeight$] = lineHeight;
+    this[caseConverter$] = caseConverter;
+    toolbar.ParagraphButtons.__proto__.new.call(this);
+    ;
+  }).prototype = toolbar.ParagraphButtons.prototype;
+  dart.addTypeTests(toolbar.ParagraphButtons);
+  dart.addTypeCaches(toolbar.ParagraphButtons);
+  dart.setMethodSignature(toolbar.ParagraphButtons, () => ({
+    __proto__: dart.getMethods(toolbar.ParagraphButtons.__proto__),
+    getIcons1: dart.fnType(core.List$(icon.Icon), []),
+    getIcons2: dart.fnType(core.List$(icon.Icon), [])
+  }));
+  dart.setLibraryUri(toolbar.ParagraphButtons, I[0]);
+  dart.setFieldSignature(toolbar.ParagraphButtons, () => ({
+    __proto__: dart.getFields(toolbar.ParagraphButtons.__proto__),
+    alignLeft: dart.finalFieldType(core.bool),
+    alignCenter: dart.finalFieldType(core.bool),
+    alignRight: dart.finalFieldType(core.bool),
+    alignJustify: dart.finalFieldType(core.bool),
+    increaseIndent: dart.finalFieldType(core.bool),
+    decreaseIndent: dart.finalFieldType(core.bool),
+    textDirection: dart.finalFieldType(core.bool),
+    lineHeight: dart.finalFieldType(core.bool),
+    caseConverter: dart.finalFieldType(core.bool)
+  }));
+  var link$ = dart.privateName(toolbar, "InsertButtons.link");
+  var picture$ = dart.privateName(toolbar, "InsertButtons.picture");
+  var audio$ = dart.privateName(toolbar, "InsertButtons.audio");
+  var video$ = dart.privateName(toolbar, "InsertButtons.video");
+  var otherFile$ = dart.privateName(toolbar, "InsertButtons.otherFile");
+  var table$ = dart.privateName(toolbar, "InsertButtons.table");
+  var hr$ = dart.privateName(toolbar, "InsertButtons.hr");
+  toolbar.InsertButtons = class InsertButtons extends toolbar.Toolbar {
+    get link() {
+      return this[link$];
+    }
+    set link(value) {
+      super.link = value;
+    }
+    get picture() {
+      return this[picture$];
+    }
+    set picture(value) {
+      super.picture = value;
+    }
+    get audio() {
+      return this[audio$];
+    }
+    set audio(value) {
+      super.audio = value;
+    }
+    get video() {
+      return this[video$];
+    }
+    set video(value) {
+      super.video = value;
+    }
+    get otherFile() {
+      return this[otherFile$];
+    }
+    set otherFile(value) {
+      super.otherFile = value;
+    }
+    get table() {
+      return this[table$];
+    }
+    set table(value) {
+      super.table = value;
+    }
+    get hr() {
+      return this[hr$];
+    }
+    set hr(value) {
+      super.hr = value;
+    }
+    getIcons() {
+      let icons = T.JSArrayOfIcon().of([]);
+      if (dart.test(this.link)) icons[$add](new icon.Icon.new(icons$.Icons.link, {$creationLocationd_0dea112b090073317d4: C[51] || CT.C51}));
+      if (dart.test(this.picture)) icons[$add](new icon.Icon.new(icons$.Icons.image_outlined, {$creationLocationd_0dea112b090073317d4: C[54] || CT.C54}));
+      if (dart.test(this.audio)) icons[$add](new icon.Icon.new(icons$.Icons.audiotrack_outlined, {$creationLocationd_0dea112b090073317d4: C[57] || CT.C57}));
+      if (dart.test(this.video)) icons[$add](new icon.Icon.new(icons$.Icons.videocam_outlined, {$creationLocationd_0dea112b090073317d4: C[60] || CT.C60}));
+      if (dart.test(this.otherFile)) icons[$add](new icon.Icon.new(icons$.Icons.attach_file, {$creationLocationd_0dea112b090073317d4: C[63] || CT.C63}));
+      if (dart.test(this.table)) icons[$add](new icon.Icon.new(icons$.Icons.table_chart_outlined, {$creationLocationd_0dea112b090073317d4: C[66] || CT.C66}));
+      if (dart.test(this.hr)) icons[$add](new icon.Icon.new(icons$.Icons.horizontal_rule, {$creationLocationd_0dea112b090073317d4: C[69] || CT.C69}));
+      return icons;
+    }
+  };
+  (toolbar.InsertButtons.new = function(opts) {
+    let link = opts && 'link' in opts ? opts.link : true;
+    if (link == null) dart.nullFailed(I[1], 158, 10, "link");
+    let picture = opts && 'picture' in opts ? opts.picture : true;
+    if (picture == null) dart.nullFailed(I[1], 159, 10, "picture");
+    let audio = opts && 'audio' in opts ? opts.audio : true;
+    if (audio == null) dart.nullFailed(I[1], 160, 10, "audio");
+    let video = opts && 'video' in opts ? opts.video : true;
+    if (video == null) dart.nullFailed(I[1], 161, 10, "video");
+    let otherFile = opts && 'otherFile' in opts ? opts.otherFile : false;
+    if (otherFile == null) dart.nullFailed(I[1], 162, 10, "otherFile");
+    let table = opts && 'table' in opts ? opts.table : true;
+    if (table == null) dart.nullFailed(I[1], 163, 10, "table");
+    let hr = opts && 'hr' in opts ? opts.hr : true;
+    if (hr == null) dart.nullFailed(I[1], 164, 10, "hr");
+    this[link$] = link;
+    this[picture$] = picture;
+    this[audio$] = audio;
+    this[video$] = video;
+    this[otherFile$] = otherFile;
+    this[table$] = table;
+    this[hr$] = hr;
+    toolbar.InsertButtons.__proto__.new.call(this);
+    ;
+  }).prototype = toolbar.InsertButtons.prototype;
+  dart.addTypeTests(toolbar.InsertButtons);
+  dart.addTypeCaches(toolbar.InsertButtons);
+  dart.setMethodSignature(toolbar.InsertButtons, () => ({
+    __proto__: dart.getMethods(toolbar.InsertButtons.__proto__),
+    getIcons: dart.fnType(core.List$(icon.Icon), [])
+  }));
+  dart.setLibraryUri(toolbar.InsertButtons, I[0]);
+  dart.setFieldSignature(toolbar.InsertButtons, () => ({
+    __proto__: dart.getFields(toolbar.InsertButtons.__proto__),
+    link: dart.finalFieldType(core.bool),
+    picture: dart.finalFieldType(core.bool),
+    audio: dart.finalFieldType(core.bool),
+    video: dart.finalFieldType(core.bool),
+    otherFile: dart.finalFieldType(core.bool),
+    table: dart.finalFieldType(core.bool),
+    hr: dart.finalFieldType(core.bool)
+  }));
+  var fullscreen$ = dart.privateName(toolbar, "OtherButtons.fullscreen");
+  var codeview$ = dart.privateName(toolbar, "OtherButtons.codeview");
+  var undo$ = dart.privateName(toolbar, "OtherButtons.undo");
+  var redo$ = dart.privateName(toolbar, "OtherButtons.redo");
+  var help$ = dart.privateName(toolbar, "OtherButtons.help");
+  var copy$ = dart.privateName(toolbar, "OtherButtons.copy");
+  var paste$ = dart.privateName(toolbar, "OtherButtons.paste");
+  toolbar.OtherButtons = class OtherButtons extends toolbar.Toolbar {
+    get fullscreen() {
+      return this[fullscreen$];
+    }
+    set fullscreen(value) {
+      super.fullscreen = value;
+    }
+    get codeview() {
+      return this[codeview$];
+    }
+    set codeview(value) {
+      super.codeview = value;
+    }
+    get undo() {
+      return this[undo$];
+    }
+    set undo(value) {
+      super.undo = value;
+    }
+    get redo() {
+      return this[redo$];
+    }
+    set redo(value) {
+      super.redo = value;
+    }
+    get help() {
+      return this[help$];
+    }
+    set help(value) {
+      super.help = value;
+    }
+    get copy() {
+      return this[copy$];
+    }
+    set copy(value) {
+      super.copy = value;
+    }
+    get paste() {
+      return this[paste$];
+    }
+    set paste(value) {
+      super.paste = value;
+    }
+    getIcons1() {
+      let icons = T.JSArrayOfIcon().of([]);
+      if (dart.test(this.fullscreen)) icons[$add](new icon.Icon.new(icons$.Icons.fullscreen, {$creationLocationd_0dea112b090073317d4: C[72] || CT.C72}));
+      if (dart.test(this.codeview)) icons[$add](new icon.Icon.new(icons$.Icons.code, {$creationLocationd_0dea112b090073317d4: C[75] || CT.C75}));
+      if (dart.test(this.undo)) icons[$add](new icon.Icon.new(icons$.Icons.undo, {$creationLocationd_0dea112b090073317d4: C[78] || CT.C78}));
+      if (dart.test(this.redo)) icons[$add](new icon.Icon.new(icons$.Icons.redo, {$creationLocationd_0dea112b090073317d4: C[81] || CT.C81}));
+      if (dart.test(this.help)) icons[$add](new icon.Icon.new(icons$.Icons.help_outline, {$creationLocationd_0dea112b090073317d4: C[84] || CT.C84}));
+      return icons;
+    }
+    getIcons2() {
+      let icons = T.JSArrayOfIcon().of([]);
+      if (dart.test(this.copy)) icons[$add](new icon.Icon.new(icons$.Icons.copy, {$creationLocationd_0dea112b090073317d4: C[87] || CT.C87}));
+      if (dart.test(this.paste)) icons[$add](new icon.Icon.new(icons$.Icons.paste, {$creationLocationd_0dea112b090073317d4: C[90] || CT.C90}));
+      return icons;
+    }
+  };
+  (toolbar.OtherButtons.new = function(opts) {
+    let fullscreen = opts && 'fullscreen' in opts ? opts.fullscreen : true;
+    if (fullscreen == null) dart.nullFailed(I[1], 191, 10, "fullscreen");
+    let codeview = opts && 'codeview' in opts ? opts.codeview : true;
+    if (codeview == null) dart.nullFailed(I[1], 192, 10, "codeview");
+    let undo = opts && 'undo' in opts ? opts.undo : true;
+    if (undo == null) dart.nullFailed(I[1], 193, 10, "undo");
+    let redo = opts && 'redo' in opts ? opts.redo : true;
+    if (redo == null) dart.nullFailed(I[1], 194, 10, "redo");
+    let help = opts && 'help' in opts ? opts.help : true;
+    if (help == null) dart.nullFailed(I[1], 195, 10, "help");
+    let copy = opts && 'copy' in opts ? opts.copy : true;
+    if (copy == null) dart.nullFailed(I[1], 196, 10, "copy");
+    let paste = opts && 'paste' in opts ? opts.paste : true;
+    if (paste == null) dart.nullFailed(I[1], 197, 10, "paste");
+    this[fullscreen$] = fullscreen;
+    this[codeview$] = codeview;
+    this[undo$] = undo;
+    this[redo$] = redo;
+    this[help$] = help;
+    this[copy$] = copy;
+    this[paste$] = paste;
+    toolbar.OtherButtons.__proto__.new.call(this);
+    ;
+  }).prototype = toolbar.OtherButtons.prototype;
+  dart.addTypeTests(toolbar.OtherButtons);
+  dart.addTypeCaches(toolbar.OtherButtons);
+  dart.setMethodSignature(toolbar.OtherButtons, () => ({
+    __proto__: dart.getMethods(toolbar.OtherButtons.__proto__),
+    getIcons1: dart.fnType(core.List$(icon.Icon), []),
+    getIcons2: dart.fnType(core.List$(icon.Icon), [])
+  }));
+  dart.setLibraryUri(toolbar.OtherButtons, I[0]);
+  dart.setFieldSignature(toolbar.OtherButtons, () => ({
+    __proto__: dart.getFields(toolbar.OtherButtons.__proto__),
+    fullscreen: dart.finalFieldType(core.bool),
+    codeview: dart.finalFieldType(core.bool),
+    undo: dart.finalFieldType(core.bool),
+    redo: dart.finalFieldType(core.bool),
+    help: dart.finalFieldType(core.bool),
+    copy: dart.finalFieldType(core.bool),
+    paste: dart.finalFieldType(core.bool)
+  }));
+  dart.trackLibraries("packages/html_editor_enhanced/utils/toolbar.dart", {
+    "package:html_editor_enhanced/utils/toolbar.dart": toolbar
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["toolbar.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/html_editor_enhanced/utils/toolbar.dart.lib.js"}');
+  // Exports:
+  return {
+    utils__toolbar: toolbar
+  };
+}));
+
+//# sourceMappingURL=toolbar.dart.lib.js.map

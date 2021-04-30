@@ -1,0 +1,831 @@
+define(['dart_sdk', 'packages/flutter/src/foundation/_platform_web.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/plugin_platform_interface/plugin_platform_interface.dart', 'packages/flutter/src/foundation/basic_types.dart', 'packages/flutter/src/gestures/recognizer.dart'], (function load__packages__flutter_dropzone_platform_interface__method_channel_flutter_dropzone_dart(dart_sdk, packages__flutter__src__foundation___platform_web$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__plugin_platform_interface__plugin_platform_interface$46dart, packages__flutter__src__foundation__basic_types$46dart, packages__flutter__src__gestures__recognizer$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const typed_data = dart_sdk.typed_data;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const platform = packages__flutter__src__foundation___platform_web$46dart.src__foundation__platform;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const plugin_platform_interface = packages__plugin_platform_interface__plugin_platform_interface$46dart.plugin_platform_interface;
+  const basic_types = packages__flutter__src__foundation__basic_types$46dart.src__foundation__basic_types;
+  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
+  var method_channel_flutter_dropzone = Object.create(dart.library);
+  var flutter_dropzone_platform_interface = Object.create(dart.library);
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    StreamControllerOfDropzoneEvent: () => (T.StreamControllerOfDropzoneEvent = dart.constFn(async.StreamController$(flutter_dropzone_platform_interface.DropzoneEvent)))(),
+    DropzoneEventTobool: () => (T.DropzoneEventTobool = dart.constFn(dart.fnType(core.bool, [flutter_dropzone_platform_interface.DropzoneEvent])))(),
+    DragOperationL: () => (T.DragOperationL = dart.constFn(dart.legacy(flutter_dropzone_platform_interface.DragOperation)))(),
+    CursorTypeL: () => (T.CursorTypeL = dart.constFn(dart.legacy(flutter_dropzone_platform_interface.CursorType)))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 72,
+        [_Location_line]: 69,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2], T._LocationL());
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 69,
+        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_dropzone_platform_interface-2.0.0/lib/method_channel_flutter_dropzone.dart"
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.DragOperation.prototype,
+        [_name$]: "DragOperation.copy",
+        index: 0
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.DragOperation.prototype,
+        [_name$]: "DragOperation.move",
+        index: 1
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.DragOperation.prototype,
+        [_name$]: "DragOperation.link",
+        index: 2
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.DragOperation.prototype,
+        [_name$]: "DragOperation.copyMove",
+        index: 3
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.DragOperation.prototype,
+        [_name$]: "DragOperation.copyLink",
+        index: 4
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.DragOperation.prototype,
+        [_name$]: "DragOperation.linkMove",
+        index: 5
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.DragOperation.prototype,
+        [_name$]: "DragOperation.all",
+        index: 6
+      });
+    },
+    get C10() {
+      return C[10] = dart.constList([C[3] || CT.C3, C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9], T.DragOperationL());
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.alias",
+        index: 0
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.all_scroll",
+        index: 1
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.auto",
+        index: 2
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.cell",
+        index: 3
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.context_menu",
+        index: 4
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.col_resize",
+        index: 5
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.copy",
+        index: 6
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.crosshair",
+        index: 7
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.Default",
+        index: 8
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.e_resize",
+        index: 9
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.ew_resize",
+        index: 10
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.grab",
+        index: 11
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.grabbing",
+        index: 12
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.help",
+        index: 13
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.move",
+        index: 14
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.n_resize",
+        index: 15
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.ne_resize",
+        index: 16
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.nesw_resize",
+        index: 17
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.ns_resize",
+        index: 18
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.nw_resize",
+        index: 19
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.nwse_resize",
+        index: 20
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.no_drop",
+        index: 21
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.none",
+        index: 22
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.not_allowed",
+        index: 23
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.pointer",
+        index: 24
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.progress",
+        index: 25
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.row_resize",
+        index: 26
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.s_resize",
+        index: 27
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.se_resize",
+        index: 28
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.sw_resize",
+        index: 29
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.text",
+        index: 30
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.w_resize",
+        index: 31
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.wait",
+        index: 32
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.zoom_in",
+        index: 33
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: flutter_dropzone_platform_interface.CursorType.prototype,
+        [_name$]: "CursorType.zoom_out",
+        index: 34
+      });
+    },
+    get C46() {
+      return C[46] = dart.constList([C[11] || CT.C11, C[12] || CT.C12, C[13] || CT.C13, C[14] || CT.C14, C[15] || CT.C15, C[16] || CT.C16, C[17] || CT.C17, C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21, C[22] || CT.C22, C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25, C[26] || CT.C26, C[27] || CT.C27, C[28] || CT.C28, C[29] || CT.C29, C[30] || CT.C30, C[31] || CT.C31, C[32] || CT.C32, C[33] || CT.C33, C[34] || CT.C34, C[35] || CT.C35, C[36] || CT.C36, C[37] || CT.C37, C[38] || CT.C38, C[39] || CT.C39, C[40] || CT.C40, C[41] || CT.C41, C[42] || CT.C42, C[43] || CT.C43, C[44] || CT.C44, C[45] || CT.C45], T.CursorTypeL());
+    }
+  }, false);
+  var C = Array(47).fill(void 0);
+  var I = [
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_dropzone_platform_interface-2.0.0/lib/method_channel_flutter_dropzone.dart",
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_dropzone_platform_interface-2.0.0/lib/flutter_dropzone_platform_interface.dart",
+    "package:flutter_dropzone_platform_interface/flutter_dropzone_platform_interface.dart",
+    "package:flutter_dropzone_platform_interface/method_channel_flutter_dropzone.dart"
+  ];
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var events = dart.privateName(flutter_dropzone_platform_interface, "FlutterDropzonePlatform.events");
+  flutter_dropzone_platform_interface.FlutterDropzonePlatform = class FlutterDropzonePlatform extends plugin_platform_interface.PlatformInterface {
+    get events() {
+      return this[events];
+    }
+    set events(value) {
+      super.events = value;
+    }
+    static get instance() {
+      return flutter_dropzone_platform_interface.FlutterDropzonePlatform._instance;
+    }
+    static set instance(instance) {
+      if (instance == null) dart.nullFailed(I[1], 27, 47, "instance");
+      plugin_platform_interface.PlatformInterface.verifyToken(instance, flutter_dropzone_platform_interface.FlutterDropzonePlatform._token);
+      flutter_dropzone_platform_interface.FlutterDropzonePlatform._instance = instance;
+    }
+    init(params, opts) {
+      if (params == null) dart.nullFailed(I[1], 33, 34, "params");
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[1], 33, 56, "viewId");
+      dart.throw(new core.UnimplementedError.new("init"));
+    }
+    setOperation(operation, opts) {
+      if (operation == null) dart.nullFailed(I[1], 38, 43, "operation");
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[1], 38, 68, "viewId");
+      return async.async(core.bool, function* setOperation() {
+        dart.throw(new core.UnimplementedError.new("setOperation"));
+      });
+    }
+    setCursor(cursor, opts) {
+      if (cursor == null) dart.nullFailed(I[1], 43, 37, "cursor");
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[1], 43, 59, "viewId");
+      return async.async(core.bool, function* setCursor() {
+        dart.throw(new core.UnimplementedError.new("setCursor"));
+      });
+    }
+    setMIME(mime, opts) {
+      if (mime == null) dart.nullFailed(I[1], 48, 37, "mime");
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[1], 48, 57, "viewId");
+      return async.async(core.bool, function* setMIME() {
+        dart.throw(new core.UnimplementedError.new("setMIME"));
+      });
+    }
+    pickFiles(multiple, opts) {
+      if (multiple == null) dart.nullFailed(I[1], 56, 40, "multiple");
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[1], 56, 64, "viewId");
+      return async.async(core.List, function* pickFiles() {
+        dart.throw(new core.UnimplementedError.new("pickFiles"));
+      });
+    }
+    getFilename(htmlFile, opts) {
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[1], 61, 62, "viewId");
+      return async.async(core.String, function* getFilename() {
+        dart.throw(new core.UnimplementedError.new("getFilename"));
+      });
+    }
+    getFileSize(htmlFile, opts) {
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[1], 66, 59, "viewId");
+      return async.async(core.int, function* getFileSize() {
+        dart.throw(new core.UnimplementedError.new("getFileSize"));
+      });
+    }
+    getFileMIME(htmlFile, opts) {
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[1], 71, 62, "viewId");
+      return async.async(core.String, function* getFileMIME() {
+        dart.throw(new core.UnimplementedError.new("getFileMIME"));
+      });
+    }
+    createFileUrl(htmlFile, opts) {
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[1], 78, 64, "viewId");
+      return async.async(core.String, function* createFileUrl() {
+        dart.throw(new core.UnimplementedError.new("createFileUrl"));
+      });
+    }
+    releaseFileUrl(fileUrl, opts) {
+      if (fileUrl == null) dart.nullFailed(I[1], 83, 38, "fileUrl");
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[1], 83, 61, "viewId");
+      return async.async(core.bool, function* releaseFileUrl() {
+        dart.throw(new core.UnimplementedError.new("releaseFileUrl"));
+      });
+    }
+    getFileData(htmlFile, opts) {
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[1], 88, 65, "viewId");
+      return async.async(typed_data.Uint8List, function* getFileData() {
+        dart.throw(new core.UnimplementedError.new("getFileData"));
+      });
+    }
+    onLoaded(opts) {
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[1], 93, 54, "viewId");
+      return this.events.stream.where(dart.fn(event => {
+        if (event == null) dart.nullFailed(I[1], 95, 17, "event");
+        return event.viewId == viewId && flutter_dropzone_platform_interface.DropzoneLoadedEvent.is(event);
+      }, T.DropzoneEventTobool())).cast(flutter_dropzone_platform_interface.DropzoneLoadedEvent);
+    }
+    onError(opts) {
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[1], 100, 52, "viewId");
+      return this.events.stream.where(dart.fn(event => {
+        if (event == null) dart.nullFailed(I[1], 102, 17, "event");
+        return event.viewId == viewId && flutter_dropzone_platform_interface.DropzoneErrorEvent.is(event);
+      }, T.DropzoneEventTobool())).cast(flutter_dropzone_platform_interface.DropzoneErrorEvent);
+    }
+    onHover(opts) {
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[1], 107, 52, "viewId");
+      return this.events.stream.where(dart.fn(event => {
+        if (event == null) dart.nullFailed(I[1], 109, 17, "event");
+        return event.viewId == viewId && flutter_dropzone_platform_interface.DropzoneHoverEvent.is(event);
+      }, T.DropzoneEventTobool())).cast(flutter_dropzone_platform_interface.DropzoneHoverEvent);
+    }
+    onDrop(opts) {
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[1], 114, 50, "viewId");
+      return this.events.stream.where(dart.fn(event => {
+        if (event == null) dart.nullFailed(I[1], 116, 17, "event");
+        return event.viewId == viewId && flutter_dropzone_platform_interface.DropzoneDropEvent.is(event);
+      }, T.DropzoneEventTobool())).cast(flutter_dropzone_platform_interface.DropzoneDropEvent);
+    }
+    onLeave(opts) {
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[1], 121, 52, "viewId");
+      return this.events.stream.where(dart.fn(event => {
+        if (event == null) dart.nullFailed(I[1], 123, 17, "event");
+        return event.viewId == viewId && flutter_dropzone_platform_interface.DropzoneLeaveEvent.is(event);
+      }, T.DropzoneEventTobool())).cast(flutter_dropzone_platform_interface.DropzoneLeaveEvent);
+    }
+    buildView(creationParams, gestureRecognizers, onPlatformViewCreated) {
+      if (creationParams == null) dart.nullFailed(I[1], 128, 41, "creationParams");
+      if (onPlatformViewCreated == null) dart.nullFailed(I[1], 128, 149, "onPlatformViewCreated");
+      dart.throw(new core.UnimplementedError.new("buildView"));
+    }
+    dispose() {
+      this.events.close();
+    }
+  };
+  (flutter_dropzone_platform_interface.FlutterDropzonePlatform.new = function() {
+    this[events] = T.StreamControllerOfDropzoneEvent().broadcast();
+    flutter_dropzone_platform_interface.FlutterDropzonePlatform.__proto__.new.call(this, {token: flutter_dropzone_platform_interface.FlutterDropzonePlatform._token});
+    ;
+  }).prototype = flutter_dropzone_platform_interface.FlutterDropzonePlatform.prototype;
+  dart.addTypeTests(flutter_dropzone_platform_interface.FlutterDropzonePlatform);
+  dart.addTypeCaches(flutter_dropzone_platform_interface.FlutterDropzonePlatform);
+  dart.setMethodSignature(flutter_dropzone_platform_interface.FlutterDropzonePlatform, () => ({
+    __proto__: dart.getMethods(flutter_dropzone_platform_interface.FlutterDropzonePlatform.__proto__),
+    init: dart.fnType(dart.void, [core.Map$(core.String, dart.dynamic)], {}, {viewId: core.int}),
+    setOperation: dart.fnType(async.Future$(core.bool), [flutter_dropzone_platform_interface.DragOperation], {}, {viewId: core.int}),
+    setCursor: dart.fnType(async.Future$(core.bool), [flutter_dropzone_platform_interface.CursorType], {}, {viewId: core.int}),
+    setMIME: dart.fnType(async.Future$(core.bool), [core.List$(core.String)], {}, {viewId: core.int}),
+    pickFiles: dart.fnType(async.Future$(core.List), [core.bool], {}, {viewId: core.int}),
+    getFilename: dart.fnType(async.Future$(core.String), [dart.dynamic], {}, {viewId: core.int}),
+    getFileSize: dart.fnType(async.Future$(core.int), [dart.dynamic], {}, {viewId: core.int}),
+    getFileMIME: dart.fnType(async.Future$(core.String), [dart.dynamic], {}, {viewId: core.int}),
+    createFileUrl: dart.fnType(async.Future$(core.String), [dart.dynamic], {}, {viewId: core.int}),
+    releaseFileUrl: dart.fnType(async.Future$(core.bool), [core.String], {}, {viewId: core.int}),
+    getFileData: dart.fnType(async.Future$(typed_data.Uint8List), [dart.dynamic], {}, {viewId: core.int}),
+    onLoaded: dart.fnType(async.Stream$(flutter_dropzone_platform_interface.DropzoneLoadedEvent), [], {}, {viewId: core.int}),
+    onError: dart.fnType(async.Stream$(flutter_dropzone_platform_interface.DropzoneErrorEvent), [], {}, {viewId: core.int}),
+    onHover: dart.fnType(async.Stream$(flutter_dropzone_platform_interface.DropzoneHoverEvent), [], {}, {viewId: core.int}),
+    onDrop: dart.fnType(async.Stream$(flutter_dropzone_platform_interface.DropzoneDropEvent), [], {}, {viewId: core.int}),
+    onLeave: dart.fnType(async.Stream$(flutter_dropzone_platform_interface.DropzoneLeaveEvent), [], {}, {viewId: core.int}),
+    buildView: dart.fnType(framework.Widget, [core.Map$(core.String, dart.dynamic), dart.nullable(core.Set$(basic_types.Factory$(recognizer.OneSequenceGestureRecognizer))), dart.fnType(dart.void, [core.int])]),
+    dispose: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(flutter_dropzone_platform_interface.FlutterDropzonePlatform, I[2]);
+  dart.setFieldSignature(flutter_dropzone_platform_interface.FlutterDropzonePlatform, () => ({
+    __proto__: dart.getFields(flutter_dropzone_platform_interface.FlutterDropzonePlatform.__proto__),
+    events: dart.finalFieldType(async.StreamController$(flutter_dropzone_platform_interface.DropzoneEvent))
+  }));
+  dart.defineLazy(flutter_dropzone_platform_interface.FlutterDropzonePlatform, {
+    /*flutter_dropzone_platform_interface.FlutterDropzonePlatform._token*/get _token() {
+      return new core.Object.new();
+    },
+    /*flutter_dropzone_platform_interface.FlutterDropzonePlatform._instance*/get _instance() {
+      return new method_channel_flutter_dropzone.MethodChannelFlutterDropzone.new();
+    },
+    set _instance(_) {}
+  }, false);
+  method_channel_flutter_dropzone.MethodChannelFlutterDropzone = class MethodChannelFlutterDropzone extends flutter_dropzone_platform_interface.FlutterDropzonePlatform {
+    init(params, opts) {
+      if (params == null) dart.nullFailed(I[0], 13, 34, "params");
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[0], 13, 56, "viewId");
+      dart.throw(new core.UnsupportedError.new("DropzoneView: " + dart.str(platform.defaultTargetPlatform) + " is not supported"));
+    }
+    setOperation(operation, opts) {
+      if (operation == null) dart.nullFailed(I[0], 18, 43, "operation");
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[0], 18, 68, "viewId");
+      dart.throw(new core.UnsupportedError.new("DropzoneView: " + dart.str(platform.defaultTargetPlatform) + " is not supported"));
+    }
+    setCursor(cursor, opts) {
+      if (cursor == null) dart.nullFailed(I[0], 23, 37, "cursor");
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[0], 23, 59, "viewId");
+      dart.throw(new core.UnsupportedError.new("DropzoneView: " + dart.str(platform.defaultTargetPlatform) + " is not supported"));
+    }
+    setMIME(mime, opts) {
+      if (mime == null) dart.nullFailed(I[0], 28, 37, "mime");
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[0], 28, 57, "viewId");
+      dart.throw(new core.UnsupportedError.new("DropzoneView: " + dart.str(platform.defaultTargetPlatform) + " is not supported"));
+    }
+    pickFiles(multiple, opts) {
+      if (multiple == null) dart.nullFailed(I[0], 33, 40, "multiple");
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[0], 33, 64, "viewId");
+      dart.throw(new core.UnsupportedError.new("DropzoneView: " + dart.str(platform.defaultTargetPlatform) + " is not supported"));
+    }
+    getFilename(htmlFile, opts) {
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[0], 38, 62, "viewId");
+      return async.async(core.String, function* getFilename() {
+        dart.throw(new core.UnsupportedError.new("DropzoneView: " + dart.str(platform.defaultTargetPlatform) + " is not supported"));
+      });
+    }
+    getFileSize(htmlFile, opts) {
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[0], 43, 59, "viewId");
+      return async.async(core.int, function* getFileSize() {
+        dart.throw(new core.UnsupportedError.new("DropzoneView: " + dart.str(platform.defaultTargetPlatform) + " is not supported"));
+      });
+    }
+    getFileMIME(htmlFile, opts) {
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[0], 48, 62, "viewId");
+      return async.async(core.String, function* getFileMIME() {
+        dart.throw(new core.UnsupportedError.new("DropzoneView: " + dart.str(platform.defaultTargetPlatform) + " is not supported"));
+      });
+    }
+    createFileUrl(htmlFile, opts) {
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[0], 53, 64, "viewId");
+      return async.async(core.String, function* createFileUrl() {
+        dart.throw(new core.UnsupportedError.new("DropzoneView: " + dart.str(platform.defaultTargetPlatform) + " is not supported"));
+      });
+    }
+    releaseFileUrl(fileUrl, opts) {
+      if (fileUrl == null) dart.nullFailed(I[0], 58, 38, "fileUrl");
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[0], 58, 61, "viewId");
+      return async.async(core.bool, function* releaseFileUrl() {
+        dart.throw(new core.UnsupportedError.new("DropzoneView: " + dart.str(platform.defaultTargetPlatform) + " is not supported"));
+      });
+    }
+    getFileData(htmlFile, opts) {
+      let viewId = opts && 'viewId' in opts ? opts.viewId : null;
+      if (viewId == null) dart.nullFailed(I[0], 63, 65, "viewId");
+      return async.async(typed_data.Uint8List, function* getFileData() {
+        dart.throw(new core.UnsupportedError.new("DropzoneView: " + dart.str(platform.defaultTargetPlatform) + " is not supported"));
+      });
+    }
+    buildView(creationParams, gestureRecognizers, onPlatformViewCreated) {
+      if (creationParams == null) dart.nullFailed(I[0], 68, 41, "creationParams");
+      if (onPlatformViewCreated == null) dart.nullFailed(I[0], 68, 149, "onPlatformViewCreated");
+      return new text.Text.new("DropzoneView: " + dart.str(platform.defaultTargetPlatform) + " is not supported", {$creationLocationd_0dea112b090073317d4: C[0] || CT.C0});
+    }
+  };
+  (method_channel_flutter_dropzone.MethodChannelFlutterDropzone.new = function() {
+    method_channel_flutter_dropzone.MethodChannelFlutterDropzone.__proto__.new.call(this);
+    ;
+  }).prototype = method_channel_flutter_dropzone.MethodChannelFlutterDropzone.prototype;
+  dart.addTypeTests(method_channel_flutter_dropzone.MethodChannelFlutterDropzone);
+  dart.addTypeCaches(method_channel_flutter_dropzone.MethodChannelFlutterDropzone);
+  dart.setLibraryUri(method_channel_flutter_dropzone.MethodChannelFlutterDropzone, I[3]);
+  var _name$ = dart.privateName(flutter_dropzone_platform_interface, "_name");
+  flutter_dropzone_platform_interface.DragOperation = class DragOperation extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (flutter_dropzone_platform_interface.DragOperation.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[1], 12, 6, "index");
+    if (_name == null) dart.nullFailed(I[1], 12, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = flutter_dropzone_platform_interface.DragOperation.prototype;
+  dart.addTypeTests(flutter_dropzone_platform_interface.DragOperation);
+  dart.addTypeCaches(flutter_dropzone_platform_interface.DragOperation);
+  dart.setLibraryUri(flutter_dropzone_platform_interface.DragOperation, I[2]);
+  dart.setFieldSignature(flutter_dropzone_platform_interface.DragOperation, () => ({
+    __proto__: dart.getFields(flutter_dropzone_platform_interface.DragOperation.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(flutter_dropzone_platform_interface.DragOperation, ['toString']);
+  flutter_dropzone_platform_interface.DragOperation.copy = C[3] || CT.C3;
+  flutter_dropzone_platform_interface.DragOperation.move = C[4] || CT.C4;
+  flutter_dropzone_platform_interface.DragOperation.link = C[5] || CT.C5;
+  flutter_dropzone_platform_interface.DragOperation.copyMove = C[6] || CT.C6;
+  flutter_dropzone_platform_interface.DragOperation.copyLink = C[7] || CT.C7;
+  flutter_dropzone_platform_interface.DragOperation.linkMove = C[8] || CT.C8;
+  flutter_dropzone_platform_interface.DragOperation.all = C[9] || CT.C9;
+  flutter_dropzone_platform_interface.DragOperation.values = C[10] || CT.C10;
+  flutter_dropzone_platform_interface.CursorType = class CursorType extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (flutter_dropzone_platform_interface.CursorType.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[1], 13, 6, "index");
+    if (_name == null) dart.nullFailed(I[1], 13, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = flutter_dropzone_platform_interface.CursorType.prototype;
+  dart.addTypeTests(flutter_dropzone_platform_interface.CursorType);
+  dart.addTypeCaches(flutter_dropzone_platform_interface.CursorType);
+  dart.setLibraryUri(flutter_dropzone_platform_interface.CursorType, I[2]);
+  dart.setFieldSignature(flutter_dropzone_platform_interface.CursorType, () => ({
+    __proto__: dart.getFields(flutter_dropzone_platform_interface.CursorType.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(flutter_dropzone_platform_interface.CursorType, ['toString']);
+  flutter_dropzone_platform_interface.CursorType.alias = C[11] || CT.C11;
+  flutter_dropzone_platform_interface.CursorType.all_scroll = C[12] || CT.C12;
+  flutter_dropzone_platform_interface.CursorType.auto = C[13] || CT.C13;
+  flutter_dropzone_platform_interface.CursorType.cell = C[14] || CT.C14;
+  flutter_dropzone_platform_interface.CursorType.context_menu = C[15] || CT.C15;
+  flutter_dropzone_platform_interface.CursorType.col_resize = C[16] || CT.C16;
+  flutter_dropzone_platform_interface.CursorType.copy = C[17] || CT.C17;
+  flutter_dropzone_platform_interface.CursorType.crosshair = C[18] || CT.C18;
+  flutter_dropzone_platform_interface.CursorType.Default = C[19] || CT.C19;
+  flutter_dropzone_platform_interface.CursorType.e_resize = C[20] || CT.C20;
+  flutter_dropzone_platform_interface.CursorType.ew_resize = C[21] || CT.C21;
+  flutter_dropzone_platform_interface.CursorType.grab = C[22] || CT.C22;
+  flutter_dropzone_platform_interface.CursorType.grabbing = C[23] || CT.C23;
+  flutter_dropzone_platform_interface.CursorType.help = C[24] || CT.C24;
+  flutter_dropzone_platform_interface.CursorType.move = C[25] || CT.C25;
+  flutter_dropzone_platform_interface.CursorType.n_resize = C[26] || CT.C26;
+  flutter_dropzone_platform_interface.CursorType.ne_resize = C[27] || CT.C27;
+  flutter_dropzone_platform_interface.CursorType.nesw_resize = C[28] || CT.C28;
+  flutter_dropzone_platform_interface.CursorType.ns_resize = C[29] || CT.C29;
+  flutter_dropzone_platform_interface.CursorType.nw_resize = C[30] || CT.C30;
+  flutter_dropzone_platform_interface.CursorType.nwse_resize = C[31] || CT.C31;
+  flutter_dropzone_platform_interface.CursorType.no_drop = C[32] || CT.C32;
+  flutter_dropzone_platform_interface.CursorType.none = C[33] || CT.C33;
+  flutter_dropzone_platform_interface.CursorType.not_allowed = C[34] || CT.C34;
+  flutter_dropzone_platform_interface.CursorType.pointer = C[35] || CT.C35;
+  flutter_dropzone_platform_interface.CursorType.progress = C[36] || CT.C36;
+  flutter_dropzone_platform_interface.CursorType.row_resize = C[37] || CT.C37;
+  flutter_dropzone_platform_interface.CursorType.s_resize = C[38] || CT.C38;
+  flutter_dropzone_platform_interface.CursorType.se_resize = C[39] || CT.C39;
+  flutter_dropzone_platform_interface.CursorType.sw_resize = C[40] || CT.C40;
+  flutter_dropzone_platform_interface.CursorType.text = C[41] || CT.C41;
+  flutter_dropzone_platform_interface.CursorType.w_resize = C[42] || CT.C42;
+  flutter_dropzone_platform_interface.CursorType.wait = C[43] || CT.C43;
+  flutter_dropzone_platform_interface.CursorType.zoom_in = C[44] || CT.C44;
+  flutter_dropzone_platform_interface.CursorType.zoom_out = C[45] || CT.C45;
+  flutter_dropzone_platform_interface.CursorType.values = C[46] || CT.C46;
+  var viewId$ = dart.privateName(flutter_dropzone_platform_interface, "DropzoneEvent.viewId");
+  var value$ = dart.privateName(flutter_dropzone_platform_interface, "DropzoneEvent.value");
+  const _is_DropzoneEvent_default = Symbol('_is_DropzoneEvent_default');
+  flutter_dropzone_platform_interface.DropzoneEvent$ = dart.generic(T => {
+    class DropzoneEvent extends core.Object {
+      get viewId() {
+        return this[viewId$];
+      }
+      set viewId(value) {
+        super.viewId = value;
+      }
+      get value() {
+        return this[value$];
+      }
+      set value(value) {
+        super.value = value;
+      }
+    }
+    (DropzoneEvent.new = function(viewId, value = null) {
+      if (viewId == null) dart.nullFailed(I[1], 141, 22, "viewId");
+      this[viewId$] = viewId;
+      this[value$] = value;
+      ;
+    }).prototype = DropzoneEvent.prototype;
+    dart.addTypeTests(DropzoneEvent);
+    DropzoneEvent.prototype[_is_DropzoneEvent_default] = true;
+    dart.addTypeCaches(DropzoneEvent);
+    dart.setLibraryUri(DropzoneEvent, I[2]);
+    dart.setFieldSignature(DropzoneEvent, () => ({
+      __proto__: dart.getFields(DropzoneEvent.__proto__),
+      viewId: dart.finalFieldType(core.int),
+      value: dart.finalFieldType(dart.nullable(T))
+    }));
+    return DropzoneEvent;
+  });
+  flutter_dropzone_platform_interface.DropzoneEvent = flutter_dropzone_platform_interface.DropzoneEvent$();
+  dart.addTypeTests(flutter_dropzone_platform_interface.DropzoneEvent, _is_DropzoneEvent_default);
+  flutter_dropzone_platform_interface.DropzoneLoadedEvent = class DropzoneLoadedEvent extends flutter_dropzone_platform_interface.DropzoneEvent {};
+  (flutter_dropzone_platform_interface.DropzoneLoadedEvent.new = function(viewId) {
+    if (viewId == null) dart.nullFailed(I[1], 146, 27, "viewId");
+    flutter_dropzone_platform_interface.DropzoneLoadedEvent.__proto__.new.call(this, viewId, null);
+    ;
+  }).prototype = flutter_dropzone_platform_interface.DropzoneLoadedEvent.prototype;
+  dart.addTypeTests(flutter_dropzone_platform_interface.DropzoneLoadedEvent);
+  dart.addTypeCaches(flutter_dropzone_platform_interface.DropzoneLoadedEvent);
+  dart.setLibraryUri(flutter_dropzone_platform_interface.DropzoneLoadedEvent, I[2]);
+  flutter_dropzone_platform_interface.DropzoneErrorEvent = class DropzoneErrorEvent extends flutter_dropzone_platform_interface.DropzoneEvent$(core.String) {};
+  (flutter_dropzone_platform_interface.DropzoneErrorEvent.new = function(viewId, error) {
+    if (viewId == null) dart.nullFailed(I[1], 151, 26, "viewId");
+    if (error == null) dart.nullFailed(I[1], 151, 41, "error");
+    flutter_dropzone_platform_interface.DropzoneErrorEvent.__proto__.new.call(this, viewId, error);
+    ;
+  }).prototype = flutter_dropzone_platform_interface.DropzoneErrorEvent.prototype;
+  dart.addTypeTests(flutter_dropzone_platform_interface.DropzoneErrorEvent);
+  dart.addTypeCaches(flutter_dropzone_platform_interface.DropzoneErrorEvent);
+  dart.setLibraryUri(flutter_dropzone_platform_interface.DropzoneErrorEvent, I[2]);
+  flutter_dropzone_platform_interface.DropzoneHoverEvent = class DropzoneHoverEvent extends flutter_dropzone_platform_interface.DropzoneEvent {};
+  (flutter_dropzone_platform_interface.DropzoneHoverEvent.new = function(viewId) {
+    if (viewId == null) dart.nullFailed(I[1], 156, 26, "viewId");
+    flutter_dropzone_platform_interface.DropzoneHoverEvent.__proto__.new.call(this, viewId, null);
+    ;
+  }).prototype = flutter_dropzone_platform_interface.DropzoneHoverEvent.prototype;
+  dart.addTypeTests(flutter_dropzone_platform_interface.DropzoneHoverEvent);
+  dart.addTypeCaches(flutter_dropzone_platform_interface.DropzoneHoverEvent);
+  dart.setLibraryUri(flutter_dropzone_platform_interface.DropzoneHoverEvent, I[2]);
+  flutter_dropzone_platform_interface.DropzoneDropEvent = class DropzoneDropEvent extends flutter_dropzone_platform_interface.DropzoneEvent {};
+  (flutter_dropzone_platform_interface.DropzoneDropEvent.new = function(viewId, file) {
+    if (viewId == null) dart.nullFailed(I[1], 161, 25, "viewId");
+    flutter_dropzone_platform_interface.DropzoneDropEvent.__proto__.new.call(this, viewId, file);
+    ;
+  }).prototype = flutter_dropzone_platform_interface.DropzoneDropEvent.prototype;
+  dart.addTypeTests(flutter_dropzone_platform_interface.DropzoneDropEvent);
+  dart.addTypeCaches(flutter_dropzone_platform_interface.DropzoneDropEvent);
+  dart.setLibraryUri(flutter_dropzone_platform_interface.DropzoneDropEvent, I[2]);
+  flutter_dropzone_platform_interface.DropzoneLeaveEvent = class DropzoneLeaveEvent extends flutter_dropzone_platform_interface.DropzoneEvent {};
+  (flutter_dropzone_platform_interface.DropzoneLeaveEvent.new = function(viewId) {
+    if (viewId == null) dart.nullFailed(I[1], 166, 26, "viewId");
+    flutter_dropzone_platform_interface.DropzoneLeaveEvent.__proto__.new.call(this, viewId, null);
+    ;
+  }).prototype = flutter_dropzone_platform_interface.DropzoneLeaveEvent.prototype;
+  dart.addTypeTests(flutter_dropzone_platform_interface.DropzoneLeaveEvent);
+  dart.addTypeCaches(flutter_dropzone_platform_interface.DropzoneLeaveEvent);
+  dart.setLibraryUri(flutter_dropzone_platform_interface.DropzoneLeaveEvent, I[2]);
+  dart.trackLibraries("packages/flutter_dropzone_platform_interface/method_channel_flutter_dropzone.dart", {
+    "package:flutter_dropzone_platform_interface/method_channel_flutter_dropzone.dart": method_channel_flutter_dropzone,
+    "package:flutter_dropzone_platform_interface/flutter_dropzone_platform_interface.dart": flutter_dropzone_platform_interface
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["flutter_dropzone_platform_interface.dart","method_channel_flutter_dropzone.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/flutter_dropzone_platform_interface/method_channel_flutter_dropzone.dart.lib.js"}');
+  // Exports:
+  return {
+    method_channel_flutter_dropzone: method_channel_flutter_dropzone,
+    flutter_dropzone_platform_interface: flutter_dropzone_platform_interface
+  };
+}));
+
+//# sourceMappingURL=method_channel_flutter_dropzone.dart.lib.js.map

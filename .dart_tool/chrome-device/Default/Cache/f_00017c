@@ -1,0 +1,847 @@
+define(['dart_sdk'], (function load__packages__flutter_inappwebview__src__util_dart(dart_sdk) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _native_typed_data = dart_sdk._native_typed_data;
+  const math = dart_sdk.math;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const _js_helper = dart_sdk._js_helper;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  var util = Object.create(dart.library);
+  var $_set = dartx._set;
+  var $shuffle = dartx.shuffle;
+  var $toString = dartx.toString;
+  var $map = dartx.map;
+  var $join = dartx.join;
+  var $startsWith = dartx.startsWith;
+  var $trim = dartx.trim;
+  var $times = dartx['*'];
+  var $_get = dartx._get;
+  var $replaceFirst = dartx.replaceFirst;
+  var $substring = dartx.substring;
+  var $split = dartx.split;
+  var $toList = dartx.toList;
+  var $round = dartx.round;
+  var $toRadixString = dartx.toRadixString;
+  var $padLeft = dartx.padLeft;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    intToString: () => (T.intToString = dart.constFn(dart.fnType(core.String, [core.int])))(),
+    StringToint: () => (T.StringToint = dart.constFn(dart.fnType(core.int, [core.String])))(),
+    StringToString: () => (T.StringToString = dart.constFn(dart.fnType(core.String, [core.String])))(),
+    StringTodouble: () => (T.StringTodouble = dart.constFn(dart.fnType(core.double, [core.String])))(),
+    JSArrayOfint: () => (T.JSArrayOfint = dart.constFn(_interceptors.JSArray$(core.int)))(),
+    __ToString: () => (T.__ToString = dart.constFn(dart.fnType(core.String, [], {leadingHashSign: core.bool}, {})))(),
+    MapOfString$double: () => (T.MapOfString$double = dart.constFn(core.Map$(core.String, core.double)))(),
+    VoidToMapOfString$double: () => (T.VoidToMapOfString$double = dart.constFn(dart.fnType(T.MapOfString$double(), [])))(),
+    IdentityMapOfString$double: () => (T.IdentityMapOfString$double = dart.constFn(_js_helper.IdentityMap$(core.String, core.double)))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var C = [];
+  var I = [
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inappwebview-5.3.2/lib/src/util.dart",
+    "package:flutter_inappwebview/src/util.dart"
+  ];
+  util.IdGenerator = class IdGenerator extends core.Object {
+    static mathRNG(opts) {
+      let seed = opts && 'seed' in opts ? opts.seed : -1;
+      if (seed == null) dart.nullFailed(I[0], 10, 33, "seed");
+      let b = _native_typed_data.NativeUint8List.new(16);
+      let rand = seed === -1 ? math.Random.new() : math.Random.new(seed);
+      for (let i = 0; i < 16; i = i + 1) {
+        b[$_set](i, rand.nextInt(256));
+      }
+      seed === -1 ? b[$shuffle]() : b[$shuffle](math.Random.new(seed));
+      return b;
+    }
+    static cryptoRNG() {
+      let b = _native_typed_data.NativeUint8List.new(16);
+      let rand = math.Random.secure();
+      for (let i = 0; i < 16; i = i + 1) {
+        b[$_set](i, rand.nextInt(256));
+      }
+      return b;
+    }
+    static generate() {
+      util.IdGenerator._count = dart.notNull(util.IdGenerator._count) + 1;
+      return dart.toString(util.IdGenerator._count) + dart.notNull(util.IdGenerator.cryptoRNG()[$map](core.String, dart.fn(e => {
+        if (e == null) dart.nullFailed(I[0], 36, 49, "e");
+        return dart.toString(e);
+      }, T.intToString()))[$join](""));
+    }
+  };
+  (util.IdGenerator.new = function() {
+    ;
+  }).prototype = util.IdGenerator.prototype;
+  dart.addTypeTests(util.IdGenerator);
+  dart.addTypeCaches(util.IdGenerator);
+  dart.setLibraryUri(util.IdGenerator, I[1]);
+  dart.defineLazy(util.IdGenerator, {
+    /*util.IdGenerator._count*/get _count() {
+      return 0;
+    },
+    set _count(_) {}
+  }, false);
+  util['UtilColor|fromStringRepresentation'] = function UtilColor$124fromStringRepresentation(colorValue) {
+    if (colorValue == null) dart.nullFailed(I[0], 41, 49, "colorValue");
+    if (colorValue[$startsWith]("#")) {
+      return util['UtilColor|fromHex'](colorValue);
+    } else if (colorValue[$startsWith]("rgb(")) {
+      return util['UtilColor|fromRgbString'](colorValue);
+    } else if (colorValue[$startsWith]("rgba(")) {
+      return util['UtilColor|fromRgbaString'](colorValue);
+    } else if (colorValue[$startsWith]("hls(")) {
+      return util['UtilColor|fromHlsString'](colorValue);
+    } else if (colorValue[$startsWith]("hlsa(")) {
+      return util['UtilColor|fromHlsaString'](colorValue);
+    } else {
+      switch (colorValue) {
+        case "aliceblue":
+        {
+          return util['UtilColor|fromHex']("#f0f8ff");
+        }
+        case "antiquewhite":
+        {
+          return util['UtilColor|fromHex']("#faebd7");
+        }
+        case "aqua":
+        {
+          return util['UtilColor|fromHex']("#00ffff");
+        }
+        case "aquamarine":
+        {
+          return util['UtilColor|fromHex']("#7fffd4");
+        }
+        case "azure":
+        {
+          return util['UtilColor|fromHex']("#f0ffff");
+        }
+        case "beige":
+        {
+          return util['UtilColor|fromHex']("#f5f5dc");
+        }
+        case "bisque":
+        {
+          return util['UtilColor|fromHex']("#ffe4c4");
+        }
+        case "black":
+        {
+          return util['UtilColor|fromHex']("#000000");
+        }
+        case "blanchedalmond":
+        {
+          return util['UtilColor|fromHex']("#ffebcd");
+        }
+        case "blue":
+        {
+          return util['UtilColor|fromHex']("#0000ff");
+        }
+        case "blueviolet":
+        {
+          return util['UtilColor|fromHex']("#8a2be2");
+        }
+        case "brown":
+        {
+          return util['UtilColor|fromHex']("#a52a2a");
+        }
+        case "burlywood":
+        {
+          return util['UtilColor|fromHex']("#deb887");
+        }
+        case "cadetblue":
+        {
+          return util['UtilColor|fromHex']("#5f9ea0");
+        }
+        case "chartreuse":
+        {
+          return util['UtilColor|fromHex']("#7fff00");
+        }
+        case "chocolate":
+        {
+          return util['UtilColor|fromHex']("#d2691e");
+        }
+        case "coral":
+        {
+          return util['UtilColor|fromHex']("#ff7f50");
+        }
+        case "cornflowerblue":
+        {
+          return util['UtilColor|fromHex']("#6495ed");
+        }
+        case "cornsilk":
+        {
+          return util['UtilColor|fromHex']("#fff8dc");
+        }
+        case "crimson":
+        {
+          return util['UtilColor|fromHex']("#dc143c");
+        }
+        case "cyan":
+        {
+          return util['UtilColor|fromHex']("#00ffff");
+        }
+        case "darkblue":
+        {
+          return util['UtilColor|fromHex']("#00008b");
+        }
+        case "darkcyan":
+        {
+          return util['UtilColor|fromHex']("#008b8b");
+        }
+        case "darkgoldenrod":
+        {
+          return util['UtilColor|fromHex']("#b8860b");
+        }
+        case "darkgray":
+        {
+          return util['UtilColor|fromHex']("#a9a9a9");
+        }
+        case "darkgreen":
+        {
+          return util['UtilColor|fromHex']("#006400");
+        }
+        case "darkgrey":
+        {
+          return util['UtilColor|fromHex']("#a9a9a9");
+        }
+        case "darkkhaki":
+        {
+          return util['UtilColor|fromHex']("#bdb76b");
+        }
+        case "darkmagenta":
+        {
+          return util['UtilColor|fromHex']("#8b008b");
+        }
+        case "darkolivegreen":
+        {
+          return util['UtilColor|fromHex']("#556b2f");
+        }
+        case "darkorange":
+        {
+          return util['UtilColor|fromHex']("#ff8c00");
+        }
+        case "darkorchid":
+        {
+          return util['UtilColor|fromHex']("#9932cc");
+        }
+        case "darkred":
+        {
+          return util['UtilColor|fromHex']("#8b0000");
+        }
+        case "darksalmon":
+        {
+          return util['UtilColor|fromHex']("#e9967a");
+        }
+        case "darkseagreen":
+        {
+          return util['UtilColor|fromHex']("#8fbc8f");
+        }
+        case "darkslateblue":
+        {
+          return util['UtilColor|fromHex']("#483d8b");
+        }
+        case "darkslategray":
+        {
+          return util['UtilColor|fromHex']("#2f4f4f");
+        }
+        case "darkslategrey":
+        {
+          return util['UtilColor|fromHex']("#2f4f4f");
+        }
+        case "darkturquoise":
+        {
+          return util['UtilColor|fromHex']("#00ced1");
+        }
+        case "darkviolet":
+        {
+          return util['UtilColor|fromHex']("#9400d3");
+        }
+        case "deeppink":
+        {
+          return util['UtilColor|fromHex']("#ff1493");
+        }
+        case "deepskyblue":
+        {
+          return util['UtilColor|fromHex']("#00bfff");
+        }
+        case "dimgray":
+        {
+          return util['UtilColor|fromHex']("#696969");
+        }
+        case "dimgrey":
+        {
+          return util['UtilColor|fromHex']("#696969");
+        }
+        case "dodgerblue":
+        {
+          return util['UtilColor|fromHex']("#1e90ff");
+        }
+        case "firebrick":
+        {
+          return util['UtilColor|fromHex']("#b22222");
+        }
+        case "floralwhite":
+        {
+          return util['UtilColor|fromHex']("#fffaf0");
+        }
+        case "forestgreen":
+        {
+          return util['UtilColor|fromHex']("#228b22");
+        }
+        case "fuchsia":
+        {
+          return util['UtilColor|fromHex']("#ff00ff");
+        }
+        case "gainsboro":
+        {
+          return util['UtilColor|fromHex']("#dcdcdc");
+        }
+        case "ghostwhite":
+        {
+          return util['UtilColor|fromHex']("#f8f8ff");
+        }
+        case "gold":
+        {
+          return util['UtilColor|fromHex']("#ffd700");
+        }
+        case "goldenrod":
+        {
+          return util['UtilColor|fromHex']("#daa520");
+        }
+        case "gray":
+        {
+          return util['UtilColor|fromHex']("#808080");
+        }
+        case "green":
+        {
+          return util['UtilColor|fromHex']("#008000");
+        }
+        case "greenyellow":
+        {
+          return util['UtilColor|fromHex']("#adff2f");
+        }
+        case "grey":
+        {
+          return util['UtilColor|fromHex']("#808080");
+        }
+        case "honeydew":
+        {
+          return util['UtilColor|fromHex']("#f0fff0");
+        }
+        case "hotpink":
+        {
+          return util['UtilColor|fromHex']("#ff69b4");
+        }
+        case "indianred":
+        {
+          return util['UtilColor|fromHex']("#cd5c5c");
+        }
+        case "indigo":
+        {
+          return util['UtilColor|fromHex']("#4b0082");
+        }
+        case "ivory":
+        {
+          return util['UtilColor|fromHex']("#fffff0");
+        }
+        case "khaki":
+        {
+          return util['UtilColor|fromHex']("#f0e68c");
+        }
+        case "lavender":
+        {
+          return util['UtilColor|fromHex']("#e6e6fa");
+        }
+        case "lavenderblush":
+        {
+          return util['UtilColor|fromHex']("#fff0f5");
+        }
+        case "lawngreen":
+        {
+          return util['UtilColor|fromHex']("#7cfc00");
+        }
+        case "lemonchiffon":
+        {
+          return util['UtilColor|fromHex']("#fffacd");
+        }
+        case "lightblue":
+        {
+          return util['UtilColor|fromHex']("#add8e6");
+        }
+        case "lightcoral":
+        {
+          return util['UtilColor|fromHex']("#f08080");
+        }
+        case "lightcyan":
+        {
+          return util['UtilColor|fromHex']("#e0ffff");
+        }
+        case "lightgoldenrodyellow":
+        {
+          return util['UtilColor|fromHex']("#fafad2");
+        }
+        case "lightgray":
+        {
+          return util['UtilColor|fromHex']("#d3d3d3");
+        }
+        case "lightgreen":
+        {
+          return util['UtilColor|fromHex']("#90ee90");
+        }
+        case "lightgrey":
+        {
+          return util['UtilColor|fromHex']("#d3d3d3");
+        }
+        case "lightpink":
+        {
+          return util['UtilColor|fromHex']("#ffb6c1");
+        }
+        case "lightsalmon":
+        {
+          return util['UtilColor|fromHex']("#ffa07a");
+        }
+        case "lightseagreen":
+        {
+          return util['UtilColor|fromHex']("#20b2aa");
+        }
+        case "lightskyblue":
+        {
+          return util['UtilColor|fromHex']("#87cefa");
+        }
+        case "lightslategray":
+        {
+          return util['UtilColor|fromHex']("#778899");
+        }
+        case "lightslategrey":
+        {
+          return util['UtilColor|fromHex']("#778899");
+        }
+        case "lightsteelblue":
+        {
+          return util['UtilColor|fromHex']("#b0c4de");
+        }
+        case "lightyellow":
+        {
+          return util['UtilColor|fromHex']("#ffffe0");
+        }
+        case "lime":
+        {
+          return util['UtilColor|fromHex']("#00ff00");
+        }
+        case "limegreen":
+        {
+          return util['UtilColor|fromHex']("#32cd32");
+        }
+        case "linen":
+        {
+          return util['UtilColor|fromHex']("#faf0e6");
+        }
+        case "magenta":
+        {
+          return util['UtilColor|fromHex']("#ff00ff");
+        }
+        case "maroon":
+        {
+          return util['UtilColor|fromHex']("#800000");
+        }
+        case "mediumaquamarine":
+        {
+          return util['UtilColor|fromHex']("#66cdaa");
+        }
+        case "mediumblue":
+        {
+          return util['UtilColor|fromHex']("#0000cd");
+        }
+        case "mediumorchid":
+        {
+          return util['UtilColor|fromHex']("#ba55d3");
+        }
+        case "mediumpurple":
+        {
+          return util['UtilColor|fromHex']("#9370db");
+        }
+        case "mediumseagreen":
+        {
+          return util['UtilColor|fromHex']("#3cb371");
+        }
+        case "mediumslateblue":
+        {
+          return util['UtilColor|fromHex']("#7b68ee");
+        }
+        case "mediumspringgreen":
+        {
+          return util['UtilColor|fromHex']("#00fa9a");
+        }
+        case "mediumturquoise":
+        {
+          return util['UtilColor|fromHex']("#48d1cc");
+        }
+        case "mediumvioletred":
+        {
+          return util['UtilColor|fromHex']("#c71585");
+        }
+        case "midnightblue":
+        {
+          return util['UtilColor|fromHex']("#191970");
+        }
+        case "mintcream":
+        {
+          return util['UtilColor|fromHex']("#f5fffa");
+        }
+        case "mistyrose":
+        {
+          return util['UtilColor|fromHex']("#ffe4e1");
+        }
+        case "moccasin":
+        {
+          return util['UtilColor|fromHex']("#ffe4b5");
+        }
+        case "navajowhite":
+        {
+          return util['UtilColor|fromHex']("#ffdead");
+        }
+        case "navy":
+        {
+          return util['UtilColor|fromHex']("#000080");
+        }
+        case "oldlace":
+        {
+          return util['UtilColor|fromHex']("#fdf5e6");
+        }
+        case "olive":
+        {
+          return util['UtilColor|fromHex']("#808000");
+        }
+        case "olivedrab":
+        {
+          return util['UtilColor|fromHex']("#6b8e23");
+        }
+        case "orange":
+        {
+          return util['UtilColor|fromHex']("#ffa500");
+        }
+        case "orangered":
+        {
+          return util['UtilColor|fromHex']("#ff4500");
+        }
+        case "orchid":
+        {
+          return util['UtilColor|fromHex']("#da70d6");
+        }
+        case "palegoldenrod":
+        {
+          return util['UtilColor|fromHex']("#eee8aa");
+        }
+        case "palegreen":
+        {
+          return util['UtilColor|fromHex']("#98fb98");
+        }
+        case "paleturquoise":
+        {
+          return util['UtilColor|fromHex']("#afeeee");
+        }
+        case "palevioletred":
+        {
+          return util['UtilColor|fromHex']("#db7093");
+        }
+        case "papayawhip":
+        {
+          return util['UtilColor|fromHex']("#ffefd5");
+        }
+        case "peachpuff":
+        {
+          return util['UtilColor|fromHex']("#ffdab9");
+        }
+        case "peru":
+        {
+          return util['UtilColor|fromHex']("#cd853f");
+        }
+        case "pink":
+        {
+          return util['UtilColor|fromHex']("#ffc0cb");
+        }
+        case "plum":
+        {
+          return util['UtilColor|fromHex']("#dda0dd");
+        }
+        case "powderblue":
+        {
+          return util['UtilColor|fromHex']("#b0e0e6");
+        }
+        case "purple":
+        {
+          return util['UtilColor|fromHex']("#800080");
+        }
+        case "rebeccapurple":
+        {
+          return util['UtilColor|fromHex']("#663399");
+        }
+        case "red":
+        {
+          return util['UtilColor|fromHex']("#ff0000");
+        }
+        case "rosybrown":
+        {
+          return util['UtilColor|fromHex']("#bc8f8f");
+        }
+        case "royalblue":
+        {
+          return util['UtilColor|fromHex']("#4169e1");
+        }
+        case "saddlebrown":
+        {
+          return util['UtilColor|fromHex']("#8b4513");
+        }
+        case "salmon":
+        {
+          return util['UtilColor|fromHex']("#fa8072");
+        }
+        case "sandybrown":
+        {
+          return util['UtilColor|fromHex']("#f4a460");
+        }
+        case "seagreen":
+        {
+          return util['UtilColor|fromHex']("#2e8b57");
+        }
+        case "seashell":
+        {
+          return util['UtilColor|fromHex']("#fff5ee");
+        }
+        case "sienna":
+        {
+          return util['UtilColor|fromHex']("#a0522d");
+        }
+        case "silver":
+        {
+          return util['UtilColor|fromHex']("#c0c0c0");
+        }
+        case "skyblue":
+        {
+          return util['UtilColor|fromHex']("#87ceeb");
+        }
+        case "slateblue":
+        {
+          return util['UtilColor|fromHex']("#6a5acd");
+        }
+        case "slategray":
+        {
+          return util['UtilColor|fromHex']("#708090");
+        }
+        case "slategrey":
+        {
+          return util['UtilColor|fromHex']("#708090");
+        }
+        case "snow":
+        {
+          return util['UtilColor|fromHex']("#fffafa");
+        }
+        case "springgreen":
+        {
+          return util['UtilColor|fromHex']("#00ff7f");
+        }
+        case "steelblue":
+        {
+          return util['UtilColor|fromHex']("#4682b4");
+        }
+        case "tan":
+        {
+          return util['UtilColor|fromHex']("#d2b48c");
+        }
+        case "teal":
+        {
+          return util['UtilColor|fromHex']("#008080");
+        }
+        case "thistle":
+        {
+          return util['UtilColor|fromHex']("#d8bfd8");
+        }
+        case "tomato":
+        {
+          return util['UtilColor|fromHex']("#ff6347");
+        }
+        case "turquoise":
+        {
+          return util['UtilColor|fromHex']("#40e0d0");
+        }
+        case "violet":
+        {
+          return util['UtilColor|fromHex']("#ee82ee");
+        }
+        case "wheat":
+        {
+          return util['UtilColor|fromHex']("#f5deb3");
+        }
+        case "white":
+        {
+          return util['UtilColor|fromHex']("#ffffff");
+        }
+        case "whitesmoke":
+        {
+          return util['UtilColor|fromHex']("#f5f5f5");
+        }
+        case "yellow":
+        {
+          return util['UtilColor|fromHex']("#ffff00");
+        }
+        case "yellowgreen":
+        {
+          return util['UtilColor|fromHex']("#9acd32");
+        }
+      }
+    }
+    return null;
+  };
+  util['UtilColor|fromHex'] = function UtilColor$124fromHex(hexString) {
+    if (hexString == null) {
+      return null;
+    }
+    hexString = hexString[$trim]();
+    if (hexString.length === 4) {
+      hexString = "#" + hexString[$_get](1)[$times](2) + hexString[$_get](2)[$times](2) + hexString[$_get](3)[$times](2);
+    }
+    let buffer = new core.StringBuffer.new();
+    if (hexString.length === 6 || hexString.length === 7) buffer.write("ff");
+    buffer.write(hexString[$replaceFirst]("#", ""));
+    return new ui.Color.new(core.int.parse(buffer.toString(), {radix: 16}));
+  };
+  util['UtilColor|fromRgbString'] = function UtilColor$124fromRgbString(rgbString) {
+    if (rgbString == null) {
+      return null;
+    }
+    rgbString = rgbString[$trim]();
+    let rgbValues = rgbString[$substring](4, rgbString.length - 1)[$split](",")[$map](core.int, dart.fn(rbgValue => {
+      if (rbgValue == null) dart.nullFailed(I[0], 398, 15, "rbgValue");
+      return core.int.parse(rbgValue[$trim]());
+    }, T.StringToint()))[$toList]();
+    return new ui.Color.fromRGBO(rgbValues[$_get](0), rgbValues[$_get](1), rgbValues[$_get](2), 1.0);
+  };
+  util['UtilColor|fromRgbaString'] = function UtilColor$124fromRgbaString(rgbaString) {
+    if (rgbaString == null) {
+      return null;
+    }
+    rgbaString = rgbaString[$trim]();
+    let rgbaValues = rgbaString[$substring](5, rgbaString.length - 1)[$split](",")[$map](core.String, dart.fn(rbgValue => {
+      if (rbgValue == null) dart.nullFailed(I[0], 412, 15, "rbgValue");
+      return rbgValue[$trim]();
+    }, T.StringToString()))[$toList]();
+    return new ui.Color.fromRGBO(core.int.parse(rgbaValues[$_get](0)), core.int.parse(rgbaValues[$_get](1)), core.int.parse(rgbaValues[$_get](2)), core.double.parse(rgbaValues[$_get](3)));
+  };
+  util['UtilColor|fromHlsString'] = function UtilColor$124fromHlsString(hlsString) {
+    if (hlsString == null) {
+      return null;
+    }
+    hlsString = hlsString[$trim]();
+    let hlsValues = hlsString[$substring](4, hlsString.length - 1)[$split](",")[$map](core.double, dart.fn(rbgValue => {
+      if (rbgValue == null) dart.nullFailed(I[0], 427, 15, "rbgValue");
+      return core.double.parse(rbgValue[$trim]());
+    }, T.StringTodouble()))[$toList]();
+    let rgbValues = util['UtilColor|_hslToRgb'](hlsValues[$_get](0), hlsValues[$_get](1), hlsValues[$_get](2));
+    return new ui.Color.fromRGBO(rgbValues[$_get](0), rgbValues[$_get](1), rgbValues[$_get](2), 1.0);
+  };
+  util['UtilColor|fromHlsaString'] = function UtilColor$124fromHlsaString(hlsaString) {
+    if (hlsaString == null) {
+      return null;
+    }
+    hlsaString = hlsaString[$trim]();
+    let hlsaValues = hlsaString[$substring](5, hlsaString.length - 1)[$split](",")[$map](core.double, dart.fn(rbgValue => {
+      if (rbgValue == null) dart.nullFailed(I[0], 442, 15, "rbgValue");
+      return core.double.parse(rbgValue[$trim]());
+    }, T.StringTodouble()))[$toList]();
+    let rgbaValues = util['UtilColor|_hslToRgb'](hlsaValues[$_get](0), hlsaValues[$_get](1), hlsaValues[$_get](2));
+    return new ui.Color.fromRGBO(rgbaValues[$_get](0), rgbaValues[$_get](1), rgbaValues[$_get](2), hlsaValues[$_get](3));
+  };
+  util['UtilColor|_hslToRgb'] = function UtilColor$124_hslToRgb(h, s, l) {
+    if (h == null) dart.nullFailed(I[0], 449, 37, "h");
+    if (s == null) dart.nullFailed(I[0], 449, 47, "s");
+    if (l == null) dart.nullFailed(I[0], 449, 57, "l");
+    let r = null;
+    let g = null;
+    let b = null;
+    if (s === 0) {
+      r = g = b = l;
+    } else {
+      let q = dart.notNull(l) < 0.5 ? dart.notNull(l) * (1 + dart.notNull(s)) : dart.notNull(l) + dart.notNull(s) - dart.notNull(l) * dart.notNull(s);
+      let p = 2 * dart.notNull(l) - q;
+      r = util['UtilColor|_hueToRgb'](p, q, dart.notNull(h) + 1 / 3);
+      g = util['UtilColor|_hueToRgb'](p, q, h);
+      b = util['UtilColor|_hueToRgb'](p, q, dart.notNull(h) - 1 / 3);
+    }
+    let rgb = T.JSArrayOfint().of([util['UtilColor|_to255'](r), util['UtilColor|_to255'](g), util['UtilColor|_to255'](b)]);
+    return rgb;
+  };
+  util['UtilColor|_to255'] = function UtilColor$124_to255(v) {
+    if (v == null) dart.nullFailed(I[0], 465, 28, "v");
+    return math.min(core.int, 255, (256 * dart.notNull(v))[$round]());
+  };
+  util['UtilColor|_hueToRgb'] = function UtilColor$124_hueToRgb(p, q, t) {
+    if (p == null) dart.nullFailed(I[0], 470, 34, "p");
+    if (q == null) dart.nullFailed(I[0], 470, 44, "q");
+    if (t == null) dart.nullFailed(I[0], 470, 54, "t");
+    if (dart.notNull(t) < 0) t = dart.notNull(t) + 1;
+    if (dart.notNull(t) > 1) t = dart.notNull(t) - 1;
+    if (dart.notNull(t) < 1 / 6) return dart.notNull(p) + (dart.notNull(q) - dart.notNull(p)) * 6 * dart.notNull(t);
+    if (dart.notNull(t) < 1 / 2) return q;
+    if (dart.notNull(t) < 2 / 3) return dart.notNull(p) + (dart.notNull(q) - dart.notNull(p)) * (2 / 3 - dart.notNull(t)) * 6;
+    return p;
+  };
+  util['HexColor|toHex'] = function HexColor$124toHex($this, opts) {
+    if ($this == null) dart.nullFailed(I[0], 482, 10, "#this");
+    let leadingHashSign = opts && 'leadingHashSign' in opts ? opts.leadingHashSign : true;
+    if (leadingHashSign == null) dart.nullFailed(I[0], 482, 22, "leadingHashSign");
+    return (dart.test(leadingHashSign) ? "#" : "") + $this.alpha[$toRadixString](16)[$padLeft](2, "0") + $this.red[$toRadixString](16)[$padLeft](2, "0") + $this.green[$toRadixString](16)[$padLeft](2, "0") + $this.blue[$toRadixString](16)[$padLeft](2, "0");
+  };
+  util['HexColor|get#toHex'] = function HexColor$124get$35toHex($this) {
+    if ($this == null) dart.nullFailed(I[0], 482, 10, "#this");
+    return dart.fn(opts => {
+      let leadingHashSign = opts && 'leadingHashSign' in opts ? opts.leadingHashSign : true;
+      if (leadingHashSign == null) dart.nullFailed(I[0], 482, 22, "leadingHashSign");
+      return util['HexColor|toHex']($this, {leadingHashSign: leadingHashSign});
+    }, T.__ToString());
+  };
+  util['MapSize|fromMap'] = function MapSize$124fromMap(map) {
+    let t2, t2$;
+    if (map == null) {
+      return null;
+    }
+    return new ui.Size.new(core.double.as((t2 = map[$_get]("width"), t2 == null ? -1.0 : t2)), core.double.as((t2$ = map[$_get]("height"), t2$ == null ? -1.0 : t2$)));
+  };
+  util['MapSize|toJson'] = function MapSize$124toJson($this) {
+    if ($this == null) dart.nullFailed(I[0], 497, 23, "#this");
+    return util['MapSize|toMap']($this);
+  };
+  util['MapSize|get#toJson'] = function MapSize$124get$35toJson($this) {
+    if ($this == null) dart.nullFailed(I[0], 497, 23, "#this");
+    return dart.fn(() => util['MapSize|toJson']($this), T.VoidToMapOfString$double());
+  };
+  util['MapSize|toMap'] = function MapSize$124toMap($this) {
+    if ($this == null) dart.nullFailed(I[0], 501, 23, "#this");
+    return new (T.IdentityMapOfString$double()).from(["width", $this.width, "height", $this.height]);
+  };
+  util['MapSize|get#toMap'] = function MapSize$124get$35toMap($this) {
+    if ($this == null) dart.nullFailed(I[0], 501, 23, "#this");
+    return dart.fn(() => util['MapSize|toMap']($this), T.VoidToMapOfString$double());
+  };
+  dart.trackLibraries("packages/flutter_inappwebview/src/util.dart", {
+    "package:flutter_inappwebview/src/util.dart": util
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["util.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;UASgC;;AACxB,cAAI,uCAAU;AAEd,iBAAQ,AAAK,IAAD,KAAI,CAAC,IAAK,oBAAW,gBAAO,IAAI;AAEhD,eAAS,IAAI,GAAG,AAAE,CAAD,GAAG,IAAI,IAAA,AAAC,CAAA;AACC,QAAxB,AAAC,CAAA,QAAC,CAAC,EAAI,AAAK,IAAD,SAAS;;AAG8B,MAAnD,AAAK,IAAD,KAAI,CAAC,IAAK,AAAE,CAAD,eAAa,AAAE,CAAD,WAAS,gBAAO,IAAI;AAElD,YAAO,EAAC;IACV;;AAIM,cAAI,uCAAU;AACd,iBAAc;AAClB,eAAS,IAAI,GAAG,AAAE,CAAD,GAAG,IAAI,IAAA,AAAC,CAAA;AACC,QAAxB,AAAC,CAAA,QAAC,CAAC,EAAI,AAAK,IAAD,SAAS;;AAEtB,YAAO,EAAC;IACV;;AAGU,MAAR,0BAAM,aAAN,2BAAM;AACN,YAAc,AAAW,eAAlB,wCAAoB,AAAY,AAAyB,gDAArB;YAAC;AAAM,cAAE,eAAF,CAAC;kCAAkB;IACvE;;;;EACF;;;;;MA/Ba,uBAAM;YAAG;;;;;QAkC0B;AAC5C,QAAI,AAAW,UAAD,cAAY;AACxB,YAAO,2BAAQ,UAAU;UACpB,KAAI,AAAW,UAAD,cAAY;AAC/B,YAAO,iCAAc,UAAU;UAC1B,KAAI,AAAW,UAAD,cAAY;AAC/B,YAAO,kCAAe,UAAU;UAC3B,KAAI,AAAW,UAAD,cAAY;AAC/B,YAAO,iCAAc,UAAU;UAC1B,KAAI,AAAW,UAAD,cAAY;AAC/B,YAAO,kCAAe,UAAU;;AAmBhC,cAAQ,UAAU;;;AAEd,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAAO,2BAAQ;;;;AAEf,gBAA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","file":"../../../../../../../packages/flutter_inappwebview/src/util.dart.lib.js"}');
+  // Exports:
+  return {
+    src__util: util
+  };
+}));
+
+//# sourceMappingURL=util.dart.lib.js.map

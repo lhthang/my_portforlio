@@ -1,0 +1,987 @@
+define(['dart_sdk', 'packages/mailer/src/smtp/capabilities.dart', 'packages/mailer/src/smtp/internal_representation/conversion.dart', 'packages/mailer/src/entities/attachment.dart', 'packages/mailer/src/utils.dart', 'packages/mailer/src/entities/address.dart', 'packages/intl/src/intl/date_format.dart', 'packages/logging/src/logger.dart', 'packages/mailer/src/entities/message.dart'], (function load__packages__mailer__src__smtp__internal_representation__internal_representation_dart(dart_sdk, packages__mailer__src__smtp__capabilities$46dart, packages__mailer__src__smtp__internal_representation__conversion$46dart, packages__mailer__src__entities__attachment$46dart, packages__mailer__src__utils$46dart, packages__mailer__src__entities__address$46dart, packages__intl__src__intl__date_format$46dart, packages__logging__src__logger$46dart, packages__mailer__src__entities__message$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const async = dart_sdk.async;
+  const convert = dart_sdk.convert;
+  const _internal = dart_sdk._internal;
+  const _js_helper = dart_sdk._js_helper;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const capabilities = packages__mailer__src__smtp__capabilities$46dart.src__smtp__capabilities;
+  const conversion = packages__mailer__src__smtp__internal_representation__conversion$46dart.src__smtp__internal_representation__conversion;
+  const attachment = packages__mailer__src__entities__attachment$46dart.src__entities__attachment;
+  const utils = packages__mailer__src__utils$46dart.src__utils;
+  const address = packages__mailer__src__entities__address$46dart.src__entities__address;
+  const date_format = packages__intl__src__intl__date_format$46dart.src__intl__date_format;
+  const logger = packages__logging__src__logger$46dart.src__logger;
+  const message = packages__mailer__src__entities__message$46dart.src__entities__message;
+  var internal_representation = Object.create(dart.library);
+  var $map = dartx.map;
+  var $length = dartx.length;
+  var $first = dartx.first;
+  var $where = dartx.where;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $addAll = dartx.addAll;
+  var $add = dartx.add;
+  var $any = dartx.any;
+  var $truncate = dartx.truncate;
+  var $contains = dartx.contains;
+  var $isEmpty = dartx.isEmpty;
+  var $toString = dartx.toString;
+  var $indexOf = dartx.indexOf;
+  var $substring = dartx.substring;
+  var $toLowerCase = dartx.toLowerCase;
+  var $every = dartx.every;
+  var $forEach = dartx.forEach;
+  var $containsKey = dartx.containsKey;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    _MultipartTypeL: () => (T._MultipartTypeL = dart.constFn(dart.legacy(internal_representation._MultipartType)))(),
+    JSArrayOf_IRHeader: () => (T.JSArrayOf_IRHeader = dart.constFn(_interceptors.JSArray$(internal_representation._IRHeader)))(),
+    ListOfint: () => (T.ListOfint = dart.constFn(core.List$(core.int)))(),
+    StreamOfListOfint: () => (T.StreamOfListOfint = dart.constFn(async.Stream$(T.ListOfint())))(),
+    _IRHeaderToStreamOfListOfint: () => (T._IRHeaderToStreamOfListOfint = dart.constFn(dart.fnType(T.StreamOfListOfint(), [internal_representation._IRHeader])))(),
+    _AsyncStarImplOfListOfint: () => (T._AsyncStarImplOfListOfint = dart.constFn(async._AsyncStarImpl$(T.ListOfint())))(),
+    AttachmentTobool: () => (T.AttachmentTobool = dart.constFn(dart.fnType(core.bool, [attachment.Attachment])))(),
+    AttachmentTo_IRContentAttachment: () => (T.AttachmentTo_IRContentAttachment = dart.constFn(dart.fnType(internal_representation._IRContentAttachment, [attachment.Attachment])))(),
+    JSArrayOf_IRContent: () => (T.JSArrayOf_IRContent = dart.constFn(_interceptors.JSArray$(internal_representation._IRContent)))(),
+    _IRTextTypeL: () => (T._IRTextTypeL = dart.constFn(dart.legacy(internal_representation._IRTextType)))(),
+    _AsyncStarImplOfString: () => (T._AsyncStarImplOfString = dart.constFn(async._AsyncStarImpl$(core.String)))(),
+    StreamOfString: () => (T.StreamOfString = dart.constFn(async.Stream$(core.String)))(),
+    StringToStreamOfString: () => (T.StringToStreamOfString = dart.constFn(dart.fnType(T.StreamOfString(), [core.String])))(),
+    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
+    JSArrayOfAddress: () => (T.JSArrayOfAddress = dart.constFn(_interceptors.JSArray$(address.Address)))(),
+    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
+    JSArrayOfStringN: () => (T.JSArrayOfStringN = dart.constFn(_interceptors.JSArray$(T.StringN())))(),
+    ListOfAddress: () => (T.ListOfAddress = dart.constFn(core.List$(address.Address)))(),
+    AddressToString: () => (T.AddressToString = dart.constFn(dart.fnType(core.String, [address.Address])))(),
+    ListOfintToListOfint: () => (T.ListOfintToListOfint = dart.constFn(dart.fnType(T.ListOfint(), [T.ListOfint()])))(),
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    IterableOfAddress: () => (T.IterableOfAddress = dart.constFn(core.Iterable$(address.Address)))(),
+    IterableOfString: () => (T.IterableOfString = dart.constFn(core.Iterable$(core.String)))(),
+    StringTobool: () => (T.StringTobool = dart.constFn(dart.fnType(core.bool, [core.String])))(),
+    StringToAddress: () => (T.StringToAddress = dart.constFn(dart.fnType(address.Address, [core.String])))(),
+    StringAnddynamicTovoid: () => (T.StringAnddynamicTovoid = dart.constFn(dart.fnType(dart.void, [core.String, dart.dynamic])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: internal_representation._MultipartType.prototype,
+        [_name$]: "_MultipartType.alternative",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: internal_representation._MultipartType.prototype,
+        [_name$]: "_MultipartType.mixed",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: internal_representation._MultipartType.prototype,
+        [_name$]: "_MultipartType.related",
+        index: 2
+      });
+    },
+    get C3() {
+      return C[3] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2], T._MultipartTypeL());
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: internal_representation._IRTextType.prototype,
+        [_name$]: "_IRTextType.plain",
+        index: 0
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: internal_representation._IRTextType.prototype,
+        [_name$]: "_IRTextType.html",
+        index: 1
+      });
+    },
+    get C6() {
+      return C[6] = dart.constList([C[4] || CT.C4, C[5] || CT.C5], T._IRTextTypeL());
+    },
+    get C7() {
+      return C[7] = dart.constList(["content-type", "mime-version"], T.StringL());
+    }
+  }, false);
+  var C = Array(8).fill(void 0);
+  var I = [
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/mailer-5.0.0/lib/src/smtp/internal_representation/internal_representation.dart",
+    "package:mailer/src/smtp/internal_representation/internal_representation.dart",
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/mailer-5.0.0/lib/src/smtp/internal_representation/ir_content.dart",
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/mailer-5.0.0/lib/src/smtp/internal_representation/ir_header.dart",
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/mailer-5.0.0/lib/src/smtp/internal_representation/ir_message.dart"
+  ];
+  internal_representation._IRMetaInformation = class _IRMetaInformation extends core.Object {};
+  (internal_representation._IRMetaInformation.new = function(capabilities) {
+    if (capabilities == null) dart.nullFailed(I[0], 35, 27, "capabilities");
+    this.capabilities = capabilities;
+    ;
+  }).prototype = internal_representation._IRMetaInformation.prototype;
+  dart.addTypeTests(internal_representation._IRMetaInformation);
+  dart.addTypeCaches(internal_representation._IRMetaInformation);
+  dart.setLibraryUri(internal_representation._IRMetaInformation, I[1]);
+  dart.setFieldSignature(internal_representation._IRMetaInformation, () => ({
+    __proto__: dart.getFields(internal_representation._IRMetaInformation.__proto__),
+    capabilities: dart.finalFieldType(capabilities.Capabilities)
+  }));
+  internal_representation._IROutput = class _IROutput extends core.Object {};
+  (internal_representation._IROutput.new = function() {
+    ;
+  }).prototype = internal_representation._IROutput.prototype;
+  dart.addTypeTests(internal_representation._IROutput);
+  dart.addTypeCaches(internal_representation._IROutput);
+  dart.setLibraryUri(internal_representation._IROutput, I[1]);
+  var _name$ = dart.privateName(internal_representation, "_name");
+  internal_representation._MultipartType = class _MultipartType extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (internal_representation._MultipartType.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[2], 14, 6, "index");
+    if (_name == null) dart.nullFailed(I[2], 14, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = internal_representation._MultipartType.prototype;
+  dart.addTypeTests(internal_representation._MultipartType);
+  dart.addTypeCaches(internal_representation._MultipartType);
+  dart.setLibraryUri(internal_representation._MultipartType, I[1]);
+  dart.setFieldSignature(internal_representation._MultipartType, () => ({
+    __proto__: dart.getFields(internal_representation._MultipartType.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(internal_representation._MultipartType, ['toString']);
+  internal_representation._MultipartType.alternative = C[0] || CT.C0;
+  internal_representation._MultipartType.mixed = C[1] || CT.C1;
+  internal_representation._MultipartType.related = C[2] || CT.C2;
+  internal_representation._MultipartType.values = C[3] || CT.C3;
+  var _header = dart.privateName(internal_representation, "_header");
+  var _outH = dart.privateName(internal_representation, "_outH");
+  var _out64 = dart.privateName(internal_representation, "_out64");
+  internal_representation._IRContent = class _IRContent extends internal_representation._IROutput {
+    [_outH](metaInformation) {
+      if (metaInformation == null) dart.nullFailed(I[2], 19, 46, "metaInformation");
+      return new (T._AsyncStarImplOfListOfint()).new((function* _outH(stream) {
+        for (let hs of this[_header][$map](T.StreamOfListOfint(), dart.fn(h => {
+          if (h == null) dart.nullFailed(I[2], 20, 33, "h");
+          return h.out(metaInformation);
+        }, T._IRHeaderToStreamOfListOfint()))) {
+          if (stream.addStream(hs)) return;
+          yield;
+        }
+      }).bind(this)).stream;
+    }
+    [_out64](content, irMetaInformation) {
+      if (content == null) dart.nullFailed(I[2], 26, 25, "content");
+      if (irMetaInformation == null) dart.nullFailed(I[2], 26, 53, "irMetaInformation");
+      return new (T._AsyncStarImplOfListOfint()).new((function* _out64(stream) {
+        if (stream.addStream(this[_outH](irMetaInformation))) return;
+        yield;
+        if (stream.add(conversion.eol8)) return;
+        yield;
+        if (stream.addStream(convert.base64.encoder.bind(content).transform(T.ListOfint(), convert.ascii.encoder).transform(T.ListOfint(), new conversion.StreamSplitter.new(80, 800)))) return;
+        yield;
+        if (stream.add(conversion.eol8)) return;
+        yield;
+        if (stream.add(conversion.eol8)) return;
+        yield;
+      }).bind(this)).stream;
+    }
+  };
+  (internal_representation._IRContent.new = function() {
+    this[_header] = T.JSArrayOf_IRHeader().of([]);
+    ;
+  }).prototype = internal_representation._IRContent.prototype;
+  dart.addTypeTests(internal_representation._IRContent);
+  dart.addTypeCaches(internal_representation._IRContent);
+  dart.setMethodSignature(internal_representation._IRContent, () => ({
+    __proto__: dart.getMethods(internal_representation._IRContent.__proto__),
+    [_outH]: dart.fnType(async.Stream$(core.List$(core.int)), [internal_representation._IRMetaInformation]),
+    [_out64]: dart.fnType(async.Stream$(core.List$(core.int)), [async.Stream$(core.List$(core.int)), internal_representation._IRMetaInformation])
+  }));
+  dart.setLibraryUri(internal_representation._IRContent, I[1]);
+  dart.setFieldSignature(internal_representation._IRContent, () => ({
+    __proto__: dart.getFields(internal_representation._IRContent.__proto__),
+    [_header]: dart.finalFieldType(core.List$(internal_representation._IRHeader))
+  }));
+  var _active = dart.privateName(internal_representation, "_active");
+  var _boundary$ = dart.privateName(internal_representation, "_boundary");
+  var ___IRContentPart__content = dart.privateName(internal_representation, "_#_IRContentPart#_content");
+  var ___IRContentPart__content_isSet = dart.privateName(internal_representation, "_#_IRContentPart#_content#isSet");
+  var _content = dart.privateName(internal_representation, "_content");
+  var _boundaryStart = dart.privateName(internal_representation, "_boundaryStart");
+  var _boundaryEnd = dart.privateName(internal_representation, "_boundaryEnd");
+  internal_representation._IRContentPart = class _IRContentPart extends internal_representation._IRContent {
+    get [_content]() {
+      let t0;
+      return dart.test(this[___IRContentPart__content_isSet]) ? (t0 = this[___IRContentPart__content], t0) : dart.throw(new _internal.LateError.fieldNI("_content"));
+    }
+    set [_content](t0) {
+      if (t0 == null) dart.nullFailed(I[2], 41, 29, "null");
+      this[___IRContentPart__content_isSet] = true;
+      this[___IRContentPart__content] = t0;
+    }
+    [_boundaryStart](boundary) {
+      if (boundary == null) dart.nullFailed(I[2], 43, 35, "boundary");
+      return conversion.to8("--" + dart.str(boundary) + "\r\n");
+    }
+    [_boundaryEnd](boundary) {
+      if (boundary == null) dart.nullFailed(I[2], 45, 33, "boundary");
+      return conversion.to8("--" + dart.str(boundary) + "--" + "\r\n");
+    }
+    static _buildBoundary() {
+      let t1;
+      let now = new core.DateTime.now().millisecondsSinceEpoch;
+      if (now != internal_representation._IRContentPart._prevTimestamp) internal_representation._IRContentPart._counter = 0;
+      internal_representation._IRContentPart._prevTimestamp = now;
+      return "mailer-?=_" + dart.str((t1 = internal_representation._IRContentPart._counter, internal_representation._IRContentPart._counter = dart.notNull(t1) + 1, t1)) + "-" + dart.str(now);
+    }
+    out(irMetaInformation) {
+      if (irMetaInformation == null) dart.nullFailed(I[2], 60, 44, "irMetaInformation");
+      return new (T._AsyncStarImplOfListOfint()).new((function* out(stream) {
+        if (!dart.test(this[_active])) {
+          if (!(this[_content][$length] === 1)) dart.assertFailed(null, I[2], 64, 14, "_content.length == 1");
+          if (stream.addStream(this[_content][$first].out(irMetaInformation))) return;
+          yield;
+          return;
+        }
+        if (stream.addStream(this[_outH](irMetaInformation))) return;
+        yield;
+        if (stream.add(conversion.eol8)) return;
+        yield;
+        for (let part of this[_content]) {
+          if (stream.add(this[_boundaryStart](this[_boundary$]))) return;
+          yield;
+          if (stream.addStream(part.out(irMetaInformation))) return;
+          yield;
+        }
+        if (stream.add(this[_boundaryEnd](this[_boundary$]))) return;
+        yield;
+        if (stream.add(conversion.eol8)) return;
+        yield;
+      }).bind(this)).stream;
+    }
+  };
+  (internal_representation._IRContentPart.new = function() {
+    this[_active] = false;
+    this[_boundary$] = internal_representation._IRContentPart._buildBoundary();
+    this[___IRContentPart__content] = null;
+    this[___IRContentPart__content_isSet] = false;
+    internal_representation._IRContentPart.__proto__.new.call(this);
+    ;
+  }).prototype = internal_representation._IRContentPart.prototype;
+  dart.addTypeTests(internal_representation._IRContentPart);
+  dart.addTypeCaches(internal_representation._IRContentPart);
+  dart.setMethodSignature(internal_representation._IRContentPart, () => ({
+    __proto__: dart.getMethods(internal_representation._IRContentPart.__proto__),
+    [_boundaryStart]: dart.fnType(core.List$(core.int), [core.String]),
+    [_boundaryEnd]: dart.fnType(core.List$(core.int), [core.String]),
+    out: dart.fnType(async.Stream$(core.List$(core.int)), [internal_representation._IRMetaInformation])
+  }));
+  dart.setGetterSignature(internal_representation._IRContentPart, () => ({
+    __proto__: dart.getGetters(internal_representation._IRContentPart.__proto__),
+    [_content]: core.Iterable$(internal_representation._IRContent)
+  }));
+  dart.setSetterSignature(internal_representation._IRContentPart, () => ({
+    __proto__: dart.getSetters(internal_representation._IRContentPart.__proto__),
+    [_content]: core.Iterable$(internal_representation._IRContent)
+  }));
+  dart.setLibraryUri(internal_representation._IRContentPart, I[1]);
+  dart.setFieldSignature(internal_representation._IRContentPart, () => ({
+    __proto__: dart.getFields(internal_representation._IRContentPart.__proto__),
+    [_active]: dart.fieldType(core.bool),
+    [_boundary$]: dart.finalFieldType(core.String),
+    [___IRContentPart__content]: dart.fieldType(dart.nullable(core.Iterable$(internal_representation._IRContent))),
+    [___IRContentPart__content_isSet]: dart.fieldType(core.bool)
+  }));
+  dart.defineLazy(internal_representation._IRContentPart, {
+    /*internal_representation._IRContentPart._counter*/get _counter() {
+      return 0;
+    },
+    set _counter(_) {},
+    /*internal_representation._IRContentPart._prevTimestamp*/get _prevTimestamp() {
+      return null;
+    },
+    set _prevTimestamp(_) {}
+  }, false);
+  internal_representation._IRContentPartMixed = class _IRContentPartMixed extends internal_representation._IRContentPart {};
+  (internal_representation._IRContentPartMixed.new = function(message, header) {
+    if (message == null) dart.nullFailed(I[2], 88, 31, "message");
+    if (header == null) dart.nullFailed(I[2], 88, 60, "header");
+    internal_representation._IRContentPartMixed.__proto__.new.call(this);
+    let attachments = message.attachments;
+    let attached = attachments[$where](dart.fn(a => {
+      if (a == null) dart.nullFailed(I[2], 90, 39, "a");
+      return a.location == attachment.Location.attachment;
+    }, T.AttachmentTobool()));
+    this[_active] = attached[$isNotEmpty];
+    if (dart.test(this[_active])) {
+      this[_header][$addAll](header);
+      this[_header][$add](new internal_representation._IRHeaderContentType.new(this[_boundary$], internal_representation._MultipartType.mixed));
+      let contentAlternative = new internal_representation._IRContentPartAlternative.new(message, T.JSArrayOf_IRHeader().of([]));
+      let contentAttachments = attached[$map](internal_representation._IRContentAttachment, dart.fn(a => {
+        if (a == null) dart.nullFailed(I[2], 98, 46, "a");
+        return new internal_representation._IRContentAttachment.new(a);
+      }, T.AttachmentTo_IRContentAttachment()));
+      this[_content] = internal_representation._follow(internal_representation._IRContent, contentAlternative, contentAttachments);
+    } else {
+      this[_content] = T.JSArrayOf_IRContent().of([new internal_representation._IRContentPartAlternative.new(message, header)]);
+    }
+  }).prototype = internal_representation._IRContentPartMixed.prototype;
+  dart.addTypeTests(internal_representation._IRContentPartMixed);
+  dart.addTypeCaches(internal_representation._IRContentPartMixed);
+  dart.setLibraryUri(internal_representation._IRContentPartMixed, I[1]);
+  internal_representation._IRContentPartAlternative = class _IRContentPartAlternative extends internal_representation._IRContentPart {};
+  (internal_representation._IRContentPartAlternative.new = function(message, header) {
+    if (message == null) dart.nullFailed(I[2], 107, 37, "message");
+    if (header == null) dart.nullFailed(I[2], 107, 66, "header");
+    internal_representation._IRContentPartAlternative.__proto__.new.call(this);
+    let attachments = message.attachments;
+    let hasEmbedded = attachments[$any](dart.fn(a => {
+      if (a == null) dart.nullFailed(I[2], 109, 40, "a");
+      return a.location == attachment.Location.inline;
+    }, T.AttachmentTobool()));
+    this[_active] = message.text != null && (message.html != null || dart.test(hasEmbedded));
+    if (dart.test(this[_active])) {
+      this[_header][$addAll](header);
+      this[_header][$add](new internal_representation._IRHeaderContentType.new(this[_boundary$], internal_representation._MultipartType.alternative));
+      let contentTxt = new internal_representation._IRContentText.new(message.text, internal_representation._IRTextType.plain, T.JSArrayOf_IRHeader().of([]));
+      let contentRelated = new internal_representation._IRContentPartRelated.new(message, T.JSArrayOf_IRHeader().of([]));
+      this[_content] = T.JSArrayOf_IRContent().of([contentTxt, contentRelated]);
+    } else if (message.text != null) {
+      this[_content] = T.JSArrayOf_IRContent().of([new internal_representation._IRContentText.new(message.text, internal_representation._IRTextType.plain, header)]);
+    } else {
+      this[_content] = T.JSArrayOf_IRContent().of([new internal_representation._IRContentPartRelated.new(message, header)]);
+    }
+  }).prototype = internal_representation._IRContentPartAlternative.prototype;
+  dart.addTypeTests(internal_representation._IRContentPartAlternative);
+  dart.addTypeCaches(internal_representation._IRContentPartAlternative);
+  dart.setLibraryUri(internal_representation._IRContentPartAlternative, I[1]);
+  internal_representation._IRContentPartRelated = class _IRContentPartRelated extends internal_representation._IRContentPart {};
+  (internal_representation._IRContentPartRelated.new = function(message, header) {
+    if (message == null) dart.nullFailed(I[2], 130, 33, "message");
+    if (header == null) dart.nullFailed(I[2], 130, 62, "header");
+    internal_representation._IRContentPartRelated.__proto__.new.call(this);
+    let attachments = message.attachments;
+    let embedded = attachments[$where](dart.fn(a => {
+      if (a == null) dart.nullFailed(I[2], 132, 39, "a");
+      return a.location == attachment.Location.inline;
+    }, T.AttachmentTobool()));
+    this[_active] = embedded[$isNotEmpty];
+    if (dart.test(this[_active])) {
+      this[_header][$addAll](header);
+      this[_header][$add](new internal_representation._IRHeaderContentType.new(this[_boundary$], internal_representation._MultipartType.related));
+      let contentHtml = new internal_representation._IRContentText.new(message.html, internal_representation._IRTextType.html, T.JSArrayOf_IRHeader().of([]));
+      let contentAttachments = embedded[$map](internal_representation._IRContentAttachment, dart.fn(a => {
+        if (a == null) dart.nullFailed(I[2], 141, 46, "a");
+        return new internal_representation._IRContentAttachment.new(a);
+      }, T.AttachmentTo_IRContentAttachment()));
+      this[_content] = internal_representation._follow(internal_representation._IRContent, contentHtml, contentAttachments);
+    } else {
+      this[_content] = T.JSArrayOf_IRContent().of([new internal_representation._IRContentText.new(message.html, internal_representation._IRTextType.html, header)]);
+    }
+  }).prototype = internal_representation._IRContentPartRelated.prototype;
+  dart.addTypeTests(internal_representation._IRContentPartRelated);
+  dart.addTypeCaches(internal_representation._IRContentPartRelated);
+  dart.setLibraryUri(internal_representation._IRContentPartRelated, I[1]);
+  var _attachment$ = dart.privateName(internal_representation, "_attachment");
+  internal_representation._IRContentAttachment = class _IRContentAttachment extends internal_representation._IRContent {
+    out(irMetaInformation) {
+      if (irMetaInformation == null) dart.nullFailed(I[2], 170, 44, "irMetaInformation");
+      return this[_out64](this[_attachment$].asStream(), irMetaInformation);
+    }
+  };
+  (internal_representation._IRContentAttachment.new = function(_attachment) {
+    let t1, t1$;
+    if (_attachment == null) dart.nullFailed(I[2], 152, 29, "_attachment");
+    this[_attachment$] = _attachment;
+    internal_representation._IRContentAttachment.__proto__.new.call(this);
+    let contentType = this[_attachment$].contentType;
+    let filename = this[_attachment$].fileName;
+    this[_header][$add](new internal_representation._IRHeaderText.new("content-type", contentType));
+    this[_header][$add](new internal_representation._IRHeaderText.new("content-transfer-encoding", "base64"));
+    if ((t1 = this[_attachment$].cid, t1 == null ? "" : t1)[$isNotEmpty]) {
+      this[_header][$add](new internal_representation._IRHeaderText.new("content-id", dart.nullCheck(this[_attachment$].cid)));
+    }
+    let fnSuffix = "";
+    if ((t1$ = filename, t1$ == null ? "" : t1$)[$isNotEmpty]) fnSuffix = "; filename=\"" + dart.str(filename) + "\"";
+    this[_header][$add](new internal_representation._IRHeaderText.new("content-disposition", dart.str(internal_representation._describeEnum(this[_attachment$].location)) + fnSuffix));
+  }).prototype = internal_representation._IRContentAttachment.prototype;
+  dart.addTypeTests(internal_representation._IRContentAttachment);
+  dart.addTypeCaches(internal_representation._IRContentAttachment);
+  dart.setMethodSignature(internal_representation._IRContentAttachment, () => ({
+    __proto__: dart.getMethods(internal_representation._IRContentAttachment.__proto__),
+    out: dart.fnType(async.Stream$(core.List$(core.int)), [internal_representation._IRMetaInformation])
+  }));
+  dart.setLibraryUri(internal_representation._IRContentAttachment, I[1]);
+  dart.setFieldSignature(internal_representation._IRContentAttachment, () => ({
+    __proto__: dart.getFields(internal_representation._IRContentAttachment.__proto__),
+    [_attachment$]: dart.finalFieldType(attachment.Attachment)
+  }));
+  internal_representation._IRTextType = class _IRTextType extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (internal_representation._IRTextType.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[2], 175, 6, "index");
+    if (_name == null) dart.nullFailed(I[2], 175, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = internal_representation._IRTextType.prototype;
+  dart.addTypeTests(internal_representation._IRTextType);
+  dart.addTypeCaches(internal_representation._IRTextType);
+  dart.setLibraryUri(internal_representation._IRTextType, I[1]);
+  dart.setFieldSignature(internal_representation._IRTextType, () => ({
+    __proto__: dart.getFields(internal_representation._IRTextType.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(internal_representation._IRTextType, ['toString']);
+  internal_representation._IRTextType.plain = C[4] || CT.C4;
+  internal_representation._IRTextType.html = C[5] || CT.C5;
+  internal_representation._IRTextType.values = C[6] || CT.C6;
+  var _text = dart.privateName(internal_representation, "_text");
+  internal_representation._IRContentText = class _IRContentText extends internal_representation._IRContent {
+    out(irMetaInformation) {
+      if (irMetaInformation == null) dart.nullFailed(I[2], 191, 44, "irMetaInformation");
+      function addEol(s) {
+        if (s == null) dart.nullFailed(I[2], 192, 34, "s");
+        return new (T._AsyncStarImplOfString()).new(function* addEol(stream) {
+          if (stream.add(s)) return;
+          yield;
+          if (stream.add("\r\n")) return;
+          yield;
+        }).stream;
+      }
+      dart.fn(addEol, T.StringToStreamOfString());
+      return this[_out64](T.StreamOfString().fromIterable(T.JSArrayOfString().of([this[_text]])).transform(core.String, new convert.LineSplitter.new()).asyncExpand(core.String, addEol).transform(T.ListOfint(), convert.utf8.encoder), irMetaInformation);
+    }
+  };
+  (internal_representation._IRContentText.new = function(text, textType, header) {
+    let t1;
+    if (textType == null) dart.nullFailed(I[2], 181, 33, "textType");
+    if (header == null) dart.nullFailed(I[2], 181, 63, "header");
+    this[_text] = "";
+    internal_representation._IRContentText.__proto__.new.call(this);
+    this[_header][$addAll](header);
+    let type = internal_representation._describeEnum(textType);
+    this[_header][$add](new internal_representation._IRHeaderText.new("content-type", "text/" + dart.str(type) + "; charset=utf-8"));
+    this[_header][$add](new internal_representation._IRHeaderText.new("content-transfer-encoding", "base64"));
+    this[_text] = (t1 = text, t1 == null ? "" : t1);
+  }).prototype = internal_representation._IRContentText.prototype;
+  dart.addTypeTests(internal_representation._IRContentText);
+  dart.addTypeCaches(internal_representation._IRContentText);
+  dart.setMethodSignature(internal_representation._IRContentText, () => ({
+    __proto__: dart.getMethods(internal_representation._IRContentText.__proto__),
+    out: dart.fnType(async.Stream$(core.List$(core.int)), [internal_representation._IRMetaInformation])
+  }));
+  dart.setLibraryUri(internal_representation._IRContentText, I[1]);
+  dart.setFieldSignature(internal_representation._IRContentText, () => ({
+    __proto__: dart.getFields(internal_representation._IRContentText.__proto__),
+    [_text]: dart.fieldType(core.String)
+  }));
+  var _outValue = dart.privateName(internal_representation, "_outValue");
+  var _outValueB64 = dart.privateName(internal_representation, "_outValueB64");
+  var _outAddressesValue = dart.privateName(internal_representation, "_outAddressesValue");
+  internal_representation._IRHeader = class _IRHeader extends internal_representation._IROutput {
+    [_outValue](value) {
+      return new (T._AsyncStarImplOfListOfint()).new((function* _outValue(stream) {
+        if (stream.add(convert.utf8.encode(this[_name$]))) return;
+        yield;
+        if (stream.add(internal_representation._IRHeader._$colonSpace)) return;
+        yield;
+        if (value != null) {
+          if (stream.add(convert.utf8.encode(value))) return;
+          yield;
+        }
+        if (stream.add(internal_representation._IRHeader._$eol)) return;
+        yield;
+      }).bind(this)).stream;
+    }
+    [_outValueB64](value) {
+      if (value == null) dart.nullFailed(I[3], 26, 41, "value");
+      return new (T._AsyncStarImplOfListOfint()).new((function* _outValueB64(stream) {
+        if (stream.add(convert.utf8.encode(this[_name$]))) return;
+        yield;
+        if (stream.add(internal_representation._IRHeader._$colonSpace)) return;
+        yield;
+        if (stream.addStream(internal_representation._IRHeader._outB64(value))) return;
+        yield;
+        if (stream.add(internal_representation._IRHeader._$eol)) return;
+        yield;
+      }).bind(this)).stream;
+    }
+    [_outAddressesValue](addresses, irMetaInformation) {
+      if (addresses == null) dart.nullFailed(I[3], 34, 58, "addresses");
+      if (irMetaInformation == null) dart.nullFailed(I[3], 35, 26, "irMetaInformation");
+      return new (T._AsyncStarImplOfListOfint()).new((function* _outAddressesValue(stream) {
+        if (stream.add(convert.utf8.encode(this[_name$]))) return;
+        yield;
+        if (stream.add(internal_representation._IRHeader._$colonSpace)) return;
+        yield;
+        let len = 2;
+        let second = false;
+        for (let address of addresses) {
+          let name = address.sanitizedName;
+          let maddr = address.sanitizedAddress;
+          let adrlen = maddr.length;
+          if (name != null) {
+            adrlen = adrlen + (name.length + 3);
+          }
+          if (second) {
+            if (stream.add(internal_representation._IRHeader._$commaSpace)) return;
+            yield;
+            if (len + adrlen > 75) {
+              len = 2;
+              if (stream.add(internal_representation._IRHeader._$eolSpace)) return;
+              yield;
+            }
+          } else {
+            second = true;
+          }
+          if (name == null) {
+            if (stream.add(convert.utf8.encode(maddr))) return;
+            yield;
+          } else {
+            if (dart.test(internal_representation._IRHeader._shallB64(name, irMetaInformation))) {
+              if (stream.addStream(internal_representation._IRHeader._outB64(name))) return;
+              yield;
+            } else {
+              if (stream.add(convert.utf8.encode(name))) return;
+              yield;
+            }
+            if (stream.add(internal_representation._IRHeader._$spaceLt)) return;
+            yield;
+            if (stream.add(convert.utf8.encode(maddr))) return;
+            yield;
+            if (stream.add(internal_representation._IRHeader._$gt)) return;
+            yield;
+          }
+          len = len + adrlen;
+        }
+        if (stream.add(internal_representation._IRHeader._$eol)) return;
+        yield;
+      }).bind(this)).stream;
+    }
+    static _outB64(value) {
+      if (value == null) dart.nullFailed(I[3], 80, 43, "value");
+      return new (T._AsyncStarImplOfListOfint()).new(function* _outB64(stream) {
+        let availableLengthForBase64 = 75 - dart.notNull(internal_representation._IRHeader._b64Length);
+        let lengthBeforeBase64 = (availableLengthForBase64 / 4)[$truncate]() * 3;
+        let availableLength = lengthBeforeBase64;
+        if (availableLength < 10) availableLength = 10;
+        let second = false;
+        for (let d of conversion.split(convert.utf8.encode(value), availableLength)) {
+          if (second) {
+            if (stream.add(internal_representation._IRHeader._$eolSpace)) return;
+            yield;
+          } else {
+            second = true;
+          }
+          if (stream.add(internal_representation._IRHeader._b64prefix)) return;
+          yield;
+          if (stream.add(convert.utf8.encode(convert.base64.encode(d)))) return;
+          yield;
+          if (stream.add(internal_representation._IRHeader._b64postfix)) return;
+          yield;
+        }
+      }).stream;
+    }
+    static _shallB64(value, irMetaInformation) {
+      if (value == null) dart.nullFailed(I[3], 105, 32, "value");
+      if (irMetaInformation == null) dart.nullFailed(I[3], 105, 58, "irMetaInformation");
+      let byteLength = convert.utf8.encode(value)[$length];
+      return dart.notNull(byteLength) > 800 || !dart.test(utils.isPrintableRegExp.hasMatch(value)) || value[$contains]("=?") || !dart.test(irMetaInformation.capabilities.smtpUtf8) && value[$contains](core.RegExp.new("[^\\x20-\\x7E]"));
+    }
+  };
+  (internal_representation._IRHeader.new = function(_name) {
+    if (_name == null) dart.nullFailed(I[3], 123, 18, "_name");
+    this[_name$] = _name;
+    ;
+  }).prototype = internal_representation._IRHeader.prototype;
+  dart.addTypeTests(internal_representation._IRHeader);
+  dart.addTypeCaches(internal_representation._IRHeader);
+  dart.setMethodSignature(internal_representation._IRHeader, () => ({
+    __proto__: dart.getMethods(internal_representation._IRHeader.__proto__),
+    [_outValue]: dart.fnType(async.Stream$(core.List$(core.int)), [dart.nullable(core.String)]),
+    [_outValueB64]: dart.fnType(async.Stream$(core.List$(core.int)), [core.String]),
+    [_outAddressesValue]: dart.fnType(async.Stream$(core.List$(core.int)), [core.Iterable$(address.Address), internal_representation._IRMetaInformation])
+  }));
+  dart.setLibraryUri(internal_representation._IRHeader, I[1]);
+  dart.setFieldSignature(internal_representation._IRHeader, () => ({
+    __proto__: dart.getFields(internal_representation._IRHeader.__proto__),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineLazy(internal_representation._IRHeader, {
+    /*internal_representation._IRHeader._b64prefix*/get _b64prefix() {
+      return convert.utf8.encode("=?utf-8?B?");
+    },
+    /*internal_representation._IRHeader._b64postfix*/get _b64postfix() {
+      return convert.utf8.encode("?=");
+    },
+    /*internal_representation._IRHeader._$eol*/get _$eol() {
+      return convert.utf8.encode("\r\n");
+    },
+    /*internal_representation._IRHeader._$eolSpace*/get _$eolSpace() {
+      return convert.utf8.encode("\r\n" + " ");
+    },
+    /*internal_representation._IRHeader._$spaceLt*/get _$spaceLt() {
+      return convert.utf8.encode(" <");
+    },
+    /*internal_representation._IRHeader._$gt*/get _$gt() {
+      return convert.utf8.encode(">");
+    },
+    /*internal_representation._IRHeader._$commaSpace*/get _$commaSpace() {
+      return convert.utf8.encode(", ");
+    },
+    /*internal_representation._IRHeader._$colonSpace*/get _$colonSpace() {
+      return convert.utf8.encode(": ");
+    },
+    /*internal_representation._IRHeader._b64Length*/get _b64Length() {
+      return dart.notNull(internal_representation._IRHeader._b64prefix[$length]) + dart.notNull(internal_representation._IRHeader._b64postfix[$length]);
+    }
+  }, false);
+  var _value$ = dart.privateName(internal_representation, "_value");
+  internal_representation._IRHeaderText = class _IRHeaderText extends internal_representation._IRHeader {
+    out(irMetaInformation) {
+      if (irMetaInformation == null) dart.nullFailed(I[3], 132, 44, "irMetaInformation");
+      return dart.test(internal_representation._IRHeader._shallB64(this[_value$], irMetaInformation)) ? this[_outValueB64](this[_value$]) : this[_outValue](this[_value$]);
+    }
+  };
+  (internal_representation._IRHeaderText.new = function(name, _value) {
+    if (name == null) dart.nullFailed(I[3], 129, 24, "name");
+    if (_value == null) dart.nullFailed(I[3], 129, 35, "_value");
+    this[_value$] = _value;
+    internal_representation._IRHeaderText.__proto__.new.call(this, name);
+    ;
+  }).prototype = internal_representation._IRHeaderText.prototype;
+  dart.addTypeTests(internal_representation._IRHeaderText);
+  dart.addTypeCaches(internal_representation._IRHeaderText);
+  dart.setMethodSignature(internal_representation._IRHeaderText, () => ({
+    __proto__: dart.getMethods(internal_representation._IRHeaderText.__proto__),
+    out: dart.fnType(async.Stream$(core.List$(core.int)), [internal_representation._IRMetaInformation])
+  }));
+  dart.setLibraryUri(internal_representation._IRHeaderText, I[1]);
+  dart.setFieldSignature(internal_representation._IRHeaderText, () => ({
+    __proto__: dart.getFields(internal_representation._IRHeaderText.__proto__),
+    [_value$]: dart.finalFieldType(core.String)
+  }));
+  var _address$ = dart.privateName(internal_representation, "_address");
+  internal_representation._IRHeaderAddress = class _IRHeaderAddress extends internal_representation._IRHeader {
+    out(irMetaInformation) {
+      if (irMetaInformation == null) dart.nullFailed(I[3], 144, 44, "irMetaInformation");
+      return this[_outAddressesValue](T.JSArrayOfAddress().of([this[_address$]]), irMetaInformation);
+    }
+  };
+  (internal_representation._IRHeaderAddress.new = function(name, _address) {
+    if (name == null) dart.nullFailed(I[3], 141, 27, "name");
+    if (_address == null) dart.nullFailed(I[3], 141, 38, "_address");
+    this[_address$] = _address;
+    internal_representation._IRHeaderAddress.__proto__.new.call(this, name);
+    ;
+  }).prototype = internal_representation._IRHeaderAddress.prototype;
+  dart.addTypeTests(internal_representation._IRHeaderAddress);
+  dart.addTypeCaches(internal_representation._IRHeaderAddress);
+  dart.setMethodSignature(internal_representation._IRHeaderAddress, () => ({
+    __proto__: dart.getMethods(internal_representation._IRHeaderAddress.__proto__),
+    out: dart.fnType(async.Stream$(core.List$(core.int)), [internal_representation._IRMetaInformation])
+  }));
+  dart.setLibraryUri(internal_representation._IRHeaderAddress, I[1]);
+  dart.setFieldSignature(internal_representation._IRHeaderAddress, () => ({
+    __proto__: dart.getFields(internal_representation._IRHeaderAddress.__proto__),
+    [_address$]: dart.finalFieldType(address.Address)
+  }));
+  var _addresses$ = dart.privateName(internal_representation, "_addresses");
+  internal_representation._IRHeaderAddresses = class _IRHeaderAddresses extends internal_representation._IRHeader {
+    out(irMetaInformation) {
+      if (irMetaInformation == null) dart.nullFailed(I[3], 154, 44, "irMetaInformation");
+      return this[_outAddressesValue](this[_addresses$], irMetaInformation);
+    }
+  };
+  (internal_representation._IRHeaderAddresses.new = function(name, _addresses) {
+    if (name == null) dart.nullFailed(I[3], 151, 29, "name");
+    if (_addresses == null) dart.nullFailed(I[3], 151, 40, "_addresses");
+    this[_addresses$] = _addresses;
+    internal_representation._IRHeaderAddresses.__proto__.new.call(this, name);
+    ;
+  }).prototype = internal_representation._IRHeaderAddresses.prototype;
+  dart.addTypeTests(internal_representation._IRHeaderAddresses);
+  dart.addTypeCaches(internal_representation._IRHeaderAddresses);
+  dart.setMethodSignature(internal_representation._IRHeaderAddresses, () => ({
+    __proto__: dart.getMethods(internal_representation._IRHeaderAddresses.__proto__),
+    out: dart.fnType(async.Stream$(core.List$(core.int)), [internal_representation._IRMetaInformation])
+  }));
+  dart.setLibraryUri(internal_representation._IRHeaderAddresses, I[1]);
+  dart.setFieldSignature(internal_representation._IRHeaderAddresses, () => ({
+    __proto__: dart.getFields(internal_representation._IRHeaderAddresses.__proto__),
+    [_addresses$]: dart.finalFieldType(core.Iterable$(address.Address))
+  }));
+  var _multipartType$ = dart.privateName(internal_representation, "_multipartType");
+  internal_representation._IRHeaderContentType = class _IRHeaderContentType extends internal_representation._IRHeader {
+    out(irMetaInformation) {
+      if (irMetaInformation == null) dart.nullFailed(I[3], 166, 44, "irMetaInformation");
+      return this[_outValue]("multipart/" + dart.str(internal_representation._describeEnum(this[_multipartType$])) + ";boundary=\"" + dart.str(this[_boundary$]) + "\"");
+    }
+  };
+  (internal_representation._IRHeaderContentType.new = function(_boundary, _multipartType) {
+    if (_boundary == null) dart.nullFailed(I[3], 162, 29, "_boundary");
+    if (_multipartType == null) dart.nullFailed(I[3], 162, 45, "_multipartType");
+    this[_boundary$] = _boundary;
+    this[_multipartType$] = _multipartType;
+    internal_representation._IRHeaderContentType.__proto__.new.call(this, "content-type");
+    ;
+  }).prototype = internal_representation._IRHeaderContentType.prototype;
+  dart.addTypeTests(internal_representation._IRHeaderContentType);
+  dart.addTypeCaches(internal_representation._IRHeaderContentType);
+  dart.setMethodSignature(internal_representation._IRHeaderContentType, () => ({
+    __proto__: dart.getMethods(internal_representation._IRHeaderContentType.__proto__),
+    out: dart.fnType(async.Stream$(core.List$(core.int)), [internal_representation._IRMetaInformation])
+  }));
+  dart.setLibraryUri(internal_representation._IRHeaderContentType, I[1]);
+  dart.setFieldSignature(internal_representation._IRHeaderContentType, () => ({
+    __proto__: dart.getFields(internal_representation._IRHeaderContentType.__proto__),
+    [_boundary$]: dart.finalFieldType(core.String),
+    [_multipartType$]: dart.finalFieldType(internal_representation._MultipartType)
+  }));
+  var _dateTime$ = dart.privateName(internal_representation, "_dateTime");
+  internal_representation._IRHeaderDate = class _IRHeaderDate extends internal_representation._IRHeader {
+    out(irMetaInformation) {
+      if (irMetaInformation == null) dart.nullFailed(I[3], 181, 44, "irMetaInformation");
+      return this[_outValue](internal_representation._IRHeaderDate._dateFormat.format(this[_dateTime$].toUtc()));
+    }
+  };
+  (internal_representation._IRHeaderDate.new = function(name, _dateTime) {
+    if (name == null) dart.nullFailed(I[3], 178, 24, "name");
+    if (_dateTime == null) dart.nullFailed(I[3], 178, 35, "_dateTime");
+    this[_dateTime$] = _dateTime;
+    internal_representation._IRHeaderDate.__proto__.new.call(this, name);
+    ;
+  }).prototype = internal_representation._IRHeaderDate.prototype;
+  dart.addTypeTests(internal_representation._IRHeaderDate);
+  dart.addTypeCaches(internal_representation._IRHeaderDate);
+  dart.setMethodSignature(internal_representation._IRHeaderDate, () => ({
+    __proto__: dart.getMethods(internal_representation._IRHeaderDate.__proto__),
+    out: dart.fnType(async.Stream$(core.List$(core.int)), [internal_representation._IRMetaInformation])
+  }));
+  dart.setLibraryUri(internal_representation._IRHeaderDate, I[1]);
+  dart.setFieldSignature(internal_representation._IRHeaderDate, () => ({
+    __proto__: dart.getFields(internal_representation._IRHeaderDate.__proto__),
+    [_dateTime$]: dart.finalFieldType(core.DateTime)
+  }));
+  dart.defineLazy(internal_representation._IRHeaderDate, {
+    /*internal_representation._IRHeaderDate._dateFormat*/get _dateFormat() {
+      return new date_format.DateFormat.new("EEE, dd MMM yyyy HH:mm:ss +0000");
+    }
+  }, false);
+  var _logger = dart.privateName(internal_representation, "_logger");
+  var __IRMessage__content = dart.privateName(internal_representation, "_#IRMessage#_content");
+  var __IRMessage__content_isSet = dart.privateName(internal_representation, "_#IRMessage#_content#isSet");
+  var _message$ = dart.privateName(internal_representation, "_message");
+  internal_representation.IRMessage = class IRMessage extends core.Object {
+    get [_content]() {
+      let t1;
+      return dart.test(this[__IRMessage__content_isSet]) ? (t1 = this[__IRMessage__content], t1) : dart.throw(new _internal.LateError.fieldNI("_content"));
+    }
+    set [_content](t1) {
+      if (t1 == null) dart.nullFailed(I[4], 6, 19, "null");
+      this[__IRMessage__content_isSet] = true;
+      this[__IRMessage__content] = t1;
+    }
+    get envelopeTos() {
+      let t2;
+      let envelopeTos = (t2 = dart.nullCheck(this[_message$]).envelopeTos, t2 == null ? T.JSArrayOfStringN().of([]) : t2);
+      if (dart.test(envelopeTos[$isEmpty])) {
+        envelopeTos = (() => {
+          let t2 = T.ListOfAddress().of(dart.nullCheck(this[_message$]).recipientsAsAddresses);
+          t2[$addAll](dart.nullCheck(this[_message$]).ccsAsAddresses);
+          t2[$addAll](dart.nullCheck(this[_message$]).bccsAsAddresses);
+          return t2;
+        })()[$map](T.StringN(), dart.fn(a => {
+          if (a == null) dart.nullFailed(I[4], 23, 14, "a");
+          return a.mailAddress;
+        }, T.AddressToString()));
+      }
+      return envelopeTos;
+    }
+    get envelopeFrom() {
+      let t3;
+      t3 = dart.nullCheck(this[_message$]).envelopeFrom;
+      return t3 == null ? dart.nullCheck(this[_message$]).fromAsAddress.mailAddress : t3;
+    }
+    data(capabilities) {
+      if (capabilities == null) dart.nullFailed(I[4], 31, 39, "capabilities");
+      return this[_content].out(new internal_representation._IRMetaInformation.new(capabilities)).map(T.ListOfint(), dart.fn(s => {
+        if (s == null) dart.nullFailed(I[4], 32, 59, "s");
+        this[_logger].finest("«" + dart.str(convert.utf8.decoder.convert(s)) + "»");
+        return s;
+      }, T.ListOfintToListOfint()));
+    }
+  };
+  (internal_representation.IRMessage.new = function(_message) {
+    this[_logger] = logger.Logger.new("IRMessage");
+    this[__IRMessage__content] = null;
+    this[__IRMessage__content_isSet] = false;
+    this[_message$] = _message;
+    let headers = internal_representation._buildHeaders(dart.nullCheck(this[_message$]));
+    this[_content] = new internal_representation._IRContentPartMixed.new(dart.nullCheck(this[_message$]), headers);
+  }).prototype = internal_representation.IRMessage.prototype;
+  dart.addTypeTests(internal_representation.IRMessage);
+  dart.addTypeCaches(internal_representation.IRMessage);
+  dart.setMethodSignature(internal_representation.IRMessage, () => ({
+    __proto__: dart.getMethods(internal_representation.IRMessage.__proto__),
+    data: dart.fnType(async.Stream$(core.List$(core.int)), [capabilities.Capabilities])
+  }));
+  dart.setGetterSignature(internal_representation.IRMessage, () => ({
+    __proto__: dart.getGetters(internal_representation.IRMessage.__proto__),
+    [_content]: internal_representation._IRContent,
+    envelopeTos: core.Iterable$(dart.nullable(core.String)),
+    envelopeFrom: core.String
+  }));
+  dart.setSetterSignature(internal_representation.IRMessage, () => ({
+    __proto__: dart.getSetters(internal_representation.IRMessage.__proto__),
+    [_content]: internal_representation._IRContent
+  }));
+  dart.setLibraryUri(internal_representation.IRMessage, I[1]);
+  dart.setFieldSignature(internal_representation.IRMessage, () => ({
+    __proto__: dart.getFields(internal_representation.IRMessage.__proto__),
+    [_logger]: dart.finalFieldType(logger.Logger),
+    [_message$]: dart.finalFieldType(dart.nullable(message.Message)),
+    [__IRMessage__content]: dart.fieldType(dart.nullable(internal_representation._IRContent)),
+    [__IRMessage__content_isSet]: dart.fieldType(core.bool)
+  }));
+  var message$ = dart.privateName(internal_representation, "InvalidHeaderException.message");
+  internal_representation.InvalidHeaderException = class InvalidHeaderException extends core.Object {
+    get message() {
+      return this[message$];
+    }
+    set message(value) {
+      this[message$] = value;
+    }
+  };
+  (internal_representation.InvalidHeaderException.new = function(message) {
+    if (message == null) dart.nullFailed(I[4], 41, 31, "message");
+    this[message$] = message;
+    ;
+  }).prototype = internal_representation.InvalidHeaderException.prototype;
+  dart.addTypeTests(internal_representation.InvalidHeaderException);
+  dart.addTypeCaches(internal_representation.InvalidHeaderException);
+  internal_representation.InvalidHeaderException[dart.implements] = () => [core.Exception];
+  dart.setLibraryUri(internal_representation.InvalidHeaderException, I[1]);
+  dart.setFieldSignature(internal_representation.InvalidHeaderException, () => ({
+    __proto__: dart.getFields(internal_representation.InvalidHeaderException.__proto__),
+    message: dart.fieldType(core.String)
+  }));
+  internal_representation._describeEnum = function _describeEnum(enumEntry) {
+    if (enumEntry == null) dart.nullFailed(I[0], 25, 29, "enumEntry");
+    let description = dart.toString(enumEntry);
+    let indexOfDot = description[$indexOf](".");
+    if (!(indexOfDot !== -1 && indexOfDot < description.length - 1)) dart.assertFailed(null, I[0], 28, 10, "indexOfDot != -1 && indexOfDot < description.length - 1");
+    return description[$substring](indexOfDot + 1);
+  };
+  internal_representation._follow = function _follow(T, t, ts) {
+    if (ts == null) dart.nullFailed(I[2], 82, 41, "ts");
+    return new (_js_helper.SyncIterable$(T)).new(function* _follow() {
+      yield t;
+      yield* ts;
+    });
+  };
+  internal_representation._buildHeaders = function _buildHeaders(message) {
+    if (message == null) dart.nullFailed(I[3], 185, 43, "message");
+    let noCustom = C[7] || CT.C7;
+    let headers = T.JSArrayOf_IRHeader().of([]);
+    let msgHeader = message.headers;
+    msgHeader[$forEach](dart.fn((name, value) => {
+      if (name == null) dart.nullFailed(I[3], 192, 22, "name");
+      name = name[$toLowerCase]();
+      if (dart.test(noCustom[$contains](name))) return;
+      if (typeof value == 'string' && value[$contains]("@")) {
+        headers[$add](new internal_representation._IRHeaderAddress.new(name, new address.Address.new(value)));
+      } else if (typeof value == 'string') {
+        headers[$add](new internal_representation._IRHeaderText.new(name, value));
+      } else if (core.DateTime.is(value)) {
+        headers[$add](new internal_representation._IRHeaderDate.new(name, value));
+      } else if (address.Address.is(value)) {
+        headers[$add](new internal_representation._IRHeaderAddress.new(name, value));
+      } else if (T.IterableOfAddress().is(value)) {
+        headers[$add](new internal_representation._IRHeaderAddresses.new(name, value));
+      } else if (T.IterableOfString().is(value) && dart.test(value[$every](dart.fn(s => {
+        if (s == null) dart.nullFailed(I[3], 207, 22, "s");
+        return s[$contains]("@");
+      }, T.StringTobool())))) {
+        headers[$add](new internal_representation._IRHeaderAddresses.new(name, value[$map](address.Address, dart.fn(a => {
+          if (a == null) dart.nullFailed(I[3], 208, 55, "a");
+          return new address.Address.new(a);
+        }, T.StringToAddress()))));
+      } else {
+        dart.throw(new internal_representation.InvalidHeaderException.new("Type of value for " + dart.str(name) + " is invalid"));
+      }
+    }, T.StringAnddynamicTovoid()));
+    if (!dart.test(msgHeader[$containsKey]("subject")) && message.subject != null) {
+      headers[$add](new internal_representation._IRHeaderText.new("subject", dart.nullCheck(message.subject)));
+    }
+    if (!dart.test(msgHeader[$containsKey]("from"))) {
+      headers[$add](new internal_representation._IRHeaderAddress.new("from", message.fromAsAddress));
+    }
+    if (!dart.test(msgHeader[$containsKey]("to"))) {
+      let tos = message.recipientsAsAddresses;
+      if (dart.test(tos[$isNotEmpty])) headers[$add](new internal_representation._IRHeaderAddresses.new("to", tos));
+    }
+    if (!dart.test(msgHeader[$containsKey]("cc"))) {
+      let ccs = message.ccsAsAddresses;
+      if (dart.test(ccs[$isNotEmpty])) headers[$add](new internal_representation._IRHeaderAddresses.new("cc", ccs));
+    }
+    if (!dart.test(msgHeader[$containsKey]("date"))) {
+      headers[$add](new internal_representation._IRHeaderDate.new("date", new core.DateTime.now()));
+    }
+    if (!dart.test(msgHeader[$containsKey]("x-mailer"))) {
+      headers[$add](new internal_representation._IRHeaderText.new("x-mailer", "Dart Mailer library"));
+    }
+    headers[$add](new internal_representation._IRHeaderText.new("mime-version", "1.0"));
+    return headers;
+  };
+  dart.defineLazy(internal_representation, {
+    /*internal_representation.maxEncodedLength*/get maxEncodedLength() {
+      return 75;
+    },
+    /*internal_representation.splitOverLength*/get splitOverLength() {
+      return 80;
+    },
+    /*internal_representation.maxLineLength*/get maxLineLength() {
+      return 800;
+    }
+  }, false);
+  dart.trackLibraries("packages/mailer/src/smtp/internal_representation/internal_representation.dart", {
+    "package:mailer/src/smtp/internal_representation/internal_representation.dart": internal_representation
+  }, {
+    "package:mailer/src/smtp/internal_representation/internal_representation.dart": ["ir_content.dart", "ir_header.dart", "ir_message.dart"]
+  }, '{"version":3,"sourceRoot":"","sources":["internal_representation.dart","ir_content.dart","ir_header.dart","ir_message.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/mailer/src/smtp/internal_representation/internal_representation.dart.lib.js"}');
+  // Exports:
+  return {
+    src__smtp__internal_representation__internal_representation: internal_representation
+  };
+}));
+
+//# sourceMappingURL=internal_representation.dart.lib.js.map

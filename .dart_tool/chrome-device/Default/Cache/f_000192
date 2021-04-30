@@ -1,0 +1,562 @@
+define(['dart_sdk', 'packages/async/src/stream_sink_transformer/typed.dart'], (function load__packages__async__src__result__release_transformer_dart(dart_sdk, packages__async__src__stream_sink_transformer__typed$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const _interceptors = dart_sdk._interceptors;
+  const _internal = dart_sdk._internal;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const stream_transformer_wrapper = packages__async__src__stream_sink_transformer__typed$46dart.src__stream_sink_transformer__stream_transformer_wrapper;
+  var release_transformer = Object.create(dart.library);
+  var release_sink = Object.create(dart.library);
+  var value$ = Object.create(dart.library);
+  var error$ = Object.create(dart.library);
+  var capture_transformer = Object.create(dart.library);
+  var capture_sink = Object.create(dart.library);
+  var result$ = Object.create(dart.library);
+  var $length = dartx.length;
+  var $add = dartx.add;
+  var $_set = dartx._set;
+  var $hashCode = dartx.hashCode;
+  dart._checkModuleNullSafetyMode(false);
+  var T$ = {
+    EventSinkOfResult: () => (T$.EventSinkOfResult = dart.constFn(async.EventSink$(result$.Result)))(),
+    EventSinkToEventSinkOfResult: () => (T$.EventSinkToEventSinkOfResult = dart.constFn(dart.fnType(T$.EventSinkOfResult(), [async.EventSink])))(),
+    ObjectAndStackTraceToErrorResult: () => (T$.ObjectAndStackTraceToErrorResult = dart.constFn(dart.fnType(error$.ErrorResult, [core.Object, core.StackTrace])))(),
+    ObjectL: () => (T$.ObjectL = dart.constFn(dart.legacy(core.Object)))(),
+    CaptureStreamTransformerOfObjectL: () => (T$.CaptureStreamTransformerOfObjectL = dart.constFn(capture_transformer.CaptureStreamTransformer$(T$.ObjectL())))(),
+    ReleaseStreamTransformerOfObjectL: () => (T$.ReleaseStreamTransformerOfObjectL = dart.constFn(release_transformer.ReleaseStreamTransformer$(T$.ObjectL())))(),
+    ResultOfObjectL: () => (T$.ResultOfObjectL = dart.constFn(result$.Result$(T$.ObjectL())))(),
+    ResultLOfObjectL: () => (T$.ResultLOfObjectL = dart.constFn(dart.legacy(T$.ResultOfObjectL())))(),
+    StreamTransformerWrapperOfObjectL$ResultLOfObjectL: () => (T$.StreamTransformerWrapperOfObjectL$ResultLOfObjectL = dart.constFn(stream_transformer_wrapper.StreamTransformerWrapper$(T$.ObjectL(), T$.ResultLOfObjectL())))(),
+    StreamTransformerWrapperOfResultLOfObjectL$ObjectL: () => (T$.StreamTransformerWrapperOfResultLOfObjectL$ObjectL = dart.constFn(stream_transformer_wrapper.StreamTransformerWrapper$(T$.ResultLOfObjectL(), T$.ObjectL())))(),
+    FutureOfNever: () => (T$.FutureOfNever = dart.constFn(async.Future$(dart.Never)))(),
+    dynamicAnddynamicTodynamic: () => (T$.dynamicAnddynamicTodynamic = dart.constFn(dart.fnType(dart.dynamic, [dart.dynamic, dart.dynamic])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T$);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.fn(release_transformer.ReleaseStreamTransformer._createSink, T$.EventSinkToEventSinkOfResult());
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: T$.CaptureStreamTransformerOfObjectL().prototype
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: T$.ReleaseStreamTransformerOfObjectL().prototype
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: T$.StreamTransformerWrapperOfObjectL$ResultLOfObjectL().prototype,
+        [StreamTransformerWrapper__transformer]: C[1] || CT.C1
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: T$.StreamTransformerWrapperOfResultLOfObjectL$ObjectL().prototype,
+        [StreamTransformerWrapper__transformer]: C[2] || CT.C2
+      });
+    }
+  }, false);
+  var C = Array(5).fill(void 0);
+  var I = [
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.5.0/lib/src/result/release_transformer.dart",
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.5.0/lib/src/result/result.dart",
+    "package:async/src/result/result.dart",
+    "package:async/src/result/release_transformer.dart",
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.5.0/lib/src/result/release_sink.dart",
+    "package:async/src/result/release_sink.dart",
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.5.0/lib/src/result/value.dart",
+    "package:async/src/result/value.dart",
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.5.0/lib/src/result/error.dart",
+    "package:async/src/result/error.dart",
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.5.0/lib/src/result/capture_transformer.dart",
+    "package:async/src/result/capture_transformer.dart",
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.5.0/lib/src/result/capture_sink.dart",
+    "package:async/src/result/capture_sink.dart"
+  ];
+  const _is_Result_default = Symbol('_is_Result_default');
+  var StreamTransformerWrapper__transformer = dart.privateName(stream_transformer_wrapper, "StreamTransformerWrapper._transformer");
+  result$.Result$ = dart.generic(T => {
+    class Result extends core.Object {
+      static new(computation) {
+        if (computation == null) dart.nullFailed(I[1], 63, 31, "computation");
+        try {
+          return new (value$.ValueResult$(T)).new(computation());
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          let s = dart.stackTrace(e$);
+          if (core.Object.is(e)) {
+            return new error$.ErrorResult.new(e, s);
+          } else
+            throw e$;
+        }
+      }
+      static error(error, stackTrace = null) {
+        if (error == null) dart.nullFailed(I[1], 79, 31, "error");
+        return new error$.ErrorResult.new(error, stackTrace);
+      }
+      static capture(T, future) {
+        if (future == null) dart.nullFailed(I[1], 86, 49, "future");
+        return future.then(result$.Result$(T), dart.fn(value => new (value$.ValueResult$(T)).new(value), dart.fnType(value$.ValueResult$(T), [T])), {onError: dart.fn((error, stackTrace) => {
+            if (error == null) dart.nullFailed(I[1], 88, 26, "error");
+            if (stackTrace == null) dart.nullFailed(I[1], 88, 44, "stackTrace");
+            return new error$.ErrorResult.new(error, stackTrace);
+          }, T$.ObjectAndStackTraceToErrorResult())});
+      }
+      static captureAll(T, elements) {
+        if (elements == null) dart.nullFailed(I[1], 99, 70, "elements");
+        let results = _interceptors.JSArray$(dart.nullable(result$.Result$(T))).of([]);
+        let pending = 0;
+        let completer = null;
+        let completer$35isSet = false;
+        function completer$35get() {
+          return completer$35isSet ? completer : dart.throw(new _internal.LateError.localNI("completer"));
+        }
+        dart.fn(completer$35get, dart.fnType(async.Completer$(core.List$(result$.Result$(T))), []));
+        function completer$35set(t4) {
+          if (t4 == null) dart.nullFailed(I[1], 102, 37, "null");
+          completer$35isSet = true;
+          return completer = t4;
+        }
+        dart.fn(completer$35set, dart.fnType(dart.dynamic, [async.Completer$(core.List$(result$.Result$(T)))]));
+        for (let element of elements) {
+          if (async.Future$(T).is(element)) {
+            let i = results[$length];
+            results[$add](null);
+            pending = pending + 1;
+            result$.Result.capture(T, element).then(core.Null, dart.fn(result => {
+              if (result == null) dart.nullFailed(I[1], 108, 42, "result");
+              results[$_set](i, result);
+              if ((pending = pending - 1) === 0) {
+                completer$35get().complete(core.List$(result$.Result$(T)).from(results));
+              }
+            }, dart.fnType(core.Null, [result$.Result$(T)])));
+          } else {
+            results[$add](new (value$.ValueResult$(T)).new(element));
+          }
+        }
+        if (pending === 0) {
+          return async.Future$(core.List$(result$.Result$(T))).value(core.List$(result$.Result$(T)).from(results));
+        }
+        completer$35set(async.Completer$(core.List$(result$.Result$(T))).new());
+        return completer$35get().future;
+      }
+      static release(T, future) {
+        if (future == null) dart.nullFailed(I[1], 132, 49, "future");
+        return future.then(T, dart.fn(result => {
+          if (result == null) dart.nullFailed(I[1], 133, 23, "result");
+          return result.asFuture;
+        }, dart.fnType(async.Future$(T), [result$.Result$(T)])));
+      }
+      static captureStream(T, source) {
+        if (source == null) dart.nullFailed(I[1], 139, 55, "source");
+        return source.transform(result$.Result$(T), new (capture_transformer.CaptureStreamTransformer$(T)).new());
+      }
+      static releaseStream(T, source) {
+        if (source == null) dart.nullFailed(I[1], 147, 55, "source");
+        return source.transform(T, new (release_transformer.ReleaseStreamTransformer$(T)).new());
+      }
+      static releaseSink(T, sink) {
+        if (sink == null) dart.nullFailed(I[1], 155, 59, "sink");
+        return new (release_sink.ReleaseSink$(T)).new(sink);
+      }
+      static captureSink(T, sink) {
+        if (sink == null) dart.nullFailed(I[1], 165, 59, "sink");
+        return new (capture_sink.CaptureSink$(T)).new(sink);
+      }
+      static flatten(T, result) {
+        if (result == null) dart.nullFailed(I[1], 174, 49, "result");
+        if (dart.test(result.isValue)) return dart.nullCheck(result.asValue).value;
+        return dart.nullCheck(result.asError);
+      }
+      static flattenAll(T, results) {
+        if (results == null) dart.nullFailed(I[1], 183, 60, "results");
+        let values = _interceptors.JSArray$(T).of([]);
+        for (let result of results) {
+          if (dart.test(result.isValue)) {
+            values[$add](dart.nullCheck(result.asValue).value);
+          } else {
+            return dart.nullCheck(result.asError);
+          }
+        }
+        return new (value$.ValueResult$(core.List$(T))).new(values);
+      }
+    }
+    (Result[dart.mixinNew] = function() {
+    }).prototype = Result.prototype;
+    dart.addTypeTests(Result);
+    Result.prototype[_is_Result_default] = true;
+    dart.addTypeCaches(Result);
+    dart.setLibraryUri(Result, I[2]);
+    return Result;
+  });
+  result$.Result = result$.Result$();
+  dart.defineLazy(result$.Result, {
+    /*result$.Result.captureStreamTransformer*/get captureStreamTransformer() {
+      return C[1] || CT.C1;
+    },
+    /*result$.Result.releaseStreamTransformer*/get releaseStreamTransformer() {
+      return C[2] || CT.C2;
+    },
+    /*result$.Result.captureSinkTransformer*/get captureSinkTransformer() {
+      return C[3] || CT.C3;
+    },
+    /*result$.Result.releaseSinkTransformer*/get releaseSinkTransformer() {
+      return C[4] || CT.C4;
+    }
+  }, false);
+  dart.addTypeTests(result$.Result, _is_Result_default);
+  const _is_ReleaseStreamTransformer_default = Symbol('_is_ReleaseStreamTransformer_default');
+  release_transformer.ReleaseStreamTransformer$ = dart.generic(T => {
+    var ResultOfT = () => (ResultOfT = dart.constFn(result$.Result$(T)))();
+    var StreamOfResultOfT = () => (StreamOfResultOfT = dart.constFn(async.Stream$(ResultOfT())))();
+    var StreamOfT = () => (StreamOfT = dart.constFn(async.Stream$(T)))();
+    class ReleaseStreamTransformer extends async.StreamTransformerBase$(result$.Result$(T), T) {
+      bind(source) {
+        StreamOfResultOfT().as(source);
+        if (source == null) dart.nullFailed(I[0], 15, 36, "source");
+        return StreamOfT().eventTransformed(source, C[0] || CT.C0);
+      }
+      static _createSink(sink) {
+        if (sink == null) dart.nullFailed(I[0], 20, 50, "sink");
+        return new release_sink.ReleaseSink.new(sink);
+      }
+    }
+    (ReleaseStreamTransformer.new = function() {
+      ReleaseStreamTransformer.__proto__.new.call(this);
+      ;
+    }).prototype = ReleaseStreamTransformer.prototype;
+    dart.addTypeTests(ReleaseStreamTransformer);
+    ReleaseStreamTransformer.prototype[_is_ReleaseStreamTransformer_default] = true;
+    dart.addTypeCaches(ReleaseStreamTransformer);
+    dart.setMethodSignature(ReleaseStreamTransformer, () => ({
+      __proto__: dart.getMethods(ReleaseStreamTransformer.__proto__),
+      bind: dart.fnType(async.Stream$(T), [dart.nullable(core.Object)])
+    }));
+    dart.setLibraryUri(ReleaseStreamTransformer, I[3]);
+    return ReleaseStreamTransformer;
+  });
+  release_transformer.ReleaseStreamTransformer = release_transformer.ReleaseStreamTransformer$();
+  dart.addTypeTests(release_transformer.ReleaseStreamTransformer, _is_ReleaseStreamTransformer_default);
+  var _sink$ = dart.privateName(release_sink, "_sink");
+  const _is_ReleaseSink_default = Symbol('_is_ReleaseSink_default');
+  release_sink.ReleaseSink$ = dart.generic(T => {
+    var ResultOfT = () => (ResultOfT = dart.constFn(result$.Result$(T)))();
+    class ReleaseSink extends core.Object {
+      add(result) {
+        ResultOfT().as(result);
+        if (result == null) dart.nullFailed(I[4], 16, 22, "result");
+        result.addTo(this[_sink$]);
+      }
+      addError(error, stackTrace = null) {
+        if (error == null) dart.nullFailed(I[4], 21, 24, "error");
+        this[_sink$].addError(error, stackTrace);
+      }
+      close() {
+        this[_sink$].close();
+      }
+    }
+    (ReleaseSink.new = function(_sink) {
+      if (_sink == null) dart.nullFailed(I[4], 13, 20, "_sink");
+      this[_sink$] = _sink;
+      ;
+    }).prototype = ReleaseSink.prototype;
+    dart.addTypeTests(ReleaseSink);
+    ReleaseSink.prototype[_is_ReleaseSink_default] = true;
+    dart.addTypeCaches(ReleaseSink);
+    ReleaseSink[dart.implements] = () => [async.EventSink$(result$.Result$(T))];
+    dart.setMethodSignature(ReleaseSink, () => ({
+      __proto__: dart.getMethods(ReleaseSink.__proto__),
+      add: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      addError: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
+      close: dart.fnType(dart.void, [])
+    }));
+    dart.setLibraryUri(ReleaseSink, I[5]);
+    dart.setFieldSignature(ReleaseSink, () => ({
+      __proto__: dart.getFields(ReleaseSink.__proto__),
+      [_sink$]: dart.finalFieldType(async.EventSink$(T))
+    }));
+    return ReleaseSink;
+  });
+  release_sink.ReleaseSink = release_sink.ReleaseSink$();
+  dart.addTypeTests(release_sink.ReleaseSink, _is_ReleaseSink_default);
+  var value$0 = dart.privateName(value$, "ValueResult.value");
+  const _is_ValueResult_default = Symbol('_is_ValueResult_default');
+  value$.ValueResult$ = dart.generic(T => {
+    var CompleterOfT = () => (CompleterOfT = dart.constFn(async.Completer$(T)))();
+    var EventSinkOfT = () => (EventSinkOfT = dart.constFn(async.EventSink$(T)))();
+    var FutureOfT = () => (FutureOfT = dart.constFn(async.Future$(T)))();
+    class ValueResult extends core.Object {
+      get value() {
+        return this[value$0];
+      }
+      set value(value) {
+        super.value = value;
+      }
+      get isValue() {
+        return true;
+      }
+      get isError() {
+        return false;
+      }
+      get asValue() {
+        return this;
+      }
+      get asError() {
+        return null;
+      }
+      complete(completer) {
+        CompleterOfT().as(completer);
+        if (completer == null) dart.nullFailed(I[6], 27, 30, "completer");
+        completer.complete(this.value);
+      }
+      addTo(sink) {
+        EventSinkOfT().as(sink);
+        if (sink == null) dart.nullFailed(I[6], 32, 27, "sink");
+        sink.add(this.value);
+      }
+      get asFuture() {
+        return FutureOfT().value(this.value);
+      }
+      get hashCode() {
+        return (dart.notNull(dart.hashCode(this.value)) ^ 842997089) >>> 0;
+      }
+      _equals(other) {
+        if (other == null) return false;
+        return value$.ValueResult.is(other) && dart.equals(this.value, other.value);
+      }
+    }
+    (ValueResult.new = function(value) {
+      this[value$0] = value;
+      ;
+    }).prototype = ValueResult.prototype;
+    dart.addTypeTests(ValueResult);
+    ValueResult.prototype[_is_ValueResult_default] = true;
+    dart.addTypeCaches(ValueResult);
+    ValueResult[dart.implements] = () => [result$.Result$(T)];
+    dart.setMethodSignature(ValueResult, () => ({
+      __proto__: dart.getMethods(ValueResult.__proto__),
+      complete: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      addTo: dart.fnType(dart.void, [dart.nullable(core.Object)])
+    }));
+    dart.setGetterSignature(ValueResult, () => ({
+      __proto__: dart.getGetters(ValueResult.__proto__),
+      isValue: core.bool,
+      isError: core.bool,
+      asValue: value$.ValueResult$(T),
+      asError: dart.nullable(error$.ErrorResult),
+      asFuture: async.Future$(T)
+    }));
+    dart.setLibraryUri(ValueResult, I[7]);
+    dart.setFieldSignature(ValueResult, () => ({
+      __proto__: dart.getFields(ValueResult.__proto__),
+      value: dart.finalFieldType(T)
+    }));
+    dart.defineExtensionMethods(ValueResult, ['_equals']);
+    dart.defineExtensionAccessors(ValueResult, ['hashCode']);
+    return ValueResult;
+  });
+  value$.ValueResult = value$.ValueResult$();
+  dart.addTypeTests(value$.ValueResult, _is_ValueResult_default);
+  var error$0 = dart.privateName(error$, "ErrorResult.error");
+  var stackTrace$ = dart.privateName(error$, "ErrorResult.stackTrace");
+  error$.ErrorResult = class ErrorResult extends core.Object {
+    get error() {
+      return this[error$0];
+    }
+    set error(value) {
+      super.error = value;
+    }
+    get stackTrace() {
+      return this[stackTrace$];
+    }
+    set stackTrace(value) {
+      super.stackTrace = value;
+    }
+    get isValue() {
+      return false;
+    }
+    get isError() {
+      return true;
+    }
+    get asValue() {
+      return null;
+    }
+    get asError() {
+      return this;
+    }
+    complete(completer) {
+      async.Completer.as(completer);
+      if (completer == null) dart.nullFailed(I[8], 31, 27, "completer");
+      completer.completeError(this.error, this.stackTrace);
+    }
+    addTo(sink) {
+      async.EventSink.as(sink);
+      if (sink == null) dart.nullFailed(I[8], 36, 24, "sink");
+      sink.addError(this.error, this.stackTrace);
+    }
+    get asFuture() {
+      return T$.FutureOfNever().error(this.error, this.stackTrace);
+    }
+    handle(errorHandler) {
+      if (errorHandler == null) dart.nullFailed(I[8], 49, 24, "errorHandler");
+      if (T$.dynamicAnddynamicTodynamic().is(errorHandler)) {
+        errorHandler(this.error, this.stackTrace);
+      } else {
+        dart.dcall(errorHandler, [this.error]);
+      }
+    }
+    get hashCode() {
+      return (dart.notNull(dart.hashCode(this.error)) ^ dart.notNull(dart.hashCode(this.stackTrace)) ^ 492929599) >>> 0;
+    }
+    _equals(other) {
+      if (other == null) return false;
+      return error$.ErrorResult.is(other) && dart.equals(this.error, other.error) && dart.equals(this.stackTrace, other.stackTrace);
+    }
+  };
+  (error$.ErrorResult.new = function(error, stackTrace = null) {
+    let t6;
+    if (error == null) dart.nullFailed(I[8], 27, 20, "error");
+    this[error$0] = error;
+    this[stackTrace$] = (t6 = stackTrace, t6 == null ? async.AsyncError.defaultStackTrace(error) : t6);
+    ;
+  }).prototype = error$.ErrorResult.prototype;
+  dart.addTypeTests(error$.ErrorResult);
+  dart.addTypeCaches(error$.ErrorResult);
+  error$.ErrorResult[dart.implements] = () => [result$.Result$(dart.Never)];
+  dart.setMethodSignature(error$.ErrorResult, () => ({
+    __proto__: dart.getMethods(error$.ErrorResult.__proto__),
+    complete: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+    addTo: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+    handle: dart.fnType(dart.void, [core.Function])
+  }));
+  dart.setGetterSignature(error$.ErrorResult, () => ({
+    __proto__: dart.getGetters(error$.ErrorResult.__proto__),
+    isValue: core.bool,
+    isError: core.bool,
+    asValue: dart.nullable(value$.ValueResult$(dart.Never)),
+    asError: error$.ErrorResult,
+    asFuture: async.Future$(dart.Never)
+  }));
+  dart.setLibraryUri(error$.ErrorResult, I[9]);
+  dart.setFieldSignature(error$.ErrorResult, () => ({
+    __proto__: dart.getFields(error$.ErrorResult.__proto__),
+    error: dart.finalFieldType(core.Object),
+    stackTrace: dart.finalFieldType(core.StackTrace)
+  }));
+  dart.defineExtensionMethods(error$.ErrorResult, ['_equals']);
+  dart.defineExtensionAccessors(error$.ErrorResult, ['hashCode']);
+  const _is_CaptureStreamTransformer_default = Symbol('_is_CaptureStreamTransformer_default');
+  capture_transformer.CaptureStreamTransformer$ = dart.generic(T => {
+    var StreamOfT = () => (StreamOfT = dart.constFn(async.Stream$(T)))();
+    var ResultOfT = () => (ResultOfT = dart.constFn(result$.Result$(T)))();
+    var StreamOfResultOfT = () => (StreamOfResultOfT = dart.constFn(async.Stream$(ResultOfT())))();
+    var CaptureSinkOfT = () => (CaptureSinkOfT = dart.constFn(capture_sink.CaptureSink$(T)))();
+    var EventSinkOfResultOfT = () => (EventSinkOfResultOfT = dart.constFn(async.EventSink$(ResultOfT())))();
+    var EventSinkOfResultOfTToCaptureSinkOfT = () => (EventSinkOfResultOfTToCaptureSinkOfT = dart.constFn(dart.fnType(CaptureSinkOfT(), [EventSinkOfResultOfT()])))();
+    class CaptureStreamTransformer extends async.StreamTransformerBase$(T, result$.Result$(T)) {
+      bind(source) {
+        StreamOfT().as(source);
+        if (source == null) dart.nullFailed(I[10], 18, 36, "source");
+        return StreamOfResultOfT().eventTransformed(source, dart.fn(sink => {
+          if (sink == null) dart.nullFailed(I[10], 20, 20, "sink");
+          return new (CaptureSinkOfT()).new(sink);
+        }, EventSinkOfResultOfTToCaptureSinkOfT()));
+      }
+    }
+    (CaptureStreamTransformer.new = function() {
+      CaptureStreamTransformer.__proto__.new.call(this);
+      ;
+    }).prototype = CaptureStreamTransformer.prototype;
+    dart.addTypeTests(CaptureStreamTransformer);
+    CaptureStreamTransformer.prototype[_is_CaptureStreamTransformer_default] = true;
+    dart.addTypeCaches(CaptureStreamTransformer);
+    dart.setMethodSignature(CaptureStreamTransformer, () => ({
+      __proto__: dart.getMethods(CaptureStreamTransformer.__proto__),
+      bind: dart.fnType(async.Stream$(result$.Result$(T)), [dart.nullable(core.Object)])
+    }));
+    dart.setLibraryUri(CaptureStreamTransformer, I[11]);
+    return CaptureStreamTransformer;
+  });
+  capture_transformer.CaptureStreamTransformer = capture_transformer.CaptureStreamTransformer$();
+  dart.addTypeTests(capture_transformer.CaptureStreamTransformer, _is_CaptureStreamTransformer_default);
+  var _sink = dart.privateName(capture_sink, "_sink");
+  const _is_CaptureSink_default = Symbol('_is_CaptureSink_default');
+  capture_sink.CaptureSink$ = dart.generic(T => {
+    var ValueResultOfT = () => (ValueResultOfT = dart.constFn(value$.ValueResult$(T)))();
+    var ResultOfT = () => (ResultOfT = dart.constFn(result$.Result$(T)))();
+    class CaptureSink extends core.Object {
+      add(value) {
+        T.as(value);
+        this[_sink].add(new (ValueResultOfT()).new(value));
+      }
+      addError(error, stackTrace = null) {
+        if (error == null) dart.nullFailed(I[12], 21, 24, "error");
+        this[_sink].add(ResultOfT().error(error, stackTrace));
+      }
+      close() {
+        this[_sink].close();
+      }
+    }
+    (CaptureSink.new = function(sink) {
+      if (sink == null) dart.nullFailed(I[12], 13, 36, "sink");
+      this[_sink] = sink;
+      ;
+    }).prototype = CaptureSink.prototype;
+    dart.addTypeTests(CaptureSink);
+    CaptureSink.prototype[_is_CaptureSink_default] = true;
+    dart.addTypeCaches(CaptureSink);
+    CaptureSink[dart.implements] = () => [async.EventSink$(T)];
+    dart.setMethodSignature(CaptureSink, () => ({
+      __proto__: dart.getMethods(CaptureSink.__proto__),
+      add: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      addError: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
+      close: dart.fnType(dart.void, [])
+    }));
+    dart.setLibraryUri(CaptureSink, I[13]);
+    dart.setFieldSignature(CaptureSink, () => ({
+      __proto__: dart.getFields(CaptureSink.__proto__),
+      [_sink]: dart.finalFieldType(async.EventSink$(result$.Result$(T)))
+    }));
+    return CaptureSink;
+  });
+  capture_sink.CaptureSink = capture_sink.CaptureSink$();
+  dart.addTypeTests(capture_sink.CaptureSink, _is_CaptureSink_default);
+  dart.trackLibraries("packages/async/src/result/release_transformer.dart", {
+    "package:async/src/result/release_transformer.dart": release_transformer,
+    "package:async/src/result/release_sink.dart": release_sink,
+    "package:async/src/result/value.dart": value$,
+    "package:async/src/result/error.dart": error$,
+    "package:async/src/result/capture_transformer.dart": capture_transformer,
+    "package:async/src/result/capture_sink.dart": capture_sink,
+    "package:async/src/result/result.dart": result$
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["result.dart","release_transformer.dart","release_sink.dart","value.dart","error.dart","capture_transformer.dart","capture_sink.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;YA8D8B;AAC1B;AACE,gBAAO,kCAAe,AAAW,WAAA;;cAChB;cAAG;AAApB;AACA,kBAAO,4BAAY,CAAC,EAAE,CAAC;;;;MAE3B;mBAU4B,OAAoB;YAApB;AACxB,0CAAY,KAAK,EAAE,UAAU;MAAC;;YAMY;AAC5C,cAAO,AAAO,OAAD,0BAAM,QAAC,SAAU,iCAAY,KAAK,wDAClC,SAAQ,OAAkB;gBAAlB;gBAAkB;AAC/B,8CAAY,KAAK,EAAE,UAAU;;MACvC;;YASmE;AAC7D,sBAAsB;AACtB,sBAAU;AACkB;;;;;;;;;;;;AAChC,iBAAS,UAAW,SAAQ;AAC1B,cAAY,oBAAR,OAAO;AACL,oBAAI,AAAQ,OAAD;AACE,YAAjB,AAAQ,OAAD,OAAK;AACH,YAAT,UAAA,AAAO,OAAA;AAML,YALK,AAAoB,0BAAT,OAAO,kBAAO;kBAAC;AACZ,cAAnB,AAAO,OAAA,QAAC,CAAC,EAAI,MAAM;AACnB,kBAAc,CAAR,UAAF,AAAE,OAAO,GAAT,OAAa;AACuB,gBAAtC,AAAU,2BAAc,oCAAK,OAAO;;;;AAIH,YAArC,AAAQ,OAAD,OAAK,iCAAgB,OAAO;;;AAGvC,YAAI,AAAQ,OAAD,KAAI;AACb,gBAAc,qDAAW,oCAAK,OAAO;;AAEC,QAAxC,gBAAY;AACZ,cAAO,AAAU;MACnB;;YAS8C;AAC1C,cAAA,AAAO,OAAD,SAAS;cAAC;AAAW,gBAAA,AAAO,OAAD;;MAAU;;YAMK;AAChD,cAAA,AAAO,OAAD,+BAAW;MAA8B;;YAOC;AAChD,cAAA,AAAO,OAAD,cAAW;MAA8B;;YAOK;AACpD,sDAAe,IAAI;MAAC;;YASgC;AACpD,sDAAe,IAAI;MAAC;;YAQsB;AAC5C,sBAAI,AAAO,MAAD,WAAU,MAAqB,AAAE,gBAAhB,AAAO,MAAD;AACjC,cAAqB,gBAAd,AAAO,MAAD;MACf;;YAMyD;AACnD,qBAAY;AAChB,iBAAS,SAAU,QAAO;AACxB,wBAAI,AAAO,MAAD;AACyB,YAAjC,AAAO,MAAD,OAAmB,AAAE,eAAhB,AAAO,MAAD;;AAEjB,kBAAqB,gBAAd,AAAO,MAAD;;;AAGjB,cAAO,8CAAsB,MAAM;MACrC;;;;;;;;;;;;MAlKI,uCAAwB;;;MAOxB,uCAAwB;;;MAOxB,qCAAsB;;;MAStB,qCAAsB;;;;;;;;;;;;+BCvCO;;AAC/B,cAAO,8BAA2B,MAAM;MAC1C;;YAG+C;AAAS,gDAAY,IAAI;MAAC;;;AARnE;;IAA0B;;;;;;;;;;;;;;;;;;;uBCIb;;AACE,QAAnB,AAAO,MAAD,OAAO;MACf;eAGqB,OAAoB;YAApB;AAGc,QAAjC,AAAM,sBAAS,KAAK,EAAE,UAAU;MAClC;;AAIe,QAAb,AAAM;MACR;;;UAjBiB;;;IAAM;;;;;;;;;;;;;;;;;;;;;;;;;;;MCAf;;;;;;;AAGY;MAAI;;AAEJ;MAAK;;AAEK;MAAI;;AAEN;MAAI;;0BAKL;;AACA,QAAzB,AAAU,SAAD,UAAU;MACrB;;0BAGwB;;AACP,QAAf,AAAK,IAAD,KAAK;MACX;;AAG0B,cAAO,mBAAM;MAAM;;AAGzB,cAAe,eAAT,cAAN,eAAiB;MAAU;;YAGvB;AACpB,cAAM,AAAe,uBAArB,KAAK,KAAyB,YAAN,YAAS,AAAM,KAAD;MAAM;;;MApB/B;;IAAM;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;ICXV;;;;;;IAGI;;;;;;;AAGG;IAAK;;AAEL;IAAI;;AAEW;IAAI;;AAEZ;IAAI;;yBAMP;;AACoB,MAA1C,AAAU,SAAD,eAAe,YAAO;IACjC;;yBAGqB;;AACa,MAAhC,AAAK,IAAD,UAAU,YAAO;IACvB;;AAG8B,sCAAoB,YAAO;IAAW;;UAQ/C;AACnB,UAAiB,mCAAb,YAAY;AACiB,QAA/B,AAAY,YAAA,CAAC,YAAO;;AAED,QAAP,WAAZ,YAAY,GAAC;;IAEjB;;AAGoB,YAAqC,EAAtB,aAAT,cAAN,4BAA4B,cAAX,oBAAsB;IAAU;;UAI7C;AACpB,YAAM,AACe,uBADrB,KAAK,KACC,YAAN,YAAS,AAAM,KAAD,WACH,YAAX,iBAAc,AAAM,KAAD;IAAW;;qCAtCjB,OAAoB;;QAApB;;IACA,qBAAa,KAAX,UAAU,EAAV,aAAyB,mCAAkB,KAAK;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;uBCVnC;;AAC7B,oDACI,MAAM,EAAE;cAAC;AAAS,4CAAe,IAAI;;MAAE;;;AALzC;;IAA0B;;;;;;;;;;;;;;;;;;;;aCCrB;AACwB,QAAjC,AAAM,gBAAI,2BAAgB,KAAK;MACjC;eAGqB,OAAoB;YAApB;AACuB,QAA1C,AAAM,gBAAW,kBAAM,KAAK,EAAE,UAAU;MAC1C;;AAIe,QAAb,AAAM;MACR;;;UAfiC;MAAc,cAAE,IAAI","file":"../../../../../../../../packages/async/src/result/release_transformer.dart.lib.js"}');
+  // Exports:
+  return {
+    src__result__release_transformer: release_transformer,
+    src__result__release_sink: release_sink,
+    src__result__value: value$,
+    src__result__error: error$,
+    src__result__capture_transformer: capture_transformer,
+    src__result__capture_sink: capture_sink,
+    src__result__result: result$
+  };
+}));
+
+//# sourceMappingURL=release_transformer.dart.lib.js.map

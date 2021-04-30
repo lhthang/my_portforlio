@@ -1,0 +1,2242 @@
+define(['dart_sdk', 'packages/flutter_inappwebview/src/x509_certificate/oid.dart', 'packages/flutter_inappwebview/src/x509_certificate/asn1_der_encoder.dart', 'packages/flutter_inappwebview/src/x509_certificate/asn1_identifier.dart'], (function load__packages__flutter_inappwebview__src__x509_certificate__asn1_distinguished_names_dart(dart_sdk, packages__flutter_inappwebview__src__x509_certificate__oid$46dart, packages__flutter_inappwebview__src__x509_certificate__asn1_der_encoder$46dart, packages__flutter_inappwebview__src__x509_certificate__asn1_identifier$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const convert = dart_sdk.convert;
+  const _js_helper = dart_sdk._js_helper;
+  const _native_typed_data = dart_sdk._native_typed_data;
+  const typed_data = dart_sdk.typed_data;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const oid$ = packages__flutter_inappwebview__src__x509_certificate__oid$46dart.src__x509_certificate__oid;
+  const asn1_der_encoder = packages__flutter_inappwebview__src__x509_certificate__asn1_der_encoder$46dart.src__x509_certificate__asn1_der_encoder;
+  const asn1_identifier = packages__flutter_inappwebview__src__x509_certificate__asn1_identifier$46dart.src__x509_certificate__asn1_identifier;
+  var asn1_distinguished_names = Object.create(dart.library);
+  var x509_extension = Object.create(dart.library);
+  var x509_public_key = Object.create(dart.library);
+  var asn1_object = Object.create(dart.library);
+  var asn1_decoder = Object.create(dart.library);
+  var x509_certificate = Object.create(dart.library);
+  var $firstWhere = dartx.firstWhere;
+  var $hashCode = dartx.hashCode;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $last = dartx.last;
+  var $contains = dartx.contains;
+  var $toSet = dartx.toSet;
+  var $length = dartx.length;
+  var $add = dartx.add;
+  var $toString = dartx.toString;
+  var $toList = dartx.toList;
+  var $forEach = dartx.forEach;
+  var $map = dartx.map;
+  var $first = dartx.first;
+  var $_get = dartx._get;
+  var $toUpperCase = dartx.toUpperCase;
+  var $iterator = dartx.iterator;
+  var $isEmpty = dartx.isEmpty;
+  var $removeAt = dartx.removeAt;
+  var $toInt = dartx.toInt;
+  var $truncate = dartx.truncate;
+  var $modulo = dartx['%'];
+  var $substring = dartx.substring;
+  var $leftShift = dartx['<<'];
+  var $split = dartx.split;
+  var $fold = dartx.fold;
+  var $toUnsigned = dartx.toUnsigned;
+  var $insert = dartx.insert;
+  var $where = dartx.where;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    ASN1DistinguishedNamesTobool: () => (T.ASN1DistinguishedNamesTobool = dart.constFn(dart.fnType(core.bool, [asn1_distinguished_names.ASN1DistinguishedNames])))(),
+    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
+    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
+    JSArrayOfASN1DistinguishedNames: () => (T.JSArrayOfASN1DistinguishedNames = dart.constFn(_interceptors.JSArray$(asn1_distinguished_names.ASN1DistinguishedNames)))(),
+    JSArrayOfASN1Object: () => (T.JSArrayOfASN1Object = dart.constFn(_interceptors.JSArray$(asn1_object.ASN1Object)))(),
+    ListOfint: () => (T.ListOfint = dart.constFn(core.List$(core.int)))(),
+    dynamicToString: () => (T.dynamicToString = dart.constFn(dart.fnType(core.String, [dart.dynamic])))(),
+    ASN1ObjectN: () => (T.ASN1ObjectN = dart.constFn(dart.nullable(asn1_object.ASN1Object)))(),
+    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
+    JSArrayOfAuthorityInfoAccess: () => (T.JSArrayOfAuthorityInfoAccess = dart.constFn(_interceptors.JSArray$(x509_extension.AuthorityInfoAccess)))(),
+    ASN1ObjectTovoid: () => (T.ASN1ObjectTovoid = dart.constFn(dart.fnType(dart.void, [asn1_object.ASN1Object])))(),
+    MapOfString$dynamic: () => (T.MapOfString$dynamic = dart.constFn(core.Map$(core.String, dart.dynamic)))(),
+    AuthorityInfoAccessToMapOfString$dynamic: () => (T.AuthorityInfoAccessToMapOfString$dynamic = dart.constFn(dart.fnType(T.MapOfString$dynamic(), [x509_extension.AuthorityInfoAccess])))(),
+    ASN1ObjectTobool: () => (T.ASN1ObjectTobool = dart.constFn(dart.fnType(core.bool, [asn1_object.ASN1Object])))(),
+    CertificatePolicyQualifierToMapOfString$dynamic: () => (T.CertificatePolicyQualifierToMapOfString$dynamic = dart.constFn(dart.fnType(T.MapOfString$dynamic(), [x509_extension.CertificatePolicyQualifier])))(),
+    JSArrayOfCertificatePolicy: () => (T.JSArrayOfCertificatePolicy = dart.constFn(_interceptors.JSArray$(x509_extension.CertificatePolicy)))(),
+    JSArrayOfCertificatePolicyQualifier: () => (T.JSArrayOfCertificatePolicyQualifier = dart.constFn(_interceptors.JSArray$(x509_extension.CertificatePolicyQualifier)))(),
+    CertificatePolicyToMapOfString$dynamic: () => (T.CertificatePolicyToMapOfString$dynamic = dart.constFn(dart.fnType(T.MapOfString$dynamic(), [x509_extension.CertificatePolicy])))(),
+    JSArrayOfASN1IdentifierTagNumber: () => (T.JSArrayOfASN1IdentifierTagNumber = dart.constFn(_interceptors.JSArray$(asn1_identifier.ASN1IdentifierTagNumber)))(),
+    JSArrayOfint: () => (T.JSArrayOfint = dart.constFn(_interceptors.JSArray$(core.int)))(),
+    IterableOfint: () => (T.IterableOfint = dart.constFn(core.Iterable$(core.int)))(),
+    StringNAndASN1ObjectToString: () => (T.StringNAndASN1ObjectToString = dart.constFn(dart.fnType(core.String, [T.StringN(), asn1_object.ASN1Object])))(),
+    JSArrayOfbool: () => (T.JSArrayOfbool = dart.constFn(_interceptors.JSArray$(core.bool)))(),
+    ASN1ObjectToX509Extension: () => (T.ASN1ObjectToX509Extension = dart.constFn(dart.fnType(x509_extension.X509Extension, [asn1_object.ASN1Object])))(),
+    X509ExtensionTobool: () => (T.X509ExtensionTobool = dart.constFn(dart.fnType(core.bool, [x509_extension.X509Extension])))(),
+    X509ExtensionToString: () => (T.X509ExtensionToString = dart.constFn(dart.fnType(core.String, [x509_extension.X509Extension])))(),
+    BasicConstraintExtensionN: () => (T.BasicConstraintExtensionN = dart.constFn(dart.nullable(x509_extension.BasicConstraintExtension)))(),
+    SubjectKeyIdentifierExtensionN: () => (T.SubjectKeyIdentifierExtensionN = dart.constFn(dart.nullable(x509_extension.SubjectKeyIdentifierExtension)))(),
+    AuthorityKeyIdentifierExtensionN: () => (T.AuthorityKeyIdentifierExtensionN = dart.constFn(dart.nullable(x509_extension.AuthorityKeyIdentifierExtension)))(),
+    CertificatePoliciesExtensionN: () => (T.CertificatePoliciesExtensionN = dart.constFn(dart.nullable(x509_extension.CertificatePoliciesExtension)))(),
+    CRLDistributionPointsExtensionN: () => (T.CRLDistributionPointsExtensionN = dart.constFn(dart.nullable(x509_extension.CRLDistributionPointsExtension)))(),
+    AuthorityInfoAccessExtensionN: () => (T.AuthorityInfoAccessExtensionN = dart.constFn(dart.nullable(x509_extension.AuthorityInfoAccessExtension)))(),
+    X509BlockPositionL: () => (T.X509BlockPositionL = dart.constFn(dart.legacy(x509_certificate.X509BlockPosition)))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: asn1_distinguished_names.ASN1DistinguishedNames.prototype,
+        [_representation$]: "CN",
+        [_oid$]: "2.5.4.3"
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: asn1_distinguished_names.ASN1DistinguishedNames.prototype,
+        [_representation$]: "DNQ",
+        [_oid$]: "2.5.4.46"
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: asn1_distinguished_names.ASN1DistinguishedNames.prototype,
+        [_representation$]: "SERIALNUMBER",
+        [_oid$]: "2.5.4.5"
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: asn1_distinguished_names.ASN1DistinguishedNames.prototype,
+        [_representation$]: "GIVENNAME",
+        [_oid$]: "2.5.4.42"
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: asn1_distinguished_names.ASN1DistinguishedNames.prototype,
+        [_representation$]: "SURNAME",
+        [_oid$]: "2.5.4.4"
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: asn1_distinguished_names.ASN1DistinguishedNames.prototype,
+        [_representation$]: "OU",
+        [_oid$]: "2.5.4.11"
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: asn1_distinguished_names.ASN1DistinguishedNames.prototype,
+        [_representation$]: "O",
+        [_oid$]: "2.5.4.10"
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: asn1_distinguished_names.ASN1DistinguishedNames.prototype,
+        [_representation$]: "STREET",
+        [_oid$]: "2.5.4.9"
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: asn1_distinguished_names.ASN1DistinguishedNames.prototype,
+        [_representation$]: "L",
+        [_oid$]: "2.5.4.7"
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: asn1_distinguished_names.ASN1DistinguishedNames.prototype,
+        [_representation$]: "ST",
+        [_oid$]: "2.5.4.8"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: asn1_distinguished_names.ASN1DistinguishedNames.prototype,
+        [_representation$]: "C",
+        [_oid$]: "2.5.4.6"
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: asn1_distinguished_names.ASN1DistinguishedNames.prototype,
+        [_representation$]: "E",
+        [_oid$]: "1.2.840.113549.1.9.1"
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: x509_certificate.X509BlockPosition.prototype,
+        [_name$]: "X509BlockPosition.version",
+        index: 0
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: x509_certificate.X509BlockPosition.prototype,
+        [_name$]: "X509BlockPosition.serialNumber",
+        index: 1
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: x509_certificate.X509BlockPosition.prototype,
+        [_name$]: "X509BlockPosition.signatureAlg",
+        index: 2
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: x509_certificate.X509BlockPosition.prototype,
+        [_name$]: "X509BlockPosition.issuer",
+        index: 3
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: x509_certificate.X509BlockPosition.prototype,
+        [_name$]: "X509BlockPosition.dateValidity",
+        index: 4
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: x509_certificate.X509BlockPosition.prototype,
+        [_name$]: "X509BlockPosition.subject",
+        index: 5
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: x509_certificate.X509BlockPosition.prototype,
+        [_name$]: "X509BlockPosition.publicKey",
+        index: 6
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: x509_certificate.X509BlockPosition.prototype,
+        [_name$]: "X509BlockPosition.extensions",
+        index: 7
+      });
+    },
+    get C20() {
+      return C[20] = dart.constList([C[12] || CT.C12, C[13] || CT.C13, C[14] || CT.C14, C[15] || CT.C15, C[16] || CT.C16, C[17] || CT.C17, C[18] || CT.C18, C[19] || CT.C19], T.X509BlockPositionL());
+    }
+  }, false);
+  var C = Array(21).fill(void 0);
+  var I = [
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inappwebview-5.3.2/lib/src/x509_certificate/asn1_distinguished_names.dart",
+    "package:flutter_inappwebview/src/x509_certificate/asn1_distinguished_names.dart",
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inappwebview-5.3.2/lib/src/x509_certificate/x509_extension.dart",
+    "package:flutter_inappwebview/src/x509_certificate/x509_extension.dart",
+    "package:flutter_inappwebview/src/x509_certificate/x509_public_key.dart",
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inappwebview-5.3.2/lib/src/x509_certificate/asn1_object.dart",
+    "package:flutter_inappwebview/src/x509_certificate/asn1_object.dart",
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inappwebview-5.3.2/lib/src/x509_certificate/asn1_decoder.dart",
+    "package:flutter_inappwebview/src/x509_certificate/asn1_decoder.dart",
+    "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inappwebview-5.3.2/lib/src/x509_certificate/x509_certificate.dart",
+    "package:flutter_inappwebview/src/x509_certificate/x509_certificate.dart"
+  ];
+  var _oid$ = dart.privateName(asn1_distinguished_names, "ASN1DistinguishedNames._oid");
+  var _representation$ = dart.privateName(asn1_distinguished_names, "ASN1DistinguishedNames._representation");
+  var _oid = dart.privateName(asn1_distinguished_names, "_oid");
+  var _representation = dart.privateName(asn1_distinguished_names, "_representation");
+  asn1_distinguished_names.ASN1DistinguishedNames = class ASN1DistinguishedNames extends core.Object {
+    get [_oid]() {
+      return this[_oid$];
+    }
+    set [_oid](value) {
+      super[_oid] = value;
+    }
+    get [_representation]() {
+      return this[_representation$];
+    }
+    set [_representation](value) {
+      super[_representation] = value;
+    }
+    static fromValue(oid) {
+      if (oid != null) {
+        try {
+          return asn1_distinguished_names.ASN1DistinguishedNames.values[$firstWhere](dart.fn(element => {
+            if (element == null) dart.nullFailed(I[0], 28, 26, "element");
+            return element.oid() == oid;
+          }, T.ASN1DistinguishedNamesTobool()));
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            return null;
+          } else
+            throw e$;
+        }
+      }
+      return null;
+    }
+    oid() {
+      return this[_oid];
+    }
+    representation() {
+      return this[_representation];
+    }
+    toString() {
+      return "(" + dart.str(this[_oid]) + ", " + dart.str(this[_representation]) + ")";
+    }
+    _equals(value) {
+      if (value == null) return false;
+      return dart.equals(value, this[_oid]);
+    }
+    get hashCode() {
+      return dart.hashCode(this[_oid]);
+    }
+    static string(opts) {
+      let t2, t1;
+      let block = opts && 'block' in opts ? opts.block : null;
+      if (block == null) dart.nullFailed(I[0], 74, 45, "block");
+      let result = "";
+      let oidNames = asn1_distinguished_names.ASN1DistinguishedNames.values;
+      for (let oidName of oidNames) {
+        let oidBlock = block.findOid({oidValue: oidName.oid()});
+        if (oidBlock == null) {
+          continue;
+        }
+        if (result[$isNotEmpty]) {
+          result = result + ", ";
+        }
+        result = result + dart.notNull(oidName.representation());
+        result = result + "=";
+        let value = null;
+        try {
+          value = T.StringN().as((t1 = oidBlock.parent, t1 == null ? null : (t2 = t1.sub, t2 == null ? null : t2[$last].value)));
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+          } else
+            throw e$;
+        }
+        if (value != null) {
+          result = result + dart.notNull(asn1_distinguished_names.ASN1DistinguishedNames.quote(value));
+        }
+      }
+      return result;
+    }
+    static quote(string) {
+      if (string == null) dart.nullFailed(I[0], 99, 30, "string");
+      let specialChars = T.JSArrayOfString().of([",", "+", "=", "\n", "<", ">", "#", ";", "\\"]);
+      for (let specialChar of specialChars) {
+        if (string[$contains](specialChar)) {
+          return "\"" + dart.notNull(string) + "\"";
+        }
+      }
+      return string;
+    }
+  };
+  (asn1_distinguished_names.ASN1DistinguishedNames._internal = function(_oid, _representation) {
+    if (_oid == null) dart.nullFailed(I[0], 7, 47, "_oid");
+    if (_representation == null) dart.nullFailed(I[0], 7, 58, "_representation");
+    this[_oid$] = _oid;
+    this[_representation$] = _representation;
+    ;
+  }).prototype = asn1_distinguished_names.ASN1DistinguishedNames.prototype;
+  dart.addTypeTests(asn1_distinguished_names.ASN1DistinguishedNames);
+  dart.addTypeCaches(asn1_distinguished_names.ASN1DistinguishedNames);
+  dart.setMethodSignature(asn1_distinguished_names.ASN1DistinguishedNames, () => ({
+    __proto__: dart.getMethods(asn1_distinguished_names.ASN1DistinguishedNames.__proto__),
+    oid: dart.fnType(core.String, []),
+    representation: dart.fnType(core.String, [])
+  }));
+  dart.setLibraryUri(asn1_distinguished_names.ASN1DistinguishedNames, I[1]);
+  dart.setFieldSignature(asn1_distinguished_names.ASN1DistinguishedNames, () => ({
+    __proto__: dart.getFields(asn1_distinguished_names.ASN1DistinguishedNames.__proto__),
+    [_oid]: dart.finalFieldType(core.String),
+    [_representation]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(asn1_distinguished_names.ASN1DistinguishedNames, ['toString', '_equals']);
+  dart.defineExtensionAccessors(asn1_distinguished_names.ASN1DistinguishedNames, ['hashCode']);
+  dart.defineLazy(asn1_distinguished_names.ASN1DistinguishedNames, {
+    /*asn1_distinguished_names.ASN1DistinguishedNames.values*/get values() {
+      return T.JSArrayOfASN1DistinguishedNames().of([asn1_distinguished_names.ASN1DistinguishedNames.COMMON_NAME, asn1_distinguished_names.ASN1DistinguishedNames.DN_QUALIFIER, asn1_distinguished_names.ASN1DistinguishedNames.SERIAL_NUMBER, asn1_distinguished_names.ASN1DistinguishedNames.GIVEN_NAME, asn1_distinguished_names.ASN1DistinguishedNames.SURNAME, asn1_distinguished_names.ASN1DistinguishedNames.ORGANIZATIONAL_UNIT_NAME, asn1_distinguished_names.ASN1DistinguishedNames.ORGANIZATION_NAME, asn1_distinguished_names.ASN1DistinguishedNames.STREET_ADDRESS, asn1_distinguished_names.ASN1DistinguishedNames.LOCALITY_NAME, asn1_distinguished_names.ASN1DistinguishedNames.STATE_OR_PROVINCE_NAME, asn1_distinguished_names.ASN1DistinguishedNames.COUNTRY_NAME, asn1_distinguished_names.ASN1DistinguishedNames.EMAIL])[$toSet]();
+    },
+    /*asn1_distinguished_names.ASN1DistinguishedNames.COMMON_NAME*/get COMMON_NAME() {
+      return C[0] || CT.C0;
+    },
+    /*asn1_distinguished_names.ASN1DistinguishedNames.DN_QUALIFIER*/get DN_QUALIFIER() {
+      return C[1] || CT.C1;
+    },
+    /*asn1_distinguished_names.ASN1DistinguishedNames.SERIAL_NUMBER*/get SERIAL_NUMBER() {
+      return C[2] || CT.C2;
+    },
+    /*asn1_distinguished_names.ASN1DistinguishedNames.GIVEN_NAME*/get GIVEN_NAME() {
+      return C[3] || CT.C3;
+    },
+    /*asn1_distinguished_names.ASN1DistinguishedNames.SURNAME*/get SURNAME() {
+      return C[4] || CT.C4;
+    },
+    /*asn1_distinguished_names.ASN1DistinguishedNames.ORGANIZATIONAL_UNIT_NAME*/get ORGANIZATIONAL_UNIT_NAME() {
+      return C[5] || CT.C5;
+    },
+    /*asn1_distinguished_names.ASN1DistinguishedNames.ORGANIZATION_NAME*/get ORGANIZATION_NAME() {
+      return C[6] || CT.C6;
+    },
+    /*asn1_distinguished_names.ASN1DistinguishedNames.STREET_ADDRESS*/get STREET_ADDRESS() {
+      return C[7] || CT.C7;
+    },
+    /*asn1_distinguished_names.ASN1DistinguishedNames.LOCALITY_NAME*/get LOCALITY_NAME() {
+      return C[8] || CT.C8;
+    },
+    /*asn1_distinguished_names.ASN1DistinguishedNames.STATE_OR_PROVINCE_NAME*/get STATE_OR_PROVINCE_NAME() {
+      return C[9] || CT.C9;
+    },
+    /*asn1_distinguished_names.ASN1DistinguishedNames.COUNTRY_NAME*/get COUNTRY_NAME() {
+      return C[10] || CT.C10;
+    },
+    /*asn1_distinguished_names.ASN1DistinguishedNames.EMAIL*/get EMAIL() {
+      return C[11] || CT.C11;
+    }
+  }, false);
+  var block$ = dart.privateName(x509_extension, "X509Extension.block");
+  x509_extension.X509Extension = class X509Extension extends core.Object {
+    get block() {
+      return this[block$];
+    }
+    set block(value) {
+      this[block$] = value;
+    }
+    get oid() {
+      let t3, t2;
+      return T.StringN().as((t2 = this.block, t2 == null ? null : (t3 = t2.subAtIndex(0), t3 == null ? null : t3.value)));
+    }
+    get name() {
+      let t2;
+      t2 = oid$.OID.fromValue(this.oid);
+      return t2 == null ? null : t2.name();
+    }
+    get isCritical() {
+      let t3, t2, t2$, t3$, t2$0, t2$1;
+      if (dart.notNull((t2$ = (t2 = this.block, t2 == null ? null : (t3 = t2.sub, t3 == null ? null : t3[$length])), t2$ == null ? 0 : t2$)) > 2) {
+        return core.bool.as((t2$1 = (t2$0 = this.block, t2$0 == null ? null : (t3$ = t2$0.subAtIndex(1), t3$ == null ? null : t3$.value)), t2$1 == null ? false : t2$1));
+      }
+      return false;
+    }
+    get value() {
+      let t2;
+      let sub = (t2 = this.block, t2 == null ? null : t2.sub);
+      if (sub != null && dart.notNull(sub[$length]) > 0) {
+        let valueBlock = null;
+        try {
+          valueBlock = sub[$last];
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+          } else
+            throw e$;
+        }
+        if (valueBlock != null) {
+          return x509_certificate.firstLeafValue({block: valueBlock});
+        }
+      }
+      return null;
+    }
+    get valueAsBlock() {
+      let t3;
+      let sub = (t3 = this.block, t3 == null ? null : t3.sub);
+      if (sub != null && dart.notNull(sub[$length]) > 0) {
+        let valueBlock = null;
+        try {
+          valueBlock = sub[$last];
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+          } else
+            throw e$;
+        }
+        return valueBlock;
+      }
+      return null;
+    }
+    get valueAsStrings() {
+      let t6, t5, t4, t4$;
+      let result = T.JSArrayOfString().of([]);
+      let sub = T.JSArrayOfASN1Object().of([]);
+      try {
+        sub = (t4$ = (t4 = this.block, t4 == null ? null : (t5 = t4.sub, t5 == null ? null : (t6 = t5[$last].sub, t6 == null ? null : t6[$last].sub))), t4$ == null ? T.JSArrayOfASN1Object().of([]) : t4$);
+      } catch (e$) {
+        let e = dart.getThrown(e$);
+        if (core.Object.is(e)) {
+        } else
+          throw e$;
+      }
+      for (let item of sub) {
+        let name = item.value;
+        if (name != null) {
+          result[$add](core.String.as(name));
+        }
+      }
+      return result;
+    }
+    get alternativeNameAsStrings() {
+      let t7, t6, t5, t5$;
+      let result = T.JSArrayOfString().of([]);
+      let sub = T.JSArrayOfASN1Object().of([]);
+      try {
+        sub = (t5$ = (t5 = this.block, t5 == null ? null : (t6 = t5.sub, t6 == null ? null : (t7 = t6[$last].sub, t7 == null ? null : t7[$last].sub))), t5$ == null ? T.JSArrayOfASN1Object().of([]) : t5$);
+      } catch (e$) {
+        let e = dart.getThrown(e$);
+        if (core.Object.is(e)) {
+        } else
+          throw e$;
+      }
+      for (let item of sub) {
+        let name = this.generalName({item: item});
+        if (name != null) {
+          result[$add](name);
+        }
+      }
+      return result;
+    }
+    generalName(opts) {
+      let t6, t7, t6$;
+      let item = opts && 'item' in opts ? opts.item : null;
+      if (item == null) dart.nullFailed(I[2], 96, 44, "item");
+      let nameType = (t6 = item.identifier, t6 == null ? null : t6.tagNumber().toValue());
+      if (nameType == null) {
+        return null;
+      }
+      switch (nameType) {
+        case 0:
+        {
+          let name = null;
+          try {
+            name = T.StringN().as((t6$ = item.sub, t6$ == null ? null : (t7 = t6$[$last].sub, t7 == null ? null : t7[$last].value)));
+          } catch (e$) {
+            let e = dart.getThrown(e$);
+            if (core.Object.is(e)) {
+            } else
+              throw e$;
+          }
+          return name;
+        }
+        case 1:
+        case 2:
+        case 6:
+        {
+          let name = typeof item.value == 'string' ? item.value : null;
+          return T.StringN().as(name);
+        }
+        case 4:
+        {
+          return asn1_distinguished_names.ASN1DistinguishedNames.string({block: item});
+        }
+        case 7:
+        {
+          let ip = T.ListOfint().is(item.value) ? item.value : null;
+          if (ip != null) {
+            return T.StringN().as(dart.dsend(dart.dsend(ip, 'map', [dart.fn(e => dart.toString(e), T.dynamicToString())]), 'join', ["."]));
+          }
+          break;
+        }
+        case 8:
+        {
+          let value = typeof item.value == 'string' ? item.value : null;
+          if (value != null) {
+            try {
+              let data = convert.utf8.encode(core.String.as(value));
+              let oid = asn1_decoder.ASN1DERDecoder.decodeOid({contentData: data});
+              return oid;
+            } catch (e$0) {
+              let e = dart.getThrown(e$0);
+              if (core.Object.is(e)) {
+              } else
+                throw e$0;
+            }
+          }
+          break;
+        }
+        default:
+        {
+          return null;
+        }
+      }
+      return null;
+    }
+  };
+  (x509_extension.X509Extension.new = function(opts) {
+    let block = opts && 'block' in opts ? opts.block : null;
+    this[block$] = block;
+    ;
+  }).prototype = x509_extension.X509Extension.prototype;
+  dart.addTypeTests(x509_extension.X509Extension);
+  dart.addTypeCaches(x509_extension.X509Extension);
+  dart.setMethodSignature(x509_extension.X509Extension, () => ({
+    __proto__: dart.getMethods(x509_extension.X509Extension.__proto__),
+    generalName: dart.fnType(dart.nullable(core.String), [], {}, {item: asn1_object.ASN1Object})
+  }));
+  dart.setGetterSignature(x509_extension.X509Extension, () => ({
+    __proto__: dart.getGetters(x509_extension.X509Extension.__proto__),
+    oid: dart.nullable(core.String),
+    name: dart.nullable(core.String),
+    isCritical: core.bool,
+    value: dart.dynamic,
+    valueAsBlock: dart.nullable(asn1_object.ASN1Object),
+    valueAsStrings: core.List$(core.String),
+    alternativeNameAsStrings: core.List$(core.String)
+  }));
+  dart.setLibraryUri(x509_extension.X509Extension, I[3]);
+  dart.setFieldSignature(x509_extension.X509Extension, () => ({
+    __proto__: dart.getFields(x509_extension.X509Extension.__proto__),
+    block: dart.fieldType(dart.nullable(asn1_object.ASN1Object))
+  }));
+  x509_extension.BasicConstraintExtension = class BasicConstraintExtension extends x509_extension.X509Extension {
+    get isCA() {
+      let t10, t9, t8;
+      let data = (t8 = this.valueAsBlock, t8 == null ? null : (t9 = t8.subAtIndex(0), t9 == null ? null : (t10 = t9.subAtIndex(0), t10 == null ? null : t10.value)));
+      return typeof data == 'boolean' ? data : false;
+    }
+    get pathLenConstraint() {
+      let t10, t9, t8;
+      let data = (t8 = this.valueAsBlock, t8 == null ? null : (t9 = t8.subAtIndex(0), t9 == null ? null : (t10 = t9.subAtIndex(0), t10 == null ? null : t10.value)));
+      if (T.ListOfint().is(data)) {
+        return data[$length];
+      }
+      return null;
+    }
+    toString() {
+      return dart.toString(this.toMap());
+    }
+    toMap() {
+      return new (T.IdentityMapOfString$dynamic()).from(["isCA", this.isCA, "pathLenConstraint", this.pathLenConstraint]);
+    }
+    toJson() {
+      return this.toMap();
+    }
+  };
+  (x509_extension.BasicConstraintExtension.new = function(opts) {
+    let block = opts && 'block' in opts ? opts.block : null;
+    x509_extension.BasicConstraintExtension.__proto__.new.call(this, {block: T.ASN1ObjectN().as(block)});
+    ;
+  }).prototype = x509_extension.BasicConstraintExtension.prototype;
+  dart.addTypeTests(x509_extension.BasicConstraintExtension);
+  dart.addTypeCaches(x509_extension.BasicConstraintExtension);
+  dart.setMethodSignature(x509_extension.BasicConstraintExtension, () => ({
+    __proto__: dart.getMethods(x509_extension.BasicConstraintExtension.__proto__),
+    toMap: dart.fnType(core.Map$(core.String, dart.dynamic), []),
+    toJson: dart.fnType(core.Map$(core.String, dart.dynamic), [])
+  }));
+  dart.setGetterSignature(x509_extension.BasicConstraintExtension, () => ({
+    __proto__: dart.getGetters(x509_extension.BasicConstraintExtension.__proto__),
+    isCA: core.bool,
+    pathLenConstraint: dart.nullable(core.int)
+  }));
+  dart.setLibraryUri(x509_extension.BasicConstraintExtension, I[3]);
+  dart.defineExtensionMethods(x509_extension.BasicConstraintExtension, ['toString']);
+  x509_extension.SubjectKeyIdentifierExtension = class SubjectKeyIdentifierExtension extends x509_extension.X509Extension {
+    get value() {
+      let t8;
+      let rawValue = (t8 = this.valueAsBlock, t8 == null ? null : t8.encoded);
+      if (rawValue != null) {
+        return asn1_decoder.ASN1DERDecoder.sequenceContent({data: rawValue[$toList]()});
+      }
+      return null;
+    }
+    toString() {
+      return dart.toString(this.toMap());
+    }
+    toMap() {
+      return new (T.IdentityMapOfString$dynamic()).from(["value", this.value]);
+    }
+    toJson() {
+      return this.toMap();
+    }
+  };
+  (x509_extension.SubjectKeyIdentifierExtension.new = function(opts) {
+    let block = opts && 'block' in opts ? opts.block : null;
+    x509_extension.SubjectKeyIdentifierExtension.__proto__.new.call(this, {block: T.ASN1ObjectN().as(block)});
+    ;
+  }).prototype = x509_extension.SubjectKeyIdentifierExtension.prototype;
+  dart.addTypeTests(x509_extension.SubjectKeyIdentifierExtension);
+  dart.addTypeCaches(x509_extension.SubjectKeyIdentifierExtension);
+  dart.setMethodSignature(x509_extension.SubjectKeyIdentifierExtension, () => ({
+    __proto__: dart.getMethods(x509_extension.SubjectKeyIdentifierExtension.__proto__),
+    toMap: dart.fnType(core.Map$(core.String, dart.dynamic), []),
+    toJson: dart.fnType(core.Map$(core.String, dart.dynamic), [])
+  }));
+  dart.setGetterSignature(x509_extension.SubjectKeyIdentifierExtension, () => ({
+    __proto__: dart.getGetters(x509_extension.SubjectKeyIdentifierExtension.__proto__),
+    value: dart.nullable(core.List$(core.int))
+  }));
+  dart.setLibraryUri(x509_extension.SubjectKeyIdentifierExtension, I[3]);
+  dart.defineExtensionMethods(x509_extension.SubjectKeyIdentifierExtension, ['toString']);
+  var method$ = dart.privateName(x509_extension, "AuthorityInfoAccess.method");
+  var location$ = dart.privateName(x509_extension, "AuthorityInfoAccess.location");
+  x509_extension.AuthorityInfoAccess = class AuthorityInfoAccess extends core.Object {
+    get method() {
+      return this[method$];
+    }
+    set method(value) {
+      this[method$] = value;
+    }
+    get location() {
+      return this[location$];
+    }
+    set location(value) {
+      this[location$] = value;
+    }
+    toString() {
+      return dart.toString(this.toMap());
+    }
+    toMap() {
+      return new (T.IdentityMapOfString$dynamic()).from(["method", this.method, "location", this.location]);
+    }
+    toJson() {
+      return this.toMap();
+    }
+  };
+  (x509_extension.AuthorityInfoAccess.new = function(opts) {
+    let method = opts && 'method' in opts ? opts.method : null;
+    if (method == null) dart.nullFailed(I[2], 205, 38, "method");
+    let location = opts && 'location' in opts ? opts.location : null;
+    if (location == null) dart.nullFailed(I[2], 205, 60, "location");
+    this[method$] = method;
+    this[location$] = location;
+    ;
+  }).prototype = x509_extension.AuthorityInfoAccess.prototype;
+  dart.addTypeTests(x509_extension.AuthorityInfoAccess);
+  dart.addTypeCaches(x509_extension.AuthorityInfoAccess);
+  dart.setMethodSignature(x509_extension.AuthorityInfoAccess, () => ({
+    __proto__: dart.getMethods(x509_extension.AuthorityInfoAccess.__proto__),
+    toMap: dart.fnType(core.Map$(core.String, dart.dynamic), []),
+    toJson: dart.fnType(core.Map$(core.String, dart.dynamic), [])
+  }));
+  dart.setLibraryUri(x509_extension.AuthorityInfoAccess, I[3]);
+  dart.setFieldSignature(x509_extension.AuthorityInfoAccess, () => ({
+    __proto__: dart.getFields(x509_extension.AuthorityInfoAccess.__proto__),
+    method: dart.fieldType(core.String),
+    location: dart.fieldType(core.String)
+  }));
+  dart.defineExtensionMethods(x509_extension.AuthorityInfoAccess, ['toString']);
+  x509_extension.AuthorityInfoAccessExtension = class AuthorityInfoAccessExtension extends x509_extension.X509Extension {
+    get infoAccess() {
+      let t8, t8$;
+      if (this.valueAsBlock == null) {
+        return null;
+      }
+      let subs = (t8$ = (t8 = dart.nullCheck(this.valueAsBlock).subAtIndex(0), t8 == null ? null : t8.sub), t8$ == null ? T.JSArrayOfASN1Object().of([]) : t8$);
+      let result = T.JSArrayOfAuthorityInfoAccess().of([]);
+      subs[$forEach](dart.fn(sub => {
+        let t8;
+        if (sub == null) dart.nullFailed(I[2], 234, 19, "sub");
+        let oidData = (t8 = sub.subAtIndex(0), t8 == null ? null : t8.encoded);
+        let nameBlock = sub.subAtIndex(1);
+        if (oidData == null || nameBlock == null) {
+          return;
+        }
+        let oid = asn1_decoder.ASN1DERDecoder.decodeOid({contentData: oidData[$toList]()});
+        let location = this.generalName({item: nameBlock});
+        if (oid != null && location != null) {
+          result[$add](new x509_extension.AuthorityInfoAccess.new({method: oid, location: location}));
+        }
+      }, T.ASN1ObjectTovoid()));
+      return result;
+    }
+    toString() {
+      return dart.toString(this.toMap());
+    }
+    toMap() {
+      let t8;
+      return new (T.IdentityMapOfString$dynamic()).from(["infoAccess", (t8 = this.infoAccess, t8 == null ? null : t8[$map](T.MapOfString$dynamic(), dart.fn(e => {
+          if (e == null) dart.nullFailed(I[2], 256, 38, "e");
+          return e.toMap();
+        }, T.AuthorityInfoAccessToMapOfString$dynamic()))[$toList]())]);
+    }
+    toJson() {
+      return this.toMap();
+    }
+  };
+  (x509_extension.AuthorityInfoAccessExtension.new = function(opts) {
+    let block = opts && 'block' in opts ? opts.block : null;
+    x509_extension.AuthorityInfoAccessExtension.__proto__.new.call(this, {block: T.ASN1ObjectN().as(block)});
+    ;
+  }).prototype = x509_extension.AuthorityInfoAccessExtension.prototype;
+  dart.addTypeTests(x509_extension.AuthorityInfoAccessExtension);
+  dart.addTypeCaches(x509_extension.AuthorityInfoAccessExtension);
+  dart.setMethodSignature(x509_extension.AuthorityInfoAccessExtension, () => ({
+    __proto__: dart.getMethods(x509_extension.AuthorityInfoAccessExtension.__proto__),
+    toMap: dart.fnType(core.Map$(core.String, dart.dynamic), []),
+    toJson: dart.fnType(core.Map$(core.String, dart.dynamic), [])
+  }));
+  dart.setGetterSignature(x509_extension.AuthorityInfoAccessExtension, () => ({
+    __proto__: dart.getGetters(x509_extension.AuthorityInfoAccessExtension.__proto__),
+    infoAccess: dart.nullable(core.List$(x509_extension.AuthorityInfoAccess))
+  }));
+  dart.setLibraryUri(x509_extension.AuthorityInfoAccessExtension, I[3]);
+  dart.defineExtensionMethods(x509_extension.AuthorityInfoAccessExtension, ['toString']);
+  x509_extension.AuthorityKeyIdentifierExtension = class AuthorityKeyIdentifierExtension extends x509_extension.X509Extension {
+    get keyIdentifier() {
+      let t9, t8;
+      let sequence = (t8 = this.valueAsBlock, t8 == null ? null : (t9 = t8.subAtIndex(0), t9 == null ? null : t9.sub));
+      if (sequence == null) {
+        return null;
+      }
+      let sub = null;
+      try {
+        sub = sequence[$firstWhere](dart.fn(element => {
+          let t8;
+          if (element == null) dart.nullFailed(I[2], 281, 12, "element");
+          return (t8 = element.identifier, t8 == null ? null : t8.tagNumber().toValue()) === 0;
+        }, T.ASN1ObjectTobool()));
+        return sub.encoded;
+      } catch (e$) {
+        let e = dart.getThrown(e$);
+        if (core.Object.is(e)) {
+        } else
+          throw e$;
+      }
+      return null;
+    }
+    get certificateIssuer() {
+      let t10, t9, t9$;
+      let sequence = (t9 = this.valueAsBlock, t9 == null ? null : (t10 = t9.subAtIndex(0), t10 == null ? null : t10.sub));
+      if (sequence == null) {
+        return null;
+      }
+      let sub = null;
+      try {
+        sub = sequence[$firstWhere](dart.fn(element => {
+          let t9;
+          if (element == null) dart.nullFailed(I[2], 295, 12, "element");
+          return (t9 = element.identifier, t9 == null ? null : t9.tagNumber().toValue()) === 1;
+        }, T.ASN1ObjectTobool()));
+        let result = null;
+        if (sub.sub != null) {
+          result = T.JSArrayOfString().of([]);
+          t9$ = sub.sub;
+          t9$ == null ? null : t9$[$forEach](dart.fn(e => {
+            if (e == null) dart.nullFailed(I[2], 299, 27, "e");
+            let name = this.generalName({item: e});
+            if (name != null) {
+              dart.nullCheck(result)[$add](name);
+            }
+          }, T.ASN1ObjectTovoid()));
+        }
+        return result;
+      } catch (e$) {
+        let e = dart.getThrown(e$);
+        if (core.Object.is(e)) {
+        } else
+          throw e$;
+      }
+      return null;
+    }
+    get serialNumber() {
+      let t11, t10;
+      let sequence = (t10 = this.valueAsBlock, t10 == null ? null : (t11 = t10.subAtIndex(0), t11 == null ? null : t11.sub));
+      if (sequence == null) {
+        return null;
+      }
+      let sub = null;
+      try {
+        sub = sequence[$firstWhere](dart.fn(element => {
+          let t10;
+          if (element == null) dart.nullFailed(I[2], 319, 12, "element");
+          return (t10 = element.identifier, t10 == null ? null : t10.tagNumber().toValue()) === 2;
+        }, T.ASN1ObjectTobool()));
+        return sub.encoded;
+      } catch (e$) {
+        let e = dart.getThrown(e$);
+        if (core.Object.is(e)) {
+        } else
+          throw e$;
+      }
+      return null;
+    }
+    toString() {
+      return dart.toString(this.toMap());
+    }
+    toMap() {
+      return new (T.IdentityMapOfString$dynamic()).from(["keyIdentifier", this.keyIdentifier, "certificateIssuer", this.certificateIssuer, "serialNumber", this.serialNumber]);
+    }
+    toJson() {
+      return this.toMap();
+    }
+  };
+  (x509_extension.AuthorityKeyIdentifierExtension.new = function(opts) {
+    let block = opts && 'block' in opts ? opts.block : null;
+    x509_extension.AuthorityKeyIdentifierExtension.__proto__.new.call(this, {block: T.ASN1ObjectN().as(block)});
+    ;
+  }).prototype = x509_extension.AuthorityKeyIdentifierExtension.prototype;
+  dart.addTypeTests(x509_extension.AuthorityKeyIdentifierExtension);
+  dart.addTypeCaches(x509_extension.AuthorityKeyIdentifierExtension);
+  dart.setMethodSignature(x509_extension.AuthorityKeyIdentifierExtension, () => ({
+    __proto__: dart.getMethods(x509_extension.AuthorityKeyIdentifierExtension.__proto__),
+    toMap: dart.fnType(core.Map$(core.String, dart.dynamic), []),
+    toJson: dart.fnType(core.Map$(core.String, dart.dynamic), [])
+  }));
+  dart.setGetterSignature(x509_extension.AuthorityKeyIdentifierExtension, () => ({
+    __proto__: dart.getGetters(x509_extension.AuthorityKeyIdentifierExtension.__proto__),
+    keyIdentifier: dart.nullable(core.List$(core.int)),
+    certificateIssuer: dart.nullable(core.List$(core.String)),
+    serialNumber: dart.nullable(core.List$(core.int))
+  }));
+  dart.setLibraryUri(x509_extension.AuthorityKeyIdentifierExtension, I[3]);
+  dart.defineExtensionMethods(x509_extension.AuthorityKeyIdentifierExtension, ['toString']);
+  var oid$0 = dart.privateName(x509_extension, "CertificatePolicyQualifier.oid");
+  var value$ = dart.privateName(x509_extension, "CertificatePolicyQualifier.value");
+  x509_extension.CertificatePolicyQualifier = class CertificatePolicyQualifier extends core.Object {
+    get oid() {
+      return this[oid$0];
+    }
+    set oid(value) {
+      this[oid$0] = value;
+    }
+    get value() {
+      return this[value$];
+    }
+    set value(value) {
+      this[value$] = value;
+    }
+    toString() {
+      return dart.toString(this.toMap());
+    }
+    toMap() {
+      return new (T.IdentityMapOfString$dynamic()).from(["oid", this.oid, "value", this.value]);
+    }
+    toJson() {
+      return this.toMap();
+    }
+  };
+  (x509_extension.CertificatePolicyQualifier.new = function(opts) {
+    let oid = opts && 'oid' in opts ? opts.oid : null;
+    if (oid == null) dart.nullFailed(I[2], 347, 45, "oid");
+    let value = opts && 'value' in opts ? opts.value : null;
+    this[oid$0] = oid;
+    this[value$] = value;
+    ;
+  }).prototype = x509_extension.CertificatePolicyQualifier.prototype;
+  dart.addTypeTests(x509_extension.CertificatePolicyQualifier);
+  dart.addTypeCaches(x509_extension.CertificatePolicyQualifier);
+  dart.setMethodSignature(x509_extension.CertificatePolicyQualifier, () => ({
+    __proto__: dart.getMethods(x509_extension.CertificatePolicyQualifier.__proto__),
+    toMap: dart.fnType(core.Map$(core.String, dart.dynamic), []),
+    toJson: dart.fnType(core.Map$(core.String, dart.dynamic), [])
+  }));
+  dart.setLibraryUri(x509_extension.CertificatePolicyQualifier, I[3]);
+  dart.setFieldSignature(x509_extension.CertificatePolicyQualifier, () => ({
+    __proto__: dart.getFields(x509_extension.CertificatePolicyQualifier.__proto__),
+    oid: dart.fieldType(core.String),
+    value: dart.fieldType(dart.nullable(core.String))
+  }));
+  dart.defineExtensionMethods(x509_extension.CertificatePolicyQualifier, ['toString']);
+  var oid$1 = dart.privateName(x509_extension, "CertificatePolicy.oid");
+  var qualifiers$ = dart.privateName(x509_extension, "CertificatePolicy.qualifiers");
+  x509_extension.CertificatePolicy = class CertificatePolicy extends core.Object {
+    get oid() {
+      return this[oid$1];
+    }
+    set oid(value) {
+      this[oid$1] = value;
+    }
+    get qualifiers() {
+      return this[qualifiers$];
+    }
+    set qualifiers(value) {
+      this[qualifiers$] = value;
+    }
+    toString() {
+      return dart.toString(this.toMap());
+    }
+    toMap() {
+      let t11;
+      return new (T.IdentityMapOfString$dynamic()).from(["oid", this.oid, "qualifiers", (t11 = this.qualifiers, t11 == null ? null : t11[$map](T.MapOfString$dynamic(), dart.fn(e => {
+          if (e == null) dart.nullFailed(I[2], 380, 38, "e");
+          return e.toMap();
+        }, T.CertificatePolicyQualifierToMapOfString$dynamic()))[$toList]())]);
+    }
+    toJson() {
+      return this.toMap();
+    }
+  };
+  (x509_extension.CertificatePolicy.new = function(opts) {
+    let oid = opts && 'oid' in opts ? opts.oid : null;
+    if (oid == null) dart.nullFailed(I[2], 370, 36, "oid");
+    let qualifiers = opts && 'qualifiers' in opts ? opts.qualifiers : null;
+    this[oid$1] = oid;
+    this[qualifiers$] = qualifiers;
+    ;
+  }).prototype = x509_extension.CertificatePolicy.prototype;
+  dart.addTypeTests(x509_extension.CertificatePolicy);
+  dart.addTypeCaches(x509_extension.CertificatePolicy);
+  dart.setMethodSignature(x509_extension.CertificatePolicy, () => ({
+    __proto__: dart.getMethods(x509_extension.CertificatePolicy.__proto__),
+    toMap: dart.fnType(core.Map$(core.String, dart.dynamic), []),
+    toJson: dart.fnType(core.Map$(core.String, dart.dynamic), [])
+  }));
+  dart.setLibraryUri(x509_extension.CertificatePolicy, I[3]);
+  dart.setFieldSignature(x509_extension.CertificatePolicy, () => ({
+    __proto__: dart.getFields(x509_extension.CertificatePolicy.__proto__),
+    oid: dart.fieldType(core.String),
+    qualifiers: dart.fieldType(dart.nullable(core.List$(x509_extension.CertificatePolicyQualifier)))
+  }));
+  dart.defineExtensionMethods(x509_extension.CertificatePolicy, ['toString']);
+  x509_extension.CertificatePoliciesExtension = class CertificatePoliciesExtension extends x509_extension.X509Extension {
+    get policies() {
+      let t11, t11$;
+      if (this.valueAsBlock == null) {
+        return null;
+      }
+      let subs = (t11$ = (t11 = dart.nullCheck(this.valueAsBlock).subAtIndex(0), t11 == null ? null : t11.sub), t11$ == null ? T.JSArrayOfASN1Object().of([]) : t11$);
+      let result = T.JSArrayOfCertificatePolicy().of([]);
+      subs[$forEach](dart.fn(sub => {
+        let t11;
+        if (sub == null) dart.nullFailed(I[2], 400, 19, "sub");
+        let data = (t11 = sub.subAtIndex(0), t11 == null ? null : t11.encoded);
+        let oid = null;
+        if (data != null) {
+          oid = asn1_decoder.ASN1DERDecoder.decodeOid({contentData: data[$toList]()});
+          if (oid == null) {
+            return;
+          }
+        } else {
+          return;
+        }
+        let qualifiers = null;
+        let subQualifiers = sub.subAtIndex(1);
+        if (subQualifiers != null && subQualifiers.sub != null) {
+          qualifiers = T.JSArrayOfCertificatePolicyQualifier().of([]);
+          dart.nullCheck(subQualifiers.sub)[$forEach](dart.fn(sub => {
+            let t11, t11$;
+            if (sub == null) dart.nullFailed(I[2], 416, 37, "sub");
+            let rawValue = (t11 = sub.subAtIndex(0), t11 == null ? null : t11.encoded);
+            let oid = null;
+            if (rawValue != null) {
+              oid = asn1_decoder.ASN1DERDecoder.decodeOid({contentData: rawValue[$toList]()});
+              if (oid == null) {
+                return;
+              }
+              let value = (t11$ = sub.subAtIndex(1), t11$ == null ? null : t11$.asString);
+              dart.nullCheck(qualifiers)[$add](new x509_extension.CertificatePolicyQualifier.new({oid: oid, value: value}));
+            }
+          }, T.ASN1ObjectTovoid()));
+        }
+        result[$add](new x509_extension.CertificatePolicy.new({oid: oid, qualifiers: qualifiers}));
+      }, T.ASN1ObjectTovoid()));
+      return result;
+    }
+    toString() {
+      return dart.toString(this.toMap());
+    }
+    toMap() {
+      let t11;
+      return new (T.IdentityMapOfString$dynamic()).from(["policies", (t11 = this.policies, t11 == null ? null : t11[$map](T.MapOfString$dynamic(), dart.fn(e => {
+          if (e == null) dart.nullFailed(I[2], 441, 34, "e");
+          return e.toMap();
+        }, T.CertificatePolicyToMapOfString$dynamic()))[$toList]())]);
+    }
+    toJson() {
+      return this.toMap();
+    }
+  };
+  (x509_extension.CertificatePoliciesExtension.new = function(opts) {
+    let block = opts && 'block' in opts ? opts.block : null;
+    x509_extension.CertificatePoliciesExtension.__proto__.new.call(this, {block: T.ASN1ObjectN().as(block)});
+    ;
+  }).prototype = x509_extension.CertificatePoliciesExtension.prototype;
+  dart.addTypeTests(x509_extension.CertificatePoliciesExtension);
+  dart.addTypeCaches(x509_extension.CertificatePoliciesExtension);
+  dart.setMethodSignature(x509_extension.CertificatePoliciesExtension, () => ({
+    __proto__: dart.getMethods(x509_extension.CertificatePoliciesExtension.__proto__),
+    toMap: dart.fnType(core.Map$(core.String, dart.dynamic), []),
+    toJson: dart.fnType(core.Map$(core.String, dart.dynamic), [])
+  }));
+  dart.setGetterSignature(x509_extension.CertificatePoliciesExtension, () => ({
+    __proto__: dart.getGetters(x509_extension.CertificatePoliciesExtension.__proto__),
+    policies: dart.nullable(core.List$(x509_extension.CertificatePolicy))
+  }));
+  dart.setLibraryUri(x509_extension.CertificatePoliciesExtension, I[3]);
+  dart.defineExtensionMethods(x509_extension.CertificatePoliciesExtension, ['toString']);
+  x509_extension.CRLDistributionPointsExtension = class CRLDistributionPointsExtension extends x509_extension.X509Extension {
+    get crls() {
+      let t11, t11$;
+      if (this.valueAsBlock == null) {
+        return null;
+      }
+      let subs = (t11$ = (t11 = dart.nullCheck(this.valueAsBlock).subAtIndex(0), t11 == null ? null : t11.sub), t11$ == null ? T.JSArrayOfASN1Object().of([]) : t11$);
+      let result = T.JSArrayOfString().of([]);
+      subs[$forEach](dart.fn(sub => {
+        if (sub == null) dart.nullFailed(I[2], 459, 19, "sub");
+        let asString = sub.asString;
+        if (asString != null) {
+          result[$add](asString);
+        }
+      }, T.ASN1ObjectTovoid()));
+      return result;
+    }
+    toString() {
+      return dart.toString(this.toMap());
+    }
+    toMap() {
+      return new (T.IdentityMapOfString$dynamic()).from(["crls", this.crls]);
+    }
+    toJson() {
+      return this.toMap();
+    }
+  };
+  (x509_extension.CRLDistributionPointsExtension.new = function(opts) {
+    let block = opts && 'block' in opts ? opts.block : null;
+    x509_extension.CRLDistributionPointsExtension.__proto__.new.call(this, {block: T.ASN1ObjectN().as(block)});
+    ;
+  }).prototype = x509_extension.CRLDistributionPointsExtension.prototype;
+  dart.addTypeTests(x509_extension.CRLDistributionPointsExtension);
+  dart.addTypeCaches(x509_extension.CRLDistributionPointsExtension);
+  dart.setMethodSignature(x509_extension.CRLDistributionPointsExtension, () => ({
+    __proto__: dart.getMethods(x509_extension.CRLDistributionPointsExtension.__proto__),
+    toMap: dart.fnType(core.Map$(core.String, dart.dynamic), []),
+    toJson: dart.fnType(core.Map$(core.String, dart.dynamic), [])
+  }));
+  dart.setGetterSignature(x509_extension.CRLDistributionPointsExtension, () => ({
+    __proto__: dart.getGetters(x509_extension.CRLDistributionPointsExtension.__proto__),
+    crls: dart.nullable(core.List$(core.String))
+  }));
+  dart.setLibraryUri(x509_extension.CRLDistributionPointsExtension, I[3]);
+  dart.defineExtensionMethods(x509_extension.CRLDistributionPointsExtension, ['toString']);
+  var pkBlock$ = dart.privateName(x509_public_key, "X509PublicKey.pkBlock");
+  x509_public_key.X509PublicKey = class X509PublicKey extends core.Object {
+    get pkBlock() {
+      return this[pkBlock$];
+    }
+    set pkBlock(value) {
+      this[pkBlock$] = value;
+    }
+    get algOid() {
+      let t13, t12, t11;
+      return T.StringN().as((t11 = this.pkBlock, t11 == null ? null : (t12 = t11.subAtIndex(0), t12 == null ? null : (t13 = t12.subAtIndex(0), t13 == null ? null : t13.value))));
+    }
+    get algName() {
+      let t11;
+      t11 = oid$.OID.fromValue(this.algOid);
+      return t11 == null ? null : t11.name();
+    }
+    get algParams() {
+      let t13, t12, t11;
+      return T.StringN().as((t11 = this.pkBlock, t11 == null ? null : (t12 = t11.subAtIndex(0), t12 == null ? null : (t13 = t12.subAtIndex(1), t13 == null ? null : t13.value))));
+    }
+    get derEncodedKey() {
+      let t11;
+      let value = (t11 = this.pkBlock, t11 == null ? null : t11.encoded);
+      if (value != null) {
+        return asn1_der_encoder.ASN1DEREncoder.encodeSequence({content: value});
+      }
+      return null;
+    }
+    get encoded() {
+      let t12, t11, t11$, t12$;
+      let oid = oid$.OID.fromValue(this.algOid);
+      let keyData = (t11$ = (t11 = this.pkBlock, t11 == null ? null : (t12 = t11.subAtIndex(1), t12 == null ? null : t12.value)), t11$ == null ? null : t11$);
+      if (oid != null && this.algOid != null && keyData != null) {
+        if (dart.equals(oid, oid$.OID.ecPublicKey)) {
+          return _native_typed_data.NativeUint8List.fromList(T.ListOfint().as(keyData));
+        } else if (dart.equals(oid, oid$.OID.rsaEncryption)) {
+          let publicKeyAsn1Objects = null;
+          try {
+            publicKeyAsn1Objects = asn1_decoder.ASN1DERDecoder.decode({data: T.ListOfint().as(dart.dsend(keyData, 'toList', [], {growable: true}))});
+          } catch (e$) {
+            let e = dart.getThrown(e$);
+            if (core.Object.is(e)) {
+            } else
+              throw e$;
+          }
+          if (publicKeyAsn1Objects != null && dart.notNull(publicKeyAsn1Objects[$length]) > 0) {
+            let publicKeyModulus = (t12$ = publicKeyAsn1Objects[$first].subAtIndex(0), t12$ == null ? null : t12$.value);
+            if (publicKeyModulus != null) {
+              return _native_typed_data.NativeUint8List.fromList(T.ListOfint().as(publicKeyModulus));
+            }
+          }
+        }
+      }
+      return null;
+    }
+    toMap() {
+      return new (T.IdentityMapOfString$dynamic()).from(["algOid", this.algOid, "algName", this.algName, "algParams", this.algParams, "encoded", this.encoded]);
+    }
+    toJson() {
+      return this.toMap();
+    }
+  };
+  (x509_public_key.X509PublicKey.new = function(opts) {
+    let pkBlock = opts && 'pkBlock' in opts ? opts.pkBlock : null;
+    this[pkBlock$] = pkBlock;
+    ;
+  }).prototype = x509_public_key.X509PublicKey.prototype;
+  dart.addTypeTests(x509_public_key.X509PublicKey);
+  dart.addTypeCaches(x509_public_key.X509PublicKey);
+  dart.setMethodSignature(x509_public_key.X509PublicKey, () => ({
+    __proto__: dart.getMethods(x509_public_key.X509PublicKey.__proto__),
+    toMap: dart.fnType(core.Map$(core.String, dart.dynamic), []),
+    toJson: dart.fnType(core.Map$(core.String, dart.dynamic), [])
+  }));
+  dart.setGetterSignature(x509_public_key.X509PublicKey, () => ({
+    __proto__: dart.getGetters(x509_public_key.X509PublicKey.__proto__),
+    algOid: dart.nullable(core.String),
+    algName: dart.nullable(core.String),
+    algParams: dart.nullable(core.String),
+    derEncodedKey: dart.nullable(typed_data.Uint8List),
+    encoded: dart.nullable(typed_data.Uint8List)
+  }));
+  dart.setLibraryUri(x509_public_key.X509PublicKey, I[4]);
+  dart.setFieldSignature(x509_public_key.X509PublicKey, () => ({
+    __proto__: dart.getFields(x509_public_key.X509PublicKey.__proto__),
+    pkBlock: dart.fieldType(dart.nullable(asn1_object.ASN1Object))
+  }));
+  var encoded = dart.privateName(asn1_object, "ASN1Object.encoded");
+  var value$0 = dart.privateName(asn1_object, "ASN1Object.value");
+  var identifier = dart.privateName(asn1_object, "ASN1Object.identifier");
+  var sub = dart.privateName(asn1_object, "ASN1Object.sub");
+  var parent = dart.privateName(asn1_object, "ASN1Object.parent");
+  asn1_object.ASN1Object = class ASN1Object extends core.Object {
+    get encoded() {
+      return this[encoded];
+    }
+    set encoded(value) {
+      this[encoded] = value;
+    }
+    get value() {
+      return this[value$0];
+    }
+    set value(value) {
+      this[value$0] = value;
+    }
+    get identifier() {
+      return this[identifier];
+    }
+    set identifier(value) {
+      this[identifier] = value;
+    }
+    get sub() {
+      return this[sub];
+    }
+    set sub(value) {
+      this[sub] = value;
+    }
+    get parent() {
+      return this[parent];
+    }
+    set parent(value) {
+      this[parent] = value;
+    }
+    subAtIndex(index) {
+      if (index == null) dart.nullFailed(I[5], 21, 30, "index");
+      if (this.sub != null && dart.notNull(index) >= 0 && dart.notNull(index) < dart.notNull(dart.nullCheck(this.sub)[$length])) {
+        return dart.nullCheck(this.sub)[$_get](index);
+      }
+      return null;
+    }
+    firstSub() {
+      if (dart.notNull(this.subCount()) > 0) {
+        return dart.nullCheck(this.sub)[$first];
+      }
+      return null;
+    }
+    lastSub() {
+      if (dart.notNull(this.subCount()) > 0) {
+        return dart.nullCheck(this.sub)[$last];
+      }
+      return null;
+    }
+    subCount() {
+      let t12, t12$;
+      t12$ = (t12 = this.sub, t12 == null ? null : t12[$length]);
+      return t12$ == null ? 0 : t12$;
+    }
+    findOid(opts) {
+      let t12, t12$;
+      let oid = opts && 'oid' in opts ? opts.oid : null;
+      let oidValue = opts && 'oidValue' in opts ? opts.oidValue : null;
+      oidValue = oid != null ? oid.toValue() : oidValue;
+      for (let child of (t12 = this.sub, t12 == null ? T.JSArrayOfASN1Object().of([]) : t12)) {
+        if (dart.equals((t12$ = child.identifier, t12$ == null ? null : t12$.tagNumber()), asn1_identifier.ASN1IdentifierTagNumber.OBJECT_IDENTIFIER)) {
+          if (dart.equals(child.value, oidValue)) {
+            return child;
+          }
+        } else {
+          let result = child.findOid({oidValue: oidValue});
+          if (result != null) {
+            return result;
+          }
+        }
+      }
+      return null;
+    }
+    get description() {
+      return this.printAsn1();
+    }
+    printAsn1(opts) {
+      let t12, t12$, t12$0, t12$1, t12$2, t12$3, t12$4, t12$5;
+      let insets = opts && 'insets' in opts ? opts.insets : "";
+      let output = insets;
+      output = dart.dsend(output, '+', [(t12$ = (t12 = this.identifier, t12 == null ? null : t12.description[$toUpperCase]()), t12$ == null ? "" : t12$)]);
+      output = dart.dsend(output, '+', [this.value != null ? ": " + dart.str(this.value) : ""]);
+      if (dart.equals((t12$0 = this.identifier, t12$0 == null ? null : t12$0.typeClass()), asn1_identifier.ASN1IdentifierClass.UNIVERSAL) && dart.equals((t12$1 = this.identifier, t12$1 == null ? null : t12$1.tagNumber()), asn1_identifier.ASN1IdentifierTagNumber.OBJECT_IDENTIFIER)) {
+        let descr = (t12$4 = oid$.OID.fromValue((t12$3 = (t12$2 = this.value, t12$2 == null ? null : dart.toString(t12$2)), t12$3 == null ? "" : t12$3)), t12$4 == null ? null : t12$4.name());
+        if (descr != null) {
+          output = dart.dsend(output, '+', [" (" + dart.str(descr) + ")"]);
+        }
+      }
+      output = dart.dsend(output, '+', [this.sub != null && dart.notNull(dart.nullCheck(this.sub)[$length]) > 0 ? " {" : ""]);
+      output = dart.dsend(output, '+', ["\n"]);
+      for (let item of (t12$5 = this.sub, t12$5 == null ? T.JSArrayOfASN1Object().of([]) : t12$5)) {
+        output = dart.dsend(output, '+', [item.printAsn1({insets: dart.dsend(insets, '+', ["    "])})]);
+      }
+      output = dart.dsend(output, '+', [this.sub != null && dart.notNull(dart.nullCheck(this.sub)[$length]) > 0 ? "}\n" : ""]);
+      return core.String.as(output);
+    }
+    toString() {
+      return this.description;
+    }
+    atIndex(x509blockPosition) {
+      if (x509blockPosition == null) dart.nullFailed(I[5], 93, 41, "x509blockPosition");
+      if (this.sub != null && dart.notNull(x509blockPosition.index) < dart.notNull(dart.nullCheck(this.sub)[$length])) {
+        return dart.nullCheck(this.sub)[$_get](x509blockPosition.index);
+      }
+      return null;
+    }
+    get asString() {
+      if (typeof this.value == 'string') {
+        return T.StringN().as(this.value);
+      }
+      if (this.sub != null && dart.notNull(dart.nullCheck(this.sub)[$length]) > 0) {
+        for (let item of dart.nullCheck(this.sub)) {
+          let itemAsString = item.asString;
+          if (itemAsString != null) {
+            return itemAsString;
+          }
+        }
+      }
+      return null;
+    }
+  };
+  (asn1_object.ASN1Object.new = function() {
+    this[encoded] = null;
+    this[value$0] = null;
+    this[identifier] = null;
+    this[sub] = null;
+    this[parent] = null;
+    ;
+  }).prototype = asn1_object.ASN1Object.prototype;
+  dart.addTypeTests(asn1_object.ASN1Object);
+  dart.addTypeCaches(asn1_object.ASN1Object);
+  dart.setMethodSignature(asn1_object.ASN1Object, () => ({
+    __proto__: dart.getMethods(asn1_object.ASN1Object.__proto__),
+    subAtIndex: dart.fnType(dart.nullable(asn1_object.ASN1Object), [core.int]),
+    firstSub: dart.fnType(dart.nullable(asn1_object.ASN1Object), []),
+    lastSub: dart.fnType(dart.nullable(asn1_object.ASN1Object), []),
+    subCount: dart.fnType(core.int, []),
+    findOid: dart.fnType(dart.nullable(asn1_object.ASN1Object), [], {oid: dart.nullable(oid$.OID), oidValue: dart.nullable(core.String)}, {}),
+    printAsn1: dart.fnType(core.String, [], {insets: dart.dynamic}, {}),
+    atIndex: dart.fnType(dart.nullable(asn1_object.ASN1Object), [x509_certificate.X509BlockPosition])
+  }));
+  dart.setGetterSignature(asn1_object.ASN1Object, () => ({
+    __proto__: dart.getGetters(asn1_object.ASN1Object.__proto__),
+    description: core.String,
+    asString: dart.nullable(core.String)
+  }));
+  dart.setLibraryUri(asn1_object.ASN1Object, I[6]);
+  dart.setFieldSignature(asn1_object.ASN1Object, () => ({
+    __proto__: dart.getFields(asn1_object.ASN1Object.__proto__),
+    encoded: dart.fieldType(dart.nullable(typed_data.Uint8List)),
+    value: dart.fieldType(dart.dynamic),
+    identifier: dart.fieldType(dart.nullable(asn1_identifier.ASN1Identifier)),
+    sub: dart.fieldType(dart.nullable(core.List$(asn1_object.ASN1Object))),
+    parent: dart.fieldType(dart.nullable(asn1_object.ASN1Object))
+  }));
+  dart.defineExtensionMethods(asn1_object.ASN1Object, ['toString']);
+  asn1_decoder.ASN1DERDecoder = class ASN1DERDecoder extends core.Object {
+    static decode(opts) {
+      let data = opts && 'data' in opts ? opts.data : null;
+      if (data == null) dart.nullFailed(I[7], 8, 54, "data");
+      let iterator = data[$iterator];
+      return asn1_decoder.ASN1DERDecoder.parse({iterator: iterator});
+    }
+    static parse(opts) {
+      let iterator = opts && 'iterator' in opts ? opts.iterator : null;
+      if (iterator == null) dart.nullFailed(I[7], 13, 57, "iterator");
+      let result = T.JSArrayOfASN1Object().of([]);
+      while (dart.test(iterator.moveNext())) {
+        let nextValue = iterator.current;
+        let asn1obj = new asn1_object.ASN1Object.new();
+        asn1obj.identifier = new asn1_identifier.ASN1Identifier.new(nextValue);
+        if (dart.test(dart.nullCheck(asn1obj.identifier).isConstructed())) {
+          let contentData = asn1_decoder.ASN1DERDecoder.loadSubContent({iterator: iterator});
+          if (dart.test(contentData[$isEmpty])) {
+            asn1obj.sub = asn1_decoder.ASN1DERDecoder.parse({iterator: iterator});
+          } else {
+            let subIterator = contentData[$iterator];
+            asn1obj.sub = asn1_decoder.ASN1DERDecoder.parse({iterator: subIterator});
+          }
+          asn1obj.value = null;
+          asn1obj.encoded = _native_typed_data.NativeUint8List.fromList(contentData);
+          if (asn1obj.sub != null) {
+            for (let item of dart.nullCheck(asn1obj.sub)) {
+              item.parent = asn1obj;
+            }
+          }
+        } else {
+          if (dart.equals(dart.nullCheck(asn1obj.identifier).typeClass(), asn1_identifier.ASN1IdentifierClass.UNIVERSAL)) {
+            let contentData = asn1_decoder.ASN1DERDecoder.loadSubContent({iterator: iterator});
+            asn1obj.encoded = _native_typed_data.NativeUint8List.fromList(contentData);
+            let tagNumber = dart.nullCheck(asn1obj.identifier).tagNumber();
+            if (dart.equals(tagNumber, asn1_identifier.ASN1IdentifierTagNumber.END_OF_CONTENT)) {
+              return result;
+            } else if (dart.equals(tagNumber, asn1_identifier.ASN1IdentifierTagNumber.BOOLEAN)) {
+              let value = dart.notNull(contentData[$length]) > 0 ? contentData[$first] : null;
+              if (value != null) {
+                asn1obj.value = dart.notNull(value) > 0 ? true : false;
+              }
+            } else if (dart.equals(tagNumber, asn1_identifier.ASN1IdentifierTagNumber.INTEGER)) {
+              while (dart.notNull(contentData[$length]) > 0 && contentData[$first] === 0) {
+                contentData[$removeAt](0);
+              }
+              asn1obj.value = contentData;
+            } else if (dart.equals(tagNumber, asn1_identifier.ASN1IdentifierTagNumber.NULL)) {
+              asn1obj.value = null;
+            } else if (dart.equals(tagNumber, asn1_identifier.ASN1IdentifierTagNumber.OBJECT_IDENTIFIER)) {
+              asn1obj.value = asn1_decoder.ASN1DERDecoder.decodeOid({contentData: contentData});
+            } else if (dart.test(T.JSArrayOfASN1IdentifierTagNumber().of([asn1_identifier.ASN1IdentifierTagNumber.UTF8_STRING, asn1_identifier.ASN1IdentifierTagNumber.PRINTABLE_STRING, asn1_identifier.ASN1IdentifierTagNumber.NUMERIC_STRING, asn1_identifier.ASN1IdentifierTagNumber.GENERAL_STRING, asn1_identifier.ASN1IdentifierTagNumber.UNIVERSAL_STRING, asn1_identifier.ASN1IdentifierTagNumber.CHARACTER_STRING, asn1_identifier.ASN1IdentifierTagNumber.T61_STRING])[$contains](tagNumber))) {
+              asn1obj.value = convert.utf8.decode(contentData, {allowMalformed: true});
+            } else if (dart.equals(tagNumber, asn1_identifier.ASN1IdentifierTagNumber.BMP_STRING)) {
+              asn1obj.value = core.String.fromCharCodes(contentData);
+            } else if (dart.test(T.JSArrayOfASN1IdentifierTagNumber().of([asn1_identifier.ASN1IdentifierTagNumber.VISIBLE_STRING, asn1_identifier.ASN1IdentifierTagNumber.IA5_STRING])[$contains](tagNumber))) {
+              asn1obj.value = convert.ascii.decode(contentData, {allowInvalid: true});
+            } else if (dart.equals(tagNumber, asn1_identifier.ASN1IdentifierTagNumber.UTC_TIME)) {
+              asn1obj.value = asn1_decoder.ASN1DERDecoder.utcTimeToDate({contentData: contentData});
+            } else if (dart.equals(tagNumber, asn1_identifier.ASN1IdentifierTagNumber.GENERALIZED_TIME)) {
+              asn1obj.value = asn1_decoder.ASN1DERDecoder.generalizedTimeToDate({contentData: contentData});
+            } else if (dart.equals(tagNumber, asn1_identifier.ASN1IdentifierTagNumber.BIT_STRING)) {
+              if (dart.notNull(contentData[$length]) > 0) {
+                contentData[$removeAt](0);
+              }
+              asn1obj.value = contentData;
+            } else if (dart.equals(tagNumber, asn1_identifier.ASN1IdentifierTagNumber.OCTET_STRING)) {
+              try {
+                let subIterator = contentData[$iterator];
+                asn1obj.sub = asn1_decoder.ASN1DERDecoder.parse({iterator: subIterator});
+              } catch (e$) {
+                let e = dart.getThrown(e$);
+                if (core.Object.is(e)) {
+                  let str = null;
+                  try {
+                    str = convert.utf8.decode(contentData);
+                  } catch (e$0) {
+                    let e = dart.getThrown(e$0);
+                    if (core.Object.is(e)) {
+                    } else
+                      throw e$0;
+                  }
+                  if (str != null) {
+                    asn1obj.value = str;
+                  } else {
+                    asn1obj.value = contentData;
+                  }
+                } else
+                  throw e$;
+              }
+            } else {
+              asn1obj.value = contentData;
+            }
+          } else {
+            let contentData = asn1_decoder.ASN1DERDecoder.loadSubContent({iterator: iterator});
+            let str = null;
+            try {
+              str = convert.utf8.decode(contentData);
+            } catch (e$1) {
+              let e = dart.getThrown(e$1);
+              if (core.Object.is(e)) {
+              } else
+                throw e$1;
+            }
+            if (str != null) {
+              asn1obj.value = str;
+            } else {
+              asn1obj.value = contentData;
+            }
+          }
+        }
+        result[$add](asn1obj);
+      }
+      return result;
+    }
+    static getContentLength(opts) {
+      let t17;
+      let iterator = opts && 'iterator' in opts ? opts.iterator : null;
+      if (iterator == null) dart.nullFailed(I[7], 134, 58, "iterator");
+      if (dart.test(iterator.moveNext())) {
+        let first = null;
+        try {
+          first = iterator.current;
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+          } else
+            throw e$;
+        }
+        if (first != null) {
+          if ((dart.notNull(first) & 128) !== 0) {
+            let octetsToRead = dart.notNull(first) - 128;
+            let data = T.JSArrayOfint().of([]);
+            for (let i = 0; i < octetsToRead; i = i + 1) {
+              if (dart.test(iterator.moveNext())) {
+                let n = null;
+                try {
+                  n = iterator.current;
+                } catch (e$0) {
+                  let e = dart.getThrown(e$0);
+                  if (core.Object.is(e)) {
+                  } else
+                    throw e$0;
+                }
+                if (n != null) {
+                  data[$add](n);
+                }
+              }
+            }
+            t17 = asn1_decoder.toIntValue(data);
+            return t17 == null ? core._BigIntImpl.from(0) : t17;
+          } else {
+            return core._BigIntImpl.from(first);
+          }
+        }
+      }
+      return core._BigIntImpl.from(0);
+    }
+    static loadSubContent(opts) {
+      let iterator = opts && 'iterator' in opts ? opts.iterator : null;
+      if (iterator == null) dart.nullFailed(I[7], 168, 59, "iterator");
+      let len = asn1_decoder.ASN1DERDecoder.getContentLength({iterator: iterator});
+      let int64MaxValue = 1.7976931348623157e+308[$toInt]();
+      if (dart.test(len['>='](core._BigIntImpl.from(int64MaxValue)))) {
+        return T.JSArrayOfint().of([]);
+      }
+      let byteArray = T.JSArrayOfint().of([]);
+      for (let i = 0; i < dart.notNull(len.toInt()); i = i + 1) {
+        if (dart.test(iterator.moveNext())) {
+          let n = null;
+          try {
+            n = iterator.current;
+          } catch (e$) {
+            let e = dart.getThrown(e$);
+            if (core.Object.is(e)) {
+            } else
+              throw e$;
+          }
+          if (n != null) {
+            byteArray[$add](n);
+          }
+        } else {
+          dart.throw(new asn1_decoder.ASN1OutOfBufferError.new());
+        }
+      }
+      return byteArray;
+    }
+    static decodeOid(opts) {
+      let contentData = opts && 'contentData' in opts ? opts.contentData : null;
+      if (contentData == null) dart.nullFailed(I[7], 196, 48, "contentData");
+      if (dart.test(contentData[$isEmpty])) {
+        return null;
+      }
+      let oid = "";
+      let first = contentData[$removeAt](0);
+      oid = oid + (dart.str((dart.notNull(first) / 40)[$truncate]()) + "." + dart.str(first[$modulo](40)));
+      let t = 0;
+      while (dart.notNull(contentData[$length]) > 0) {
+        let n = contentData[$removeAt](0);
+        t = (t << 7 | dart.notNull(n) & 127) >>> 0;
+        if ((dart.notNull(n) & 128) === 0) {
+          oid = oid + ("." + dart.str(t));
+          t = 0;
+        }
+      }
+      return oid;
+    }
+    static utcTimeToDate(opts) {
+      let contentData = opts && 'contentData' in opts ? opts.contentData : null;
+      if (contentData == null) dart.nullFailed(I[7], 224, 54, "contentData");
+      let utc = null;
+      try {
+        utc = convert.utf8.decode(contentData);
+      } catch (e$) {
+        let e = dart.getThrown(e$);
+        if (core.Object.is(e)) {
+        } else
+          throw e$;
+      }
+      if (utc == null) {
+        return null;
+      }
+      let year = core.int.parse(utc[$substring](0, 2), {radix: 10});
+      year = dart.notNull(year) >= 50 ? 1900 + dart.notNull(year) : 2000 + dart.notNull(year);
+      let MM = core.int.parse(utc[$substring](2, 4), {radix: 10});
+      let DD = core.int.parse(utc[$substring](4, 6), {radix: 10});
+      let hh = core.int.parse(utc[$substring](6, 8), {radix: 10});
+      let mm = core.int.parse(utc[$substring](8, 10), {radix: 10});
+      let ss = 0;
+      let end = null;
+      let c = null;
+      if (utc.length > 11) {
+        c = utc[$_get](10);
+        end = 10;
+        if (c !== "+" && c !== "-") {
+          ss = core.int.parse(utc[$substring](10, 12), {radix: 10});
+          end = dart.notNull(end) + 2;
+        }
+      }
+      let date = new core.DateTime.utc(year, MM, DD, hh, mm, ss, 0);
+      if (end != null) {
+        c = utc[$_get](end);
+        if (c === "+" || c === "-") {
+          let hhoffset = core.int.parse(utc[$substring](dart.notNull(end) + 1, dart.notNull(end) + 1 + 2), {radix: 10});
+          let mmoffset = core.int.parse(utc[$substring](dart.notNull(end) + 4, dart.notNull(end) + 4 + 2), {radix: 10});
+          let offset = dart.notNull(hhoffset) * 60 + dart.notNull(mmoffset);
+          offset = offset * 60000;
+          let offsetDuration = new core.Duration.new({milliseconds: offset});
+          if (c === "+") {
+            date.subtract(offsetDuration);
+          } else {
+            date.add(offsetDuration);
+          }
+        }
+      }
+      return date;
+    }
+    static generalizedTimeToDate(opts) {
+      let contentData = opts && 'contentData' in opts ? opts.contentData : null;
+      if (contentData == null) dart.nullFailed(I[7], 311, 62, "contentData");
+      let gentime = null;
+      try {
+        gentime = convert.utf8.decode(contentData);
+      } catch (e$) {
+        let e = dart.getThrown(e$);
+        if (core.Object.is(e)) {
+        } else
+          throw e$;
+      }
+      if (gentime == null) {
+        return null;
+      }
+      let YYYY = core.int.parse(gentime[$substring](0, 4), {radix: 10});
+      let MM = core.int.parse(gentime[$substring](4, 6), {radix: 10});
+      let DD = core.int.parse(gentime[$substring](6, 8), {radix: 10});
+      let hh = core.int.parse(gentime[$substring](8, 10), {radix: 10});
+      let mm = core.int.parse(gentime[$substring](10, 12), {radix: 10});
+      let ss = core.int.parse(gentime[$substring](12, 14), {radix: 10});
+      let fff = 0.0;
+      let offset = 0;
+      let isUTC = false;
+      if (gentime[$_get](gentime.length - 1) === "Z") {
+        isUTC = true;
+      }
+      let end = gentime.length - 5;
+      let c = gentime[$_get](end);
+      if (c === "+" || c === "-") {
+        let hhoffset = core.int.parse(gentime[$substring](end + 1, end + 1 + 2), {radix: 10});
+        let mmoffset = core.int.parse(gentime[$substring](end + 4, end + 4 + 2), {radix: 10});
+        offset = dart.notNull(hhoffset) * 60 + dart.notNull(mmoffset);
+        offset = offset * 60000;
+        if (c === "+") {
+          offset = offset * -1;
+        }
+        isUTC = true;
+      }
+      if (gentime[$_get](14) === ".") {
+        fff = dart.notNull(core.double.parse(gentime[$substring](14))) * 1000;
+      }
+      let date = new core.DateTime.utc(YYYY, MM, DD, hh, mm, ss, fff[$toInt]());
+      if (isUTC) {
+        let offsetDuration = new core.Duration.new({milliseconds: offset});
+        date.add(offsetDuration);
+      }
+      return date;
+    }
+    static sequenceContent(opts) {
+      let data = opts && 'data' in opts ? opts.data : null;
+      if (data == null) dart.nullFailed(I[7], 397, 56, "data");
+      let iterator = data[$iterator];
+      iterator.moveNext();
+      try {
+        return asn1_decoder.ASN1DERDecoder.loadSubContent({iterator: iterator});
+      } catch (e$) {
+        let e = dart.getThrown(e$);
+        if (core.Object.is(e)) {
+          return data;
+        } else
+          throw e$;
+      }
+    }
+  };
+  (asn1_decoder.ASN1DERDecoder.new = function() {
+    ;
+  }).prototype = asn1_decoder.ASN1DERDecoder.prototype;
+  dart.addTypeTests(asn1_decoder.ASN1DERDecoder);
+  dart.addTypeCaches(asn1_decoder.ASN1DERDecoder);
+  dart.setLibraryUri(asn1_decoder.ASN1DERDecoder, I[8]);
+  asn1_decoder.ASN1OutOfBufferError = class ASN1OutOfBufferError extends core.Error {};
+  (asn1_decoder.ASN1OutOfBufferError.new = function() {
+    asn1_decoder.ASN1OutOfBufferError.__proto__.new.call(this);
+    ;
+  }).prototype = asn1_decoder.ASN1OutOfBufferError.prototype;
+  dart.addTypeTests(asn1_decoder.ASN1OutOfBufferError);
+  dart.addTypeCaches(asn1_decoder.ASN1OutOfBufferError);
+  dart.setLibraryUri(asn1_decoder.ASN1OutOfBufferError, I[8]);
+  asn1_decoder.ASN1ParseError = class ASN1ParseError extends core.Error {};
+  (asn1_decoder.ASN1ParseError.new = function() {
+    asn1_decoder.ASN1ParseError.__proto__.new.call(this);
+    ;
+  }).prototype = asn1_decoder.ASN1ParseError.prototype;
+  dart.addTypeTests(asn1_decoder.ASN1ParseError);
+  dart.addTypeCaches(asn1_decoder.ASN1ParseError);
+  dart.setLibraryUri(asn1_decoder.ASN1ParseError, I[8]);
+  asn1_decoder.toIntValue = function toIntValue(data) {
+    if (data == null) dart.nullFailed(I[7], 408, 30, "data");
+    if (dart.notNull(data[$length]) > 8) {
+      return null;
+    }
+    let value = core._BigIntImpl.from(0);
+    for (let index = 0; index < dart.notNull(data[$length]); index = index + 1) {
+      let byte = data[$_get](index);
+      value = value['+'](core._BigIntImpl.from(byte[$leftShift](8 * (dart.notNull(data[$length]) - index - 1))));
+    }
+    return value;
+  };
+  var asn1$ = dart.privateName(x509_certificate, "X509Certificate.asn1");
+  var block1$ = dart.privateName(x509_certificate, "X509Certificate.block1");
+  var encoded$ = dart.privateName(x509_certificate, "X509Certificate.encoded");
+  x509_certificate.X509Certificate = class X509Certificate extends core.Object {
+    get asn1() {
+      return this[asn1$];
+    }
+    set asn1(value) {
+      this[asn1$] = value;
+    }
+    get block1() {
+      return this[block1$];
+    }
+    set block1(value) {
+      this[block1$] = value;
+    }
+    get encoded() {
+      return this[encoded$];
+    }
+    set encoded(value) {
+      this[encoded$] = value;
+    }
+    static fromData(opts) {
+      let data = opts && 'data' in opts ? opts.data : null;
+      if (data == null) dart.nullFailed(I[9], 36, 55, "data");
+      let decoded = convert.utf8.decode(data, {allowMalformed: true});
+      if (decoded[$contains]("-----BEGIN CERTIFICATE-----")) {
+        return x509_certificate.X509Certificate.fromPemData({pem: data});
+      } else {
+        return x509_certificate.X509Certificate.fromDerData({der: data});
+      }
+    }
+    static fromDerData(opts) {
+      let der = opts && 'der' in opts ? opts.der : null;
+      if (der == null) dart.nullFailed(I[9], 45, 58, "der");
+      let asn1 = asn1_decoder.ASN1DERDecoder.decode({data: der[$toList]({growable: true})});
+      if (dart.notNull(asn1[$length]) > 0) {
+        let block1 = asn1[$first].subAtIndex(0);
+        if (block1 != null) {
+          let certificate = new x509_certificate.X509Certificate.new();
+          certificate.asn1 = asn1;
+          certificate.block1 = block1;
+          certificate.encoded = der;
+          return certificate;
+        }
+      }
+      dart.throw(new asn1_decoder.ASN1ParseError.new());
+    }
+    static fromPemData(opts) {
+      let pem = opts && 'pem' in opts ? opts.pem : null;
+      if (pem == null) dart.nullFailed(I[9], 60, 58, "pem");
+      let derData = x509_certificate.X509Certificate.decodeToDER({pemData: pem});
+      if (derData == null) {
+        dart.throw(new asn1_decoder.ASN1ParseError.new());
+      }
+      return x509_certificate.X509Certificate.fromDerData({der: derData});
+    }
+    static decodeToDER(opts) {
+      let pemData = opts && 'pemData' in opts ? opts.pemData : null;
+      let pem = core.String.fromCharCodes(T.IterableOfint().as(pemData));
+      if (pem[$contains]("-----BEGIN CERTIFICATE-----")) {
+        let lines = pem[$split]("\n");
+        let base64buffer = "";
+        let certLine = false;
+        for (let line of lines) {
+          if (line === "-----END CERTIFICATE-----") {
+            certLine = false;
+          }
+          if (certLine) {
+            base64buffer = base64buffer + dart.notNull(line);
+          }
+          if (line === "-----BEGIN CERTIFICATE-----") {
+            certLine = true;
+          }
+        }
+        let derDataDecoded = null;
+        try {
+          derDataDecoded = _native_typed_data.NativeUint8List.fromList(convert.utf8.encode(base64buffer));
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+          } else
+            throw e$;
+        }
+        if (derDataDecoded != null) {
+          return derDataDecoded;
+        }
+      }
+      return null;
+    }
+    get description() {
+      let t22, t22$;
+      t22$ = (t22 = this.asn1, t22 == null ? null : t22[$fold](T.StringN(), "", dart.fn((value, element) => {
+        let t23;
+        if (element == null) dart.nullFailed(I[9], 100, 23, "element");
+        return dart.notNull((t23 = value, t23 == null ? "" : t23)) + dart.notNull(element.description) + "\n";
+      }, T.StringNAndASN1ObjectToString())));
+      return t22$ == null ? "" : t22$;
+    }
+    checkValidity(opts) {
+      let date = opts && 'date' in opts ? opts.date : null;
+      if (date == null) {
+        date = new core.DateTime.now();
+      }
+      if (this.notBefore != null && this.notAfter != null) {
+        return dart.test(date.isAfter(dart.nullCheck(this.notBefore))) && dart.test(date.isBefore(dart.nullCheck(this.notAfter)));
+      }
+      return false;
+    }
+    get version() {
+      if (this.block1 != null) {
+        let v = x509_certificate.firstLeafValue({block: dart.nullCheck(this.block1)});
+        if (T.ListOfint().is(v)) {
+          let index = asn1_decoder.toIntValue(v);
+          if (index != null) {
+            return dart.notNull(index.toInt()) + 1;
+          }
+        }
+      }
+      return null;
+    }
+    get serialNumber() {
+      let t23, t22;
+      let data = (t22 = this.block1, t22 == null ? null : (t23 = t22.atIndex(x509_certificate.X509BlockPosition.serialNumber), t23 == null ? null : t23.value));
+      return T.ListOfint().is(data) ? data : null;
+    }
+    get issuerDistinguishedName() {
+      let t22;
+      let issuerBlock = (t22 = this.block1, t22 == null ? null : t22.atIndex(x509_certificate.X509BlockPosition.issuer));
+      if (issuerBlock != null) {
+        return asn1_distinguished_names.ASN1DistinguishedNames.string({block: issuerBlock});
+      }
+      return null;
+    }
+    get issuerOIDs() {
+      let t22, t22$;
+      let result = T.JSArrayOfString().of([]);
+      let issuerBlock = (t22 = this.block1, t22 == null ? null : t22.atIndex(x509_certificate.X509BlockPosition.issuer));
+      if (issuerBlock != null) {
+        for (let sub of (t22$ = issuerBlock.sub, t22$ == null ? T.JSArrayOfASN1Object().of([]) : t22$)) {
+          let value = x509_certificate.firstLeafValue({block: sub});
+          if (typeof value == 'string') {
+            result[$add](value);
+          }
+        }
+      }
+      return result;
+    }
+    issuer(opts) {
+      let t22, t22$;
+      let oid = opts && 'oid' in opts ? opts.oid : null;
+      let dn = opts && 'dn' in opts ? opts.dn : null;
+      if (oid == null && dn != null) {
+        oid = dn.oid();
+      }
+      if (oid != null) {
+        let issuerBlock = (t22 = this.block1, t22 == null ? null : t22.atIndex(x509_certificate.X509BlockPosition.issuer));
+        if (issuerBlock != null) {
+          let oidBlock = issuerBlock.findOid({oidValue: oid});
+          if (oidBlock != null) {
+            let sub = (t22$ = oidBlock.parent, t22$ == null ? null : t22$.sub);
+            if (sub != null && dart.notNull(sub[$length]) > 0 && typeof sub[$last].value == 'string') {
+              return T.StringN().as(sub[$last].value);
+            } else {
+              return null;
+            }
+          }
+        }
+      }
+      return null;
+    }
+    get subjectDistinguishedName() {
+      let t22;
+      let subjectBlock = (t22 = this.block1, t22 == null ? null : t22.atIndex(x509_certificate.X509BlockPosition.subject));
+      if (subjectBlock != null) {
+        return asn1_distinguished_names.ASN1DistinguishedNames.string({block: subjectBlock});
+      }
+      return null;
+    }
+    get subjectOIDs() {
+      let t22, t22$;
+      let result = T.JSArrayOfString().of([]);
+      let subjectBlock = (t22 = this.block1, t22 == null ? null : t22.atIndex(x509_certificate.X509BlockPosition.subject));
+      if (subjectBlock != null) {
+        for (let sub of (t22$ = subjectBlock.sub, t22$ == null ? T.JSArrayOfASN1Object().of([]) : t22$)) {
+          let value = x509_certificate.firstLeafValue({block: sub});
+          if (typeof value == 'string') {
+            result[$add](value);
+          }
+        }
+      }
+      return result;
+    }
+    subject(opts) {
+      let t22, t22$;
+      let oid = opts && 'oid' in opts ? opts.oid : null;
+      let dn = opts && 'dn' in opts ? opts.dn : null;
+      if (oid == null && dn != null) {
+        oid = dn.oid();
+      }
+      if (oid != null) {
+        let subjectBlock = (t22 = this.block1, t22 == null ? null : t22.atIndex(x509_certificate.X509BlockPosition.subject));
+        if (subjectBlock != null) {
+          let oidBlock = subjectBlock.findOid({oidValue: oid});
+          if (oidBlock != null) {
+            let sub = (t22$ = oidBlock.parent, t22$ == null ? null : t22$.sub);
+            if (sub != null && dart.notNull(sub[$length]) > 0 && typeof sub[$last].value == 'string') {
+              return T.StringN().as(sub[$last].value);
+            } else {
+              return null;
+            }
+          }
+        }
+      }
+      return null;
+    }
+    get notBefore() {
+      let t24, t23, t22;
+      let data = (t22 = this.block1, t22 == null ? null : (t23 = t22.atIndex(x509_certificate.X509BlockPosition.dateValidity), t23 == null ? null : (t24 = t23.subAtIndex(0), t24 == null ? null : t24.value)));
+      return core.DateTime.is(data) ? data : null;
+    }
+    get notAfter() {
+      let t24, t23, t22;
+      let data = (t22 = this.block1, t22 == null ? null : (t23 = t22.atIndex(x509_certificate.X509BlockPosition.dateValidity), t23 == null ? null : (t24 = t23.subAtIndex(1), t24 == null ? null : t24.value)));
+      return core.DateTime.is(data) ? data : null;
+    }
+    get signature() {
+      let t23, t22;
+      let data = (t22 = this.asn1, t22 == null ? null : (t23 = t22[$_get](0).subAtIndex(2), t23 == null ? null : t23.value));
+      return T.ListOfint().is(data) ? data : null;
+    }
+    get sigAlgName() {
+      let t22, t22$;
+      t22$ = oid$.OID.fromValue((t22 = this.sigAlgOID, t22 == null ? "" : t22));
+      return t22$ == null ? null : t22$.name();
+    }
+    get sigAlgOID() {
+      let t24, t23, t22;
+      let data = (t22 = this.block1, t22 == null ? null : (t23 = t22.subAtIndex(2), t23 == null ? null : (t24 = t23.subAtIndex(0), t24 == null ? null : t24.value)));
+      return typeof data == 'string' ? data : null;
+    }
+    get sigAlgParams() {
+      return null;
+    }
+    get keyUsage() {
+      let t22, t22$, t22$0;
+      let result = T.JSArrayOfbool().of([]);
+      let oidBlock = (t22 = this.block1, t22 == null ? null : t22.findOid({oid: oid$.OID.keyUsage}));
+      if (oidBlock != null) {
+        let sub = (t22$ = oidBlock.parent, t22$ == null ? null : t22$.sub);
+        if (sub != null && dart.notNull(sub[$length]) > 0) {
+          let data = (t22$0 = sub[$last].subAtIndex(0), t22$0 == null ? null : t22$0.value);
+          let bits = T.ListOfint().is(data) && dart.notNull(data[$length]) > 0 ? data[$first] : 0;
+          for (let index = 0; index < 8; index = index + 1) {
+            let value = (dart.notNull(bits) & (1)[$leftShift](index)[$toUnsigned](8)) !== 0;
+            result[$insert](0, value);
+          }
+        }
+      }
+      return result;
+    }
+    get extendedKeyUsage() {
+      let t22, t22$;
+      t22$ = (t22 = this.extensionObject({oid: oid$.OID.extKeyUsage}), t22 == null ? null : t22.valueAsStrings);
+      return t22$ == null ? T.JSArrayOfString().of([]) : t22$;
+    }
+    get subjectAlternativeNames() {
+      let t22, t22$;
+      t22$ = (t22 = this.extensionObject({oid: oid$.OID.subjectAltName}), t22 == null ? null : t22.alternativeNameAsStrings);
+      return t22$ == null ? T.JSArrayOfString().of([]) : t22$;
+    }
+    get issuerAlternativeNames() {
+      let t22, t22$;
+      t22$ = (t22 = this.extensionObject({oid: oid$.OID.issuerAltName}), t22 == null ? null : t22.alternativeNameAsStrings);
+      return t22$ == null ? T.JSArrayOfString().of([]) : t22$;
+    }
+    get publicKey() {
+      let t22;
+      let pkBlock = (t22 = this.block1, t22 == null ? null : t22.atIndex(x509_certificate.X509BlockPosition.publicKey));
+      if (pkBlock != null) {
+        return new x509_public_key.X509PublicKey.new({pkBlock: pkBlock});
+      }
+      return null;
+    }
+    get criticalExtensionOIDs() {
+      let extensionBlocks = this.extensionBlocks;
+      if (extensionBlocks == null) {
+        return T.JSArrayOfString().of([]);
+      }
+      return extensionBlocks[$map](x509_extension.X509Extension, dart.fn(block => {
+        if (block == null) dart.nullFailed(I[9], 316, 15, "block");
+        return new x509_extension.X509Extension.new({block: block});
+      }, T.ASN1ObjectToX509Extension()))[$where](dart.fn(extension => {
+        if (extension == null) dart.nullFailed(I[9], 317, 17, "extension");
+        return extension.isCritical;
+      }, T.X509ExtensionTobool()))[$map](core.String, dart.fn(extension => {
+        let t22;
+        if (extension == null) dart.nullFailed(I[9], 318, 15, "extension");
+        t22 = extension.oid;
+        return t22 == null ? "" : t22;
+      }, T.X509ExtensionToString()))[$toList]();
+    }
+    get nonCriticalExtensionOIDs() {
+      let extensionBlocks = this.extensionBlocks;
+      if (extensionBlocks == null) {
+        return T.JSArrayOfString().of([]);
+      }
+      return extensionBlocks[$map](x509_extension.X509Extension, dart.fn(block => {
+        if (block == null) dart.nullFailed(I[9], 329, 15, "block");
+        return new x509_extension.X509Extension.new({block: block});
+      }, T.ASN1ObjectToX509Extension()))[$where](dart.fn(extension => {
+        if (extension == null) dart.nullFailed(I[9], 330, 17, "extension");
+        return !dart.test(extension.isCritical);
+      }, T.X509ExtensionTobool()))[$map](core.String, dart.fn(extension => {
+        let t22;
+        if (extension == null) dart.nullFailed(I[9], 331, 15, "extension");
+        t22 = extension.oid;
+        return t22 == null ? "" : t22;
+      }, T.X509ExtensionToString()))[$toList]();
+    }
+    get basicConstraints() {
+      return T.BasicConstraintExtensionN().as(this.extensionObject({oid: oid$.OID.basicConstraints}));
+    }
+    get subjectKeyIdentifier() {
+      return T.SubjectKeyIdentifierExtensionN().as(this.extensionObject({oid: oid$.OID.subjectKeyIdentifier}));
+    }
+    get authorityKeyIdentifier() {
+      return T.AuthorityKeyIdentifierExtensionN().as(this.extensionObject({oid: oid$.OID.authorityKeyIdentifier}));
+    }
+    get certificatePolicies() {
+      return T.CertificatePoliciesExtensionN().as(this.extensionObject({oid: oid$.OID.certificatePolicies}));
+    }
+    get cRLDistributionPoints() {
+      return T.CRLDistributionPointsExtensionN().as(this.extensionObject({oid: oid$.OID.cRLDistributionPoints}));
+    }
+    get authorityInfoAccess() {
+      return T.AuthorityInfoAccessExtensionN().as(this.extensionObject({oid: oid$.OID.authorityInfoAccess}));
+    }
+    get extensionBlocks() {
+      let t24, t23, t22;
+      t22 = this.block1;
+      return t22 == null ? null : (t23 = t22.atIndex(x509_certificate.X509BlockPosition.extensions), t23 == null ? null : (t24 = t23.subAtIndex(0), t24 == null ? null : t24.sub));
+    }
+    extensionObject(opts) {
+      let t24, t23, t22;
+      let oidValue = opts && 'oidValue' in opts ? opts.oidValue : null;
+      let oid = opts && 'oid' in opts ? opts.oid : null;
+      if (oidValue == null && oid != null) {
+        oidValue = oid.toValue();
+      }
+      if (oidValue != null) {
+        let block = (t22 = this.block1, t22 == null ? null : (t23 = t22.atIndex(x509_certificate.X509BlockPosition.extensions), t23 == null ? null : (t24 = t23.findOid({oidValue: oidValue}), t24 == null ? null : t24.parent)));
+        if (block != null) {
+          if (oidValue == oid$.OID.basicConstraints.toValue()) {
+            return new x509_extension.BasicConstraintExtension.new({block: block});
+          } else if (oidValue == oid$.OID.subjectKeyIdentifier.toValue()) {
+            return new x509_extension.SubjectKeyIdentifierExtension.new({block: block});
+          } else if (oidValue == oid$.OID.authorityInfoAccess.toValue()) {
+            return new x509_extension.AuthorityInfoAccessExtension.new({block: block});
+          } else if (oidValue == oid$.OID.authorityKeyIdentifier.toValue()) {
+            return new x509_extension.AuthorityKeyIdentifierExtension.new({block: block});
+          } else if (oidValue == oid$.OID.certificatePolicies.toValue()) {
+            return new x509_extension.CertificatePoliciesExtension.new({block: block});
+          } else if (oidValue == oid$.OID.cRLDistributionPoints.toValue()) {
+            return new x509_extension.CRLDistributionPointsExtension.new({block: block});
+          }
+          return new x509_extension.X509Extension.new({block: block});
+        }
+      }
+      return null;
+    }
+    toString() {
+      return this.description;
+    }
+    toMap() {
+      let t22, t22$, t22$0, t22$1, t22$2, t22$3, t22$4;
+      return new (T.IdentityMapOfString$dynamic()).from(["basicConstraints", (t22 = this.basicConstraints, t22 == null ? null : t22.toMap()), "subjectAlternativeNames", this.subjectAlternativeNames, "issuerAlternativeNames", this.issuerAlternativeNames, "extendedKeyUsage", this.extendedKeyUsage, "issuerDistinguishedName", this.issuerDistinguishedName, "keyUsage", this.keyUsage, "notAfter", this.notAfter, "notBefore", this.notBefore, "serialNumber", this.serialNumber, "sigAlgName", this.sigAlgName, "sigAlgOID", this.sigAlgOID, "sigAlgParams", this.sigAlgParams, "signature", this.signature, "subjectDistinguishedName", this.subjectDistinguishedName, "version", this.version, "criticalExtensionOIDs", this.criticalExtensionOIDs, "nonCriticalExtensionOIDs", this.nonCriticalExtensionOIDs, "encoded", this.encoded, "publicKey", (t22$ = this.publicKey, t22$ == null ? null : t22$.toMap()), "subjectKeyIdentifier", (t22$0 = this.subjectKeyIdentifier, t22$0 == null ? null : t22$0.toMap()), "authorityKeyIdentifier", (t22$1 = this.authorityKeyIdentifier, t22$1 == null ? null : t22$1.toMap()), "certificatePolicies", (t22$2 = this.certificatePolicies, t22$2 == null ? null : t22$2.toMap()), "cRLDistributionPoints", (t22$3 = this.cRLDistributionPoints, t22$3 == null ? null : t22$3.toMap()), "authorityInfoAccess", (t22$4 = this.authorityInfoAccess, t22$4 == null ? null : t22$4.toMap())]);
+    }
+    toJson() {
+      return this.toMap();
+    }
+  };
+  (x509_certificate.X509Certificate.new = function(opts) {
+    let asn1 = opts && 'asn1' in opts ? opts.asn1 : null;
+    this[asn1$] = null;
+    this[block1$] = null;
+    this[encoded$] = null;
+    if (asn1 != null) {
+      let block1 = asn1.subAtIndex(0);
+      if (block1 == null) {
+        dart.throw(new asn1_decoder.ASN1ParseError.new());
+      }
+    }
+  }).prototype = x509_certificate.X509Certificate.prototype;
+  dart.addTypeTests(x509_certificate.X509Certificate);
+  dart.addTypeCaches(x509_certificate.X509Certificate);
+  dart.setMethodSignature(x509_certificate.X509Certificate, () => ({
+    __proto__: dart.getMethods(x509_certificate.X509Certificate.__proto__),
+    checkValidity: dart.fnType(core.bool, [], {date: dart.nullable(core.DateTime)}, {}),
+    issuer: dart.fnType(dart.nullable(core.String), [], {dn: dart.nullable(asn1_distinguished_names.ASN1DistinguishedNames), oid: dart.nullable(core.String)}, {}),
+    subject: dart.fnType(dart.nullable(core.String), [], {dn: dart.nullable(asn1_distinguished_names.ASN1DistinguishedNames), oid: dart.nullable(core.String)}, {}),
+    extensionObject: dart.fnType(dart.nullable(x509_extension.X509Extension), [], {oid: dart.nullable(oid$.OID), oidValue: dart.nullable(core.String)}, {}),
+    toMap: dart.fnType(core.Map$(core.String, dart.dynamic), []),
+    toJson: dart.fnType(core.Map$(core.String, dart.dynamic), [])
+  }));
+  dart.setGetterSignature(x509_certificate.X509Certificate, () => ({
+    __proto__: dart.getGetters(x509_certificate.X509Certificate.__proto__),
+    description: core.String,
+    version: dart.nullable(core.int),
+    serialNumber: dart.nullable(core.List$(core.int)),
+    issuerDistinguishedName: dart.nullable(core.String),
+    issuerOIDs: core.List$(core.String),
+    subjectDistinguishedName: dart.nullable(core.String),
+    subjectOIDs: core.List$(core.String),
+    notBefore: dart.nullable(core.DateTime),
+    notAfter: dart.nullable(core.DateTime),
+    signature: dart.nullable(core.List$(core.int)),
+    sigAlgName: dart.nullable(core.String),
+    sigAlgOID: dart.nullable(core.String),
+    sigAlgParams: dart.nullable(core.List$(core.int)),
+    keyUsage: core.List$(core.bool),
+    extendedKeyUsage: core.List$(core.String),
+    subjectAlternativeNames: core.List$(core.String),
+    issuerAlternativeNames: core.List$(core.String),
+    publicKey: dart.nullable(x509_public_key.X509PublicKey),
+    criticalExtensionOIDs: core.List$(core.String),
+    nonCriticalExtensionOIDs: core.List$(core.String),
+    basicConstraints: dart.nullable(x509_extension.BasicConstraintExtension),
+    subjectKeyIdentifier: dart.nullable(x509_extension.SubjectKeyIdentifierExtension),
+    authorityKeyIdentifier: dart.nullable(x509_extension.AuthorityKeyIdentifierExtension),
+    certificatePolicies: dart.nullable(x509_extension.CertificatePoliciesExtension),
+    cRLDistributionPoints: dart.nullable(x509_extension.CRLDistributionPointsExtension),
+    authorityInfoAccess: dart.nullable(x509_extension.AuthorityInfoAccessExtension),
+    extensionBlocks: dart.nullable(core.List$(asn1_object.ASN1Object))
+  }));
+  dart.setLibraryUri(x509_certificate.X509Certificate, I[10]);
+  dart.setFieldSignature(x509_certificate.X509Certificate, () => ({
+    __proto__: dart.getFields(x509_certificate.X509Certificate.__proto__),
+    asn1: dart.fieldType(dart.nullable(core.List$(asn1_object.ASN1Object))),
+    block1: dart.fieldType(dart.nullable(asn1_object.ASN1Object)),
+    encoded: dart.fieldType(dart.nullable(typed_data.Uint8List))
+  }));
+  dart.defineExtensionMethods(x509_certificate.X509Certificate, ['toString']);
+  dart.defineLazy(x509_certificate.X509Certificate, {
+    /*x509_certificate.X509Certificate.beginPemBlock*/get beginPemBlock() {
+      return "-----BEGIN CERTIFICATE-----";
+    },
+    /*x509_certificate.X509Certificate.endPemBlock*/get endPemBlock() {
+      return "-----END CERTIFICATE-----";
+    }
+  }, false);
+  var _name$ = dart.privateName(x509_certificate, "_name");
+  x509_certificate.X509BlockPosition = class X509BlockPosition extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (x509_certificate.X509BlockPosition.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[9], 453, 6, "index");
+    if (_name == null) dart.nullFailed(I[9], 453, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = x509_certificate.X509BlockPosition.prototype;
+  dart.addTypeTests(x509_certificate.X509BlockPosition);
+  dart.addTypeCaches(x509_certificate.X509BlockPosition);
+  dart.setLibraryUri(x509_certificate.X509BlockPosition, I[10]);
+  dart.setFieldSignature(x509_certificate.X509BlockPosition, () => ({
+    __proto__: dart.getFields(x509_certificate.X509BlockPosition.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(x509_certificate.X509BlockPosition, ['toString']);
+  x509_certificate.X509BlockPosition.version = C[12] || CT.C12;
+  x509_certificate.X509BlockPosition.serialNumber = C[13] || CT.C13;
+  x509_certificate.X509BlockPosition.signatureAlg = C[14] || CT.C14;
+  x509_certificate.X509BlockPosition.issuer = C[15] || CT.C15;
+  x509_certificate.X509BlockPosition.dateValidity = C[16] || CT.C16;
+  x509_certificate.X509BlockPosition.subject = C[17] || CT.C17;
+  x509_certificate.X509BlockPosition.publicKey = C[18] || CT.C18;
+  x509_certificate.X509BlockPosition.extensions = C[19] || CT.C19;
+  x509_certificate.X509BlockPosition.values = C[20] || CT.C20;
+  x509_certificate.firstLeafValue = function firstLeafValue(opts) {
+    let block = opts && 'block' in opts ? opts.block : null;
+    if (block == null) dart.nullFailed(I[9], 439, 45, "block");
+    let sub = block.sub;
+    if (sub != null && dart.notNull(sub[$length]) > 0) {
+      let subFirst = null;
+      try {
+        subFirst = sub[$first];
+      } catch (e$) {
+        let e = dart.getThrown(e$);
+        if (core.Object.is(e)) {
+        } else
+          throw e$;
+      }
+      if (subFirst != null) {
+        return x509_certificate.firstLeafValue({block: subFirst});
+      }
+    }
+    return block.value;
+  };
+  dart.trackLibraries("packages/flutter_inappwebview/src/x509_certificate/asn1_distinguished_names.dart", {
+    "package:flutter_inappwebview/src/x509_certificate/asn1_distinguished_names.dart": asn1_distinguished_names,
+    "package:flutter_inappwebview/src/x509_certificate/x509_extension.dart": x509_extension,
+    "package:flutter_inappwebview/src/x509_certificate/x509_public_key.dart": x509_public_key,
+    "package:flutter_inappwebview/src/x509_certificate/asn1_object.dart": asn1_object,
+    "package:flutter_inappwebview/src/x509_certificate/asn1_decoder.dart": asn1_decoder,
+    "package:flutter_inappwebview/src/x509_certificate/x509_certificate.dart": x509_certificate
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["asn1_distinguished_names.dart","x509_extension.dart","x509_public_key.dart","asn1_object.dart","asn1_decoder.dart","x509_certificate.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter_inappwebview/src/x509_certificate/asn1_distinguished_names.dart.lib.js"}');
+  // Exports:
+  return {
+    src__x509_certificate__asn1_distinguished_names: asn1_distinguished_names,
+    src__x509_certificate__x509_extension: x509_extension,
+    src__x509_certificate__x509_public_key: x509_public_key,
+    src__x509_certificate__asn1_object: asn1_object,
+    src__x509_certificate__asn1_decoder: asn1_decoder,
+    src__x509_certificate__x509_certificate: x509_certificate
+  };
+}));
+
+//# sourceMappingURL=asn1_distinguished_names.dart.lib.js.map

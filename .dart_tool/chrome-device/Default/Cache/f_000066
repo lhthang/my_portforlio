@@ -1,0 +1,352 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/scroll_to_id/src/interactive_scroll_viewer.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/my_portfolio/buttons/Button.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/animation/curves.dart'], (function load__packages__my_portfolio__navbar__Navbar_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__scroll_to_id__src__interactive_scroll_viewer$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__material__icon_button$46dart, packages__my_portfolio__buttons__Button$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__animation__curves$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const scroll_to_id = packages__scroll_to_id__src__interactive_scroll_viewer$46dart.src__scroll_to_id;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
+  const Button = packages__my_portfolio__buttons__Button$46dart.buttons__Button;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  var Navbar = Object.create(dart.library);
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
+    JSArrayOfWidgetL: () => (T.JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(T.WidgetL())))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 11,
+        [_Location_line]: 26,
+        [_Location_file]: null
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 11,
+        [_Location_line]: 27,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onClick",
+        [_Location_column]: 11,
+        [_Location_line]: 32,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4], T._LocationL());
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 25,
+        [_Location_file]: "file:///C:/Users/Asus/Desktop/Github/my_portforlio/lib/navbar/Navbar.dart"
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 11,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 11,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onClick",
+        [_Location_column]: 11,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.constList([C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9], T._LocationL());
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[6] || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 37,
+        [_Location_file]: "file:///C:/Users/Asus/Desktop/Github/my_portforlio/lib/navbar/Navbar.dart"
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 11,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 11,
+        [_Location_line]: 51,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onClick",
+        [_Location_column]: 11,
+        [_Location_line]: 56,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.constList([C[12] || CT.C12, C[13] || CT.C13, C[14] || CT.C14], T._LocationL());
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[11] || CT.C11,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 49,
+        [_Location_file]: "file:///C:/Users/Asus/Desktop/Github/my_portforlio/lib/navbar/Navbar.dart"
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 11,
+        [_Location_line]: 62,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 11,
+        [_Location_line]: 63,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onClick",
+        [_Location_column]: 11,
+        [_Location_line]: 68,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.constList([C[17] || CT.C17, C[18] || CT.C18, C[19] || CT.C19], T._LocationL());
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[16] || CT.C16,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 61,
+        [_Location_file]: "file:///C:/Users/Asus/Desktop/Github/my_portforlio/lib/navbar/Navbar.dart"
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "toolbarTextStyle",
+        [_Location_column]: 7,
+        [_Location_line]: 21,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "backgroundColor",
+        [_Location_column]: 7,
+        [_Location_line]: 22,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "elevation",
+        [_Location_column]: 7,
+        [_Location_line]: 23,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "actions",
+        [_Location_column]: 7,
+        [_Location_line]: 24,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.constList([C[22] || CT.C22, C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25], T._LocationL());
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[21] || CT.C21,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 20,
+        [_Location_file]: "file:///C:/Users/Asus/Desktop/Github/my_portforlio/lib/navbar/Navbar.dart"
+      });
+    }
+  }, false);
+  var C = Array(26).fill(void 0);
+  var I = ["package:my_portfolio/navbar/Navbar.dart"];
+  var index$ = dart.privateName(Navbar, "NavigationBar.index");
+  var scrollToId$ = dart.privateName(Navbar, "NavigationBar.scrollToId");
+  Navbar.NavigationBar = class NavigationBar extends framework.StatefulWidget {
+    get index() {
+      return this[index$];
+    }
+    set index(value) {
+      super.index = value;
+    }
+    get scrollToId() {
+      return this[scrollToId$];
+    }
+    set scrollToId(value) {
+      super.scrollToId = value;
+    }
+    createState() {
+      return new Navbar._NavigationBarState.new();
+    }
+  };
+  (Navbar.NavigationBar.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let index = opts && 'index' in opts ? opts.index : null;
+    let scrollToId = opts && 'scrollToId' in opts ? opts.scrollToId : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[index$] = index;
+    this[scrollToId$] = scrollToId;
+    Navbar.NavigationBar.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = Navbar.NavigationBar.prototype;
+  dart.addTypeTests(Navbar.NavigationBar);
+  dart.addTypeCaches(Navbar.NavigationBar);
+  dart.setMethodSignature(Navbar.NavigationBar, () => ({
+    __proto__: dart.getMethods(Navbar.NavigationBar.__proto__),
+    createState: dart.fnType(dart.legacy(Navbar._NavigationBarState), [])
+  }));
+  dart.setLibraryUri(Navbar.NavigationBar, I[0]);
+  dart.setFieldSignature(Navbar.NavigationBar, () => ({
+    __proto__: dart.getFields(Navbar.NavigationBar.__proto__),
+    index: dart.finalFieldType(dart.legacy(core.int)),
+    scrollToId: dart.finalFieldType(dart.legacy(scroll_to_id.ScrollToId))
+  }));
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  Navbar._NavigationBarState = class _NavigationBarState extends framework.State$(dart.legacy(Navbar.NavigationBar)) {
+    build(context) {
+      return new app_bar.AppBar.new({toolbarTextStyle: new text_style.TextStyle.new({color: colors.Colors.white}), backgroundColor: colors.Colors.black87, elevation: 1.0, actions: T.JSArrayOfWidgetL().of([new Button.MyButton.new({title: "About", decoration: new box_decoration.BoxDecoration.new({borderRadius: new border_radius.BorderRadius.only({topLeft: new ui.Radius.circular(10.0), bottomRight: new ui.Radius.circular(10.0)}), color: this.widget.index === 1 ? colors.Colors.red : colors.Colors.transparent}), onClick: dart.fn(() => {
+              this.widget.scrollToId.animateTo("1", {duration: new core.Duration.new({seconds: 1}), curve: curves.Curves.ease});
+            }, T.VoidToNull()), $creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), new Button.MyButton.new({title: "Experience", decoration: new box_decoration.BoxDecoration.new({borderRadius: new border_radius.BorderRadius.only({topLeft: new ui.Radius.circular(10.0), bottomRight: new ui.Radius.circular(10.0)}), color: this.widget.index === 2 ? colors.Colors.red : colors.Colors.transparent}), onClick: dart.fn(() => {
+              this.widget.scrollToId.animateTo("2", {duration: new core.Duration.new({seconds: 1}), curve: curves.Curves.ease});
+            }, T.VoidToNull()), $creationLocationd_0dea112b090073317d4: C[5] || CT.C5}), new Button.MyButton.new({title: "Skills", decoration: new box_decoration.BoxDecoration.new({borderRadius: new border_radius.BorderRadius.only({topLeft: new ui.Radius.circular(10.0), bottomRight: new ui.Radius.circular(10.0)}), color: this.widget.index === 3 ? colors.Colors.red : colors.Colors.transparent}), onClick: dart.fn(() => {
+              this.widget.scrollToId.animateTo("3", {duration: new core.Duration.new({seconds: 1}), curve: curves.Curves.ease});
+            }, T.VoidToNull()), $creationLocationd_0dea112b090073317d4: C[10] || CT.C10}), new Button.MyButton.new({title: "Contact", decoration: new box_decoration.BoxDecoration.new({borderRadius: new border_radius.BorderRadius.only({topLeft: new ui.Radius.circular(10.0), bottomRight: new ui.Radius.circular(10.0)}), color: this.widget.index === 4 ? colors.Colors.red : colors.Colors.transparent}), onClick: dart.fn(() => {
+              this.widget.scrollToId.animateTo("4", {duration: new core.Duration.new({seconds: 1}), curve: curves.Curves.ease});
+            }, T.VoidToNull()), $creationLocationd_0dea112b090073317d4: C[15] || CT.C15})]), $creationLocationd_0dea112b090073317d4: C[20] || CT.C20});
+    }
+  };
+  (Navbar._NavigationBarState.new = function() {
+    this.textStyle = new text_style.TextStyle.new({color: colors.Colors.white});
+    Navbar._NavigationBarState.__proto__.new.call(this);
+    ;
+  }).prototype = Navbar._NavigationBarState.prototype;
+  dart.addTypeTests(Navbar._NavigationBarState);
+  dart.addTypeCaches(Navbar._NavigationBarState);
+  dart.setMethodSignature(Navbar._NavigationBarState, () => ({
+    __proto__: dart.getMethods(Navbar._NavigationBarState.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(Navbar._NavigationBarState, I[0]);
+  dart.setFieldSignature(Navbar._NavigationBarState, () => ({
+    __proto__: dart.getFields(Navbar._NavigationBarState.__proto__),
+    textStyle: dart.fieldType(dart.legacy(text_style.TextStyle))
+  }));
+  dart.trackLibraries("packages/my_portfolio/navbar/Navbar.dart", {
+    "package:my_portfolio/navbar/Navbar.dart": Navbar
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["Navbar.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAKY;;;;;;IAEO;;;;;;;AAIoB;IAAqB;;;QAFvC;QAAoB;QAAsB;;IAAtB;IAAsB;AAA7D;;EAAyE;;;;;;;;;;;;;;;;;;;UAS/C;AACxB,YAAO,2CACa,qCAAwB,wCAClB,kCACb,cACF,yBACP,gCACS,qBACK,oDACmB,8CACP,uBAAS,oBACL,uBAAS,gBAC1B,AAAO,AAAM,sBAAG,IAAW,oBAAa,sCAC1C;AAEgD,cADvD,AAAO,AAAW,iCAAU,gBACd,gCAAkB,YAAkB;yFAGtD,gCACS,0BACK,oDACmB,8CACP,uBAAS,oBACL,uBAAS,gBAC1B,AAAO,AAAM,sBAAG,IAAW,oBAAa,sCAC1C;AAEgD,cADvD,AAAO,AAAW,iCAAU,gBACd,gCAAkB,YAAkB;yFAGtD,gCACS,sBACK,oDACmB,8CACP,uBAAS,oBACL,uBAAS,gBAC1B,AAAO,AAAM,sBAAG,IAAW,oBAAa,sCAC1C;AAEgD,cADvD,AAAO,AAAW,iCAAU,gBACd,gCAAkB,YAAkB;2FAGtD,gCACS,uBACK,oDACmB,8CACP,uBAAS,oBACL,uBAAS,gBAC1B,AAAO,AAAM,sBAAG,IAAW,oBAAa,sCAC1C;AAEgD,cADvD,AAAO,AAAW,iCAAU,gBACd,gCAAkB,YAAkB;;IAK5D;;;IA3DI,iBAAY,qCAAwB;;;EA4D1C","file":"../../../../../../../packages/my_portfolio/navbar/Navbar.dart.lib.js"}');
+  // Exports:
+  return {
+    navbar__Navbar: Navbar
+  };
+}));
+
+//# sourceMappingURL=Navbar.dart.lib.js.map
