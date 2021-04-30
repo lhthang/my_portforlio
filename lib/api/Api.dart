@@ -16,7 +16,6 @@ class Server {
       "https://api.jsonbin.io/b/608bb86fd64cd16802a4fc47";
 
   Future<String> getPassword() async {
-    print(secretKey);
     final resp =
         await http.get(Uri.parse(URL_SERVER), headers: createHeader(secretKey));
     if (resp.statusCode == 200) {
@@ -48,8 +47,8 @@ class MyPassword {
   }
 
   bool checkPwd(String password, String hashedPassword) {
+    print(password);
     bool isCorrect = Crypt(hashedPassword).match(password);
-    print(isCorrect);
     return isCorrect;
   }
 }

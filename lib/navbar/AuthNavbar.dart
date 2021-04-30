@@ -123,11 +123,12 @@ class _AuthNavBarState extends State<AuthNavBar> {
                                   TextStyle(color: Colors.green, fontSize: 15)),
                         ),
                         onTap: () async {
+                          var myPwd = controller.text;
                           controller.clear();
                           String password = await Server.instance.getPassword();
                           try {
-                            bool isRight = MyPassword.instance
-                                .checkPwd(controller.text, password);
+                            bool isRight =
+                                MyPassword.instance.checkPwd(myPwd, password);
                             if (isRight) {
                               setState(() {
                                 isLoggedIn = true;
