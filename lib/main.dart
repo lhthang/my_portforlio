@@ -6,7 +6,6 @@ import 'package:my_portfolio/App.dart';
 import 'package:my_portfolio/api/Store.dart';
 import 'package:my_portfolio/routes/route.dart' as router;
 import 'package:my_portfolio/routes/route_path.dart' as routes;
-import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
