@@ -51,6 +51,7 @@ dependencies:
   crypt: ^4.0.1
   flutter_animated_dialog: ^2.0.0
   path_provider: ^2.0.1
+  mongo_dart: ^0.7.0+1
   envify: any
 
 dev_dependencies:

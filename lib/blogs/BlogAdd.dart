@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
 import 'package:my_portfolio/api/Api.dart';
+import 'package:my_portfolio/api/MongoApi.dart';
 import 'package:my_portfolio/navbar/AuthNavbar.dart';
 
 import '../buttons/Button.dart';
@@ -50,7 +51,7 @@ class _BlogAddState extends State<BlogAdd> {
             padding: EdgeInsets.only(left: 50, right: 50, bottom: 10),
             child: RaisedButton(
               onPressed: () {
-                // Server.instance.writePost();
+                // MongoApi.instance.writeBlog();
               },
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(80.0)),

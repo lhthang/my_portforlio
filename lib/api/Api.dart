@@ -32,14 +32,6 @@ class Server {
     }
     return "";
   }
-
-  Future<bool> writePost() async {
-    Map<String, String> test = {"a": "a", "b": "b"};
-    final File file = File('data.json');
-    await file.writeAsString(json.encode(test));
-    Map<String, dynamic> myJson = await json.decode(await file.readAsString());
-    print(myJson.toString());
-  }
 }
 
 Map<String, String> createHeader(secretKey) {
