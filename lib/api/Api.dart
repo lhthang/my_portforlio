@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:crypt/crypt.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:my_portfolio/env/env.dart';
 import 'package:my_portfolio/utils/constant.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -18,7 +18,7 @@ class Server {
       "https://api.jsonbin.io/b/608bb86fd64cd16802a4fc47";
 
   Future<String> getPassword() async {
-    String key = env['API_KEY'];
+    String key = Env.apiKey;
     print(key);
     final resp =
         await http.get(Uri.parse(URL_SERVER), headers: createHeader(key));
