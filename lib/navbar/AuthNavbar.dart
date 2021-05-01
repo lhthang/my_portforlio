@@ -124,8 +124,9 @@ class _AuthNavBarState extends State<AuthNavBar> {
                                   TextStyle(color: Colors.green, fontSize: 15)),
                         ),
                         onTap: () async {
-                          String password = await Server.instance.getPassword();
                           try {
+                            String password =
+                                await Server.instance.getPassword();
                             bool isRight = MyPassword.instance
                                 .checkPwd(controller.text, password);
                             if (isRight) {

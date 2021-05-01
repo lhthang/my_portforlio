@@ -27,7 +27,8 @@ class Server {
       return data["password"];
     }
     if (resp.statusCode != 200) {
-      throw CommonError(error: "Something went wrong", status: resp.statusCode);
+      throw new CommonError(
+          error: "Something went wrong", status: resp.statusCode);
     }
     return "";
   }
