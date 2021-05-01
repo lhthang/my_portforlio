@@ -6,6 +6,11 @@ A new Flutter project.
 flutter run -d chrome --web-renderer html
 
 ## How to deploy to Github
+Generate env by 
+    `flutter clean`
+    `flutter pub get`
+    `flutter pub run build_runner build --delete-conflicting-outputs`
+
 Use peanut
 flutter pub global activate peanut
 flutter pub global run peanut:peanut
