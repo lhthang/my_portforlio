@@ -19,7 +19,6 @@ class Server {
 
   Future<String> getPassword() async {
     String key = Env.apiKey;
-    print(key);
     final resp =
         await http.get(Uri.parse(URL_SERVER), headers: createHeader(key));
     if (resp.statusCode == 200) {

@@ -4,6 +4,8 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dropzone/flutter_dropzone.dart';
+import 'package:get/get.dart';
+import 'package:get/get_navigation/src/snackbar/snack.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server/gmail.dart';
@@ -211,17 +213,19 @@ class _EmailFormState extends State<EmailForm> {
       'body': _bodyController.text,
       'attachments': file != null ? file.relativePath : null,
     });
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        backgroundColor: Colors.red,
-        content: Container(
-          height: 25,
-          child: Text(
-            "This feature is not available now. Please send email normally!",
-            style: TextStyle(fontSize: 15),
-          ),
-        ),
-      ),
+
+    Get.snackbar(
+      "Failed",
+      null,
+      snackPosition: SnackPosition.BOTTOM,
+      backgroundColor: Colors.red,
+      colorText: Colors.white,
+      messageText:
+          Text("This feature is not available now. Please send email normally!",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 15,
+              )),
     );
     try {
       await launch(_emailLaunchUri.toString(), enableJavaScript: true);
@@ -259,10 +263,7 @@ class _EmailFormState extends State<EmailForm> {
 
     if (!mounted) return;
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(platformResponse),
-      ),
-    );
+    Get.snackbar("Failed", "Something went wrong",
+        snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.red);
   }
 }

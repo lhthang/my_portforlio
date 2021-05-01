@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cron/cron.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:my_portfolio/App.dart';
 import 'package:my_portfolio/api/MongoApi.dart';
 import 'package:my_portfolio/api/Store.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: router.generateRoute,
       initialRoute: routes.home,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
+import 'package:get/get.dart';
 import 'package:my_portfolio/api/Api.dart';
 import 'package:my_portfolio/api/Store.dart';
 import 'package:my_portfolio/buttons/Button.dart';
@@ -70,105 +71,84 @@ class _AuthNavBarState extends State<AuthNavBar> {
   }
 
   _showLoginForm() {
-    showAnimatedDialog(
-      context: context,
-      barrierDismissible: true,
-      builder: (BuildContext context) {
-        return CustomDialog(
-          child: Container(
-            width: 300,
-            height: 150,
-            padding: EdgeInsets.all(10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  padding: EdgeInsets.all(10.0),
-                  child: TextFormField(
-                    controller: controller,
-                    enableInteractiveSelection: false,
-                    autofocus: true,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0)),
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      InkWell(
-                        child: Container(
-                          padding: EdgeInsets.all(5.0),
-                          child: Text(
-                            "Cancel",
-                            style: TextStyle(color: Colors.red, fontSize: 15),
-                          ),
-                        ),
-                        onTap: () {
-                          controller.clear();
-                          Navigator.of(context).pop();
-                        },
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      InkWell(
-                        child: Container(
-                          padding: EdgeInsets.all(5.0),
-                          child: Text("Log in",
-                              style:
-                                  TextStyle(color: Colors.green, fontSize: 15)),
-                        ),
-                        onTap: () async {
-                          try {
-                            String password =
-                                await Server.instance.getPassword();
-                            bool isRight = MyPassword.instance
-                                .checkPwd(controller.text, password);
-                            if (isRight) {
-                              setState(() {
-                                isLoggedIn = true;
-
-                                Store.instance.saveBool(Store.LOGGED_IN, true);
-                              });
-                            } else {
-                              _catchLoginFail();
-                            }
-                            Navigator.of(context).pop();
-
-                            controller.clear();
-                          } catch (e) {
-                            _catchLoginFail();
-                          }
-                        },
-                      )
-                    ],
-                  ),
-                )
-              ],
+    Get.defaultDialog(
+        title: "Enter",
+        content: Container(
+          padding: EdgeInsets.all(10.0),
+          child: TextFormField(
+            controller: controller,
+            enableInteractiveSelection: false,
+            autofocus: true,
+            obscureText: true,
+            decoration: InputDecoration(
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
             ),
+            onFieldSubmitted: (val) {
+              _onSubmit();
+            },
           ),
-        );
-      },
-    );
+        ),
+        actions: [
+          InkWell(
+            child: Container(
+              padding: EdgeInsets.all(5.0),
+              child: Text(
+                "Cancel",
+                style: TextStyle(color: Colors.red, fontSize: 15),
+              ),
+            ),
+            onTap: () {
+              controller.clear();
+              Get.back();
+            },
+          ),
+          InkWell(
+            child: Container(
+              padding: EdgeInsets.all(5.0),
+              child: Text("Log in",
+                  style: TextStyle(color: Colors.green, fontSize: 15)),
+            ),
+            onTap: () {
+              _onSubmit();
+            },
+          )
+        ]);
+  }
+
+  _onSubmit() async {
+    try {
+      Get.back();
+      String password = await Server.instance.getPassword();
+      bool isRight = MyPassword.instance.checkPwd(controller.text, password);
+      if (isRight) {
+        setState(() {
+          isLoggedIn = true;
+
+          Store.instance.saveBool(Store.LOGGED_IN, true);
+        });
+      } else {
+        _catchLoginFail();
+      }
+
+      controller.clear();
+    } catch (e) {
+      _catchLoginFail();
+    }
   }
 
   _catchLoginFail() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        backgroundColor: Colors.red,
-        content: Container(
-          height: 25,
-          child: Text(
-            "Login failed",
-            style: TextStyle(fontSize: 15),
-          ),
+    Get.snackbar("Failed", "Something went wrong",
+        titleText: Text(
+          "Failed",
+          style: TextStyle(color: Colors.white, fontSize: 20),
         ),
-      ),
-    );
+        messageText: Text(
+          "Something went wrong",
+          style: TextStyle(color: Colors.white, fontSize: 15),
+        ),
+        colorText: Colors.white,
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red);
   }
 }
