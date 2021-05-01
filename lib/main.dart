@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      onGenerateRoute: router.generateRoute,
-      initialRoute: routes.home,
+      initialRoute: "",
+      getPages: router.pages,
     );
   }
 }

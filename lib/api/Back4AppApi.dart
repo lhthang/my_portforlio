@@ -17,6 +17,22 @@ class Back4AppApi {
     return _instance;
   }
 
+  Future<List<Blog>> loadBlogs() async {
+    List<Blog> blogs = [];
+    final resp = await http.get(Uri.parse(URL_SERVER),
+        headers: createHeaderForBack4App());
+    if (resp.statusCode == 200) {
+      Iterable list = json.decode(resp.body)["results"] as List;
+      blogs = list.map((e) => Blog.fromJson(e)).toList();
+      return blogs;
+    }
+    if (resp.statusCode != 200) {
+      throw new CommonError(
+          error: "Something went wrong", status: resp.statusCode);
+    }
+    return blogs;
+  }
+
   Future<bool> addBlog(Blog blog) async {
     Map data = {
       "title": blog.title,

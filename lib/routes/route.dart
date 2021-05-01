@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:my_portfolio/blogs/BlogAdd.dart';
 import 'package:my_portfolio/blogs/blogs.dart';
 import '../App.dart';
@@ -17,3 +18,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => App());
   }
 }
+
+final pages = [
+  GetPage(name: "", page: () => App()),
+  GetPage(name: routes.home, page: () => App()),
+  GetPage(name: routes.blogs, page: () => Blogs()),
+  GetPage(name: routes.edit_blog, page: () => BlogAdd()),
+];

@@ -1,5 +1,6 @@
 import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/routes/route_path.dart' as routes;
 import 'package:my_portfolio/about/clipper/ImageClipper.dart';
@@ -147,7 +148,7 @@ class _AboutState extends State<About> {
                               ),
                               RaisedButton(
                                 onPressed: () {
-                                  Navigator.of(context).pushNamed(routes.blogs);
+                                  Get.toNamed(routes.blogs);
                                 },
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(80.0)),

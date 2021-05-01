@@ -64,7 +64,7 @@ class _AuthNavBarState extends State<AuthNavBar> {
                 ),
                 backgroundColor: Colors.blue,
                 onPressed: () {
-                  Navigator.of(context).pushNamed(routes.edit_blog);
+                  Get.toNamed(routes.edit_blog);
                 })
             : null,
         body: widget.child);
