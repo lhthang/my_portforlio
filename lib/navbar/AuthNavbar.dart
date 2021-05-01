@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:my_portfolio/api/Api.dart';
 import 'package:my_portfolio/api/Store.dart';
 import 'package:my_portfolio/buttons/Button.dart';
+import 'package:my_portfolio/controller/BlogsController.dart';
 import 'package:my_portfolio/routes/route_path.dart' as routes;
 import 'package:my_portfolio/utils/error.dart';
 
@@ -24,6 +25,7 @@ class AuthNavBar extends StatefulWidget {
 class _AuthNavBarState extends State<AuthNavBar> {
   bool isLoggedIn = false;
   TextEditingController controller = new TextEditingController();
+  BlogsController blogController = Get.put(BlogsController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,8 +66,9 @@ class _AuthNavBarState extends State<AuthNavBar> {
                   size: 30,
                 ),
                 backgroundColor: Colors.blue,
-                onPressed: () {
-                  Get.toNamed(routes.edit_blog);
+                onPressed: () async {
+                  await Get.toNamed(routes.edit_blog);
+                  blogController.loadData();
                 })
             : null,
         body: widget.child);

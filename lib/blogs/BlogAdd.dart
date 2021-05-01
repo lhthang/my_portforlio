@@ -92,6 +92,9 @@ class _BlogAddState extends State<BlogAdd> {
                       new Blog(title: _titleController.text, content: result);
                   try {
                     bool isSuccess = await Back4AppApi.instance.addBlog(blog);
+                    if (isSuccess) {
+                      Get.back();
+                    }
                   } catch (e) {
                     showError(e.error);
                   }
