@@ -3,8 +3,6 @@ import 'dart:io';
 import 'package:crypt/crypt.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_portfolio/env/env.dart';
-import 'package:my_portfolio/utils/constant.dart';
-import 'package:path_provider/path_provider.dart';
 
 class Server {
   static Server _instance;
