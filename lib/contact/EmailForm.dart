@@ -9,6 +9,7 @@ import 'package:get/get_navigation/src/snackbar/snack.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server/gmail.dart';
+import 'package:my_portfolio/utils/error.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -214,27 +215,11 @@ class _EmailFormState extends State<EmailForm> {
       'attachments': file != null ? file.relativePath : null,
     });
 
-    Get.snackbar(
-      "Failed",
-      null,
-      snackPosition: SnackPosition.BOTTOM,
-      backgroundColor: Colors.red,
-      colorText: Colors.white,
-      messageText:
-          Text("This feature is not available now. Please send email normally!",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 15,
-              )),
-    );
+    showError("This feature is not available now. Please send email normally");
     try {
       await launch(_emailLaunchUri.toString(), enableJavaScript: true);
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(e),
-        ),
-      );
+      showError(e);
     }
   }
 
@@ -263,7 +248,6 @@ class _EmailFormState extends State<EmailForm> {
 
     if (!mounted) return;
 
-    Get.snackbar("Failed", "Something went wrong",
-        snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.red);
+    showError("Something went wrong");
   }
 }

@@ -5,6 +5,7 @@ import 'package:my_portfolio/api/Api.dart';
 import 'package:my_portfolio/api/Store.dart';
 import 'package:my_portfolio/buttons/Button.dart';
 import 'package:my_portfolio/routes/route_path.dart' as routes;
+import 'package:my_portfolio/utils/error.dart';
 
 class AuthNavBar extends StatefulWidget {
   final Widget child;
@@ -138,17 +139,6 @@ class _AuthNavBarState extends State<AuthNavBar> {
   }
 
   _catchLoginFail() {
-    Get.snackbar("Failed", "Something went wrong",
-        titleText: Text(
-          "Failed",
-          style: TextStyle(color: Colors.white, fontSize: 20),
-        ),
-        messageText: Text(
-          "Something went wrong",
-          style: TextStyle(color: Colors.white, fontSize: 15),
-        ),
-        colorText: Colors.white,
-        snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.red);
+    showError("Something went wrong!");
   }
 }

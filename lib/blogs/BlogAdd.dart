@@ -1,12 +1,16 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
 import 'package:my_portfolio/api/Api.dart';
 import 'package:my_portfolio/api/Back4AppApi.dart';
 import 'package:my_portfolio/api/MongoApi.dart';
+import 'package:my_portfolio/api/Store.dart';
 import 'package:my_portfolio/api/model/Model.dart';
+import 'package:my_portfolio/controller/BlogsController.dart';
 import 'package:my_portfolio/navbar/AuthNavbar.dart';
+import 'package:my_portfolio/utils/error.dart';
 
 import '../buttons/Button.dart';
 
@@ -16,6 +20,8 @@ class BlogAdd extends StatefulWidget {
 }
 
 class _BlogAddState extends State<BlogAdd> {
+  BlogsController blogController = Get.put(BlogsController());
+  bool isLoggedIn = false;
   HtmlEditorController controller = HtmlEditorController();
   TextEditingController _titleController = new TextEditingController();
   String result = "";
@@ -23,7 +29,11 @@ class _BlogAddState extends State<BlogAdd> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    controller.reloadWeb();
+    _loadIsLoggedIn();
+  }
+
+  _loadIsLoggedIn() async {
+    isLoggedIn = await Store.instance.getBool(Store.LOGGED_IN);
   }
 
   @override
@@ -77,12 +87,17 @@ class _BlogAddState extends State<BlogAdd> {
             padding: EdgeInsets.only(left: 50, right: 50, bottom: 10),
             child: RaisedButton(
               onPressed: () async {
-                print("call");
-                // MongoApi.instance.writeBlog();
-                // String content = await controller.getText();
-                Blog blog =
-                    new Blog(title: _titleController.text, content: result);
-                await Back4AppApi.instance.addBlog(blog);
+                if (isLoggedIn) {
+                  Blog blog =
+                      new Blog(title: _titleController.text, content: result);
+                  try {
+                    bool isSuccess = await Back4AppApi.instance.addBlog(blog);
+                  } catch (e) {
+                    showError(e.error);
+                  }
+                } else {
+                  showError("Please log in again");
+                }
               },
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(80.0)),
