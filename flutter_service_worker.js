@@ -3,14 +3,13 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "9b5664175943582389b26a979da09dd5",
+  "assets/AssetManifest.json": "02a8b1e49601d5a16c884956f7a1f42d",
 "assets/cv/CV.pdf": "27215c69867d9797e93a4f635927b53f",
-"assets/dotenv": "7f0d09b193ef343dd5a4ded87f327a77",
 "assets/FontManifest.json": "5a32d4310a6f5d9a6b651e75ba0d7372",
 "assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
 "assets/images/avt.jpeg": "d814e31de74c1e6409ec767705d12da2",
 "assets/images/background.jpg": "6df3703b933c2a8b62122f4473a35930",
-"assets/NOTICES": "271cff83eb13258750e5ea3414f9185d",
+"assets/NOTICES": "4c95f60616d419bd8bedef49a9681bd6",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/packages/flutter_dropzone_web/assets/flutter_dropzone.js": "221839d925591eb4f80566a322a06cdd",
 "assets/packages/flutter_inappwebview/t_rex_runner/t-rex.css": "5a8d0222407e388155d7d1395a75d5b9",
@@ -32,9 +31,9 @@ const RESOURCES = {
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"index.html": "2544218ee30e5dfe42b5bace99f1d1c2",
-"/": "2544218ee30e5dfe42b5bace99f1d1c2",
-"main.dart.js": "e7ba8e42164c90370ada7de364a1d718",
+"index.html": "ccab6667582bcabb787aa2d98186f62a",
+"/": "ccab6667582bcabb787aa2d98186f62a",
+"main.dart.js": "98a7b11e79ab231f6af5857d69d613ed",
 "manifest.json": "7268d731e85213fad6b35f4c3b52f2e6",
 "version.json": "aaafa928a4f8616604eca12d830fe765"
 };
