@@ -38,7 +38,6 @@ class _BlogAddState extends State<BlogAdd> {
     super.initState();
     _loadIsLoggedIn();
     if (widget.blog != null) {
-      print('aaa');
       controller.setText(widget.blog.content);
       _titleController.text = widget.blog.title;
     }
@@ -55,7 +54,7 @@ class _BlogAddState extends State<BlogAdd> {
     final height = MediaQuery.of(context).size.height *
         MediaQuery.of(context).devicePixelRatio;
     return AuthNavBar(
-      title: "New Blog",
+      title: widget.blog == null ? "New Blog" : "Edit Blog",
       showFloatButton: false,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -63,6 +62,7 @@ class _BlogAddState extends State<BlogAdd> {
           Container(
             padding: EdgeInsets.all(10.0),
             child: TextFormField(
+              key: Key("title"),
               controller: _titleController,
               enableInteractiveSelection: false,
               autofocus: true,
@@ -75,6 +75,7 @@ class _BlogAddState extends State<BlogAdd> {
           ),
           Expanded(
             child: HtmlEditor(
+              key: Key("editor"),
               controller: controller,
               htmlEditorOptions: HtmlEditorOptions(
                 hint: 'Your text here...',
@@ -101,12 +102,20 @@ class _BlogAddState extends State<BlogAdd> {
             padding: EdgeInsets.only(left: 50, right: 50, bottom: 10),
             child: RaisedButton(
               onPressed: () async {
+                bool isSuccess = false;
                 isLoggedIn = GetStorage().read(Store.LOGGED_IN);
                 if (isLoggedIn) {
-                  Blog blog =
-                      new Blog(title: _titleController.text, content: result);
                   try {
-                    bool isSuccess = await Back4AppApi.instance.addBlog(blog);
+                    if (widget.blog == null) {
+                      Blog blog = new Blog(
+                          title: _titleController.text, content: result);
+                      isSuccess = await Back4AppApi.instance.addBlog(blog);
+                    } else {
+                      Blog blog = widget.blog;
+                      blog.title = _titleController.text;
+                      blog.content = result;
+                      isSuccess = await Back4AppApi.instance.update(blog);
+                    }
                     if (isSuccess) {
                       Get.back(result: isSuccess);
                     }

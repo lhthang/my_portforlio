@@ -35,11 +35,12 @@ class _BlogCardState extends State<BlogCard> {
   Widget build(BuildContext context) {
     return Container(
         width: double.infinity,
-        height: 300,
+        height: 100,
         child: InkWell(
           onTap: widget.onClick,
           child: ListTile(
             title: Text(widget.blog.title),
+            subtitle: Text(widget.blog.createdAt),
             trailing: widget.isLoggedIn
                 ? Row(
                     mainAxisSize: MainAxisSize.min,

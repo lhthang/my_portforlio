@@ -66,9 +66,13 @@ class _BlogsState extends State<Blogs> {
                     onClick: () {
                       Get.toNamed("/blog/" + blogController.blogs[index].id);
                     },
-                    onEdit: () {
-                      Get.toNamed(routes.edit_blog,
+                    onEdit: () async {
+                      var isSuccess = await Get.toNamed(routes.edit_blog,
                           arguments: blogController.blogs[index]);
+                      if (isSuccess) {
+                        showSuccesfull("Update successfully!");
+                        blogController.loadData();
+                      }
                     },
                     onDelete: () async {
                       try {

@@ -84,7 +84,7 @@ class _AuthNavBarState extends State<AuthNavBar> {
                 onPressed: () async {
                   var isSuccess = await Get.toNamed(routes.add_blog);
                   if (isSuccess) {
-                    showSuccesfull("Create new post successfully!");
+                    showSuccesfull("Created successfully!");
                   }
                   blogController.loadData();
                 })
