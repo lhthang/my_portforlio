@@ -7,7 +7,7 @@ import 'Api.dart';
 import 'model/Model.dart';
 
 class Back4AppApi {
-  static String URL_SERVER = "https://parseapi.back4app.com/classes/blog";
+  static String URL_SERVER = "https://parseapi.back4app.com/functions";
   static Back4AppApi _instance;
 
   static Back4AppApi get instance {
@@ -19,10 +19,10 @@ class Back4AppApi {
 
   Future<List<Blog>> loadBlogs() async {
     List<Blog> blogs = [];
-    final resp = await http.get(Uri.parse(URL_SERVER),
+    final resp = await http.post(Uri.parse(URL_SERVER + "/blogs"),
         headers: createHeaderForBack4App());
     if (resp.statusCode == 200) {
-      Iterable list = json.decode(resp.body)["results"] as List;
+      Iterable list = json.decode(resp.body)["result"] as List;
       blogs = list.map((e) => Blog.fromJson(e)).toList();
       return blogs;
     }
@@ -38,9 +38,11 @@ class Back4AppApi {
       "title": blog.title,
       "content": blog.content,
     };
-    final resp = await http.post(Uri.parse(URL_SERVER),
-        headers: createHeaderForBack4App(), body: json.encode(data));
-    if (resp.statusCode == 201) {
+    final resp = await http.post(
+        Uri.parse(URL_SERVER + "/add-blog?token=" + Env.token),
+        headers: createHeaderForBack4App(),
+        body: json.encode(data));
+    if (resp.statusCode == 200) {
       return true;
     }
     if (resp.statusCode != 200) {

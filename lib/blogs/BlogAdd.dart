@@ -87,13 +87,14 @@ class _BlogAddState extends State<BlogAdd> {
             padding: EdgeInsets.only(left: 50, right: 50, bottom: 10),
             child: RaisedButton(
               onPressed: () async {
+                isLoggedIn = await Store.instance.getBool(Store.LOGGED_IN);
                 if (isLoggedIn) {
                   Blog blog =
                       new Blog(title: _titleController.text, content: result);
                   try {
                     bool isSuccess = await Back4AppApi.instance.addBlog(blog);
                     if (isSuccess) {
-                      Get.back();
+                      Get.back(result: isSuccess);
                     }
                   } catch (e) {
                     showError(e.error);
