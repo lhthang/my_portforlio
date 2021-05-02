@@ -27,6 +27,17 @@ class _AuthNavBarState extends State<AuthNavBar> {
   TextEditingController controller = new TextEditingController();
   BlogsController blogController = Get.put(BlogsController());
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _loadIsLoggedIn();
+  }
+
+  _loadIsLoggedIn() async {
+    isLoggedIn = await Store.instance.getBool(Store.LOGGED_IN);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(

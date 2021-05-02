@@ -1,7 +1,7 @@
-const String blogs = "blogs";
+const String blogs = "/blogs";
 
-const String blog = "blog";
+const String blog = "/blog/:id";
 
-const String edit_blog = "edit_blog";
+const String edit_blog = "/edit_blog";
 
-const String home = "home";
+const String home = "/home";

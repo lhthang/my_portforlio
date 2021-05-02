@@ -33,6 +33,22 @@ class Back4AppApi {
     return blogs;
   }
 
+  Future<Blog> getDetailBlog(id) async {
+    Blog blog = null;
+    final resp = await http.post(
+        Uri.parse(URL_SERVER + "/detail-blog?id=" + id),
+        headers: createHeaderForBack4App());
+    if (resp.statusCode == 200) {
+      blog = Blog.fromJson(json.decode(resp.body)["result"]);
+      return blog;
+    }
+    if (resp.statusCode != 200) {
+      throw new CommonError(
+          error: "Something went wrong", status: resp.statusCode);
+    }
+    return blog;
+  }
+
   Future<bool> addBlog(Blog blog) async {
     Map data = {
       "title": blog.title,

@@ -22,5 +22,5 @@ When deploy to github page by peanut, please use  <base href="/my_portfolio/"/> 
 
 ## Documents
 https://codeburst.io/save-get-update-delete-queries-on-parse-objects-b124cd4be5af
-https://docs.parseplatform.org/js/guide/#queries
+https://docs.parseplatform.org/js/guide/#queries 
 

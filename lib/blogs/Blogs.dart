@@ -32,7 +32,15 @@ class _BlogsState extends State<Blogs> {
           child: Obx(() => ListView.builder(
                 itemCount: blogController.blogs.length,
                 itemBuilder: (context, index) {
-                  return Text(blogController.blogs[index].id);
+                  return Card(
+                    child: InkWell(
+                      child: Text(blogController.blogs[index].id),
+                      onTap: () {
+                        Get.toNamed("/blog/" + blogController.blogs[index].id,
+                            arguments: blogController.blogs[index]);
+                      },
+                    ),
+                  );
                 },
               ))),
     );
