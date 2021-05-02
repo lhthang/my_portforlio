@@ -82,7 +82,7 @@ class _AuthNavBarState extends State<AuthNavBar> {
                 ),
                 backgroundColor: Colors.blue,
                 onPressed: () async {
-                  var isSuccess = await Get.toNamed(routes.edit_blog);
+                  var isSuccess = await Get.toNamed(routes.add_blog);
                   if (isSuccess) {
                     showSuccesfull("Create new post successfully!");
                   }

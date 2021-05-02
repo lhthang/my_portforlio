@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 showError(msg) {
   Get.snackbar("", "",
+      duration: Duration(milliseconds: 1000),
       titleText: Text(
         "Failed",
         style: TextStyle(color: Colors.white, fontSize: 20),
@@ -18,6 +19,7 @@ showError(msg) {
 
 showSuccesfull(msg) {
   Get.snackbar("", "",
+      duration: Duration(milliseconds: 1000),
       titleText: Text(
         "Successfully",
         style: TextStyle(color: Colors.white, fontSize: 20),

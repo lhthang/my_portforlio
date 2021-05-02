@@ -46,7 +46,7 @@ class _BlogCardState extends State<BlogCard> {
                     children: [
                       InkWell(
                         customBorder: CircleBorder(),
-                        onTap: () {},
+                        onTap: widget.onEdit,
                         child: Icon(
                           Icons.edit,
                           color: Colors.blue,

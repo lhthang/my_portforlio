@@ -17,6 +17,11 @@ import 'package:my_portfolio/utils/functions.dart';
 import '../buttons/Button.dart';
 
 class BlogAdd extends StatefulWidget {
+  final Blog blog;
+  BlogAdd({
+    Key key,
+    this.blog = null,
+  });
   @override
   _BlogAddState createState() => _BlogAddState();
 }
@@ -32,6 +37,11 @@ class _BlogAddState extends State<BlogAdd> {
     // TODO: implement initState
     super.initState();
     _loadIsLoggedIn();
+    if (widget.blog != null) {
+      print('aaa');
+      controller.setText(widget.blog.content);
+      _titleController.text = widget.blog.title;
+    }
   }
 
   _loadIsLoggedIn() {
@@ -67,11 +77,11 @@ class _BlogAddState extends State<BlogAdd> {
             child: HtmlEditor(
               controller: controller,
               htmlEditorOptions: HtmlEditorOptions(
-                  hint: 'Your text here...',
-                  shouldEnsureVisible: false,
-                  autoAdjustHeight: true
-                  //initialText: "<p>text content initial, if any</p>",
-                  ),
+                hint: 'Your text here...',
+                shouldEnsureVisible: false,
+                autoAdjustHeight: true,
+                initialText: widget.blog != null ? widget.blog.content : null,
+              ),
               htmlToolbarOptions: HtmlToolbarOptions(
                 toolbarPosition: ToolbarPosition.aboveEditor, //by default
                 toolbarType: ToolbarType.nativeGrid, //by default

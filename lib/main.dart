@@ -26,6 +26,7 @@ void main() async {
   // need support-web from Mongo_Dart
   // MongoApi.instance.initDatabase();
   runApp(MyApp());
+  cron.close();
 }
 
 class MyApp extends StatelessWidget {
