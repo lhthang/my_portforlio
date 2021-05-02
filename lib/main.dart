@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cron/cron.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:my_portfolio/App.dart';
 import 'package:my_portfolio/api/MongoApi.dart';
 import 'package:my_portfolio/api/Store.dart';
@@ -16,10 +17,10 @@ void main() async {
   // It is safe to call this function when running on mobile or desktop as well.
   setPathUrlStrategy();
 
+  await GetStorage.init();
   final cron = Cron();
   cron.schedule(Schedule.parse('*/30 * * * *'), () async {
-    print('every 30 minutes');
-    Store.instance.clearAll();
+    GetStorage().erase();
   });
 
   // need support-web from Mongo_Dart

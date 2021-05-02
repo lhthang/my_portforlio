@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:my_portfolio/api/Api.dart';
 import 'package:my_portfolio/api/Store.dart';
 import 'package:my_portfolio/buttons/Button.dart';
 import 'package:my_portfolio/controller/BlogsController.dart';
 import 'package:my_portfolio/routes/route_path.dart' as routes;
 import 'package:my_portfolio/utils/error.dart';
+import 'package:my_portfolio/utils/functions.dart';
 
 class AuthNavBar extends StatefulWidget {
   final Widget child;
@@ -33,8 +35,10 @@ class _AuthNavBarState extends State<AuthNavBar> {
     _loadIsLoggedIn();
   }
 
-  _loadIsLoggedIn() async {
-    isLoggedIn = await Store.instance.getBool(Store.LOGGED_IN);
+  _loadIsLoggedIn() {
+    setState(() {
+      isLoggedIn = loadIsLoggedIn();
+    });
   }
 
   @override
@@ -57,11 +61,11 @@ class _AuthNavBarState extends State<AuthNavBar> {
               ),
               onClick: () async {
                 if (isLoggedIn) {
-                  Store.instance.clearAll();
+                  GetStorage().erase();
                   setState(() {
                     isLoggedIn = false;
 
-                    Store.instance.saveBool(Store.LOGGED_IN, false);
+                    GetStorage().write(Store.LOGGED_IN, false);
                   });
                 } else {
                   _showLoginForm();
@@ -143,7 +147,7 @@ class _AuthNavBarState extends State<AuthNavBar> {
         setState(() {
           isLoggedIn = true;
 
-          Store.instance.saveBool(Store.LOGGED_IN, true);
+          GetStorage().write(Store.LOGGED_IN, true);
         });
       } else {
         _catchLoginFail();

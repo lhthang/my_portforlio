@@ -1,6 +1,7 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
 import 'package:my_portfolio/api/Api.dart';
@@ -11,6 +12,7 @@ import 'package:my_portfolio/api/model/Model.dart';
 import 'package:my_portfolio/controller/BlogsController.dart';
 import 'package:my_portfolio/navbar/AuthNavbar.dart';
 import 'package:my_portfolio/utils/error.dart';
+import 'package:my_portfolio/utils/functions.dart';
 
 import '../buttons/Button.dart';
 
@@ -32,8 +34,10 @@ class _BlogAddState extends State<BlogAdd> {
     _loadIsLoggedIn();
   }
 
-  _loadIsLoggedIn() async {
-    isLoggedIn = await Store.instance.getBool(Store.LOGGED_IN);
+  _loadIsLoggedIn() {
+    setState(() {
+      isLoggedIn = loadIsLoggedIn();
+    });
   }
 
   @override
@@ -87,7 +91,7 @@ class _BlogAddState extends State<BlogAdd> {
             padding: EdgeInsets.only(left: 50, right: 50, bottom: 10),
             child: RaisedButton(
               onPressed: () async {
-                isLoggedIn = await Store.instance.getBool(Store.LOGGED_IN);
+                isLoggedIn = GetStorage().read(Store.LOGGED_IN);
                 if (isLoggedIn) {
                   Blog blog =
                       new Blog(title: _titleController.text, content: result);

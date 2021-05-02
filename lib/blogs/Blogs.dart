@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:my_portfolio/api/Api.dart';
+import 'package:my_portfolio/api/Back4AppApi.dart';
 import 'package:my_portfolio/api/Store.dart';
+import 'package:my_portfolio/blogs/BlogCard.dart';
 import 'package:my_portfolio/controller/BlogsController.dart';
 import 'package:my_portfolio/navbar/AuthNavbar.dart';
+import 'package:my_portfolio/utils/error.dart';
+import 'package:my_portfolio/utils/functions.dart';
 
 import '../buttons/Button.dart';
 import 'package:my_portfolio/routes/route_path.dart' as routes;
@@ -22,6 +27,29 @@ class _BlogsState extends State<Blogs> {
     // TODO: implement initState
     super.initState();
     blogController.loadData();
+    _loadIsLoggedIn();
+    onListen();
+  }
+
+  _loadIsLoggedIn() {
+    setState(() {
+      isLoggedIn = loadIsLoggedIn();
+    });
+  }
+
+  onListen() {
+    GetStorage().listenKey(Store.LOGGED_IN, (value) {
+      setState(() {
+        isLoggedIn = value;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    onListen().call();
   }
 
   @override
@@ -32,14 +60,24 @@ class _BlogsState extends State<Blogs> {
           child: Obx(() => ListView.builder(
                 itemCount: blogController.blogs.length,
                 itemBuilder: (context, index) {
-                  return Card(
-                    child: InkWell(
-                      child: Text(blogController.blogs[index].id),
-                      onTap: () {
-                        Get.toNamed("/blog/" + blogController.blogs[index].id,
-                            arguments: blogController.blogs[index]);
-                      },
-                    ),
+                  return BlogCard(
+                    isLoggedIn: isLoggedIn,
+                    blog: blogController.blogs[index],
+                    onClick: () {
+                      Get.toNamed("/blog/" + blogController.blogs[index].id);
+                    },
+                    onDelete: () async {
+                      try {
+                        var isSuccess = await Back4AppApi.instance
+                            .deleteBlog(blogController.blogs[index].id);
+                        if (isSuccess) {
+                          showSuccesfull("Delete successfully!");
+                          blogController.loadData();
+                        }
+                      } catch (e) {
+                        showError(e);
+                      }
+                    },
                   );
                 },
               ))),

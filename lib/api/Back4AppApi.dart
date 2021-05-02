@@ -67,6 +67,21 @@ class Back4AppApi {
     }
     return false;
   }
+
+  Future<bool> deleteBlog(String id) async {
+    final resp = await http.post(
+      Uri.parse(URL_SERVER + "/delete-blog?id=${id}&token=" + Env.token),
+      headers: createHeaderForBack4App(),
+    );
+    if (resp.statusCode == 200) {
+      return true;
+    }
+    if (resp.statusCode != 200) {
+      throw new CommonError(
+          error: "Something went wrong", status: resp.statusCode);
+    }
+    return false;
+  }
 }
 
 Map<String, String> createHeaderForBack4App() {
