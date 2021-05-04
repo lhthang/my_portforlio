@@ -20,6 +20,7 @@ void main() async {
   await GetStorage.init();
   final cron = Cron();
   cron.schedule(Schedule.parse('*/30 * * * *'), () async {
+    print("clear session");
     GetStorage().erase();
   });
 
