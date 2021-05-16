@@ -22,6 +22,7 @@ void main() async {
   cron.schedule(Schedule.parse('*/30 * * * *'), () async {
     print("clear session");
     GetStorage().erase();
+    GetStorage().write(Store.LOGGED_IN, false);
   });
 
   // need support-web from Mongo_Dart

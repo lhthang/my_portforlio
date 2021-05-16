@@ -33,12 +33,28 @@ class _AuthNavBarState extends State<AuthNavBar> {
     // TODO: implement initState
     super.initState();
     _loadIsLoggedIn();
+    onListen();
   }
 
   _loadIsLoggedIn() {
     setState(() {
       isLoggedIn = loadIsLoggedIn();
     });
+  }
+
+  onListen() {
+    GetStorage().listenKey(Store.LOGGED_IN, (value) {
+      setState(() {
+        isLoggedIn = value;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    onListen().call();
   }
 
   @override
