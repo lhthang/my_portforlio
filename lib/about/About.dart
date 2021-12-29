@@ -19,7 +19,7 @@ class _AboutState extends State<About> {
   AnimationController animateController;
 
   final description = [
-    "A software engineer with 1 year of experience",
+    "A software engineer with 2 year of experience",
     "Interesting in listening to other people’s ideas and finding solutions to contribute to building better software architectures",
     "Taking responsibility at work and always looking for opportunities to learn new things"
   ];
