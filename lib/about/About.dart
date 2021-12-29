@@ -25,7 +25,7 @@ class _AboutState extends State<About> {
   ];
 
   _renderDescription() {
-    List<Widget> _list = new List();
+    List<Widget> _list = [];
     for (var item in description) {
       _list.add(Container(
         padding: EdgeInsets.only(top: 5, bottom: 5),
@@ -46,9 +46,6 @@ class _AboutState extends State<About> {
   Widget build(BuildContext context) {
     final pixelRatio = MediaQuery.of(context).devicePixelRatio;
     final width = MediaQuery.of(context).size.width * pixelRatio;
-    final height = MediaQuery.of(context).size.height * pixelRatio;
-    bool isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
     return Container(
         constraints: BoxConstraints(maxWidth: width),
         child: ResponsiveGridRow(

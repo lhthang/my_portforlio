@@ -90,7 +90,7 @@ class _BlogAddState extends State<BlogAdd> {
               otherOptions: OtherOptions(
                 height: height * 0.9,
               ),
-              callbacks: Callbacks(onChange: (changed) {
+              callbacks: Callbacks(onChangeContent: (changed) {
                 result = changed;
               }),
             ),

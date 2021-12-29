@@ -23,6 +23,16 @@ class _ExperienceState extends State<Experience> {
         title: "Associate Engineer",
         projects: [
           ProjectModel(
+            projectName: "ZH Services",
+            position: "Enginner",
+            stack:
+                "Java, Spring, MariaDB, Atermis, MinIO, Docker, Jenkins, Cucumber, Microservices",
+            description:
+                "The government system built with microservice architect, which helps canton ZH in Switzerland manage their population, administrative formalities.. This system includes: naturalization, documents, registration, etc",
+            task:
+                "Develop building blocks in the system, prepare and maintain integration tests for that ones",
+          ),
+          ProjectModel(
               projectName: "Papillon",
               position: "Fullstack",
               stack: "Java, Spring, Ant, HTML, Javascript",
@@ -37,7 +47,7 @@ class _ExperienceState extends State<Experience> {
             description:
                 "A project with the process that can provide license tests for railway drivers. Also, help railways companies register, train new drivers ",
             task: "",
-          )
+          ),
         ]),
     ExperienceModel(
         company: "KMS Technology",

@@ -5,9 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/models/Skill.dart';
 import 'package:my_portfolio/skill/SkillAvatar.dart';
-import 'package:my_portfolio/skill/personals/PersonalProjects.dart';
-import 'package:responsive_framework/responsive_framework.dart';
-import 'package:responsive_grid/responsive_grid.dart';
 
 class Skill extends StatefulWidget {
   @override

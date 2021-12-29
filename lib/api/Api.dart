@@ -13,10 +13,10 @@ class Server {
   }
 
   static String URL_SERVER =
-      "https://api.jsonbin.io/b/608bb86fd64cd16802a4fc47";
+      "https://api.jsonbin.io/b/61cc1bd7ea3bf56821398117";
 
   Future<String> getPassword() async {
-    String key = Env.apiKey;
+    String key = Env.jsonbinApiKey;
     final resp =
         await http.get(Uri.parse(URL_SERVER), headers: createHeader(key));
     if (resp.statusCode == 200) {
@@ -35,7 +35,7 @@ Map<String, String> createHeader(secretKey) {
   Map<String, String> requestHeaders = {
     'Content-type': 'application/json',
     'Accept': 'application/json',
-    'secret-key': secretKey,
+    'secret-key': '\$2b\$10\$' + secretKey,
   };
   return requestHeaders;
 }
@@ -49,7 +49,7 @@ class MyPassword {
   }
 
   bool checkPwd(String password, String hashedPassword) {
-    bool isCorrect = Crypt(hashedPassword).match(password);
+    bool isCorrect = hashedPassword == password;
     return isCorrect;
   }
 }
