@@ -41,9 +41,13 @@ class _BlogDetailState extends State<BlogDetail> {
             if (blogController.blog.value == null) {
               return Center(child: CircularProgressIndicator());
             }
-            return HtmlWidget(
-              """ ${blogController.blog.value.content}""",
-              onTapImage: (data) {},
+            return ListView(
+              children: [
+                HtmlWidget(
+                  """ ${blogController.blog.value.content}""",
+                  onTapImage: (data) {},
+                )
+              ],
             );
           })),
     );
