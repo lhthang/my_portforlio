@@ -35,7 +35,7 @@ Map<String, String> createHeader(secretKey) {
   Map<String, String> requestHeaders = {
     'Content-type': 'application/json',
     'Accept': 'application/json',
-    'secret-key': '\$2b\$10\$' + secretKey,
+    'secret-key': secretKey,
   };
   return requestHeaders;
 }
