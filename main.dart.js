@@ -86746,7 +86746,7 @@ L.amu.prototype={
 $0(){this.a.e.ez("0",C.aq,P.bE(0,0,1))},
 $S:3}
 L.xD.prototype={
-a7(){return new L.Rv(H.b(["A software engineer with 1 year of experience","Interesting in listening to other people\u2019s ideas and finding solutions to contribute to building better software architectures","Taking responsibility at work and always looking for opportunities to learn new things"],t.i),C.k)}}
+a7(){return new L.Rv(H.b(["A software engineer with 2 year of experience","Interesting in listening to other people\u2019s ideas and finding solutions to contribute to building better software architectures","Taking responsibility at work and always looking for opportunities to learn new things"],t.i),C.k)}}
 L.Rv.prototype={
 adN(){var s,r,q,p,o=null,n=H.b([],t.a)
 for(s=this.f,r=t.gm,q=t.Ks,p=0;p<3;++p)n.push(M.as(o,L.a8(s[p],o,o,o,Z.I8(o,o,o,o,o,o,o,"OpenSansCondensed",o,20,o,o,P.J([new Z.bf(C.b4,C.a1),new F.bg("04a7cf776cec6c53387f15bd8878b365d22ea65c97dfd605c269b3774e4e7ed2",186164),new Z.bf(C.b4,C.a4),new F.bg("c5330d8a82169e940228bf53acb980b56a23fb1f640d6bf8b7e18a8681d67eda",189912),new Z.bf(C.w,C.a1),new F.bg("9b8228ed1f9d087708d275dcc32be58269ffaf9cd7f8028db765305347303f88",229856)],r,q),o,o,o,o,o,o,o,o),o,o),o,o,o,o,o,o,new V.a4(0,5,0,5),o))
