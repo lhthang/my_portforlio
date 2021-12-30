@@ -1,6 +1,6 @@
 const String blogs = "/blogs";
 
-const String blog = "/blogs/:id";
+const String blog = "/blogs/detail/:id";
 
 const String edit_blog = "/blogs/edit_blog";
 

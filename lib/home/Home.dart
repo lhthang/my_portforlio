@@ -22,7 +22,7 @@ class _HomeState extends State<Home> {
           child: Image(
             fit: BoxFit.cover,
             height: MediaQuery.of(context).size.height,
-            width: double.infinity,
+            width: MediaQuery.of(context).size.width,
             image: AssetImage(
               "images/background.jpg",
             ),

@@ -18,4 +18,8 @@ class BlogsController extends GetxController {
   getBlog(String id) async {
     blog.value = await Back4AppApi.instance.getDetailBlog(id);
   }
+
+  reset() {
+    blog.value = null;
+  }
 }
