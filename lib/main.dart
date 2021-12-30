@@ -7,8 +7,9 @@ import 'package:get_storage/get_storage.dart';
 import 'package:my_portfolio/App.dart';
 import 'package:my_portfolio/api/MongoApi.dart';
 import 'package:my_portfolio/api/Store.dart';
+import 'package:my_portfolio/blogs/Blogs.dart';
+import 'package:my_portfolio/home/Home.dart';
 import 'package:my_portfolio/routes/route.dart' as router;
-import 'package:my_portfolio/routes/route_path.dart' as routes;
 import 'package:url_strategy/url_strategy.dart';
 
 void main() async {

@@ -64,10 +64,11 @@ class _BlogsState extends State<Blogs> {
                     isLoggedIn: isLoggedIn,
                     blog: blogController.blogs[index],
                     onClick: () {
-                      Get.toNamed("/blog/" + blogController.blogs[index].id);
+                      Get.toNamed("/blogs/" + blogController.blogs[index].id);
                     },
                     onEdit: () async {
-                      var isSuccess = await Get.toNamed(routes.edit_blog,
+                      var isSuccess = await Get.toNamed(
+                          "/blogs/" + routes.edit_blog,
                           arguments: blogController.blogs[index]);
                       if (isSuccess) {
                         showSuccesfull("Update successfully!");
