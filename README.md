@@ -12,9 +12,9 @@ Generate env by
     `flutter pub run build_runner build --delete-conflicting-outputs`
 
 Use peanut
-flutter pub global activate peanut
-flutter pub global run peanut:peanut
-then push to github
+`flutter pub global activate peanut`
+`flutter pub global run peanut:peanut`
+then push to github: `git push origin --set-upstream gh-pages`
 
 ## Note
 When run at local machine, please use <base href="/"> in web/index.html
