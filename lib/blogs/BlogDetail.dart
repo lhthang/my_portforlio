@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:my_portfolio/api/model/Model.dart';
 import 'package:my_portfolio/controller/BlogsController.dart';
@@ -51,9 +51,8 @@ class _BlogDetailState extends State<BlogDetail> {
     blogController.reset();
     return ListView(
       children: [
-        HtmlWidget(
-          """ ${content}""",
-          onTapImage: (data) {},
+        Html(
+          data: """ ${content}""",
         )
       ],
     );
