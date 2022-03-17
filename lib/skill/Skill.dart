@@ -118,7 +118,7 @@ class _SkillState extends State<Skill> {
                 ),
                 Container(
                   child: Text(
-                    "Framworks",
+                    "Frameworks",
                     style: style,
                   ),
                   padding: EdgeInsets.only(bottom: 20),
